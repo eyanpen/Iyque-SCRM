@@ -27,3 +27,9 @@ icode-ui/deploy/
 frontEnd/mobile/deploy/deploy.config.mjs
 frontEnd/pc/deploy/deploy.config.mjs
 target/
+.classpath
+.factorypath
+.project
+.settings/
+logs/
+upload/

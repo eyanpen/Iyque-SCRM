@@ -2,6 +2,7 @@ package cn.iyque.factory;
 
 import cn.iyque.properties.AiModelsProperties;
 import cn.iyque.properties.AiVectorProperties;
+import dev.langchain4j.http.client.jdk.JdkHttpClientBuilder;
 import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.chat.StreamingChatLanguageModel;
 import dev.langchain4j.model.embedding.EmbeddingModel;
@@ -11,6 +12,7 @@ import dev.langchain4j.model.openai.OpenAiEmbeddingModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
+import java.net.http.HttpClient;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,22 @@ public class AiModelFactory {
         this.vectorProperties = vectorProperties;
     }
 
+    /**
+     * 构造一个强制走 HTTP/1.1 的 langchain4j HttpClient builder。
+     * <p>
+     * JDK 内置 {@link java.net.http.HttpClient} 默认尝试 HTTP/2 明文升级 (h2c)，
+     * 部分 OpenAI 兼容服务端 (如 Ray Serve) 不支持 h2c，会直接返回
+     * 400 "Invalid HTTP request received."。强制 HTTP/1.1 可规避。
+     * 同时对本地 / 私有模型来说，通用大模型响应时间可能超过默认 HTTP 超时（分钟级），
+     * 这里把连接和读取超时都调大。
+     */
+    private JdkHttpClientBuilder http1ClientBuilder() {
+        return new JdkHttpClientBuilder()
+                .httpClientBuilder(HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1))
+                .connectTimeout(Duration.ofSeconds(30))
+                .readTimeout(Duration.ofSeconds(600));
+    }
+
     @PostConstruct
     public void initializeModels() {
         initializeChatModels();
@@ -53,7 +71,8 @@ public class AiModelFactory {
                     .apiKey(config.getApiKey())
                     .baseUrl(config.getBaseUrl())
                     .modelName(config.getModelName())
-                    .timeout(Duration.ofSeconds(30))
+                    .timeout(Duration.ofSeconds(600))
+                    .httpClientBuilder(http1ClientBuilder())
                     .build();
             chatModelCache.put(modelName, chatModel);
 
@@ -61,7 +80,8 @@ public class AiModelFactory {
                     .apiKey(config.getApiKey())
                     .baseUrl(config.getBaseUrl())
                     .modelName(config.getModelName())
-                    .timeout(Duration.ofSeconds(30))
+                    .timeout(Duration.ofSeconds(600))
+                    .httpClientBuilder(http1ClientBuilder())
                     .build();
             streamingModelCache.put(modelName, streamingModel);
 
@@ -95,7 +115,8 @@ public class AiModelFactory {
                     .apiKey(config.getApiKey())
                     .baseUrl(config.getBaseUrl())
                     .modelName(config.getModelName())
-                    .timeout(Duration.ofSeconds(30))
+                    .timeout(Duration.ofSeconds(600))
+                    .httpClientBuilder(http1ClientBuilder())
                     .build();
             embeddingModelCache.put(modelName, embeddingModel);
 
@@ -126,9 +147,10 @@ public class AiModelFactory {
                 .apiKey(config.getApiKey())
                 .baseUrl(config.getBaseUrl())
                 .modelName(config.getModelName())
-                .timeout(Duration.ofSeconds(30))
+                .timeout(Duration.ofSeconds(600))
                 .temperature(temperature != null ? temperature : 0.7)
                 .topP(topP != null ? topP : 0.9)
+                .httpClientBuilder(http1ClientBuilder())
                 .logRequests(true)
                 .logResponses(true)
                 .build();
@@ -153,9 +175,10 @@ public class AiModelFactory {
                 .apiKey(config.getApiKey())
                 .baseUrl(config.getBaseUrl())
                 .modelName(config.getModelName())
-                .timeout(Duration.ofSeconds(30))
+                .timeout(Duration.ofSeconds(600))
                 .temperature(temperature != null ? temperature : 0.7)
                 .topP(topP != null ? topP : 0.9)
+                .httpClientBuilder(http1ClientBuilder())
                 .build();
     }
 
@@ -196,7 +219,8 @@ public class AiModelFactory {
                 .apiKey(config.getApiKey())
                 .baseUrl(config.getBaseUrl())
                 .modelName(config.getModelName())
-                .timeout(Duration.ofSeconds(30))
+                .timeout(Duration.ofSeconds(600))
+                .httpClientBuilder(http1ClientBuilder())
                 .build();
 
         embeddingModelCache.put(modelName, model);
