@@ -95,7 +95,6 @@ public class AiModelFactory {
                     .apiKey(config.getApiKey())
                     .baseUrl(config.getBaseUrl())
                     .modelName(config.getModelName())
-                    .dimensions(1536)
                     .timeout(Duration.ofSeconds(30))
                     .build();
             embeddingModelCache.put(modelName, embeddingModel);
@@ -130,6 +129,8 @@ public class AiModelFactory {
                 .timeout(Duration.ofSeconds(30))
                 .temperature(temperature != null ? temperature : 0.7)
                 .topP(topP != null ? topP : 0.9)
+                .logRequests(true)
+                .logResponses(true)
                 .build();
     }
 
@@ -195,7 +196,6 @@ public class AiModelFactory {
                 .apiKey(config.getApiKey())
                 .baseUrl(config.getBaseUrl())
                 .modelName(config.getModelName())
-                .dimensions(dimension != null ? dimension : 1536)
                 .timeout(Duration.ofSeconds(30))
                 .build();
 

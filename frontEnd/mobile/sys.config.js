@@ -7,6 +7,11 @@ const envs = {
     BASE_URL: '/openmobile/', // 路由基础路径
     BASE_API: 'http://127.0.0.1:8085', // 接口基础路径
   },
+  local: {
+    DOMAIN: 'http://10.210.156.69:8081',
+    BASE_URL: '/openmobile/',
+    BASE_API: 'http://10.210.156.69:8081/iyque',
+  },
   production: {
     DOMAIN: 'https://iyque.cn',
     BASE_URL: '/openmobile/',

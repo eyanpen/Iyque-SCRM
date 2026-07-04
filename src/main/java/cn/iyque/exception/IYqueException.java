@@ -14,11 +14,13 @@ public class IYqueException extends RuntimeException {
 
     public IYqueException(String msg)
     {
+        super(msg);
         this.msg = msg;
     }
 
     public IYqueException(Integer code,String msg)
     {
+        super(msg);
         this.code=code;
         this.msg = msg;
     }
