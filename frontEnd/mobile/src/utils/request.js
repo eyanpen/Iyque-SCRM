@@ -1,10 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
 import { showConfirmDialog, showDialog, closeToast } from 'vant'
-// sessionStorage.setItem(
-//   'token',
-//   'eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX3R5cGUiOiIwMiIsInVzZXJfaWQiOjM0LCJsb2dpbl90eXBlIjoiTGlua1dlQ2hhdEFQSSIsInVzZXJfbmFtZSI6IueOi-eOieabvCIsInVzZXJfa2V5IjoiY2VjYmFmYzItY2VkOC00ZjI5LThiNmQtODMxMDU4MWM2ZTBkIiwiY29ycF9uYW1lIjoi5Luf5b6u56eR5oqAIiwiY29ycF9pZCI6Ind3NjIyZmM4NTJmNzljM2YxMyJ9.M7OykNvW0edCG4lLwJb31acdgrtXtlcbgt8DAQxcCgPukOXGsf03R8YsgwxjX65IdDL8GxHiotu-AxAv1gqydw'
-// )
 function requestFactory(getway = '') {
   const service = axios.create({
     baseURL: (process.env.NODE_ENV === 'development' ? '/api' : window.sysConfig.BASE_API) + getway,
