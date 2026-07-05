@@ -100,7 +100,15 @@ public class SummaryEvictionPolicy implements HistoryEvictionPolicy {
             summarizeMessages.add(SystemMessage.from("你是一个对话总结助手，请对给定的对话历史进行简洁的总结。"));
             summarizeMessages.add(UserMessage.from(summarizePrompt));
 
+            long __t0 = System.currentTimeMillis();
+            int __promptChars = summarizePrompt.length();
+            String __descriptor = modelFactory.getChatModelDescriptor(modelName);
+            log.info("AI请求 [历史总结] modelKey={}, model={}, msgs={}, promptChars={}",
+                    modelName, __descriptor, summarizeMessages.size(), __promptChars);
             String summary = chatModel.chat(summarizeMessages).aiMessage().text();
+            long __elapsed = System.currentTimeMillis() - __t0;
+            log.info("AI响应 [历史总结] modelKey={}, model={}, elapsed={}ms, respChars={}",
+                    modelName, __descriptor, __elapsed, summary == null ? 0 : summary.length());
 
             log.info("对话历史总结完成: {}", summary);
             return summary;

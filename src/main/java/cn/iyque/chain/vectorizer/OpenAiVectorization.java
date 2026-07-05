@@ -71,20 +71,26 @@ public class OpenAiVectorization implements Vectorization {
 
             HttpRequest.Builder rb = HttpRequest.newBuilder()
                     .uri(URI.create(url))
-                    .timeout(Duration.ofMinutes(2))
+                    .timeout(Duration.ofMinutes(10))   // 与 AiModelFactory.readTimeout(600s) 保持一致
                     .header("Content-Type", "application/json")
                     .POST(HttpRequest.BodyPublishers.ofString(payload));
             if (cfg.getApiKey() != null && !cfg.getApiKey().isEmpty()) {
                 rb.header("Authorization", "Bearer " + cfg.getApiKey());
             }
 
-            log.debug("Embedding POST {} model={} n={}", url, cfg.getModelName(), chunkList.size());
+            log.info("AI请求 [Ollama embedding] modelKey=embedding, model={}@{}, texts={}, firstPreview=\"{}\"",
+                    cfg.getModelName(), url, chunkList.size(), truncate(chunkList.get(0), 80));
+            long __t0 = System.currentTimeMillis();
             HttpResponse<String> resp = http.send(rb.build(), HttpResponse.BodyHandlers.ofString());
+            long __elapsed = System.currentTimeMillis() - __t0;
             if (resp.statusCode() >= 400) {
-                log.error("Embedding HTTP {} body={}", resp.statusCode(), truncate(resp.body(), 500));
+                log.error("AI响应 [Ollama embedding] modelKey=embedding, model={}@{}, HTTP {} elapsed={}ms body={}",
+                        cfg.getModelName(), url, resp.statusCode(), __elapsed, truncate(resp.body(), 500));
                 return Collections.emptyList();
             }
-            log.debug("Embedding HTTP {} body-len={}", resp.statusCode(), resp.body() == null ? 0 : resp.body().length());
+            log.info("AI响应 [Ollama embedding] modelKey=embedding, model={}@{}, HTTP {} elapsed={}ms body-len={}",
+                    cfg.getModelName(), url, resp.statusCode(), __elapsed,
+                    resp.body() == null ? 0 : resp.body().length());
 
             JsonNode root = mapper.readTree(resp.body());
             List<List<Float>> out = new ArrayList<>();

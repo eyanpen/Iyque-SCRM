@@ -57,6 +57,56 @@ public class IYqueAiServiceImpl implements IYqueAiService {
     @Autowired
     private IYqueParamConfig yqueParamConfig;
 
+    // ==================================================================
+    // AI 调用日志辅助 —— 请求前打印上下文、响应后打印耗时与长度
+    // ==================================================================
+
+    /** 记录 AI 请求前的上下文，返回请求开始时刻 (ms since epoch)。 */
+    private long logAiRequestStart(String feature, String modelKey, List<ChatMessage> messages) {
+        int totalChars = 0;
+        String userPreview = "";
+        int userMsgCount = 0;
+        int systemMsgCount = 0;
+        for (ChatMessage m : messages) {
+            String text = extractText(m);
+            totalChars += text.length();
+            if (m instanceof UserMessage) {
+                userMsgCount++;
+                userPreview = text; // 取最后一条 UserMessage 作预览
+            } else if (m instanceof SystemMessage) {
+                systemMsgCount++;
+            }
+        }
+        String descriptor = modelFactory.getChatModelDescriptor(modelKey);
+        log.info("AI请求 [{}] modelKey={}, model={}, msgs={}(sys={} user={}), promptChars={}, userPreview=\"{}\"",
+                feature, modelKey, descriptor, messages.size(), systemMsgCount, userMsgCount,
+                totalChars, truncateForLog(userPreview, 120));
+        return System.currentTimeMillis();
+    }
+
+    /** 记录 AI 响应耗时 + 内容长度。 */
+    private void logAiResponseEnd(String feature, String modelKey, long startMillis, int respChars) {
+        long elapsed = System.currentTimeMillis() - startMillis;
+        String descriptor = modelFactory.getChatModelDescriptor(modelKey);
+        log.info("AI响应 [{}] modelKey={}, model={}, elapsed={}ms, respChars={}",
+                feature, modelKey, descriptor, elapsed, respChars);
+    }
+
+    private static String extractText(ChatMessage m) {
+        try {
+            if (m instanceof UserMessage) return ((UserMessage) m).singleText();
+            if (m instanceof AiMessage) return ((AiMessage) m).text();
+            if (m instanceof SystemMessage) return ((SystemMessage) m).text();
+        } catch (Throwable ignored) { /* 兼容不同 langchain4j 版本 */ }
+        return String.valueOf(m);
+    }
+
+    private static String truncateForLog(String s, int max) {
+        if (s == null) return "";
+        String oneLine = s.replace('\n', ' ').replace('\r', ' ').replaceAll(" +", " ").trim();
+        return oneLine.length() <= max ? oneLine : oneLine.substring(0, max) + "…(" + (oneLine.length() - max) + " more)";
+    }
+
 
 
 
@@ -112,8 +162,10 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             messages.add(SystemMessage.from("你是一个数据分析助手。请严格只返回JSON格式数据，不要包含任何额外的文本、说明或解释。返回的JSON必须能够被标准解析器直接解析。"));
             messages.add(UserMessage.from(aiPrompt));
             
+            long __t0 = logAiRequestStart("生成标签", modelName, messages);
             String aiResponse = chatModel.chat(messages).aiMessage().text();
-            log.info("AI生成标签响应: {}", aiResponse);
+            logAiResponseEnd("生成标签", modelName, __t0, aiResponse == null ? 0 : aiResponse.length());
+            log.info("AI生成标签响应: {}", truncateForLog(aiResponse, 200));
             
             String jsonStr = aiResponse.trim();
             if (jsonStr.startsWith("```")) {
@@ -241,11 +293,17 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             try {
 
                 // 使用Flux.create创建流式响应
+                final long __t0 = logAiRequestStart("流式对话", modelName, messages);
+                final String __descriptor = modelFactory.getChatModelDescriptor(modelName);
+                final int[] __chunkCount = {0};
+                final int[] __respChars = {0};
                 return Flux.create(emitter -> {
                     streamingModel.chat(messages, new StreamingChatResponseHandler() {
                         @Override
                         public void onPartialResponse(String partialResponse) {
                             if (partialResponse != null && !partialResponse.isEmpty()) {
+                                __chunkCount[0]++;
+                                __respChars[0] += partialResponse.length();
                                 log.debug("收到流式数据块: {}", partialResponse);
                                 emitter.next(partialResponse);
                             }
@@ -253,13 +311,17 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
                         @Override
                         public void onCompleteResponse(ChatResponse completeResponse) {
-                            log.info("AI流式响应完成, 模型: {}", modelName);
+                            long __elapsed = System.currentTimeMillis() - __t0;
+                            log.info("AI响应 [流式对话] modelKey={}, model={}, elapsed={}ms, chunks={}, respChars={}",
+                                    modelName, __descriptor, __elapsed, __chunkCount[0], __respChars[0]);
                             emitter.complete();
                         }
 
                         @Override
                         public void onError(Throwable error) {
-                            log.error("AI流式响应错误, 模型: {}: {}", modelName, error.getMessage(), error);
+                            long __elapsed = System.currentTimeMillis() - __t0;
+                            log.error("AI流式响应错误 [流式对话] modelKey={}, model={}, elapsed={}ms: {}",
+                                    modelName, __descriptor, __elapsed, error.getMessage(), error);
                             emitter.error(new RuntimeException("AI流式响应错误: " + error.getMessage(), error));
                         }
                     });
@@ -310,6 +372,13 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
             EmbeddingModel embeddingModel = modelFactory.getEmbeddingModel(actualModelName, dimension);
 
+            long __t0 = System.currentTimeMillis();
+            int __totalChars = 0;
+            for (String s : texts) __totalChars += (s == null ? 0 : s.length());
+            String __embDescriptor = modelFactory.getEmbeddingModelDescriptor(actualModelName);
+            log.info("AI请求 [向量化] modelKey={}, model={}, texts={}, totalChars={}, firstPreview=\"{}\"",
+                    actualModelName, __embDescriptor, texts.size(), __totalChars, truncateForLog(texts.get(0), 80));
+
             List<EmbeddingResponse.EmbeddingResult> results = new ArrayList<>();
             for (String text : texts) {
                 Embedding embedding = embeddingModel.embed(text).content();
@@ -323,7 +392,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
                         .build());
             }
 
-            log.info("向量计算完成: {} 条文本, 维度: {}, 模型: {}", texts.size(), dimension, actualModelName);
+            long __elapsed = System.currentTimeMillis() - __t0;
+            log.info("AI响应 [向量化] modelKey={}, model={}, elapsed={}ms, texts={}, dim={}",
+                    actualModelName, __embDescriptor, __elapsed, texts.size(), dimension);
             return EmbeddingResponse.builder()
                     .embeddings(results)
                     .build();
@@ -372,11 +443,17 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             }
 
             try {
+                final long __t0 = logAiRequestStart("导航推荐流式", modelName, messages);
+                final String __descriptor = modelFactory.getChatModelDescriptor(modelName);
+                final int[] __chunkCount = {0};
+                final int[] __respChars = {0};
                 return Flux.create(emitter -> {
                     streamingModel.chat(messages, new StreamingChatResponseHandler() {
                         @Override
                         public void onPartialResponse(String partialResponse) {
                             if (partialResponse != null && !partialResponse.isEmpty()) {
+                                __chunkCount[0]++;
+                                __respChars[0] += partialResponse.length();
                                 log.debug("收到导航推荐流式数据块: {}", partialResponse);
                                 emitter.next(partialResponse);
                             }
@@ -384,13 +461,17 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
                         @Override
                         public void onCompleteResponse(ChatResponse completeResponse) {
-                            log.info("AI导航推荐流式响应完成, 模型: {}", modelName);
+                            long __elapsed = System.currentTimeMillis() - __t0;
+                            log.info("AI响应 [导航推荐流式] modelKey={}, model={}, elapsed={}ms, chunks={}, respChars={}",
+                                    modelName, __descriptor, __elapsed, __chunkCount[0], __respChars[0]);
                             emitter.complete();
                         }
 
                         @Override
                         public void onError(Throwable error) {
-                            log.error("AI导航推荐流式响应错误, 模型: {}: {}", modelName, error.getMessage(), error);
+                            long __elapsed = System.currentTimeMillis() - __t0;
+                            log.error("AI流式响应错误 [导航推荐流式] modelKey={}, model={}, elapsed={}ms: {}",
+                                    modelName, __descriptor, __elapsed, error.getMessage(), error);
                             emitter.error(new RuntimeException("AI导航推荐流式响应错误: " + error.getMessage(), error));
                         }
                     });
@@ -432,8 +513,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             messages.add(SystemMessage.from("你是一个聊天会话助手。"));
             messages.add(UserMessage.from(content));
 
+            long __t0 = logAiRequestStart("通用对话", modelName, messages);
             String response = chatModel.chat(messages).aiMessage().text();
-            log.info("AI对话完成, 模型: {}, 内容长度: {}", modelName, response.length());
+            logAiResponseEnd("通用对话", modelName, __t0, response == null ? 0 : response.length());
 
             return response;
 
@@ -470,8 +552,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             messages.add(SystemMessage.from(systemPrompt));
             messages.add(UserMessage.from(content));
 
+            long __t0 = logAiRequestStart("JSON对话", modelName, messages);
             String response = chatModel.chat(messages).aiMessage().text();
-            log.info("AI JSON对话完成, 模型: {}, 内容长度: {}", modelName, response.length());
+            logAiResponseEnd("JSON对话", modelName, __t0, response == null ? 0 : response.length());
 
             String jsonStr = response.trim();
             if (jsonStr.startsWith("```")) {
@@ -546,8 +629,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             messages.add(SystemMessage.from(systemPrompt));
             messages.add(UserMessage.from("请根据以下需求生成朋友圈内容：\n" + prompt));
 
+            long __t0 = logAiRequestStart("生成朋友圈", actualModelName, messages);
             String response = chatModel.chat(messages).aiMessage().text();
-            log.info("AI生成朋友圈内容完成, 模型: {}, 内容长度: {}", actualModelName, response.length());
+            logAiResponseEnd("生成朋友圈", actualModelName, __t0, response == null ? 0 : response.length());
 
             String jsonStr = response.trim();
             if (jsonStr.startsWith("```")) {

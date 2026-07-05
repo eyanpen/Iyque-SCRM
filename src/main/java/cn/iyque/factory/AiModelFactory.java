@@ -227,4 +227,30 @@ public class AiModelFactory {
         log.info("已创建向量模型: {}, dimension: {}", modelName, dimension);
         return model;
     }
+
+    // ==================================================================
+    // 描述符 —— 供日志展示真实模型名 + base-url，而不是仅显示 alias key
+    // ==================================================================
+
+    /** 返回 "actualModelName@baseUrl" 或在缺配置时返回 "chat/<key>@?"。 */
+    public String getChatModelDescriptor(String key) {
+        if (key == null) return "?";
+        AiModelsProperties.ModelConfig cfg = chatProperties == null ? null
+                : (chatProperties.getConfigs() == null ? null : chatProperties.getConfigs().get(key));
+        if (cfg == null) return "chat/" + key + "@?";
+        return safe(cfg.getModelName()) + "@" + safe(cfg.getBaseUrl());
+    }
+
+    /** 返回 "actualModelName@baseUrl" 或在缺配置时返回 "embedding/<key>@?"。 */
+    public String getEmbeddingModelDescriptor(String key) {
+        if (key == null) return "?";
+        AiVectorProperties.ModelConfig cfg = vectorProperties == null ? null
+                : (vectorProperties.getConfigs() == null ? null : vectorProperties.getConfigs().get(key));
+        if (cfg == null) return "embedding/" + key + "@?";
+        return safe(cfg.getModelName()) + "@" + safe(cfg.getBaseUrl());
+    }
+
+    private static String safe(String s) {
+        return s == null ? "?" : s;
+    }
 }
