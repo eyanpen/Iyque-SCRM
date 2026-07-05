@@ -78,6 +78,8 @@ public class IYqueAiConversationServiceImpl extends ServiceImpl<IYqueAiConversat
             existing.setTemperature(conversation.getTemperature());
             existing.setTopP(conversation.getTopP());
             existing.setMaxHistoryRounds(conversation.getMaxHistoryRounds());
+            // kid 允许为 null (代表"不使用知识库") —— 只要请求体里带了这个字段就更新
+            existing.setKid(conversation.getKid());
             existing.setUpdateTime(new Date());
             updateById(existing);
             return existing;

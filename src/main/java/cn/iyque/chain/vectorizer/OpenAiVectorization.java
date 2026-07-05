@@ -62,6 +62,36 @@ public class OpenAiVectorization implements Vectorization {
             return Collections.emptyList();
         }
 
+        // 分批发送：Ollama /v1/embeddings 对单请求内的 input 数组长度有上限
+        // (实测 691 条会返回 HTTP 400)，这里按 EMBEDDING_BATCH_SIZE 切成小组顺序调用。
+        // 一次失败即返回空列表，让上层 (storeEmbeddings) 优雅跳过 Qdrant upsert。
+        final int total = chunkList.size();
+        if (total <= EMBEDDING_BATCH_SIZE) {
+            return callEmbeddingsBatch(cfg, chunkList);
+        }
+
+        List<List<Float>> all = new ArrayList<>(total);
+        int batches = (total + EMBEDDING_BATCH_SIZE - 1) / EMBEDDING_BATCH_SIZE;
+        log.info("Embedding 分批: 总 chunks={}, 每批={}, 共 {} 批", total, EMBEDDING_BATCH_SIZE, batches);
+        for (int i = 0; i < total; i += EMBEDDING_BATCH_SIZE) {
+            int to = Math.min(i + EMBEDDING_BATCH_SIZE, total);
+            List<String> sub = chunkList.subList(i, to);
+            List<List<Float>> part = callEmbeddingsBatch(cfg, sub);
+            if (part.isEmpty() || part.size() != sub.size()) {
+                log.error("Embedding 分批失败: 批次 {}/{} (offset {}~{}), 返回 {} 条，预期 {} 条 —— 中止",
+                        (i / EMBEDDING_BATCH_SIZE) + 1, batches, i, to - 1, part.size(), sub.size());
+                return Collections.emptyList();
+            }
+            all.addAll(part);
+        }
+        return all;
+    }
+
+    /** Ollama /v1/embeddings 单请求最多同时向量化的文本条数。 */
+    private static final int EMBEDDING_BATCH_SIZE = 64;
+
+    /** 单次 HTTP 调用：把一批文本发给 embedding 端点，返回对应的向量列表。 */
+    private List<List<Float>> callEmbeddingsBatch(AiVectorProperties.ModelConfig cfg, List<String> chunkList) {
         try {
             String url = cfg.getBaseUrl().replaceAll("/+$", "") + "/embeddings";
             Map<String, Object> body = new LinkedHashMap<>();

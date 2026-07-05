@@ -32,7 +32,8 @@ target/
 .project
 .settings/
 logs/
-upload/
+upload/*
+!upload/*.pdf
 
 # 由 conf.yaml 通过 scripts/installation/Iyque-SCRM/install.sh render 生成，
 # 不应进入版本库。真正的配置源在 conf.yaml，模板在

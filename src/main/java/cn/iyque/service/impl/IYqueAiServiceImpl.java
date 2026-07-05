@@ -283,7 +283,12 @@ public class IYqueAiServiceImpl implements IYqueAiService {
                     .collect(Collectors.toMap(IYqueKnowledgeFragment::getId, IYqueKnowledgeFragment::getContent, (a, b) -> a));
 
             StringBuilder sb = new StringBuilder();
-            sb.append("以下是从选中的知识库检索到的相关资料（相关时优先参考，不相关时忽略；不要凭空编造）：\n---\n");
+            sb.append("以下是从选中的知识库检索到的相关资料。请遵循以下规则回答用户问题：\n");
+            sb.append("1. 优先基于这些资料回答，不要凭空编造资料中没有的内容；\n");
+            sb.append("2. 在正文中显式标注引用来源，例如：\"根据 [资料 1] ...\"、\"[资料 3] 提到 ...\"；\n");
+            sb.append("3. 回答末尾追加一行简短的\"📚 本回答参考自：知识库片段 [资料 X, Y, Z]\"，仅列出实际用到的编号；\n");
+            sb.append("4. 若检索到的资料都与问题不相关，请明确说\"知识库中未检索到直接相关的内容\"，再基于通用知识作答。\n");
+            sb.append("---\n");
             int idx = 1;
             for (Long fid : fidList) {
                 String content = idToContent.get(fid);

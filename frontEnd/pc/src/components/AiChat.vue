@@ -115,12 +115,13 @@
             <span class="knowledge-selector-label">知识库</span>
             <el-select
               v-model="selectedKid"
-              :placeholder="'不使用知识库'"
+              placeholder="不使用知识库"
               clearable
               size="small"
               class="knowledge-selector"
+              popper-class="ai-chat-kb-popper"
+              @clear="selectedKid = null"
             >
-              <el-option :value="null" label="不使用知识库" />
               <el-option
                 v-for="kb in availableKnowledgeBases"
                 :key="kb.id"
@@ -130,6 +131,9 @@
             </el-select>
             <span v-if="selectedKid" class="knowledge-selector-hint">
               已启用 RAG · 本会话后续问题都会先检索该知识库
+            </span>
+            <span v-else-if="availableKnowledgeBases.length === 0" class="knowledge-selector-hint" style="color:#e6a23c;">
+              暂无可用知识库（管理端 → 知识库管理 上传后可用）
             </span>
           </div>
           <div class="input-row">
@@ -227,7 +231,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import AiChatDialog from './AiChatDialog.vue'
@@ -263,10 +267,14 @@ const availableModels = ref([])
 const functionRoutes = ref([])
 // AI Chat 知识库选择器状态。
 // - availableKnowledgeBases: /knowledge/findAll 返回的所有知识库
-// - selectedKid: 当前选中的知识库 id (null = 不使用)。
-//   组件级 ref, 选中后跨消息保持, 直到用户再次切换或选 "不使用"。
+// - selectedKid: 当前会话选中的知识库 id (null = 不使用)。
+//   持久化 = **跟着会话本身走**（iyque_ai_conversation.kid 列），随后端同步。
+//   切换会话时读 currentChat.kid; 选中/清除时通过 updateConversation 写回后端。
+//   这样一个账号跨设备/浏览器都能看到同样的 KB 选择。
 const availableKnowledgeBases = ref([])
 const selectedKid = ref(null)
+// 用于避免 selectedKid <-> currentChat.kid 循环同步
+let __kidSyncingFromChatSwitch = false
 const chatWidth = ref(800)
 const isResizing = ref(false)
 
@@ -407,6 +415,7 @@ const handleDialogConfirm = async ({ type, data }) => {
           title: response.data.title,
           messages: [],
           mode: response.data.mode,
+          kid: response.data.kid != null ? String(response.data.kid) : null,
           settings: {
             modelName: response.data.modelName || data.modelName,
             role: response.data.role || data.role,
@@ -427,6 +436,9 @@ const handleDialogConfirm = async ({ type, data }) => {
     }
   } else if (type === 'edit') {
     try {
+      // 保留原会话的 kid（编辑对话框本身不改 KB 选择）
+      const existingChat = chats.value.find(c => c.id === editingChatId.value)
+      const preservedKid = existingChat?.kid ?? null
       await updateConversation({
         conversationId: editingChatId.value,
         title: data.title,
@@ -434,7 +446,8 @@ const handleDialogConfirm = async ({ type, data }) => {
         role: data.role,
         temperature: data.temperature,
         topP: data.topP,
-        maxHistoryRounds: data.maxHistoryRounds
+        maxHistoryRounds: data.maxHistoryRounds,
+        kid: preservedKid,
       })
       const chat = chats.value.find(c => c.id === editingChatId.value)
       if (chat) {
@@ -478,6 +491,7 @@ const switchChat = async (chatId) => {
 const deleteChat = async (chatId) => {
   try {
     await deleteConversationApi(chatId)
+    // kid 随 iyque_ai_conversation 行一起被软删，无需额外清理
     const index = chats.value.findIndex(chat => chat.id === chatId)
     if (index >= 0) {
       chats.value.splice(index, 1)
@@ -526,14 +540,46 @@ const formatTime = (date) => {
 }
 
 const copyMessage = async (content) => {
+  // 清理掉所有的data:前缀（SSE格式残留）
+  const cleanContent = String(content ?? '').replace(/data:/g, '')
+
+  // navigator.clipboard 仅在 HTTPS / localhost / 部分 file: 等"安全上下文"下可用。
+  // 生产环境走 http://<ip>:port 时该 API = undefined，故加一个 execCommand 兜底。
+  const legacyCopy = (text) => {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    // 避免滚动/闪烁
+    ta.style.position = 'fixed'
+    ta.style.top = '-1000px'
+    ta.style.left = '-1000px'
+    ta.setAttribute('readonly', '')
+    document.body.appendChild(ta)
+    ta.select()
+    let ok = false
+    try {
+      ok = document.execCommand('copy')
+    } catch (e) {
+      ok = false
+    }
+    document.body.removeChild(ta)
+    return ok
+  }
+
   try {
-    // 清理掉所有的data:前缀（SSE格式残留）
-    const cleanContent = content.replace(/data:/g, '')
-    await navigator.clipboard.writeText(cleanContent)
-    ElMessage.success('已复制到剪贴板')
+    if (window.isSecureContext && navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(cleanContent)
+      ElMessage.success('已复制到剪贴板')
+      return
+    }
+    // fallback
+    if (legacyCopy(cleanContent)) {
+      ElMessage.success('已复制到剪贴板')
+    } else {
+      throw new Error('execCommand("copy") 未成功')
+    }
   } catch (err) {
     console.error('复制失败:', err)
-    ElMessage.error('复制失败')
+    ElMessage.error('复制失败，请手动选中复制')
   }
 }
 
@@ -739,6 +785,7 @@ const loadConversationList = async () => {
         lastMessage: conv.lastMessage || '',
         lastMessageTime: conv.lastMessageTime || null,
         messages: [],
+        kid: conv.kid != null ? String(conv.kid) : null,   // ← 从后端带回该会话的 KB 选择
         settings: {
           modelName: conv.modelName || '',
           role: conv.role || '',
@@ -820,22 +867,64 @@ const loadAvailableModels = async () => {
  * request.js 已解封顶层, 这里 response 直接是数组或含 data 的对象。
  */
 const loadKnowledgeBases = async () => {
+  console.log('[AI Chat][KB] loadKnowledgeBases() 开始调用 /knowledge/findAll ...')
   try {
     const response = await getKnowledgeList()
+    console.log('[AI Chat][KB] 收到响应:', response)
     const list = Array.isArray(response) ? response
                : Array.isArray(response?.data) ? response.data
                : []
+    console.log('[AI Chat][KB] 解析后 list.length =', list.length, ', 前 3 条:', list.slice(0, 3))
     availableKnowledgeBases.value = list
     // 若当前选中的 kid 已经不在最新列表里 (比如被删了), 重置为不使用
     if (selectedKid.value != null &&
         !list.some(kb => kb.id === selectedKid.value)) {
       selectedKid.value = null
     }
+    console.log('[AI Chat][KB] availableKnowledgeBases 已更新, 当前长度:', availableKnowledgeBases.value.length)
   } catch (error) {
-    console.error('[AI Chat] 加载知识库列表失败:', error)
+    console.error('[AI Chat][KB] 加载知识库列表失败:', error)
     availableKnowledgeBases.value = []
   }
 }
+
+// 持久化 selectedKid —— 直接写回 iyque_ai_conversation.kid 列。
+// 用户选中 KB 后不管刷新、换设备、重登，都能从后端拿回同样的选择。
+watch(selectedKid, async (val) => {
+  if (__kidSyncingFromChatSwitch) return   // 切换会话时反向同步而来，不写回
+  const chat = currentChat.value
+  if (!chat || !chat.id) return
+  const newKid = (val == null || val === '') ? null : String(val)
+  // 本地即时更新，避免下次切换回来时读到旧值
+  chat.kid = newKid
+  try {
+    await updateConversation({
+      conversationId: chat.id,
+      title: chat.title,
+      modelName: chat.settings?.modelName ?? '',
+      role: chat.settings?.role ?? '',
+      temperature: chat.settings?.temperature ?? 0.7,
+      topP: chat.settings?.topP ?? 0.9,
+      maxHistoryRounds: chat.settings?.maxHistoryRounds ?? 10,
+      kid: newKid,
+    })
+    console.log('[AI Chat][KB] 会话', chat.id, '的 KB 选择已持久化到后端:', newKid)
+  } catch (e) {
+    console.error('[AI Chat][KB] 持久化 KB 选择失败:', e)
+  }
+})
+
+// 切换会话时，从 currentChat.kid 恢复选择（默认无 = null）。
+watch(currentChatId, (newChatId) => {
+  __kidSyncingFromChatSwitch = true
+  try {
+    const chat = chats.value.find(c => c.id === newChatId)
+    selectedKid.value = chat?.kid || null
+    console.log('[AI Chat][KB] 切换到会话', newChatId, ', 恢复 KB 选择:', selectedKid.value || '(无)')
+  } finally {
+    nextTick(() => { __kidSyncingFromChatSwitch = false })
+  }
+}, { immediate: true })
 
 const loadInputHistory = () => {
 }
@@ -1008,6 +1097,7 @@ const sendMessage = async () => {
   }
 
 onMounted(async () => {
+  console.log('[AI Chat][KB] onMounted 触发 (bundle v2 with KB debug logs)')
   // 先加载模型列表
   await loadAvailableModels()
   // 加载知识库列表（顶部选择器用）
@@ -2533,5 +2623,18 @@ const stopResize = () => {
   font-size: 12px;
   color: var(--Color);
   font-weight: 500;
+}
+</style>
+
+<!--
+  非 scoped style：Element Plus 的 el-select 下拉浮层通过 teleport 挂到 <body> 下，
+  scoped 样式选择器（会带 data-v-xxx 属性）够不到那些外部节点。
+  AI Chat 侧边栏 .ai-chat-wrapper 是 z-index: 9999 的顶层容器，下拉浮层默认 z-index ~ 2000
+  会被侧栏挡住 → 用户点下拉只见箭头翻转、看不到菜单。
+  这里给知识库选择器的浮层加一个专属 popper-class，把 z-index 提到 10000 之上盖过侧栏。
+-->
+<style>
+.ai-chat-kb-popper.el-popper {
+  z-index: 20000 !important;
 }
 </style>
