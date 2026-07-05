@@ -30,9 +30,9 @@ iyque:
   fileViewUrl: http://10.210.156.69:8085/file/fileView/
   uploadDir: ./upload
   inquiryAll: true
-  complaintUrl: http://iyque.cn/openmobile/customerComplaint
-  customerSeasUrl: https://iyque.cn/openmobile/customerSeas
-  h5MarketUrl: https://iyque.cn/openmobile/H5Marketing?id={0}
+  complaintUrl: http://10.210.156.69:8081/openmobile/customerComplaint
+  customerSeasUrl: http://10.210.156.69:8081/openmobile/customerSeas
+  h5MarketUrl: http://10.210.156.69:8081/openmobile/H5Marketing?id={0}
   vector:
     host: 10.156.133.79
     port: 31872

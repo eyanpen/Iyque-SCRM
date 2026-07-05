@@ -15,7 +15,7 @@ export default {
 				beginTime: '',
 				endTime: '',
 				workCycle: [],
-				weclomeMsg: '欢迎使用源雀scrm👉http://iyque.cn',
+				weclomeMsg: '您好，欢迎接入护城河 · 价值投资顾问服务。我是您的专属投顾，如需了解大师方法论、复盘经典案例或安排 1v1 咨询，请随时告诉我~',
 			},
 			rules: {
 				weclomeMsg: [{ required: true, message: '必填项', trigger: 'blur' }],

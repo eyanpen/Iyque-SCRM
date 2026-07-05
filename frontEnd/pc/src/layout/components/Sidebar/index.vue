@@ -26,9 +26,9 @@
             :base-path="resolvePath(route.path, item)" />
         </div>
       </el-scrollbar>
-      <a href="https://iyque.cn/">
+      <div class="sidebar-brand-footer">
         <el-image style="width: 100%" :src="image" fit="fill"></el-image>
-      </a>
+      </div>
     </el-menu>
   </div>
 </template>

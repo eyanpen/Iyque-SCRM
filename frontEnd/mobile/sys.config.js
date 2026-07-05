@@ -13,9 +13,9 @@ const envs = {
     BASE_API: 'http://10.210.156.69:8081/iyque',
   },
   production: {
-    DOMAIN: 'https://iyque.cn',
+    DOMAIN: 'http://10.210.156.69:8081',
     BASE_URL: '/openmobile/',
-    BASE_API: 'https://iyque.cn/iyque',
+    BASE_API: 'http://10.210.156.69:8081/iyque',
   },
 }
 
@@ -31,6 +31,6 @@ const env = envs[mode] || {}
 // 配置项
 export const config = {
   ...env,
-  SYSTEM_NAME: '源雀', // 系统简称
+  SYSTEM_NAME: '护城河', // 系统简称
 }
 Object.assign(config, { BASE_URL, RUN_ENV: mode })

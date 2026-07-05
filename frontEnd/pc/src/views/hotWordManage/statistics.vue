@@ -130,19 +130,31 @@ const submitAiVisible = () => {
   //   state.loading = false
   // })
 }
+
+// 会话原文 · 点击查看全文
+const contentDialogVisible = ref(false)
+const currentDetail = ref({})
+function openContentDialog(row) {
+  currentDetail.value = row || {}
+  contentDialogVisible.value = true
+}
+// 高亮命中的热词
+function highlightHotWord(content, hotWord) {
+  if (!content) return ''
+  const safe = String(content)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  if (!hotWord) return safe
+  const escaped = String(hotWord).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return safe.replace(
+    new RegExp(escaped, 'g'),
+    (m) => `<span style="color:#c47c11;font-weight:600;background:#fff7dc;padding:0 2px;border-radius:2px;">${m}</span>`
+  )
+}
 </script>
 
 <template>
   <div>
-    <div class="warning">
-      <a href="https://www.iyque.cn?utm_source=iyquecode" target="_blank">
-        <strong>
-          源雀Scrm-是基于Java源码交付的企微SCRM,帮助企业构建高度自由安全的私域平台。:https://www.iyque.cn/
-        </strong>
-      </a>
-    </div>
-
-    <div class="fxbw">
+<div class="fxbw">
       <!-- 绑定点击事件到 openAIDialog 方法 -->
       <el-button type="primary" @click="openAIDialog">AI热词分析</el-button>
     </div>
@@ -235,13 +247,51 @@ const submitAiVisible = () => {
         <el-table-column label="热词分类" prop="categoryName"></el-table-column>
 
         <el-table-column label="会话原文" prop="content" min-width="160px" show-overflow-tooltip>
-          <!-- <template #default="{ row }">
-            <div v-html="row.content.repleace()"></div>
-          </template> -->
+          <template #default="{ row }">
+            <el-button link type="primary" @click="openContentDialog(row)"
+              style="max-width:100%;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;">
+              {{ row.content }}
+            </el-button>
+          </template>
         </el-table-column>
         <el-table-column label="讨论时间" prop="msgTime" show-overflow-tooltip />
       </template>
     </RequestChartTable>
+
+    <!-- 会话原文 · 全文详情 -->
+    <el-dialog title="会话原文详情" v-model="contentDialogVisible" width="640px">
+      <div style="line-height:1.9;">
+        <div style="display:grid;grid-template-columns:110px 1fr;row-gap:10px;">
+          <div style="color:#909399;">客户</div>
+          <div>{{ currentDetail.fromName }}</div>
+
+          <div style="color:#909399;">会话员工</div>
+          <div>{{ currentDetail.acceptName }}</div>
+
+          <div style="color:#909399;">命中热词</div>
+          <div>
+            <el-tag effect="light" type="warning">{{ currentDetail.hotWordName }}</el-tag>
+            <span style="margin-left:8px;color:#909399;font-size:13px;">
+              分类：{{ currentDetail.categoryName }}
+            </span>
+          </div>
+
+          <div style="color:#909399;">讨论时间</div>
+          <div>{{ currentDetail.msgTime }}</div>
+        </div>
+
+        <el-divider />
+
+        <div style="color:#909399;margin-bottom:6px;">原文</div>
+        <div
+          style="padding:12px 14px;background:#f7f8fa;border-radius:6px;
+                 white-space:pre-wrap;word-break:break-word;color:#303133;"
+          v-html="highlightHotWord(currentDetail.content, currentDetail.hotWordName)"></div>
+      </div>
+      <template #footer>
+        <el-button @click="contentDialogVisible = false">关闭</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 

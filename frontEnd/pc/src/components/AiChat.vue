@@ -30,7 +30,7 @@
       </div>
       <div class="ai-chat-sidebar" :class="{ 'sidebar-open': showSidebar }">
         <div class="sidebar-header">
-          <h4>源雀SCRM</h4>
+          <h4>护城河 SCRM</h4>
           <button class="new-chat-button sidebar-new-chat" @click="createNewChat">+ 新会话</button>
         </div>
         <div class="sidebar-body">
@@ -156,7 +156,7 @@
             v-model="settings.role"
             type="textarea"
             :rows="4"
-            placeholder="请输入AI的角色设定，例如：你是一个SCRM营销助手..."
+            placeholder="请输入AI的角色设定，例如：你是一个价值投资顾问助手..."
           />
         </el-form-item>
         <el-form-item label="温度参数">
@@ -248,7 +248,7 @@ const tempInput = ref('')
 const watermarks = ref([])
 
 const generateWatermarks = () => {
-  const watermarkTexts = ['源雀SCRM']
+  const watermarkTexts = ['护城河 SCRM']
   const count = 8
   const newWatermarks = []
   const usedPositions = []
@@ -297,7 +297,7 @@ const generateWatermarks = () => {
 
 const settings = reactive({
   modelName: '',
-  role: '你是一个SCRM营销助手，专注于客户关系管理和营销策略。请用专业、友好的语言回答用户的问题，提供实用的营销建议和客户管理技巧。',
+  role: '你是护城河 SCRM 的 AI 投顾助手，服务于价值投资顾问团队。请以专业、稳健、长期主义的口吻回答用户问题，参考格雷厄姆、巴菲特、芒格、彼得·林奇、段永平、林园、但斌、章盟主等大师的方法论，为客户提供合规、稳健的投研与客户关系建议。',
   temperature: 0.7,
   topP: 0.9,
   maxHistoryRounds: 10
@@ -757,7 +757,7 @@ const saveSettings = () => {
 
 const resetSettings = () => {
   settings.modelName = ''
-  settings.role = '你是一个SCRM营销助手，专注于客户关系管理和营销策略。请用专业、友好的语言回答用户的问题，提供实用的营销建议和客户管理技巧。'
+  settings.role = '你是护城河 SCRM 的 AI 投顾助手，服务于价值投资顾问团队。请以专业、稳健、长期主义的口吻回答用户问题，参考格雷厄姆、巴菲特、芒格、彼得·林奇、段永平、林园、但斌、章盟主等大师的方法论，为客户提供合规、稳健的投研与客户关系建议。'
   settings.temperature = 0.7
   settings.topP = 0.9
   settings.maxHistoryRounds = 10

@@ -9,24 +9,23 @@
           :src="$store.app.isDark ? sysConfig.LOGO : sysConfig.LOGO"
           alt="" />
         <span class="text-[29px] blod ml5" style="vertical-align: middle">{{ sysConfig.SYSTEM_NAME }}</span>
-        <el-tag class="bold" type="primary" size="large" effect="dark">AI开源版</el-tag>
+        <el-tag class="bold" type="primary" size="large" effect="dark">价值投资顾问版</el-tag>
 
         <div class="bold mt20 font16 mb-[90px]">
-          源码交付的私域数智化营销解决方案
-          <!-- <span v-html="sysConfig.SYSTEM_SLOGAN"></span> -->
+          为高净值客户构筑长期财富的护城河
         </div>
         <div class="leading-[40px]">
-          源雀SCRM是基于源码100%开放策略的企业微信SCRM，从源头解决了企业私域建设核心痛点，实现高自由度、高私有化及高安全性。系统具备四大优势：
+          护城河 SCRM 是面向价值投资顾问机构的一体化客户关系与咨询管理平台，将大师级投研方法论、AI 会话洞察与合规存档融为一体，帮助家族办公室、私人银行与私募机构实现四大目标：
           <ul>
-            <li class="!list-disc !list-inside !pl-[30px]">系统高度可用，部署灵活高效</li>
-            <li class="!list-disc !list-inside !pl-[30px]">研发降本增效，满足定制需求</li>
-            <li class="!list-disc !list-inside !pl-[30px]">数据安全可控，自主知识产权</li>
-            <li class="!list-disc !list-inside !pl-[30px]">降低云服务依赖与供应商绑定</li>
+            <li class="!list-disc !list-inside !pl-[30px]">投顾专家画像 + 客户传承档案，一人一策</li>
+            <li class="!list-disc !list-inside !pl-[30px]">AI 语义分析会话，识别客户长期意图</li>
+            <li class="!list-disc !list-inside !pl-[30px]">投研知识库 RAG 检索，秒级引用大师原话</li>
+            <li class="!list-disc !list-inside !pl-[30px]">合规存档 + 敏感词拦截，满足监管要求</li>
           </ul>
-          同时源雀积极拥抱开源，同步推出完全开源、免费使用AI开源版，结合DeepSeek等AI大模型，让企业快速拥有更强大、更丰富、更智能的企业微信管理能力。
+          护城河致力于将本杰明·格雷厄姆、沃伦·巴菲特、查理·芒格、彼得·林奇、段永平、林园、但斌、章盟主等价值投资大师的智慧沉淀为可复用的投顾流程，让每一次客户对话都传递专业。
         </div>
         <div class="--Color bold font16 mt20">
-          <a href="https://www.iyque.cn?utm_source=iyquecode" target="_blank">立即了解源雀SCRM →</a>
+          <span>护城河 · 让专业成为客户的护城河</span>
         </div>
       </div>
       <div class="w-[50%] bg-(--BgWhite) relative">

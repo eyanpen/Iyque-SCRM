@@ -588,15 +588,7 @@ export default {
 </style>
 <template>
   <div>
-    <div class="warning">
-      <a href="https://www.iyque.cn?utm_source=iyquecode" target="_blank">
-        <strong>
-          源雀Scrm-是基于Java源码交付的企微SCRM,帮助企业构建高度自由安全的私域平台。:https://www.iyque.cn/
-        </strong>
-      </a>
-    </div>
-
-    <el-tabs v-if="isLink" v-model="activeName">
+<el-tabs v-if="isLink" v-model="activeName">
       <el-tab-pane label="外链配置" name="first">
         <div class="g-card">
           <!-- 搜索筛选栏 -->

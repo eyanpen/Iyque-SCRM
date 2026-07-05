@@ -310,7 +310,7 @@ export default {
     color: #666;
   }
   
-  // 源雀SCRM广告横幅样式
+  // 护城河 · 顶部提示横幅样式
   .iyque-ad-banner {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
