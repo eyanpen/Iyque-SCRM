@@ -110,6 +110,28 @@
           </div>
         </div>
         <div class="ai-chat-footer">
+          <!-- 知识库选择器：选中后本次对话所有消息都会先经过 RAG 检索，直到用户改选或选“不使用知识库” -->
+          <div class="knowledge-selector-row">
+            <span class="knowledge-selector-label">知识库</span>
+            <el-select
+              v-model="selectedKid"
+              :placeholder="'不使用知识库'"
+              clearable
+              size="small"
+              class="knowledge-selector"
+            >
+              <el-option :value="null" label="不使用知识库" />
+              <el-option
+                v-for="kb in availableKnowledgeBases"
+                :key="kb.id"
+                :label="kb.kname"
+                :value="kb.id"
+              />
+            </el-select>
+            <span v-if="selectedKid" class="knowledge-selector-hint">
+              已启用 RAG · 本会话后续问题都会先检索该知识库
+            </span>
+          </div>
           <div class="input-row">
             <div class="input-wrapper">
               <el-input
@@ -220,7 +242,8 @@ import {
   deleteConversation as deleteConversationApi,
   getConversationMessages,
   saveConversationMessage,
-  saveConversationMessages
+  saveConversationMessages,
+  getKnowledgeList
 } from '@/api/ai'
 
 const router = useRouter()
@@ -238,6 +261,12 @@ const isLoading = ref(false)
 const chatBodyRef = ref(null)
 const availableModels = ref([])
 const functionRoutes = ref([])
+// AI Chat 知识库选择器状态。
+// - availableKnowledgeBases: /knowledge/findAll 返回的所有知识库
+// - selectedKid: 当前选中的知识库 id (null = 不使用)。
+//   组件级 ref, 选中后跨消息保持, 直到用户再次切换或选 "不使用"。
+const availableKnowledgeBases = ref([])
+const selectedKid = ref(null)
 const chatWidth = ref(800)
 const isResizing = ref(false)
 
@@ -785,6 +814,29 @@ const loadAvailableModels = async () => {
   }
 }
 
+/**
+ * 拉取所有知识库供顶部下拉选择。
+ * 后端 /knowledge/findAll 返回 { code, msg, count, data: [{ id, kname, ... }] };
+ * request.js 已解封顶层, 这里 response 直接是数组或含 data 的对象。
+ */
+const loadKnowledgeBases = async () => {
+  try {
+    const response = await getKnowledgeList()
+    const list = Array.isArray(response) ? response
+               : Array.isArray(response?.data) ? response.data
+               : []
+    availableKnowledgeBases.value = list
+    // 若当前选中的 kid 已经不在最新列表里 (比如被删了), 重置为不使用
+    if (selectedKid.value != null &&
+        !list.some(kb => kb.id === selectedKid.value)) {
+      selectedKid.value = null
+    }
+  } catch (error) {
+    console.error('[AI Chat] 加载知识库列表失败:', error)
+    availableKnowledgeBases.value = []
+  }
+}
+
 const loadInputHistory = () => {
 }
 
@@ -902,7 +954,9 @@ const sendMessage = async () => {
       role: chatSettings.role,
       temperature: chatSettings.temperature,
       topP: chatSettings.topP,
-      maxHistoryRounds: chatSettings.maxHistoryRounds
+      maxHistoryRounds: chatSettings.maxHistoryRounds,
+      // 组件级 selectedKid：null 时后端走纯对话，非 null 时后端先 RAG 检索再回答
+      kid: selectedKid.value
     }
       
       const streamApi = currentChatMode.value === 'navigation' ? navigationChatStream : chatWithMemoryStream
@@ -956,6 +1010,8 @@ const sendMessage = async () => {
 onMounted(async () => {
   // 先加载模型列表
   await loadAvailableModels()
+  // 加载知识库列表（顶部选择器用）
+  loadKnowledgeBases()
   // 再加载设置，此时可以验证模型名称是否有效
   loadSettings()
   // 如果设置中的模型不在可用列表中，loadAvailableModels 已经处理了
@@ -1601,6 +1657,35 @@ const stopResize = () => {
   align-items: flex-end;
   gap: 16px;
   width: 100%;
+}
+
+/* 知识库选择器：输入区上方一行，选择后整会话都用该 kid，直到用户再改 */
+.knowledge-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 4px 8px;
+  font-size: 12px;
+  color: var(--FontBlack60, #666);
+}
+.knowledge-selector-label {
+  font-weight: 500;
+  color: var(--FontBlack70, #444);
+  flex-shrink: 0;
+}
+.knowledge-selector {
+  width: 220px;
+  flex-shrink: 0;
+}
+.knowledge-selector-hint {
+  color: #67c23a;
+  font-size: 12px;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .message.user .message-content {

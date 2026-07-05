@@ -104,7 +104,8 @@ public class IYqueAiController {
                     request.getRole(),
                     request.getTemperature(),
                     request.getTopP(),
-                    request.getMaxHistoryRounds())
+                    request.getMaxHistoryRounds(),
+                    request.getKid())
                     .map(content -> ServerSentEvent.<String>builder()
                             .data(content)
                             .build())

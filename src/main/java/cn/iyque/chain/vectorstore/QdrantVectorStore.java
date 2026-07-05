@@ -204,7 +204,9 @@ public class QdrantVectorStore implements IYqueVectorStore {
         try {
             Map<String, Object> body = new LinkedHashMap<>();
             body.put("vector", queryVector);
-            body.put("limit", 3);
+            int topK = paramConfig.getVector().getTopK();
+            if (topK <= 0) topK = 6;
+            body.put("limit", topK);
             body.put("with_payload", true);
             Float score = paramConfig.getVector().getScore();
             if (score != null) body.put("score_threshold", score);

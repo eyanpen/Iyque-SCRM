@@ -2,13 +2,17 @@ package cn.iyque.service.impl;
 
 
 import cn.iyque.config.IYqueParamConfig;
+import cn.iyque.dao.IYqueKnowledgeFragmentDao;
 import cn.iyque.domain.AiGenerateTagsResponse;
 import cn.iyque.domain.EmbeddingResponse;
+import cn.iyque.entity.IYqueKnowledgeFragment;
 import cn.iyque.exception.IYqueException;
 import cn.iyque.factory.AiModelFactory;
 import cn.iyque.prompt.AiPromptManager;
 import cn.iyque.service.IYqueAiService;
 import cn.iyque.service.FunctionRouteService;
+import cn.iyque.service.IYqueEmbeddingService;
+import cn.iyque.chain.vectorstore.IYqueVectorStore;
 import cn.iyque.strategy.HistoryEvictionPolicy;
 import cn.iyque.strategy.HistoryEvictionPolicyManager;
 import cn.iyque.utils.StringUtils;
@@ -29,7 +33,9 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -56,6 +62,15 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
     @Autowired
     private IYqueParamConfig yqueParamConfig;
+
+    @Autowired
+    private IYqueEmbeddingService yqueEmbeddingService;
+
+    @Autowired
+    private IYqueVectorStore yqueVectorStore;
+
+    @Autowired
+    private IYqueKnowledgeFragmentDao yqueKnowledgeFragmentDao;
 
     // ==================================================================
     // AI 调用日志辅助 —— 请求前打印上下文、响应后打印耗时与长度
@@ -230,11 +245,65 @@ public class IYqueAiServiceImpl implements IYqueAiService {
     
 
 
+    /**
+     * 从选中的知识库检索与 question 最相关的片段，返回可直接拼进 system prompt 的文本。
+     * <p>失败或空命中都返回空串，让主流程无损降级为纯对话。</p>
+     */
+    private String retrieveRagContext(String question, Long kid) {
+        if (kid == null) return "";
+        if (StringUtils.isEmpty(question)) return "";
+        try {
+            String kidStr = String.valueOf(kid);
+            List<Float> qVec = yqueEmbeddingService.getQueryVector(question, kidStr);
+            if (qVec == null || qVec.isEmpty()) {
+                log.info("RAG: 查询向量为空, kid={}", kid);
+                return "";
+            }
+            List<String> fidStrs = yqueVectorStore.nearest(qVec, kidStr);
+            if (fidStrs == null || fidStrs.isEmpty()) {
+                log.info("RAG: Qdrant nearest 命中 0 条, kid={}", kid);
+                return "";
+            }
+
+            // fid 是 fragment.id (Long)，向量存的是字符串，转回 Long 再查库
+            List<Long> fidList = new ArrayList<>(fidStrs.size());
+            for (String s : fidStrs) {
+                try { fidList.add(Long.valueOf(s)); } catch (NumberFormatException ignore) { /* skip bad payload */ }
+            }
+            if (fidList.isEmpty()) return "";
+
+            List<IYqueKnowledgeFragment> fragments = yqueKnowledgeFragmentDao.findAllById(fidList);
+            if (fragments == null || fragments.isEmpty()) {
+                log.info("RAG: fragment 表查不到任何 id, kid={}, fids={}", kid, fidList);
+                return "";
+            }
+
+            // 保留 Qdrant 返回的相似度顺序（findAllById 顺序不保证）
+            java.util.Map<Long, String> idToContent = fragments.stream()
+                    .collect(Collectors.toMap(IYqueKnowledgeFragment::getId, IYqueKnowledgeFragment::getContent, (a, b) -> a));
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("以下是从选中的知识库检索到的相关资料（相关时优先参考，不相关时忽略；不要凭空编造）：\n---\n");
+            int idx = 1;
+            for (Long fid : fidList) {
+                String content = idToContent.get(fid);
+                if (content == null || content.isEmpty()) continue;
+                sb.append("[资料 ").append(idx++).append("]\n").append(content).append("\n---\n");
+            }
+            String ragText = sb.toString();
+            log.info("RAG: kid={}, 命中 {} 条片段, 拼接后长度 {} 字符", kid, idx - 1, ragText.length());
+            return ragText;
+        } catch (Exception e) {
+            log.warn("RAG 检索失败 (kid={}): {}", kid, e.getMessage());
+            return "";
+        }
+    }
+
     @Override
     public Flux<String> aiChatWithMemoryStream(String question, String history, String modelName,
-        String role, Double temperature, Double topP, Integer maxHistoryRounds) {
+        String role, Double temperature, Double topP, Integer maxHistoryRounds, Long kid) {
 
-        log.info("开始AI流式对话, 问题: {}, 模型: {}, 温度: {}, 核采样: {}", question, modelName, temperature, topP);
+        log.info("开始AI流式对话, 问题: {}, 模型: {}, 温度: {}, 核采样: {}, kid: {}", question, modelName, temperature, topP, kid);
 
 
         Exception lastError = null;
@@ -247,6 +316,12 @@ public class IYqueAiServiceImpl implements IYqueAiService {
         Double actualTemperature = temperature != null ? temperature : 0.7;
         Double actualTopP = topP != null ? topP : 0.9;
         Integer actualMaxHistoryRounds = maxHistoryRounds != null ? maxHistoryRounds : 10;
+
+        // RAG 检索：若指定了 kid，则从知识库拉出相关片段拼进 system prompt
+        String ragContext = retrieveRagContext(question, kid);
+        if (StringUtils.isNotEmpty(ragContext)) {
+            actualRole = actualRole + "\n\n" + ragContext;
+        }
 
         // 获取流式模型，传入温度和核采样参数
         StreamingChatLanguageModel streamingModel = modelFactory.getStreamingModel(modelName, actualTemperature, actualTopP);

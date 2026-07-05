@@ -43,10 +43,11 @@ public interface IYqueAiService {
      * @param temperature 温度参数，控制回答的随机性，范围0-1，如果为null则使用默认值0.7
      * @param topP 核采样参数，控制回答的多样性，范围0-1，如果为null则使用默认值0.9
      * @param maxHistoryRounds 历史对话淘汰策略：保留的最大对话轮数，如果为null则使用默认值10
+     * @param kid 可选的知识库 ID；非 null 时会先做 RAG 检索并把命中的片段拼进 system prompt
      * @return AI的回答流
      */
-     Flux<String> aiChatWithMemoryStream(String question, String history, String modelName, 
-         String role, Double temperature, Double topP, Integer maxHistoryRounds);
+     Flux<String> aiChatWithMemoryStream(String question, String history, String modelName,
+         String role, Double temperature, Double topP, Integer maxHistoryRounds, Long kid);
 
     /**
      * AI导航推荐流式问答

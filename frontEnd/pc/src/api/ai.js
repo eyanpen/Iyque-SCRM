@@ -30,6 +30,18 @@ export function getFunctionRoutes() {
   })
 }
 
+/**
+ * 拉取所有知识库列表，供 AI Chat 顶部知识库选择器使用。
+ * 后端源: /knowledge/findAll (cn.iyque.controller.IYqueKnowledgeController)
+ * 返回结构: { code, msg, data: [{ id, kname, description, createTime, ... }] }
+ */
+export function getKnowledgeList() {
+  return request({
+    url: '/knowledge/findAll',
+    method: 'get'
+  })
+}
+
 export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
   const url = `${SSE_BASE}/iYqueAi/chatWithMemoryStream`
   

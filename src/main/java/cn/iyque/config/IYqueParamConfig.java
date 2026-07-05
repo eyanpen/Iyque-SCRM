@@ -115,9 +115,15 @@ public class IYqueParamConfig {
     public static class VectorStoreParam{
 
         //片段截取字符数,控制分片的长度，确保均匀分割
-        private int chunkSize=1000;
+        //bge-small-zh-v1.5 embedding 上限约 512 token，中文近似一字一 token，
+        //保守取 500 字符，避免单块被 embedding 端截断丢内容。
+        private int chunkSize=500;
         //重叠数	保留分片边界的上下文，避免语义断裂,通常设置为片段数的10%-20%之间
-        private int chunkOverlap=200;
+        private int chunkOverlap=100;
+
+        //RAG 检索 top-K：Qdrant nearest search 返回的候选片段条数
+        //原先硬编码 3 太少，调 6 保证召回覆盖面；可在 conf.yaml 里覆盖。
+        private int topK=6;
 
         //向量维度（需与实际数据匹配）
         private  Integer dimension=1536;
