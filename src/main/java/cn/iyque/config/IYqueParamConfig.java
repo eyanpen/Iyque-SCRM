@@ -9,7 +9,20 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class IYqueParamConfig {
 
-    private String userName;
+    /**
+     * 系统审计默认用户名 (updateBy / createBy 字段的兜底值)。
+     *
+     * 登录凭据自 2026-07 起完全存在 iyque_admin_user 表; 该字段仅作为审计标识兜底,
+     * 当无法从 SecurityContext 中获得当前登录用户时使用。
+     *
+     * 未来若需要真正的"当前登录用户"审计, 应改为从 JWT / SecurityUtils 取值。
+     */
+    private String userName = "system";
+
+    /**
+     * @deprecated 登录密码已迁移至 iyque_admin_user 表, 本字段保留仅为兼容遗留代码, 不再参与鉴权。
+     */
+    @Deprecated
     private String pwd;
 
     private Boolean demo=false;

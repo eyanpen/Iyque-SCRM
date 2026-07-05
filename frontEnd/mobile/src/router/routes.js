@@ -15,7 +15,16 @@ export default [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: process.env.NODE_ENV === 'development' ? '' : '/' + window.location.pathname.split('/').pop(),
+    // 从企微 push 过来的 URL 通常是 /openmobile/<pageName>?params...,
+    // 这里取最后一段路径作为 SPA 内部 redirect 目标.
+    // 但当直接访问 /openmobile/ 根路径时, 最后一段为空 → redirect 到 '/' 又会撞回本路由,
+    // 导致 Vue Router 无限递归爆栈. 因此空 / 等于 'openmobile' 时留空, 让 Home 组件正常渲染.
+    redirect: (() => {
+      if (process.env.NODE_ENV === 'development') return ''
+      const last = window.location.pathname.split('/').filter(Boolean).pop() || ''
+      if (!last || last === 'openmobile') return ''
+      return '/' + last
+    })(),
     meta: {
       title: '企微助手',
       noAuth: false,

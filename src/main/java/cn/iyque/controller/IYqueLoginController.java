@@ -4,10 +4,12 @@ package cn.iyque.controller;
 import cn.iyque.annotation.RateLimit;
 import cn.iyque.config.IYqueParamConfig;
 import cn.iyque.constant.HttpStatus;
+import cn.iyque.dao.IYqueAdminUserDao;
 import cn.iyque.domain.BaseUserInfo;
 import cn.iyque.domain.IYQueAuthInfo;
 import cn.iyque.domain.JwtResponse;
 import cn.iyque.domain.ResponseResult;
+import cn.iyque.entity.IYqueAdminUser;
 import cn.iyque.entity.IYqueConfig;
 import cn.iyque.service.IYqueConfigService;
 import cn.iyque.utils.JwtUtils;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Optional;
 
 
 /**
@@ -41,26 +44,40 @@ public class IYqueLoginController {
     @Autowired
     private IYqueConfigService iYqueConfigService;
 
+    @Autowired
+    private IYqueAdminUserDao iYqueAdminUserDao;
+
 
     /**
      * 简单的登录
-     * @return
+     *
+     * 所有管理员账号存储在 iyque_admin_user 表. conf.yaml 里不再保存 admin 凭据.
+     * seed 数据 (含默认 admin) 由 scripts/installation/mysql-migrations/001-admin-users.sql 导入.
+     *
+     * @return JWT token
      */
     @PostMapping("/login")
     @RateLimit(attempts = 5, lockTime = 300) // 5次失败后锁定5分钟
     public ResponseResult<JwtResponse> login(@RequestBody IYQueAuthInfo iQyqueAuthInfo){
 
+        String reqUser = iQyqueAuthInfo.getUsername();
+        String reqPwd  = iQyqueAuthInfo.getPassword();
 
-        if(iYqueParamConfig.getUserName().equals(iQyqueAuthInfo.getUsername())
-          &&iYqueParamConfig.getPwd().equals(iQyqueAuthInfo.getPassword())
-        ){
-
-            return new ResponseResult<>(JwtResponse.builder()
-                    .token(JwtUtils.generateToken(iYqueParamConfig.getUserName()))
-                    .build());
-
+        try {
+            Optional<IYqueAdminUser> found = iYqueAdminUserDao.findByUsernameAndDelFlag(reqUser, 0);
+            if (found.isPresent() && found.get().getPassword().equals(reqPwd)) {
+                log.info("管理员登录 [{}] 命中 iyque_admin_user (id={})",
+                        reqUser, found.get().getId());
+                return new ResponseResult<>(JwtResponse.builder()
+                        .token(JwtUtils.generateToken(found.get().getUsername()))
+                        .build());
+            }
+        } catch (Exception e) {
+            log.warn("查询 iyque_admin_user 失败 (可能表尚未创建): {}", e.getMessage());
         }
-        return new ResponseResult<>(HttpStatus.ERROR,"账号或密码错误",null);
+
+        log.info("管理员登录 [{}] 账号或密码错误", reqUser);
+        return new ResponseResult<>(HttpStatus.ERROR, "账号或密码错误", null);
     }
 
 

@@ -52,10 +52,10 @@ ai:
     base-url: http://localhost:11434/v1
     api-key: ollama              # ollama 不校验，占位即可
 
-# ------------------------------------------------------------------ 管理端默认账号
-admin:
-  userName: eyanpen
-  password: okswordsman
+# ------------------------------------------------------------------ 管理端账号
+# 自 2026-07 起, 所有管理员账号 (用户名+密码) 存储在 iyque_admin_user 表.
+# 请通过 scripts/installation/mysql-migrations/001-admin-users.sql 或后端接口管理.
+# 默认账号: eyanpen / okswordsman  |  demo / ian
 
 # ------------------------------------------------------------------ 文件与访问地址
 app:
