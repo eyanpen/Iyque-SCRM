@@ -55,7 +55,7 @@
 |------|------|
 | **后端** | Spring Boot + JPA + MyBatis-Plus + MySQL |
 | **前端** | Vue 3 + Vite + Pinia + Element Plus |
-| **AI**   | LangChain4j + OpenAI 兼容大模型 + Milvus 向量数据库 |
+| **AI**   | OpenAI 兼容大模型 (阿里百炼 qwen3.7-plus) + Ollama Embedding + Qdrant 向量数据库 |
 
 ---
 
@@ -68,7 +68,7 @@
 | 后端 Spring Boot | 8085 | API 与前端静态资源 |
 | MySQL | 3306 | 业务数据库 `scrm_ky` |
 | FalkorDB (Redis 兼容) | 30869 | 缓存 / token / 限流 |
-| Milvus | 31872 | AI 向量知识库 |
+| Qdrant Cloud | 443 (HTTPS) | AI 向量知识库 |
 
 部署配置详见 [`conf.yaml`](./conf.yaml)。
 

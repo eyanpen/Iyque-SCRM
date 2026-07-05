@@ -38,7 +38,7 @@ depth.
 |-------|-----------|
 | **Backend** | Spring Boot + JPA + MyBatis-Plus + MySQL |
 | **Frontend** | Vue 3 + Vite + Pinia + Element Plus |
-| **AI** | LangChain4j + OpenAI-compatible LLM + Milvus vector DB |
+| **AI** | OpenAI-compatible LLM (Aliyun Bailian qwen3.7-plus) + Ollama Embedding + Qdrant vector DB |
 
 ---
 
@@ -51,7 +51,7 @@ The demo environment runs on `10.210.156.69`:
 | Backend Spring Boot | 8085 |
 | MySQL | 3306 |
 | FalkorDB (Redis-compatible) | 30869 |
-| Milvus | 31872 |
+| Qdrant Cloud | 443 (HTTPS) |
 
 - PC: `http://10.210.156.69:8085/tools/`
 - Mobile: `http://10.210.156.69:8085/openmobile/`

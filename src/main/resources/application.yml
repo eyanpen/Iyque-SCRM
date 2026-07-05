@@ -1,44 +1,44 @@
 server:
   port: 8085
 ai:
-  models: #大模型相关配置
+  models: #大模型 (chat) 相关配置
     enabled:
       - chat
     configs:
       chat:
-        api-key: dummy
-        base-url: http://localhost:7999
-        model-name: "zai-org/GLM-5.2-FP8"
-  vector: #向量相关配置
-    host: 10.156.133.79
-    port: 31872
-    collectionName: iyque_vectors
-    dimension: 4096
-    score: 0.5f
+        api-key: sk-8f0f4872dc8b449eb552ff85a87df6b5
+        base-url: https://llm-3rwy19j3qd6f8alq.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+        model-name: "qwen3.7-plus"
+  vector: #向量化 (embedding) 相关配置
     enabled:
       - embedding
     configs:
       embedding:
-        api-key: dummy
-        base-url: http://localhost:7999
-        model-name: "Qwen/Qwen3-Embedding-8B-Alt"
+        api-key: ollama
+        base-url: http://localhost:11434/v1
+        model-name: "qllama/bge-small-zh-v1.5"
 
 iyque:
   userName: eyanpen
   pwd: okswordsman
   demo: false
-  fileViewUrl: http://10.210.156.69:8085/file/fileView/
+  fileViewUrl: http://10.210.156.69:8081/iyque/file/fileView/
   uploadDir: ./upload
   inquiryAll: true
-  complaintUrl: http://10.210.156.69:8081/openmobile/customerComplaint
-  customerSeasUrl: http://10.210.156.69:8081/openmobile/customerSeas
-  h5MarketUrl: http://10.210.156.69:8081/openmobile/H5Marketing?id={0}
+  complaintUrl: http://iyque.cn/openmobile/customerComplaint
+  customerSeasUrl: https://iyque.cn/openmobile/customerSeas
+  h5MarketUrl: https://iyque.cn/openmobile/H5Marketing?id={0}
   vector:
-    host: 10.156.133.79
-    port: 31872
+    # ==================================================================
+    # Qdrant 向量库配置 (替代原 Milvus)
+    # endpoint 留空时 QdrantVectorStore 会跳过所有向量操作，
+    # 非 RAG 功能不受影响。
+    # ==================================================================
+    endpoint: https://5c8cc87c-83d8-45a7-a6d2-bc4dce521ff1.eu-west-1-0.aws.cloud.qdrant.io
+    apiKey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6MzFjZTZhMTQtYTMzNS00ZjVmLWJlOGEtNGI2ZmM0ZmM4MDg1In0.WKsIDoIDnh2kfRNyLo5uo6EUKzdRWmiNcQMhSfhvcuc
     collectionName: iyque_vectors
-    dimension: 4096
-    vectorModel: "Qwen/Qwen3-Embedding-8B-Alt"
+    dimension: 512
+    vectorModel: "qllama/bge-small-zh-v1.5"
     score: 0.5f
 spring:
   datasource:
@@ -81,5 +81,5 @@ mybatis-plus:
 
 logging:
   level:
-    dev.langchain4j: DEBUG
-    jdk.httpclient: DEBUG
+    dev.langchain4j: INFO
+    jdk.httpclient: INFO

@@ -1,72 +1,116 @@
 package cn.iyque.chain.vectorizer;
 
-
-import cn.iyque.service.IYqueAiService;
-//import dev.langchain4j.community.model.zhipu.embedding.EmbeddingResponse;
-import lombok.RequiredArgsConstructor;
+import cn.iyque.properties.AiVectorProperties;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
-
+/**
+ * OpenAI 兼容 /v1/embeddings 端点向量化实现。
+ *
+ * <p>读取 {@code ai.vector.configs.embedding.{api-key, base-url, model-name}}，
+ * 直接发起 HTTP POST 请求。适用于:</p>
+ * <ul>
+ *     <li>本地 Ollama: {@code base-url=http://localhost:11434/v1}, api-key 任意占位</li>
+ *     <li>阿里百炼:   {@code base-url=https://.../compatible-mode/v1}</li>
+ *     <li>SiliconFlow / GLM 等所有兼容端点</li>
+ * </ul>
+ */
 @Component
 @Slf4j
-@RequiredArgsConstructor
-public class OpenAiVectorization implements Vectorization{
-
-
+public class OpenAiVectorization implements Vectorization {
 
     @Autowired
-    private IYqueAiService yqueAiService;
+    private AiVectorProperties aiVectorProperties;
 
+    private static final ObjectMapper mapper = new ObjectMapper();
+    private HttpClient http;
 
+    @PostConstruct
+    public void init() {
+        this.http = HttpClient.newBuilder()
+                .connectTimeout(Duration.ofSeconds(10))
+                .build();
+    }
 
-
+    private AiVectorProperties.ModelConfig embeddingConfig() {
+        if (aiVectorProperties == null || aiVectorProperties.getConfigs() == null) return null;
+        return aiVectorProperties.getConfigs().get("embedding");
+    }
 
     @Override
     public List<List<Float>> batchVectorization(List<String> chunkList, String kid) {
-        List<List<Float>> vectorList;
+        if (chunkList == null || chunkList.isEmpty()) return Collections.emptyList();
 
+        AiVectorProperties.ModelConfig cfg = embeddingConfig();
+        if (cfg == null || cfg.getBaseUrl() == null || cfg.getModelName() == null) {
+            log.warn("ai.vector.configs.embedding 未配置，返回空向量 (chunks={})", chunkList.size());
+            return Collections.emptyList();
+        }
 
-//        EmbeddingResponse embeddings =yqueAiService.embedding(chunkList);
-//
-//        // 处理 OpenAI 返回的嵌入数据
-//        vectorList = processOpenAiEmbeddings(embeddings);
+        try {
+            String url = cfg.getBaseUrl().replaceAll("/+$", "") + "/embeddings";
+            Map<String, Object> body = new LinkedHashMap<>();
+            body.put("model", cfg.getModelName());
+            body.put("input", chunkList);
+            String payload = mapper.writeValueAsString(body);
 
-//        return vectorList;
-        return null;
+            HttpRequest.Builder rb = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .timeout(Duration.ofMinutes(2))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(payload));
+            if (cfg.getApiKey() != null && !cfg.getApiKey().isEmpty()) {
+                rb.header("Authorization", "Bearer " + cfg.getApiKey());
+            }
+
+            log.debug("Embedding POST {} model={} n={}", url, cfg.getModelName(), chunkList.size());
+            HttpResponse<String> resp = http.send(rb.build(), HttpResponse.BodyHandlers.ofString());
+            if (resp.statusCode() >= 400) {
+                log.error("Embedding HTTP {} body={}", resp.statusCode(), truncate(resp.body(), 500));
+                return Collections.emptyList();
+            }
+            log.debug("Embedding HTTP {} body-len={}", resp.statusCode(), resp.body() == null ? 0 : resp.body().length());
+
+            JsonNode root = mapper.readTree(resp.body());
+            List<List<Float>> out = new ArrayList<>();
+            for (JsonNode d : root.path("data")) {
+                List<Float> v = new ArrayList<>();
+                for (JsonNode x : d.path("embedding")) v.add((float) x.asDouble());
+                out.add(v);
+            }
+            if (out.isEmpty()) {
+                log.warn("Embedding 返回体 data 为空: {}", truncate(resp.body(), 500));
+            }
+            return out;
+        } catch (Exception e) {
+            log.error("批量向量化调用失败", e);
+            return Collections.emptyList();
+        }
     }
-
-
-
-//    /**
-//     * 处理 OpenAI 返回的嵌入数据
-//     */
-//    private List<List<Float>> processOpenAiEmbeddings(EmbeddingResponse embeddings) {
-//        List<List<Float>> vectorList = new ArrayList<>();
-//
-////        embeddings.getData().forEach(data->{
-////            List<Float> collect = data.getEmbedding().stream()
-////                    .map(Float::floatValue)
-////                    .collect(Collectors.toList());
-////            vectorList.add(collect);
-////        });
-//
-//        return vectorList;
-//    }
-
-
-
-
 
     @Override
     public List<Float> singleVectorization(String chunk, String kid) {
-        List<String> chunkList = new ArrayList<>();
-        chunkList.add(chunk);
-        List<List<Float>> vectorList = batchVectorization(chunkList, kid);
-        return vectorList.get(0);
+        List<List<Float>> r = batchVectorization(Collections.singletonList(chunk), kid);
+        return r.isEmpty() ? Collections.emptyList() : r.get(0);
+    }
+
+    private static String truncate(String s, int max) {
+        if (s == null) return "";
+        return s.length() <= max ? s : s.substring(0, max) + "…(" + (s.length() - max) + " more)";
     }
 }

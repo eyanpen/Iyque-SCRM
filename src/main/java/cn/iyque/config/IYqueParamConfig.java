@@ -118,14 +118,16 @@ public class IYqueParamConfig {
         //余弦相似度
         private Float score=0.5f;
 
-        //Milvus地址
-        private String host;
-        //Milvus端口
-        private String port;
-        //模型的apikey
+        // ==================================================================
+        // Qdrant 相关配置 (替代原 Milvus host/port)
+        // ==================================================================
+        // Qdrant HTTP 端点，如
+        //   https://xxx.eu-west-1-0.aws.cloud.qdrant.io
+        //   http://127.0.0.1:6333
+        private String endpoint;
+
+        // Qdrant API Key (Cloud 使用；self-hosted 可留空)
         private String apiKey;
-        //模型的请求地址
-        private String apiUrl;
 
     }
 }
