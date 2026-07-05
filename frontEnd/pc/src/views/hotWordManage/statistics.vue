@@ -138,17 +138,44 @@ function openContentDialog(row) {
   currentDetail.value = row || {}
   contentDialogVisible.value = true
 }
+// HTML 转义
+function escapeHtml(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+}
 // 高亮命中的热词
 function highlightHotWord(content, hotWord) {
-  if (!content) return ''
-  const safe = String(content)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  const safe = escapeHtml(content)
   if (!hotWord) return safe
   const escaped = String(hotWord).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   return safe.replace(
     new RegExp(escaped, 'g'),
     (m) => `<span style="color:#c47c11;font-weight:600;background:#fff7dc;padding:0 2px;border-radius:2px;">${m}</span>`
   )
+}
+// 解析多轮对话：每行 "[HH:MM] 发言人：正文"
+// 返回 [{ time, speaker, text, side }]，side='left' 员工 / 'right' 客户
+function parseDialog(content, customerName) {
+  const raw = String(content ?? '')
+  if (!raw) return []
+  const lines = raw.split(/\r?\n/).filter((l) => l.trim())
+  const re = /^\[(\d{1,2}:\d{2})\]\s*([^：:]+)[:：]\s*(.*)$/
+  return lines.map((line) => {
+    const m = line.match(re)
+    if (m) {
+      const [, time, speaker, text] = m
+      return {
+        time,
+        speaker: speaker.trim(),
+        text,
+        side: speaker.trim() === customerName ? 'right' : 'left',
+      }
+    }
+    // fallback：不带时间前缀的整段文本
+    return { time: '', speaker: '', text: line, side: 'left' }
+  })
 }
 </script>
 
@@ -246,11 +273,12 @@ function highlightHotWord(content, hotWord) {
         <el-table-column label="热词" prop="hotWordName"></el-table-column>
         <el-table-column label="热词分类" prop="categoryName"></el-table-column>
 
-        <el-table-column label="会话原文" prop="content" min-width="160px" show-overflow-tooltip>
+        <el-table-column label="会话原文" prop="content" min-width="200px" show-overflow-tooltip>
           <template #default="{ row }">
             <el-button link type="primary" @click="openContentDialog(row)"
               style="max-width:100%;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;">
-              {{ row.content }}
+              {{ (row.content || '').replace(/\[\d{1,2}:\d{2}\]\s*/g, '').replace(/\s+/g, ' ').trim().slice(0, 60) }}
+              <span style="color:#909399;">…点击查看多轮对话</span>
             </el-button>
           </template>
         </el-table-column>
@@ -259,8 +287,8 @@ function highlightHotWord(content, hotWord) {
     </RequestChartTable>
 
     <!-- 会话原文 · 全文详情 -->
-    <el-dialog title="会话原文详情" v-model="contentDialogVisible" width="640px">
-      <div style="line-height:1.9;">
+    <el-dialog title="会话原文详情" v-model="contentDialogVisible" width="720px">
+      <div style="line-height:1.8;">
         <div style="display:grid;grid-template-columns:110px 1fr;row-gap:10px;">
           <div style="color:#909399;">客户</div>
           <div>{{ currentDetail.fromName }}</div>
@@ -282,11 +310,53 @@ function highlightHotWord(content, hotWord) {
 
         <el-divider />
 
-        <div style="color:#909399;margin-bottom:6px;">原文</div>
-        <div
-          style="padding:12px 14px;background:#f7f8fa;border-radius:6px;
-                 white-space:pre-wrap;word-break:break-word;color:#303133;"
-          v-html="highlightHotWord(currentDetail.content, currentDetail.hotWordName)"></div>
+        <div style="color:#909399;margin-bottom:10px;">会话记录</div>
+        <div style="max-height:52vh;overflow-y:auto;padding:4px 8px;background:#f6f8fb;border-radius:8px;">
+          <div
+            v-for="(turn, idx) in parseDialog(currentDetail.content, currentDetail.fromName)"
+            :key="idx"
+            :style="{
+              display: 'flex',
+              flexDirection: turn.side === 'right' ? 'row-reverse' : 'row',
+              alignItems: 'flex-start',
+              margin: '10px 0',
+            }">
+            <!-- 头像圆点 -->
+            <div
+              :style="{
+                flex: '0 0 32px',
+                width: '32px', height: '32px', borderRadius: '50%',
+                background: turn.side === 'right' ? '#3b6bb2' : '#c47c11',
+                color: '#fff',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '13px', fontWeight: 600,
+                margin: turn.side === 'right' ? '0 0 0 8px' : '0 8px 0 0',
+              }">
+              {{ (turn.speaker || '?').slice(0, 1) }}
+            </div>
+            <!-- 气泡 -->
+            <div style="max-width:78%;">
+              <div style="font-size:12px;color:#909399;margin-bottom:2px;"
+                :style="{ textAlign: turn.side === 'right' ? 'right' : 'left' }">
+                {{ turn.speaker }} <span v-if="turn.time" style="margin-left:6px;">{{ turn.time }}</span>
+              </div>
+              <div
+                :style="{
+                  padding: '9px 12px',
+                  borderRadius: turn.side === 'right'
+                    ? '12px 4px 12px 12px'
+                    : '4px 12px 12px 12px',
+                  background: turn.side === 'right' ? '#dbe8fb' : '#ffffff',
+                  border: turn.side === 'right' ? 'none' : '1px solid #e6ebf5',
+                  color: '#303133',
+                  whiteSpace: 'pre-wrap',
+                  wordBreak: 'break-word',
+                  lineHeight: 1.6,
+                }"
+                v-html="highlightHotWord(turn.text, currentDetail.hotWordName)"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <template #footer>
         <el-button @click="contentDialogVisible = false">关闭</el-button>

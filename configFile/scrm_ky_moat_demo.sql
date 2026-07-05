@@ -6,7 +6,7 @@ SET NAMES utf8mb4;SET FOREIGN_KEY_CHECKS = 0;
 -- ========================================================================
 -- 清空业务表（DELETE 幂等；保留 sys_dim_date）
 -- ========================================================================
-DELETE FROM `iyque_agent`;DELETE FROM `iyque_agent_sub`;DELETE FROM `iyque_ai_analysis_msg_audit`;DELETE FROM `iyque_ai_conversation`;DELETE FROM `iyque_ai_conversation_message`;DELETE FROM `iyque_ai_token_record`;DELETE FROM `iyque_analysis_hot_word`;DELETE FROM `iyque_annex_period`;DELETE FROM `iyque_category`;DELETE FROM `iyque_chat`;DELETE FROM `iyque_chat_code`;DELETE FROM `iyque_complain`;DELETE FROM `iyque_complain_annex`;DELETE FROM `iyque_complain_tip`;DELETE FROM `iyque_config`;DELETE FROM `iyque_customer_info`;DELETE FROM `iyque_customer_seas`;DELETE FROM `iyque_default_msg`;DELETE FROM `iyque_dept`;DELETE FROM `iyque_file_security`;DELETE FROM `iyque_friend_circle`;DELETE FROM `iyque_group_msg`;DELETE FROM `iyque_group_msg_sub`;DELETE FROM `iyque_h5_market`;DELETE FROM `iyque_h5_market_record`;DELETE FROM `iyque_hot_word`;DELETE FROM `iyque_kf`;DELETE FROM `iyque_kf_msg`;DELETE FROM `iyque_kf_msg_sub`;DELETE FROM `iyque_knowledge_attach`;DELETE FROM `iyque_knowledge_fragment`;DELETE FROM `iyque_knowledge_info`;DELETE FROM `iyque_material`;DELETE FROM `iyque_msg_annex`;DELETE FROM `iyque_msg_audit`;DELETE FROM `iyque_operate_log`;DELETE FROM `iyque_period_msg_annex`;DELETE FROM `iyque_robot`;DELETE FROM `iyque_robot_sub`;DELETE FROM `iyque_screen_short`;DELETE FROM `iyque_script`;DELETE FROM `iyque_script_sub`;DELETE FROM `iyque_session_intercept_rule`;DELETE FROM `iyque_short_link`;DELETE FROM `iyque_summary_kf_msg`;DELETE FROM `iyque_synch_data_record`;DELETE FROM `iyque_tag`;DELETE FROM `iyque_tag_group`;DELETE FROM `iyque_user`;DELETE FROM `iyque_user_code`;
+DELETE FROM `iyque_agent`;DELETE FROM `iyque_agent_sub`;DELETE FROM `iyque_ai_analysis_msg_audit`;DELETE FROM `iyque_ai_conversation`;DELETE FROM `iyque_ai_conversation_message`;DELETE FROM `iyque_ai_token_record`;DELETE FROM `iyque_analysis_hot_word`;DELETE FROM `iyque_annex_period`;DELETE FROM `iyque_category`;DELETE FROM `iyque_chat`;DELETE FROM `iyque_chat_code`;DELETE FROM `iyque_complain`;DELETE FROM `iyque_complain_annex`;DELETE FROM `iyque_complain_tip`;DELETE FROM `iyque_config`;DELETE FROM `iyque_customer_info`;DELETE FROM `iyque_customer_seas`;DELETE FROM `iyque_default_msg`;DELETE FROM `iyque_dept`;DELETE FROM `iyque_file_security`;DELETE FROM `iyque_friend_circle`;DELETE FROM `iyque_group_msg`;DELETE FROM `iyque_group_msg_sub`;DELETE FROM `iyque_h5_market`;DELETE FROM `iyque_h5_market_record`;DELETE FROM `iyque_hot_word`;DELETE FROM `iyque_kf`;DELETE FROM `iyque_kf_msg`;DELETE FROM `iyque_kf_msg_sub`;DELETE FROM `iyque_knowledge_attach`;DELETE FROM `iyque_knowledge_fragment`;DELETE FROM `iyque_knowledge_info`;DELETE FROM `iyque_material`;DELETE FROM `iyque_msg_annex`;DELETE FROM `iyque_msg_audit`;DELETE FROM `iyque_operate_log`;DELETE FROM `iyque_period_msg_annex`;DELETE FROM `iyque_robot`;DELETE FROM `iyque_robot_sub`;DELETE FROM `iyque_screen_short`;DELETE FROM `iyque_script`;DELETE FROM `iyque_script_sub`;DELETE FROM `iyque_session_intercept_rule`;DELETE FROM `iyque_short_link`;DELETE FROM `iyque_summary_kf_msg`;DELETE FROM `iyque_synch_data_record`;DELETE FROM `iyque_tag`;DELETE FROM `iyque_tag_group`;DELETE FROM `iyque_user`;DELETE FROM `iyque_user_code`;ALTER TABLE `iyque_analysis_hot_word` MODIFY COLUMN `content` TEXT;ALTER TABLE `iyque_kf_msg_sub`         MODIFY COLUMN `content` TEXT;
 -- ========================================================================
 -- iyque_dept · 部门（大师团 + 中华区 + 支撑）
 -- ========================================================================
@@ -437,326 +437,326 @@ INSERT INTO `iyque_chat` (`id`, `chatId`, `tagIds`, `chatName`, `createTime`, `o
 -- iyque_chat_code · 群活码
 -- ========================================================================
 INSERT INTO `iyque_chat_code` (`id`, `autoCreateRoom`, `chatCodeName`, `chatCodeState`, `chatCodeUrl`, `configId`, `createTime`, `delFlag`, `remark`, `roomBaseId`, `roomBaseName`, `updateTime`, `yqueChatListJson`) VALUES
-(3200001, 1, '活码 · 茅台长期持有者 群 1', '0', 'https://wework.qpic.cn/wwpic3az/835347df4ea919261104e834c4463d20/group_qr/0', 'cfg_0001', '2024-07-12 13:20:27', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 1', '2026-01-26 07:15:47', '[{"chatId":"wr_chat_0001"}]'),
-(3200002, 1, '活码 · 港股互联网 群 1', '0', 'https://wework.qpic.cn/wwpic3az/fb693c7d10abb3b7b39c3a3492ad5ac6/group_qr/0', 'cfg_0002', '2026-06-02 00:56:40', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 2', '2024-06-25 23:37:30', '[{"chatId":"wr_chat_0002"}]'),
-(3200003, 1, '活码 · 新能源 群 1', '0', 'https://wework.qpic.cn/wwpic3az/7ca6b9b7e87f9c4732ffb5621a51260a/group_qr/0', 'cfg_0003', '2025-09-04 19:52:47', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 3', '2025-05-22 04:35:56', '[{"chatId":"wr_chat_0003"}]'),
-(3200004, 1, '活码 · 家族办 群 1', '0', 'https://wework.qpic.cn/wwpic3az/f90718626da76365ce78d1dea6987a8a/group_qr/0', 'cfg_0004', '2024-07-02 08:26:37', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 4', '2024-02-05 23:59:56', '[{"chatId":"wr_chat_0004"}]'),
-(3200005, 1, '活码 · 消费股 群 1', '0', 'https://wework.qpic.cn/wwpic3az/ed58d624efd14918ba6bc3b91c6b2191/group_qr/0', 'cfg_0005', '2026-05-18 00:58:17', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 5', '2024-12-09 09:02:44', '[{"chatId":"wr_chat_0005"}]'),
-(3200006, 1, '活码 · 茅台长期持有者 群 2', '0', 'https://wework.qpic.cn/wwpic3az/1f758d6143278064c1f83ed296a4d577/group_qr/0', 'cfg_0006', '2024-07-06 19:04:18', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 6', '2025-04-19 09:13:01', '[{"chatId":"wr_chat_0006"}]'),
-(3200007, 1, '活码 · 港股互联网 群 2', '0', 'https://wework.qpic.cn/wwpic3az/e56d6088f7e02f3025bbf3aa64dd1a78/group_qr/0', 'cfg_0007', '2025-03-27 05:05:30', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 7', '2024-05-13 14:32:24', '[{"chatId":"wr_chat_0007"}]'),
-(3200008, 1, '活码 · 新能源 群 2', '0', 'https://wework.qpic.cn/wwpic3az/f79df303b11874989407aa109e1b8fa2/group_qr/0', 'cfg_0008', '2024-06-18 19:48:55', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 8', '2024-07-19 18:37:09', '[{"chatId":"wr_chat_0008"}]'),
-(3200009, 1, '活码 · 家族办 群 2', '0', 'https://wework.qpic.cn/wwpic3az/4709a519f36e66731c4d64607eab817f/group_qr/0', 'cfg_0009', '2026-03-06 16:22:54', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 9', '2026-06-08 03:39:45', '[{"chatId":"wr_chat_0009"}]'),
-(3200010, 1, '活码 · 消费股 群 2', '0', 'https://wework.qpic.cn/wwpic3az/4c5a2e8f9ae0e73470bcbd3475ed70cc/group_qr/0', 'cfg_0010', '2026-01-05 17:59:13', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 10', '2024-01-07 22:14:47', '[{"chatId":"wr_chat_0010"}]'),
-(3200011, 1, '活码 · 茅台长期持有者 群 3', '0', 'https://wework.qpic.cn/wwpic3az/e6927a3a737ab0ec4b8d0d961e3a330f/group_qr/0', 'cfg_0011', '2026-02-27 02:27:45', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 11', '2025-04-27 00:38:14', '[{"chatId":"wr_chat_0011"}]'),
-(3200012, 1, '活码 · 港股互联网 群 3', '0', 'https://wework.qpic.cn/wwpic3az/d1100267f3511853f18550961a1cca8a/group_qr/0', 'cfg_0012', '2024-12-23 03:54:11', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 12', '2024-06-29 13:03:45', '[{"chatId":"wr_chat_0012"}]'),
-(3200013, 1, '活码 · 新能源 群 3', '0', 'https://wework.qpic.cn/wwpic3az/95e2f1394583dcc6481f6dacb94b7612/group_qr/0', 'cfg_0013', '2024-08-16 15:52:22', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 13', '2024-04-16 21:17:05', '[{"chatId":"wr_chat_0013"}]'),
-(3200014, 1, '活码 · 家族办 群 3', '0', 'https://wework.qpic.cn/wwpic3az/58ca8dfeb8573357b8800a1740b002ed/group_qr/0', 'cfg_0014', '2026-05-13 05:57:11', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 14', '2025-10-24 00:23:52', '[{"chatId":"wr_chat_0014"}]'),
-(3200015, 1, '活码 · 消费股 群 3', '0', 'https://wework.qpic.cn/wwpic3az/9e4747d8939f019d39aac14a67f4bf6b/group_qr/0', 'cfg_0015', '2026-05-31 05:42:01', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 15', '2024-04-19 23:13:54', '[{"chatId":"wr_chat_0015"}]'),
-(3200016, 1, '活码 · 茅台长期持有者 群 4', '0', 'https://wework.qpic.cn/wwpic3az/18fa4c48dcf4ea8db46e2879dcc58fd6/group_qr/0', 'cfg_0016', '2025-06-13 11:44:09', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 16', '2025-11-04 20:16:51', '[{"chatId":"wr_chat_0016"}]'),
-(3200017, 1, '活码 · 港股互联网 群 4', '0', 'https://wework.qpic.cn/wwpic3az/100ab2013efe8f10b1606362af72880d/group_qr/0', 'cfg_0017', '2024-07-16 07:58:42', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 17', '2024-05-12 12:42:57', '[{"chatId":"wr_chat_0017"}]'),
-(3200018, 1, '活码 · 新能源 群 4', '0', 'https://wework.qpic.cn/wwpic3az/156b0a73610823431b46358a0df6afff/group_qr/0', 'cfg_0018', '2026-04-23 04:16:07', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 18', '2024-06-27 17:48:35', '[{"chatId":"wr_chat_0018"}]'),
-(3200019, 1, '活码 · 家族办 群 4', '0', 'https://wework.qpic.cn/wwpic3az/0de448c2164b3f13efa6ed993c9ffd39/group_qr/0', 'cfg_0019', '2025-06-15 06:15:52', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 19', '2025-09-23 18:30:45', '[{"chatId":"wr_chat_0019"}]'),
-(3200020, 1, '活码 · 消费股 群 4', '0', 'https://wework.qpic.cn/wwpic3az/53b247b8c4a990ee45414e1f88a313d9/group_qr/0', 'cfg_0020', '2024-05-04 11:07:29', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 20', '2024-04-01 21:21:32', '[{"chatId":"wr_chat_0020"}]'),
-(3200021, 1, '活码 · 茅台长期持有者 群 5', '0', 'https://wework.qpic.cn/wwpic3az/0773f3efc66530be59d35573285f9abf/group_qr/0', 'cfg_0021', '2026-01-12 20:17:27', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 21', '2025-05-07 17:38:51', '[{"chatId":"wr_chat_0021"}]'),
-(3200022, 1, '活码 · 港股互联网 群 5', '0', 'https://wework.qpic.cn/wwpic3az/41358101a657c63b4216fb8ea63bd11f/group_qr/0', 'cfg_0022', '2026-01-25 15:09:36', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 22', '2024-06-19 06:48:55', '[{"chatId":"wr_chat_0022"}]'),
-(3200023, 1, '活码 · 新能源 群 5', '0', 'https://wework.qpic.cn/wwpic3az/61fc0fe82ff058e65915ab60a50bf6ea/group_qr/0', 'cfg_0023', '2024-01-20 20:58:33', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 23', '2026-06-23 19:18:14', '[{"chatId":"wr_chat_0023"}]'),
-(3200024, 1, '活码 · 家族办 群 5', '0', 'https://wework.qpic.cn/wwpic3az/341d7f220bcb272007d267e5bf8bdfce/group_qr/0', 'cfg_0024', '2026-04-05 08:10:34', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 24', '2025-04-03 20:09:13', '[{"chatId":"wr_chat_0024"}]'),
-(3200025, 1, '活码 · 消费股 群 5', '0', 'https://wework.qpic.cn/wwpic3az/05ba24a54881c05603daee8a4e2c0fa6/group_qr/0', 'cfg_0025', '2026-02-02 01:40:24', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 25', '2025-02-07 16:17:15', '[{"chatId":"wr_chat_0025"}]'),
-(3200026, 1, '活码 · 茅台长期持有者 群 6', '0', 'https://wework.qpic.cn/wwpic3az/bc6ba5c1b9953e21250cf803950d5daf/group_qr/0', 'cfg_0026', '2024-05-01 23:52:20', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 26', '2025-03-30 16:22:02', '[{"chatId":"wr_chat_0026"}]'),
-(3200027, 1, '活码 · 港股互联网 群 6', '0', 'https://wework.qpic.cn/wwpic3az/ecf7eb45811496071707cfdef0507a2d/group_qr/0', 'cfg_0027', '2026-05-07 00:05:18', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 27', '2025-01-20 10:29:57', '[{"chatId":"wr_chat_0027"}]'),
-(3200028, 1, '活码 · 新能源 群 6', '0', 'https://wework.qpic.cn/wwpic3az/ced8487bcd25803884f7fa2d6ca97810/group_qr/0', 'cfg_0028', '2025-10-05 03:22:28', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 28', '2024-02-28 03:33:54', '[{"chatId":"wr_chat_0028"}]'),
-(3200029, 1, '活码 · 家族办 群 6', '0', 'https://wework.qpic.cn/wwpic3az/6a57cd25580a4217d96f17566c6256ca/group_qr/0', 'cfg_0029', '2025-08-08 13:35:48', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 29', '2025-10-26 05:36:37', '[{"chatId":"wr_chat_0029"}]'),
-(3200030, 1, '活码 · 消费股 群 6', '0', 'https://wework.qpic.cn/wwpic3az/860a34ac6ac6b7b254b76304afc88b2e/group_qr/0', 'cfg_0030', '2024-05-18 00:01:02', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 30', '2026-01-01 19:13:26', '[{"chatId":"wr_chat_0030"}]'),
-(3200031, 1, '活码 · 茅台长期持有者 群 7', '0', 'https://wework.qpic.cn/wwpic3az/9f6068294652d6326abac93387b79662/group_qr/0', 'cfg_0031', '2025-07-06 07:12:10', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 31', '2026-01-04 18:08:59', '[{"chatId":"wr_chat_0031"}]'),
-(3200032, 1, '活码 · 港股互联网 群 7', '0', 'https://wework.qpic.cn/wwpic3az/7c6cd7231c2eda2784702dd74a6529d8/group_qr/0', 'cfg_0032', '2025-11-04 18:08:18', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 32', '2025-07-03 01:24:06', '[{"chatId":"wr_chat_0032"}]'),
-(3200033, 1, '活码 · 新能源 群 7', '0', 'https://wework.qpic.cn/wwpic3az/a4b74941c8c8cdfeb79fdcfe3bbde67d/group_qr/0', 'cfg_0033', '2025-09-17 10:31:37', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 33', '2024-12-27 12:43:45', '[{"chatId":"wr_chat_0033"}]'),
-(3200034, 1, '活码 · 家族办 群 7', '0', 'https://wework.qpic.cn/wwpic3az/452ef0671c24546ae72be68d17e24023/group_qr/0', 'cfg_0034', '2025-09-18 03:42:39', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 34', '2025-02-15 01:19:51', '[{"chatId":"wr_chat_0034"}]'),
-(3200035, 1, '活码 · 消费股 群 7', '0', 'https://wework.qpic.cn/wwpic3az/6163e5ee00743659fdb5f6ac3aa00790/group_qr/0', 'cfg_0035', '2024-09-07 05:23:59', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 35', '2025-10-20 21:50:10', '[{"chatId":"wr_chat_0035"}]'),
-(3200036, 1, '活码 · 茅台长期持有者 群 8', '0', 'https://wework.qpic.cn/wwpic3az/7178835dfe1c59384960e58cee59f026/group_qr/0', 'cfg_0036', '2024-11-08 11:13:45', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 36', '2025-12-10 21:03:40', '[{"chatId":"wr_chat_0036"}]'),
-(3200037, 1, '活码 · 港股互联网 群 8', '0', 'https://wework.qpic.cn/wwpic3az/d9de286d22f51d04b4f68cd01c1f10f7/group_qr/0', 'cfg_0037', '2026-01-25 02:07:15', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 37', '2026-06-24 21:42:54', '[{"chatId":"wr_chat_0037"}]'),
-(3200038, 1, '活码 · 新能源 群 8', '0', 'https://wework.qpic.cn/wwpic3az/b5453553acd9d777ed54ebaa4b5088f5/group_qr/0', 'cfg_0038', '2024-11-20 00:52:56', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 38', '2025-06-16 22:42:06', '[{"chatId":"wr_chat_0038"}]'),
-(3200039, 1, '活码 · 家族办 群 8', '0', 'https://wework.qpic.cn/wwpic3az/04912f1a5bbbc7f7d3869fac34ac61ae/group_qr/0', 'cfg_0039', '2024-08-05 00:00:38', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 39', '2026-06-11 06:06:18', '[{"chatId":"wr_chat_0039"}]'),
-(3200040, 1, '活码 · 消费股 群 8', '0', 'https://wework.qpic.cn/wwpic3az/1d61e6cce22bbb9ac28908a00f3530ad/group_qr/0', 'cfg_0040', '2025-02-14 00:30:32', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 40', '2026-02-22 00:55:31', '[{"chatId":"wr_chat_0040"}]'),
-(3200041, 1, '活码 · 茅台长期持有者 群 9', '0', 'https://wework.qpic.cn/wwpic3az/3f896f8f45dc67419480e0e5e62d27a3/group_qr/0', 'cfg_0041', '2025-10-24 09:16:00', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 41', '2026-03-16 18:30:21', '[{"chatId":"wr_chat_0041"}]'),
-(3200042, 1, '活码 · 港股互联网 群 9', '0', 'https://wework.qpic.cn/wwpic3az/01ff7b67002d06deaca22d63dc52fcf6/group_qr/0', 'cfg_0042', '2024-08-30 22:05:06', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 42', '2024-03-15 07:45:53', '[{"chatId":"wr_chat_0042"}]'),
-(3200043, 1, '活码 · 新能源 群 9', '0', 'https://wework.qpic.cn/wwpic3az/594022149559bce24b9035e8abb47457/group_qr/0', 'cfg_0043', '2025-10-09 18:54:52', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 43', '2024-04-17 01:27:24', '[{"chatId":"wr_chat_0043"}]'),
-(3200044, 1, '活码 · 家族办 群 9', '0', 'https://wework.qpic.cn/wwpic3az/8a3b93e2915952befea041457402b19d/group_qr/0', 'cfg_0044', '2024-05-24 14:42:22', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 44', '2025-06-23 14:26:53', '[{"chatId":"wr_chat_0044"}]'),
-(3200045, 1, '活码 · 消费股 群 9', '0', 'https://wework.qpic.cn/wwpic3az/0771c08cec120b2d385b0cf9d46e55b6/group_qr/0', 'cfg_0045', '2026-06-02 10:17:57', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 45', '2025-07-06 01:57:03', '[{"chatId":"wr_chat_0045"}]'),
-(3200046, 1, '活码 · 茅台长期持有者 群 10', '0', 'https://wework.qpic.cn/wwpic3az/70d5714d14c0d805aff7fa735cc5acc2/group_qr/0', 'cfg_0046', '2024-07-15 03:53:21', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 46', '2025-10-23 05:08:56', '[{"chatId":"wr_chat_0046"}]'),
-(3200047, 1, '活码 · 港股互联网 群 10', '0', 'https://wework.qpic.cn/wwpic3az/04a41426cc2c0fafe51ac01488ddd824/group_qr/0', 'cfg_0047', '2024-11-13 21:39:08', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 47', '2025-12-09 19:28:04', '[{"chatId":"wr_chat_0047"}]'),
-(3200048, 1, '活码 · 新能源 群 10', '0', 'https://wework.qpic.cn/wwpic3az/73e2e04193d591a000e2fd0f7298ff8d/group_qr/0', 'cfg_0048', '2026-05-10 06:50:06', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 48', '2024-09-16 18:20:17', '[{"chatId":"wr_chat_0048"}]'),
-(3200049, 1, '活码 · 家族办 群 10', '0', 'https://wework.qpic.cn/wwpic3az/1d537ff6acda16a1baf6c558021d2eaf/group_qr/0', 'cfg_0049', '2025-07-04 20:58:42', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 49', '2025-06-21 22:24:56', '[{"chatId":"wr_chat_0049"}]'),
-(3200050, 1, '活码 · 消费股 群 10', '0', 'https://wework.qpic.cn/wwpic3az/5e647398c3f6dcd23d5745eabeb0de58/group_qr/0', 'cfg_0050', '2025-04-03 20:19:22', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 50', '2026-04-15 18:08:42', '[{"chatId":"wr_chat_0050"}]'),
-(3200051, 1, '活码 · 茅台长期持有者 群 11', '0', 'https://wework.qpic.cn/wwpic3az/5871fd6cecab75615ea6bbe6159651aa/group_qr/0', 'cfg_0051', '2024-02-25 14:39:17', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 51', '2024-12-12 02:19:00', '[{"chatId":"wr_chat_0051"}]'),
-(3200052, 1, '活码 · 港股互联网 群 11', '0', 'https://wework.qpic.cn/wwpic3az/96910e7b2194d7e3a77db9f84160f243/group_qr/0', 'cfg_0052', '2024-02-15 11:59:16', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 52', '2025-09-08 08:27:12', '[{"chatId":"wr_chat_0052"}]'),
-(3200053, 1, '活码 · 新能源 群 11', '0', 'https://wework.qpic.cn/wwpic3az/8b3a4488dbc09fbb37e29e4c75d0be8a/group_qr/0', 'cfg_0053', '2025-12-01 02:54:06', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 53', '2025-08-22 15:47:48', '[{"chatId":"wr_chat_0053"}]'),
-(3200054, 1, '活码 · 家族办 群 11', '0', 'https://wework.qpic.cn/wwpic3az/3e533f2dac04b0b198c9cd96bd974cd7/group_qr/0', 'cfg_0054', '2025-08-11 01:08:13', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 54', '2024-04-17 23:59:17', '[{"chatId":"wr_chat_0054"}]'),
-(3200055, 1, '活码 · 消费股 群 11', '0', 'https://wework.qpic.cn/wwpic3az/cbfdb61e1feae7744e631047955f9d9c/group_qr/0', 'cfg_0055', '2025-06-19 21:29:34', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 55', '2025-12-11 13:15:11', '[{"chatId":"wr_chat_0055"}]'),
-(3200056, 1, '活码 · 茅台长期持有者 群 12', '0', 'https://wework.qpic.cn/wwpic3az/2e384355fae86a9715a82a6c0184f1dc/group_qr/0', 'cfg_0056', '2025-05-18 08:02:04', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 56', '2024-12-21 18:32:57', '[{"chatId":"wr_chat_0056"}]'),
-(3200057, 1, '活码 · 港股互联网 群 12', '0', 'https://wework.qpic.cn/wwpic3az/c74981a41acbd29ddf280dcb8358b61f/group_qr/0', 'cfg_0057', '2024-08-15 01:54:53', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 57', '2025-02-02 15:51:44', '[{"chatId":"wr_chat_0057"}]'),
-(3200058, 1, '活码 · 新能源 群 12', '0', 'https://wework.qpic.cn/wwpic3az/c50875df85c12d36a8a2e7a43dd5410e/group_qr/0', 'cfg_0058', '2024-03-01 03:12:15', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 58', '2024-05-15 14:47:22', '[{"chatId":"wr_chat_0058"}]'),
-(3200059, 1, '活码 · 家族办 群 12', '0', 'https://wework.qpic.cn/wwpic3az/f286dc9925c609df176b063425e76b0f/group_qr/0', 'cfg_0059', '2025-09-11 06:53:49', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 59', '2024-09-24 21:02:54', '[{"chatId":"wr_chat_0059"}]'),
-(3200060, 1, '活码 · 消费股 群 12', '0', 'https://wework.qpic.cn/wwpic3az/6ce8f5186ee71f21f9e04241d4eb92b7/group_qr/0', 'cfg_0060', '2025-08-23 23:25:00', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 60', '2024-06-20 16:33:38', '[{"chatId":"wr_chat_0060"}]');
+(3200001, 1, '活码 · 茅台长期持有者 群 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_01.png', 'cfg_0001', '2024-07-12 13:20:27', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 1', '2026-01-26 07:15:47', '[{"chatId":"wr_chat_0001"}]'),
+(3200002, 1, '活码 · 港股互联网 群 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_02.png', 'cfg_0002', '2026-06-02 00:56:40', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 2', '2024-06-25 23:37:30', '[{"chatId":"wr_chat_0002"}]'),
+(3200003, 1, '活码 · 新能源 群 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_03.png', 'cfg_0003', '2025-09-04 19:52:47', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 3', '2025-05-22 04:35:56', '[{"chatId":"wr_chat_0003"}]'),
+(3200004, 1, '活码 · 家族办 群 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_04.png', 'cfg_0004', '2024-07-02 08:26:37', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 4', '2024-02-05 23:59:56', '[{"chatId":"wr_chat_0004"}]'),
+(3200005, 1, '活码 · 消费股 群 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_05.png', 'cfg_0005', '2026-05-18 00:58:17', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 5', '2024-12-09 09:02:44', '[{"chatId":"wr_chat_0005"}]'),
+(3200006, 1, '活码 · 茅台长期持有者 群 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_06.png', 'cfg_0006', '2024-07-06 19:04:18', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 6', '2025-04-19 09:13:01', '[{"chatId":"wr_chat_0006"}]'),
+(3200007, 1, '活码 · 港股互联网 群 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_07.png', 'cfg_0007', '2025-03-27 05:05:30', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 7', '2024-05-13 14:32:24', '[{"chatId":"wr_chat_0007"}]'),
+(3200008, 1, '活码 · 新能源 群 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_08.png', 'cfg_0008', '2024-06-18 19:48:55', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 8', '2024-07-19 18:37:09', '[{"chatId":"wr_chat_0008"}]'),
+(3200009, 1, '活码 · 家族办 群 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_09.png', 'cfg_0009', '2026-03-06 16:22:54', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 9', '2026-06-08 03:39:45', '[{"chatId":"wr_chat_0009"}]'),
+(3200010, 1, '活码 · 消费股 群 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_10.png', 'cfg_0010', '2026-01-05 17:59:13', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 10', '2024-01-07 22:14:47', '[{"chatId":"wr_chat_0010"}]'),
+(3200011, 1, '活码 · 茅台长期持有者 群 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_11.png', 'cfg_0011', '2026-02-27 02:27:45', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 11', '2025-04-27 00:38:14', '[{"chatId":"wr_chat_0011"}]'),
+(3200012, 1, '活码 · 港股互联网 群 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_12.png', 'cfg_0012', '2024-12-23 03:54:11', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 12', '2024-06-29 13:03:45', '[{"chatId":"wr_chat_0012"}]'),
+(3200013, 1, '活码 · 新能源 群 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_01.png', 'cfg_0013', '2024-08-16 15:52:22', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 13', '2024-04-16 21:17:05', '[{"chatId":"wr_chat_0013"}]'),
+(3200014, 1, '活码 · 家族办 群 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_02.png', 'cfg_0014', '2026-05-13 05:57:11', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 14', '2025-10-24 00:23:52', '[{"chatId":"wr_chat_0014"}]'),
+(3200015, 1, '活码 · 消费股 群 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_03.png', 'cfg_0015', '2026-05-31 05:42:01', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 15', '2024-04-19 23:13:54', '[{"chatId":"wr_chat_0015"}]'),
+(3200016, 1, '活码 · 茅台长期持有者 群 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_04.png', 'cfg_0016', '2025-06-13 11:44:09', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 16', '2025-11-04 20:16:51', '[{"chatId":"wr_chat_0016"}]'),
+(3200017, 1, '活码 · 港股互联网 群 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_05.png', 'cfg_0017', '2024-07-16 07:58:42', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 17', '2024-05-12 12:42:57', '[{"chatId":"wr_chat_0017"}]'),
+(3200018, 1, '活码 · 新能源 群 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_06.png', 'cfg_0018', '2026-04-23 04:16:07', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 18', '2024-06-27 17:48:35', '[{"chatId":"wr_chat_0018"}]'),
+(3200019, 1, '活码 · 家族办 群 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_07.png', 'cfg_0019', '2025-06-15 06:15:52', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 19', '2025-09-23 18:30:45', '[{"chatId":"wr_chat_0019"}]'),
+(3200020, 1, '活码 · 消费股 群 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_08.png', 'cfg_0020', '2024-05-04 11:07:29', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 20', '2024-04-01 21:21:32', '[{"chatId":"wr_chat_0020"}]'),
+(3200021, 1, '活码 · 茅台长期持有者 群 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_09.png', 'cfg_0021', '2026-01-12 20:17:27', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 21', '2025-05-07 17:38:51', '[{"chatId":"wr_chat_0021"}]'),
+(3200022, 1, '活码 · 港股互联网 群 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_10.png', 'cfg_0022', '2026-01-25 15:09:36', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 22', '2024-06-19 06:48:55', '[{"chatId":"wr_chat_0022"}]'),
+(3200023, 1, '活码 · 新能源 群 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_11.png', 'cfg_0023', '2024-01-20 20:58:33', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 23', '2026-06-23 19:18:14', '[{"chatId":"wr_chat_0023"}]'),
+(3200024, 1, '活码 · 家族办 群 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_12.png', 'cfg_0024', '2026-04-05 08:10:34', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 24', '2025-04-03 20:09:13', '[{"chatId":"wr_chat_0024"}]'),
+(3200025, 1, '活码 · 消费股 群 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_01.png', 'cfg_0025', '2026-02-02 01:40:24', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 25', '2025-02-07 16:17:15', '[{"chatId":"wr_chat_0025"}]'),
+(3200026, 1, '活码 · 茅台长期持有者 群 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_02.png', 'cfg_0026', '2024-05-01 23:52:20', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 26', '2025-03-30 16:22:02', '[{"chatId":"wr_chat_0026"}]'),
+(3200027, 1, '活码 · 港股互联网 群 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_03.png', 'cfg_0027', '2026-05-07 00:05:18', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 27', '2025-01-20 10:29:57', '[{"chatId":"wr_chat_0027"}]'),
+(3200028, 1, '活码 · 新能源 群 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_04.png', 'cfg_0028', '2025-10-05 03:22:28', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 28', '2024-02-28 03:33:54', '[{"chatId":"wr_chat_0028"}]'),
+(3200029, 1, '活码 · 家族办 群 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_05.png', 'cfg_0029', '2025-08-08 13:35:48', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 29', '2025-10-26 05:36:37', '[{"chatId":"wr_chat_0029"}]'),
+(3200030, 1, '活码 · 消费股 群 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_06.png', 'cfg_0030', '2024-05-18 00:01:02', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 30', '2026-01-01 19:13:26', '[{"chatId":"wr_chat_0030"}]'),
+(3200031, 1, '活码 · 茅台长期持有者 群 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_07.png', 'cfg_0031', '2025-07-06 07:12:10', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 31', '2026-01-04 18:08:59', '[{"chatId":"wr_chat_0031"}]'),
+(3200032, 1, '活码 · 港股互联网 群 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_08.png', 'cfg_0032', '2025-11-04 18:08:18', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 32', '2025-07-03 01:24:06', '[{"chatId":"wr_chat_0032"}]'),
+(3200033, 1, '活码 · 新能源 群 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_09.png', 'cfg_0033', '2025-09-17 10:31:37', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 33', '2024-12-27 12:43:45', '[{"chatId":"wr_chat_0033"}]'),
+(3200034, 1, '活码 · 家族办 群 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_10.png', 'cfg_0034', '2025-09-18 03:42:39', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 34', '2025-02-15 01:19:51', '[{"chatId":"wr_chat_0034"}]'),
+(3200035, 1, '活码 · 消费股 群 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_11.png', 'cfg_0035', '2024-09-07 05:23:59', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 35', '2025-10-20 21:50:10', '[{"chatId":"wr_chat_0035"}]'),
+(3200036, 1, '活码 · 茅台长期持有者 群 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_12.png', 'cfg_0036', '2024-11-08 11:13:45', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 36', '2025-12-10 21:03:40', '[{"chatId":"wr_chat_0036"}]'),
+(3200037, 1, '活码 · 港股互联网 群 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_01.png', 'cfg_0037', '2026-01-25 02:07:15', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 37', '2026-06-24 21:42:54', '[{"chatId":"wr_chat_0037"}]'),
+(3200038, 1, '活码 · 新能源 群 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_02.png', 'cfg_0038', '2024-11-20 00:52:56', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 38', '2025-06-16 22:42:06', '[{"chatId":"wr_chat_0038"}]'),
+(3200039, 1, '活码 · 家族办 群 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_03.png', 'cfg_0039', '2024-08-05 00:00:38', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 39', '2026-06-11 06:06:18', '[{"chatId":"wr_chat_0039"}]'),
+(3200040, 1, '活码 · 消费股 群 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_04.png', 'cfg_0040', '2025-02-14 00:30:32', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 40', '2026-02-22 00:55:31', '[{"chatId":"wr_chat_0040"}]'),
+(3200041, 1, '活码 · 茅台长期持有者 群 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_05.png', 'cfg_0041', '2025-10-24 09:16:00', 0, '扫码入群 · 巴菲特建仓可口可乐', 1, '护城河客户群 · 系列 41', '2026-03-16 18:30:21', '[{"chatId":"wr_chat_0041"}]'),
+(3200042, 1, '活码 · 港股互联网 群 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_06.png', 'cfg_0042', '2024-08-30 22:05:06', 0, '扫码入群 · See\'s Candies 收购', 1, '护城河客户群 · 系列 42', '2024-03-15 07:45:53', '[{"chatId":"wr_chat_0042"}]'),
+(3200043, 1, '活码 · 新能源 群 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_07.png', 'cfg_0043', '2025-10-09 18:54:52', 0, '扫码入群 · 高盛优先股', 1, '护城河客户群 · 系列 43', '2024-04-17 01:27:24', '[{"chatId":"wr_chat_0043"}]'),
+(3200044, 1, '活码 · 家族办 群 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_08.png', 'cfg_0044', '2024-05-24 14:42:22', 0, '扫码入群 · 巴菲特买苹果', 1, '护城河客户群 · 系列 44', '2025-06-23 14:26:53', '[{"chatId":"wr_chat_0044"}]'),
+(3200045, 1, '活码 · 消费股 群 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_09.png', 'cfg_0045', '2026-06-02 10:17:57', 0, '扫码入群 · 日本五大商社', 1, '护城河客户群 · 系列 45', '2025-07-06 01:57:03', '[{"chatId":"wr_chat_0045"}]'),
+(3200046, 1, '活码 · 茅台长期持有者 群 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_10.png', 'cfg_0046', '2024-07-15 03:53:21', 0, '扫码入群 · 网易 1 美元抄底', 1, '护城河客户群 · 系列 46', '2025-10-23 05:08:56', '[{"chatId":"wr_chat_0046"}]'),
+(3200047, 1, '活码 · 港股互联网 群 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_11.png', 'cfg_0047', '2024-11-13 21:39:08', 0, '扫码入群 · 拼多多种子期', 1, '护城河客户群 · 系列 47', '2025-12-09 19:28:04', '[{"chatId":"wr_chat_0047"}]'),
+(3200048, 1, '活码 · 新能源 群 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_12.png', 'cfg_0048', '2026-05-10 06:50:06', 0, '扫码入群 · 林园持有茅台', 1, '护城河客户群 · 系列 48', '2024-09-16 18:20:17', '[{"chatId":"wr_chat_0048"}]'),
+(3200049, 1, '活码 · 家族办 群 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_01.png', 'cfg_0049', '2025-07-04 20:58:42', 0, '扫码入群 · 但斌抄底腾讯', 1, '护城河客户群 · 系列 49', '2025-06-21 22:24:56', '[{"chatId":"wr_chat_0049"}]'),
+(3200050, 1, '活码 · 消费股 群 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_02.png', 'cfg_0050', '2025-04-03 20:19:22', 0, '扫码入群 · 海天味业上市', 1, '护城河客户群 · 系列 50', '2026-04-15 18:08:42', '[{"chatId":"wr_chat_0050"}]'),
+(3200051, 1, '活码 · 茅台长期持有者 群 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_03.png', 'cfg_0051', '2024-02-25 14:39:17', 0, '扫码入群 · 美团千亿再造', 1, '护城河客户群 · 系列 51', '2024-12-12 02:19:00', '[{"chatId":"wr_chat_0051"}]'),
+(3200052, 1, '活码 · 港股互联网 群 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_04.png', 'cfg_0052', '2024-02-15 11:59:16', 0, '扫码入群 · 华盛顿邮报', 1, '护城河客户群 · 系列 52', '2025-09-08 08:27:12', '[{"chatId":"wr_chat_0052"}]'),
+(3200053, 1, '活码 · 新能源 群 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_05.png', 'cfg_0053', '2025-12-01 02:54:06', 0, '扫码入群 · 巴菲特减持比亚迪', 1, '护城河客户群 · 系列 53', '2025-08-22 15:47:48', '[{"chatId":"wr_chat_0053"}]'),
+(3200054, 1, '活码 · 家族办 群 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_06.png', 'cfg_0054', '2025-08-11 01:08:13', 0, '扫码入群 · 巴菲特建仓中石油', 1, '护城河客户群 · 系列 54', '2024-04-17 23:59:17', '[{"chatId":"wr_chat_0054"}]'),
+(3200055, 1, '活码 · 消费股 群 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_07.png', 'cfg_0055', '2025-06-19 21:29:34', 0, '扫码入群 · 美国运通色拉油危机', 1, '护城河客户群 · 系列 55', '2025-12-11 13:15:11', '[{"chatId":"wr_chat_0055"}]'),
+(3200056, 1, '活码 · 茅台长期持有者 群 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_08.png', 'cfg_0056', '2025-05-18 08:02:04', 0, '扫码入群 · 茅台十年 60 倍', 1, '护城河客户群 · 系列 56', '2024-12-21 18:32:57', '[{"chatId":"wr_chat_0056"}]'),
+(3200057, 1, '活码 · 港股互联网 群 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_09.png', 'cfg_0057', '2024-08-15 01:54:53', 0, '扫码入群 · 港股互联网监管危机', 1, '护城河客户群 · 系列 57', '2025-02-02 15:51:44', '[{"chatId":"wr_chat_0057"}]'),
+(3200058, 1, '活码 · 新能源 群 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_10.png', 'cfg_0058', '2024-03-01 03:12:15', 0, '扫码入群 · 麦哲伦基金 29% CAGR', 1, '护城河客户群 · 系列 58', '2024-05-15 14:47:22', '[{"chatId":"wr_chat_0058"}]'),
+(3200059, 1, '活码 · 家族办 群 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_11.png', 'cfg_0059', '2025-09-11 06:53:49', 0, '扫码入群 · 白酒塑化剂危机', 1, '护城河客户群 · 系列 59', '2024-09-24 21:02:54', '[{"chatId":"wr_chat_0059"}]'),
+(3200060, 1, '活码 · 消费股 群 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_group_12.png', 'cfg_0060', '2025-08-23 23:25:00', 0, '扫码入群 · 宁德时代千亿', 1, '护城河客户群 · 系列 60', '2024-06-20 16:33:38', '[{"chatId":"wr_chat_0060"}]');
 
 -- ========================================================================
 -- iyque_user_code · 员工活码
 -- ========================================================================
 INSERT INTO `iyque_user_code` (`id`, `backupQrUrl`, `codeName`, `codeState`, `codeUrl`, `configId`, `createTime`, `delFlag`, `isExclusive`, `logoUrl`, `remarkType`, `skipVerify`, `startPeriodAnnex`, `tagId`, `tagName`, `updateTime`, `userId`, `userName`, `weclomeMsg`) VALUES
-(3300001, 'https://wework.qpic.cn/wwpic3az/71e495813d6bde191db272c2b8be09b0/qrcode/0', '格雷厄姆 · 专属活码 1', '0', 'https://work.weixin.qq.com/ca/cawcdec11127482bd8628f', 'cfg_0001', '2026-06-02 23:26:25', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000024,1000027', '重点客户,短线客户', '2025-01-16 20:25:04', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
-(3300002, 'https://wework.qpic.cn/wwpic3az/87596b856e1cd2fd140d2dad78c0ff28/qrcode/0', '巴菲特 · 专属活码 2', '0', 'https://work.weixin.qq.com/ca/cawcde83f9f970dd76c25f', 'cfg_0002', '2024-02-27 13:15:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000022', '科技传承,地产传承', '2025-08-25 18:52:54', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
-(3300003, 'https://wework.qpic.cn/wwpic3az/392139c846ffdd044154b5c430fd4877/qrcode/0', '芒格 · 专属活码 3', '0', 'https://work.weixin.qq.com/ca/cawcde7150bbcd6ae647b2', 'cfg_0003', '2025-03-23 21:48:50', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000026,1000006', '海外,制造业创始人', '2026-02-27 08:43:24', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
-(3300004, 'https://wework.qpic.cn/wwpic3az/b6cf8fe854913cc07b5093dda342102d/qrcode/0', '彼得·林奇 · 专属活码 4', '0', 'https://work.weixin.qq.com/ca/cawcde7569222b2cdabd91', 'cfg_0004', '2024-03-23 22:57:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000015', '金融,家电龙头', '2025-06-25 20:09:40', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
-(3300005, 'https://wework.qpic.cn/wwpic3az/068403fd2ecca63112934a4cd0edd58a/qrcode/0', '费雪 · 专属活码 5', '0', 'https://work.weixin.qq.com/ca/cawcde5eda88a347be54aa', 'cfg_0005', '2024-09-06 11:50:07', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000019', '金融,保险再保', '2025-07-10 19:30:44', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
-(3300006, 'https://wework.qpic.cn/wwpic3az/0bedce85fed8157edeb3bff9623bc01c/qrcode/0', '邓普顿 · 专属活码 6', '0', 'https://work.weixin.qq.com/ca/cawcde0a0995bd7fac3601', 'cfg_0006', '2025-07-09 07:00:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000022', '互联网,地产传承', '2024-06-04 03:01:49', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
-(3300007, 'https://wework.qpic.cn/wwpic3az/5960ed8a1aba785279d5042a7771242d/qrcode/0', '段永平 · 专属活码 7', '0', 'https://work.weixin.qq.com/ca/cawcde1e8ce1f574fdeb73', 'cfg_0007', '2026-02-25 04:08:45', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000005,1000001', '互联网创始人,超高净值', '2025-10-01 18:43:08', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
-(3300008, 'https://wework.qpic.cn/wwpic3az/34208d3ad49d3f693d144d3e6ef1b448/qrcode/0', '林园 · 专属活码 8', '0', 'https://work.weixin.qq.com/ca/cawcde0e4083b0bffbe0f7', 'cfg_0008', '2024-02-19 00:44:48', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000009', '游资,家族办公室', '2024-12-12 06:11:18', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
-(3300009, 'https://wework.qpic.cn/wwpic3az/04da8daabe5976aede07848fd909c9ce/qrcode/0', '但斌 · 专属活码 9', '0', 'https://work.weixin.qq.com/ca/cawcde7512f27bc990355b', 'cfg_0009', '2025-07-28 10:14:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000010', '互联网,机构客户', '2024-07-31 06:05:01', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
-(3300010, 'https://wework.qpic.cn/wwpic3az/0138c399b01c628976508eb42b4cbc06/qrcode/0', '章盟主 · 专属活码 10', '0', 'https://work.weixin.qq.com/ca/cawcdeda3848af4faaf2a3', 'cfg_0010', '2026-04-16 21:44:57', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000005', '零售,互联网创始人', '2025-03-12 04:45:18', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
-(3300011, 'https://wework.qpic.cn/wwpic3az/b0425adfe8145c3aa579ed23b2c97b59/qrcode/0', '李录 · 专属活码 11', '0', 'https://work.weixin.qq.com/ca/cawcdeb65d571cbd00ee30', 'cfg_0011', '2026-02-05 14:36:43', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000001', '机构客户,超高净值', '2024-07-18 10:31:07', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
-(3300012, 'https://wework.qpic.cn/wwpic3az/542aa40893846f65b9715a98cc020e34/qrcode/0', '赵丹阳 · 专属活码 12', '0', 'https://work.weixin.qq.com/ca/cawcde52e7cde040620e2f', 'cfg_0012', '2026-02-24 23:16:46', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000007', '科技传承,媒体世家', '2025-07-14 21:52:06', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
-(3300013, 'https://wework.qpic.cn/wwpic3az/535172c08a601c9544b92e338a26cab2/qrcode/0', '格雷厄姆 · 专属活码 13', '0', 'https://work.weixin.qq.com/ca/cawcde38770b38ca3f4e41', 'cfg_0013', '2025-08-22 16:00:19', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000001', '零售,超高净值', '2024-06-20 03:08:41', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
-(3300014, 'https://wework.qpic.cn/wwpic3az/fc74da7190380f4e97f2f5d90097ea58/qrcode/0', '巴菲特 · 专属活码 14', '0', 'https://work.weixin.qq.com/ca/cawcdee874a2753e20f901', 'cfg_0014', '2024-07-12 07:13:35', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000001', '保险再保,超高净值', '2025-10-20 10:43:33', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
-(3300015, 'https://wework.qpic.cn/wwpic3az/b21ec8ef11cfcb9d98a67e3d2648a5b7/qrcode/0', '芒格 · 专属活码 15', '0', 'https://work.weixin.qq.com/ca/cawcde511aaf07e4bdf122', 'cfg_0015', '2025-03-29 03:06:16', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000017', '保险再保,新能源', '2025-01-06 07:04:06', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
-(3300016, 'https://wework.qpic.cn/wwpic3az/88afd2ea4ae01d38f1829f465f2c65b0/qrcode/0', '彼得·林奇 · 专属活码 16', '0', 'https://work.weixin.qq.com/ca/cawcdee4f1a1a9fd64aa02', 'cfg_0016', '2024-06-06 15:30:00', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000007,1000020', '媒体世家,科技', '2024-08-23 12:45:01', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
-(3300017, 'https://wework.qpic.cn/wwpic3az/2cb13c38e26eb191c417dd60a8443781/qrcode/0', '费雪 · 专属活码 17', '0', 'https://work.weixin.qq.com/ca/cawcde2fb7c311186cd2e2', 'cfg_0017', '2025-08-09 21:53:23', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000009,1000015', '家族办公室,家电龙头', '2024-05-05 07:24:32', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
-(3300018, 'https://wework.qpic.cn/wwpic3az/6fefe03d79b4100c3dc57714ceb1270f/qrcode/0', '邓普顿 · 专属活码 18', '0', 'https://work.weixin.qq.com/ca/cawcdeafe276975b79567b', 'cfg_0018', '2024-02-28 22:27:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000020,1000025', '科技,跨境', '2024-11-14 01:02:27', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
-(3300019, 'https://wework.qpic.cn/wwpic3az/13e085fcc68e9ecfb0c2b029ab846f30/qrcode/0', '段永平 · 专属活码 19', '0', 'https://work.weixin.qq.com/ca/cawcdecb81dfb08e005c23', 'cfg_0019', '2024-02-21 12:12:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000009', '医美,家族办公室', '2024-01-29 07:56:06', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
-(3300020, 'https://wework.qpic.cn/wwpic3az/cbdfe14b8ed075c31fbae508744cc34b/qrcode/0', '林园 · 专属活码 20', '0', 'https://work.weixin.qq.com/ca/cawcde56cccac9000b2e88', 'cfg_0020', '2026-05-23 13:58:57', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000020,1000006', '科技,制造业创始人', '2026-05-27 07:13:11', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
-(3300021, 'https://wework.qpic.cn/wwpic3az/0eef3c92084761434b087d7003fdb326/qrcode/0', '但斌 · 专属活码 21', '0', 'https://work.weixin.qq.com/ca/cawcde705b063ac57e9951', 'cfg_0021', '2026-05-10 08:37:55', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000005,1000027', '互联网创始人,短线客户', '2024-12-07 19:33:09', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
-(3300022, 'https://wework.qpic.cn/wwpic3az/06def330ac033217db4895330e811349/qrcode/0', '章盟主 · 专属活码 22', '0', 'https://work.weixin.qq.com/ca/cawcde8c026b35a94f8f3d', 'cfg_0022', '2024-10-21 05:22:36', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000019', '医美,保险再保', '2024-08-31 09:54:11', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
-(3300023, 'https://wework.qpic.cn/wwpic3az/a7453c6561a3b313ed1c719cb30e8b9e/qrcode/0', '李录 · 专属活码 23', '0', 'https://work.weixin.qq.com/ca/cawcde69cec7d3ef2a37a5', 'cfg_0023', '2024-12-24 20:06:11', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000023', '机构客户,长期客户', '2025-02-26 09:52:04', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
-(3300024, 'https://wework.qpic.cn/wwpic3az/58c9b414ae8bee353c80270a1f753e92/qrcode/0', '赵丹阳 · 专属活码 24', '0', 'https://work.weixin.qq.com/ca/cawcdeed4ea2d67cd7c245', 'cfg_0024', '2026-03-30 01:20:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000008', '游资,科技传承', '2024-08-05 07:01:56', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
-(3300025, 'https://wework.qpic.cn/wwpic3az/611e142885f4ecb5bc33f8538f8df1b6/qrcode/0', '格雷厄姆 · 专属活码 25', '0', 'https://work.weixin.qq.com/ca/cawcdec8c4402d5502f965', 'cfg_0025', '2025-01-26 13:35:35', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000024,1000006', '重点客户,制造业创始人', '2025-06-03 17:54:41', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
-(3300026, 'https://wework.qpic.cn/wwpic3az/50c5e038117bc7fa56ea9d6af5037baf/qrcode/0', '巴菲特 · 专属活码 26', '0', 'https://work.weixin.qq.com/ca/cawcde0d8dec9e2ce37f0f', 'cfg_0026', '2025-10-18 09:20:21', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000001', '零售,超高净值', '2025-12-20 23:02:56', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
-(3300027, 'https://wework.qpic.cn/wwpic3az/dc6542a7689840fce9cd00aeef133c93/qrcode/0', '芒格 · 专属活码 27', '0', 'https://work.weixin.qq.com/ca/cawcdebf9e907018aef711', 'cfg_0027', '2025-02-28 08:31:18', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000011', '零售,金融', '2026-01-14 07:23:10', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
-(3300028, 'https://wework.qpic.cn/wwpic3az/6f0df88e1b79ea0894331555dd101890/qrcode/0', '彼得·林奇 · 专属活码 28', '0', 'https://work.weixin.qq.com/ca/cawcdea19076dea08efbf8', 'cfg_0028', '2024-05-27 08:34:06', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000015,1000003', '家电龙头,零售客户', '2026-03-25 17:15:13', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
-(3300029, 'https://wework.qpic.cn/wwpic3az/845f2c57200c95302864e681b0c5fba2/qrcode/0', '费雪 · 专属活码 29', '0', 'https://work.weixin.qq.com/ca/cawcde8498e30090abf41d', 'cfg_0029', '2024-02-11 17:33:11', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000004,1000018', '潜在客户,医药', '2025-08-13 07:00:06', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
-(3300030, 'https://wework.qpic.cn/wwpic3az/ad41eb6e22ee7a6d97027d79d8825b37/qrcode/0', '邓普顿 · 专属活码 30', '0', 'https://work.weixin.qq.com/ca/cawcde393b1beb5571d0d9', 'cfg_0030', '2024-08-02 17:51:54', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000017,1000002', '新能源,高净值', '2026-02-07 22:47:08', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
-(3300031, 'https://wework.qpic.cn/wwpic3az/1c124a680e556cddc9bc6259756e3aee/qrcode/0', '段永平 · 专属活码 31', '0', 'https://work.weixin.qq.com/ca/cawcde63866956cc43ea9b', 'cfg_0031', '2024-06-26 21:37:41', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000023', '保险再保,长期客户', '2024-07-13 02:57:39', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
-(3300032, 'https://wework.qpic.cn/wwpic3az/eb848b7337f0f5b0a2c69b700fbe9618/qrcode/0', '林园 · 专属活码 32', '0', 'https://work.weixin.qq.com/ca/cawcdeb6871be8bbb0a737', 'cfg_0032', '2026-02-16 12:35:41', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000015', '超高净值,家电龙头', '2025-12-30 06:30:47', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
-(3300033, 'https://wework.qpic.cn/wwpic3az/5f7cd7c1f19ad51aa4d0c334af5b04fa/qrcode/0', '但斌 · 专属活码 33', '0', 'https://work.weixin.qq.com/ca/cawcde7717b2a5afacf526', 'cfg_0033', '2025-08-24 09:32:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000010', '医美,机构客户', '2026-06-06 18:30:53', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
-(3300034, 'https://wework.qpic.cn/wwpic3az/e8ebd2255858d3111fa3ca5403b9fe01/qrcode/0', '章盟主 · 专属活码 34', '0', 'https://work.weixin.qq.com/ca/cawcdec51ff05cd9d85f7c', 'cfg_0034', '2025-05-09 10:26:21', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000006', '游资,制造业创始人', '2025-02-28 02:13:23', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
-(3300035, 'https://wework.qpic.cn/wwpic3az/d58501a1ab9eff5668a386e325a3b60d/qrcode/0', '李录 · 专属活码 35', '0', 'https://work.weixin.qq.com/ca/cawcde7ab7abbb912a6d98', 'cfg_0035', '2024-10-07 17:07:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000018,1000017', '医药,新能源', '2026-03-28 05:45:06', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
-(3300036, 'https://wework.qpic.cn/wwpic3az/1515771205484b474da259651fda8a0c/qrcode/0', '赵丹阳 · 专属活码 36', '0', 'https://work.weixin.qq.com/ca/cawcde25695788f4e86d35', 'cfg_0036', '2024-03-17 16:20:29', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000007,1000026', '媒体世家,海外', '2024-09-05 03:25:23', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
-(3300037, 'https://wework.qpic.cn/wwpic3az/20ec0383601a65ef0b29dbc4317c10a3/qrcode/0', '格雷厄姆 · 专属活码 37', '0', 'https://work.weixin.qq.com/ca/cawcdeae95c672361e166a', 'cfg_0037', '2025-03-25 20:45:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000015', '互联网,家电龙头', '2026-04-28 18:58:33', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
-(3300038, 'https://wework.qpic.cn/wwpic3az/a81ed2ecea1da2ac4c33c4627390e286/qrcode/0', '巴菲特 · 专属活码 38', '0', 'https://work.weixin.qq.com/ca/cawcdea9f91809d5ca422e', 'cfg_0038', '2025-05-12 02:13:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000020', '科技传承,科技', '2025-12-27 03:29:37', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
-(3300039, 'https://wework.qpic.cn/wwpic3az/f662746247ca345edd317368b49cbca6/qrcode/0', '芒格 · 专属活码 39', '0', 'https://work.weixin.qq.com/ca/cawcde1e65159c7351c424', 'cfg_0039', '2024-12-06 21:53:29', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000004', '超高净值,潜在客户', '2024-10-22 15:29:57', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
-(3300040, 'https://wework.qpic.cn/wwpic3az/e27cbc33f4a5b7503d1f6fcb6d0c54f7/qrcode/0', '彼得·林奇 · 专属活码 40', '0', 'https://work.weixin.qq.com/ca/cawcde2e4c692e86cb0ed3', 'cfg_0040', '2024-09-23 05:35:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000022,1000009', '地产传承,家族办公室', '2024-05-22 11:31:13', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
-(3300041, 'https://wework.qpic.cn/wwpic3az/507ad11fc2a1caf7fd230180de1d5c92/qrcode/0', '费雪 · 专属活码 41', '0', 'https://work.weixin.qq.com/ca/cawcde78b54ee4443d029b', 'cfg_0041', '2026-02-11 18:59:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000022', '零售,地产传承', '2025-08-25 03:41:19', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
-(3300042, 'https://wework.qpic.cn/wwpic3az/eecc35d7ad31f54fd61a19a3835771c1/qrcode/0', '邓普顿 · 专属活码 42', '0', 'https://work.weixin.qq.com/ca/cawcde08d6a80680f02f64', 'cfg_0042', '2024-02-06 13:55:56', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000023,1000005', '长期客户,互联网创始人', '2024-03-01 00:03:11', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
-(3300043, 'https://wework.qpic.cn/wwpic3az/7b4a96ebf91dda12af578c9327834f1f/qrcode/0', '段永平 · 专属活码 43', '0', 'https://work.weixin.qq.com/ca/cawcdea05e221121a06f28', 'cfg_0043', '2025-10-22 02:10:58', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000003', '机构客户,零售客户', '2024-03-22 12:51:21', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
-(3300044, 'https://wework.qpic.cn/wwpic3az/35930ceff1dff73db1a0e09662e18317/qrcode/0', '林园 · 专属活码 44', '0', 'https://work.weixin.qq.com/ca/cawcdeade548ccbe25a2a1', 'cfg_0044', '2024-12-03 23:07:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000025,1000023', '跨境,长期客户', '2025-10-03 05:39:52', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
-(3300045, 'https://wework.qpic.cn/wwpic3az/9ba39a7a51b0754b0a967c7e3b4804d9/qrcode/0', '但斌 · 专属活码 45', '0', 'https://work.weixin.qq.com/ca/cawcdef47e3e43d74f0de9', 'cfg_0045', '2025-02-12 13:41:50', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000004,1000019', '潜在客户,保险再保', '2024-04-28 16:13:05', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
-(3300046, 'https://wework.qpic.cn/wwpic3az/175b9483a0278c900a98775d58c810f1/qrcode/0', '章盟主 · 专属活码 46', '0', 'https://work.weixin.qq.com/ca/cawcde96485554eeb27c10', 'cfg_0046', '2024-01-09 13:38:03', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000001', '科技传承,超高净值', '2024-06-04 05:36:10', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
-(3300047, 'https://wework.qpic.cn/wwpic3az/7716ea5df311153fb1ab6ab4ae18e200/qrcode/0', '李录 · 专属活码 47', '0', 'https://work.weixin.qq.com/ca/cawcded7b9c5a804adfbf4', 'cfg_0047', '2026-02-16 06:57:23', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000014,1000020', '白酒,科技', '2026-05-04 16:35:15', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
-(3300048, 'https://wework.qpic.cn/wwpic3az/1cb2f532c3bb2da7f289974f72835af7/qrcode/0', '赵丹阳 · 专属活码 48', '0', 'https://work.weixin.qq.com/ca/cawcde16083ae18783d6d6', 'cfg_0048', '2025-09-28 17:20:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000009,1000013', '家族办公室,游资', '2026-06-04 08:51:18', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
-(3300049, 'https://wework.qpic.cn/wwpic3az/837ada47860c793630cb85a7ee304d82/qrcode/0', '格雷厄姆 · 专属活码 49', '0', 'https://work.weixin.qq.com/ca/cawcde8ce5e09d395de095', 'cfg_0049', '2025-10-31 14:44:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000027,1000012', '短线客户,医美', '2024-04-25 11:56:54', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
-(3300050, 'https://wework.qpic.cn/wwpic3az/9486be56d39cc5eb4b1cbfd24052f360/qrcode/0', '巴菲特 · 专属活码 50', '0', 'https://work.weixin.qq.com/ca/cawcded8c5a2e3bb2c6469', 'cfg_0050', '2025-05-21 08:42:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000024', '超高净值,重点客户', '2025-07-05 01:57:03', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
-(3300051, 'https://wework.qpic.cn/wwpic3az/47f5ad15cd0522f7b68ec9bc39882133/qrcode/0', '芒格 · 专属活码 51', '0', 'https://work.weixin.qq.com/ca/cawcdeaac53e8169d1e66e', 'cfg_0051', '2025-11-25 08:35:46', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000012', '高净值,医美', '2025-09-30 04:18:46', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
-(3300052, 'https://wework.qpic.cn/wwpic3az/813da1c3af285e23e41590573f1b89d5/qrcode/0', '彼得·林奇 · 专属活码 52', '0', 'https://work.weixin.qq.com/ca/cawcdea38bf6e39593813e', 'cfg_0052', '2025-12-08 11:26:19', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000013', '高净值,游资', '2025-08-03 15:25:10', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
-(3300053, 'https://wework.qpic.cn/wwpic3az/b2f95a7a23b307041d7d185680f48726/qrcode/0', '费雪 · 专属活码 53', '0', 'https://work.weixin.qq.com/ca/cawcde64ce3b6ee1ad19b6', 'cfg_0053', '2024-04-09 01:05:26', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000027', '医美,短线客户', '2026-03-13 02:14:48', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
-(3300054, 'https://wework.qpic.cn/wwpic3az/64da7400e2511e8e06efc127bb866924/qrcode/0', '邓普顿 · 专属活码 54', '0', 'https://work.weixin.qq.com/ca/cawcdec178977573c5b2b2', 'cfg_0054', '2026-01-05 22:48:44', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000003,1000025', '零售客户,跨境', '2024-03-02 22:24:47', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
-(3300055, 'https://wework.qpic.cn/wwpic3az/a81c2da9e5427aede2ea3b51bcf88d9c/qrcode/0', '段永平 · 专属活码 55', '0', 'https://work.weixin.qq.com/ca/cawcded0c2c9ef6a8fe962', 'cfg_0055', '2024-06-19 20:30:28', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000007', '金融,媒体世家', '2026-01-07 11:18:13', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
-(3300056, 'https://wework.qpic.cn/wwpic3az/059972eb6b09ad202480ec82cd811630/qrcode/0', '林园 · 专属活码 56', '0', 'https://work.weixin.qq.com/ca/cawcde496c5ebcec77215e', 'cfg_0056', '2026-02-03 19:04:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000014,1000023', '白酒,长期客户', '2025-01-06 09:27:54', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
-(3300057, 'https://wework.qpic.cn/wwpic3az/e79be95e66ec8753fa9cbe15add4d4de/qrcode/0', '但斌 · 专属活码 57', '0', 'https://work.weixin.qq.com/ca/cawcde9eacb42643ea18e4', 'cfg_0057', '2024-06-27 22:28:05', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000007', '高净值,媒体世家', '2024-12-28 18:37:37', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
-(3300058, 'https://wework.qpic.cn/wwpic3az/d2e2b1f5369e6749de62fc3e188186dc/qrcode/0', '章盟主 · 专属活码 58', '0', 'https://work.weixin.qq.com/ca/cawcde1e92f3a18104f84f', 'cfg_0058', '2025-08-07 12:22:49', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000018,1000003', '医药,零售客户', '2026-04-26 04:17:59', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
-(3300059, 'https://wework.qpic.cn/wwpic3az/512825ed5827557811410dc3959c06da/qrcode/0', '李录 · 专属活码 59', '0', 'https://work.weixin.qq.com/ca/cawcde1c2772aef2cb3b90', 'cfg_0059', '2024-12-29 21:30:28', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000027,1000015', '短线客户,家电龙头', '2024-11-01 05:32:18', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
-(3300060, 'https://wework.qpic.cn/wwpic3az/086dcb4c790cd73d7bb36da0a6c00744/qrcode/0', '赵丹阳 · 专属活码 60', '0', 'https://work.weixin.qq.com/ca/cawcde064ce874be4e1f71', 'cfg_0060', '2024-10-04 17:16:07', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000018', '医美,医药', '2025-10-16 23:00:04', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益');
+(3300001, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', '格雷厄姆 · 专属活码 1', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0001', '2026-06-02 23:26:25', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000024,1000027', '重点客户,短线客户', '2025-01-16 20:25:04', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
+(3300002, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', '巴菲特 · 专属活码 2', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0002', '2024-02-27 13:15:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000022', '科技传承,地产传承', '2025-08-25 18:52:54', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
+(3300003, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', '芒格 · 专属活码 3', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0003', '2025-03-23 21:48:50', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000026,1000006', '海外,制造业创始人', '2026-02-27 08:43:24', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
+(3300004, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', '彼得·林奇 · 专属活码 4', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0004', '2024-03-23 22:57:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000015', '金融,家电龙头', '2025-06-25 20:09:40', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
+(3300005, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', '费雪 · 专属活码 5', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0005', '2024-09-06 11:50:07', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000019', '金融,保险再保', '2025-07-10 19:30:44', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
+(3300006, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', '邓普顿 · 专属活码 6', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0006', '2025-07-09 07:00:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000022', '互联网,地产传承', '2024-06-04 03:01:49', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
+(3300007, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', '段永平 · 专属活码 7', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0007', '2026-02-25 04:08:45', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000005,1000001', '互联网创始人,超高净值', '2025-10-01 18:43:08', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
+(3300008, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', '林园 · 专属活码 8', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0008', '2024-02-19 00:44:48', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000009', '游资,家族办公室', '2024-12-12 06:11:18', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
+(3300009, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', '但斌 · 专属活码 9', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0009', '2025-07-28 10:14:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000010', '互联网,机构客户', '2024-07-31 06:05:01', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
+(3300010, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', '章盟主 · 专属活码 10', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0010', '2026-04-16 21:44:57', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000005', '零售,互联网创始人', '2025-03-12 04:45:18', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
+(3300011, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', '李录 · 专属活码 11', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0011', '2026-02-05 14:36:43', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000001', '机构客户,超高净值', '2024-07-18 10:31:07', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
+(3300012, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', '赵丹阳 · 专属活码 12', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0012', '2026-02-24 23:16:46', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000007', '科技传承,媒体世家', '2025-07-14 21:52:06', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
+(3300013, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', '格雷厄姆 · 专属活码 13', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0013', '2025-08-22 16:00:19', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000001', '零售,超高净值', '2024-06-20 03:08:41', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
+(3300014, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', '巴菲特 · 专属活码 14', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0014', '2024-07-12 07:13:35', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000001', '保险再保,超高净值', '2025-10-20 10:43:33', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
+(3300015, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', '芒格 · 专属活码 15', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0015', '2025-03-29 03:06:16', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000017', '保险再保,新能源', '2025-01-06 07:04:06', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
+(3300016, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', '彼得·林奇 · 专属活码 16', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0016', '2024-06-06 15:30:00', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000007,1000020', '媒体世家,科技', '2024-08-23 12:45:01', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
+(3300017, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', '费雪 · 专属活码 17', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0017', '2025-08-09 21:53:23', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000009,1000015', '家族办公室,家电龙头', '2024-05-05 07:24:32', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
+(3300018, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', '邓普顿 · 专属活码 18', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0018', '2024-02-28 22:27:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000020,1000025', '科技,跨境', '2024-11-14 01:02:27', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
+(3300019, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', '段永平 · 专属活码 19', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0019', '2024-02-21 12:12:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000009', '医美,家族办公室', '2024-01-29 07:56:06', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
+(3300020, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', '林园 · 专属活码 20', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0020', '2026-05-23 13:58:57', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000020,1000006', '科技,制造业创始人', '2026-05-27 07:13:11', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
+(3300021, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', '但斌 · 专属活码 21', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0021', '2026-05-10 08:37:55', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000005,1000027', '互联网创始人,短线客户', '2024-12-07 19:33:09', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
+(3300022, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', '章盟主 · 专属活码 22', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0022', '2024-10-21 05:22:36', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000019', '医美,保险再保', '2024-08-31 09:54:11', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
+(3300023, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', '李录 · 专属活码 23', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0023', '2024-12-24 20:06:11', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000023', '机构客户,长期客户', '2025-02-26 09:52:04', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
+(3300024, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', '赵丹阳 · 专属活码 24', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0024', '2026-03-30 01:20:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000008', '游资,科技传承', '2024-08-05 07:01:56', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
+(3300025, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', '格雷厄姆 · 专属活码 25', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0025', '2025-01-26 13:35:35', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000024,1000006', '重点客户,制造业创始人', '2025-06-03 17:54:41', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
+(3300026, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', '巴菲特 · 专属活码 26', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0026', '2025-10-18 09:20:21', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000001', '零售,超高净值', '2025-12-20 23:02:56', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
+(3300027, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', '芒格 · 专属活码 27', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0027', '2025-02-28 08:31:18', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000011', '零售,金融', '2026-01-14 07:23:10', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
+(3300028, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', '彼得·林奇 · 专属活码 28', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0028', '2024-05-27 08:34:06', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000015,1000003', '家电龙头,零售客户', '2026-03-25 17:15:13', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
+(3300029, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', '费雪 · 专属活码 29', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0029', '2024-02-11 17:33:11', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000004,1000018', '潜在客户,医药', '2025-08-13 07:00:06', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
+(3300030, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', '邓普顿 · 专属活码 30', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0030', '2024-08-02 17:51:54', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000017,1000002', '新能源,高净值', '2026-02-07 22:47:08', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
+(3300031, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', '段永平 · 专属活码 31', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0031', '2024-06-26 21:37:41', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000019,1000023', '保险再保,长期客户', '2024-07-13 02:57:39', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
+(3300032, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', '林园 · 专属活码 32', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0032', '2026-02-16 12:35:41', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000015', '超高净值,家电龙头', '2025-12-30 06:30:47', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
+(3300033, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', '但斌 · 专属活码 33', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0033', '2025-08-24 09:32:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000010', '医美,机构客户', '2026-06-06 18:30:53', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
+(3300034, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', '章盟主 · 专属活码 34', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0034', '2025-05-09 10:26:21', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000013,1000006', '游资,制造业创始人', '2025-02-28 02:13:23', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
+(3300035, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', '李录 · 专属活码 35', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0035', '2024-10-07 17:07:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000018,1000017', '医药,新能源', '2026-03-28 05:45:06', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
+(3300036, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', '赵丹阳 · 专属活码 36', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0036', '2024-03-17 16:20:29', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000007,1000026', '媒体世家,海外', '2024-09-05 03:25:23', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
+(3300037, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', '格雷厄姆 · 专属活码 37', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0037', '2025-03-25 20:45:22', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000016,1000015', '互联网,家电龙头', '2026-04-28 18:58:33', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
+(3300038, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', '巴菲特 · 专属活码 38', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0038', '2025-05-12 02:13:31', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000020', '科技传承,科技', '2025-12-27 03:29:37', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
+(3300039, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', '芒格 · 专属活码 39', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0039', '2024-12-06 21:53:29', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000004', '超高净值,潜在客户', '2024-10-22 15:29:57', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
+(3300040, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', '彼得·林奇 · 专属活码 40', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0040', '2024-09-23 05:35:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000022,1000009', '地产传承,家族办公室', '2024-05-22 11:31:13', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
+(3300041, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', '费雪 · 专属活码 41', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0041', '2026-02-11 18:59:15', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000021,1000022', '零售,地产传承', '2025-08-25 03:41:19', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
+(3300042, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', '邓普顿 · 专属活码 42', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0042', '2024-02-06 13:55:56', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000023,1000005', '长期客户,互联网创始人', '2024-03-01 00:03:11', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
+(3300043, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', '段永平 · 专属活码 43', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0043', '2025-10-22 02:10:58', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000010,1000003', '机构客户,零售客户', '2024-03-22 12:51:21', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
+(3300044, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', '林园 · 专属活码 44', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0044', '2024-12-03 23:07:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000025,1000023', '跨境,长期客户', '2025-10-03 05:39:52', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
+(3300045, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', '但斌 · 专属活码 45', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0045', '2025-02-12 13:41:50', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000004,1000019', '潜在客户,保险再保', '2024-04-28 16:13:05', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
+(3300046, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', '章盟主 · 专属活码 46', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0046', '2024-01-09 13:38:03', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000008,1000001', '科技传承,超高净值', '2024-06-04 05:36:10', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
+(3300047, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', '李录 · 专属活码 47', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0047', '2026-02-16 06:57:23', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000014,1000020', '白酒,科技', '2026-05-04 16:35:15', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
+(3300048, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', '赵丹阳 · 专属活码 48', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0048', '2025-09-28 17:20:08', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000009,1000013', '家族办公室,游资', '2026-06-04 08:51:18', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益'),
+(3300049, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', '格雷厄姆 · 专属活码 49', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0049', '2025-10-31 14:44:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000027,1000012', '短线客户,医美', '2024-04-25 11:56:54', 'MOAT_GRAHAM', '格雷厄姆', '您好，我是护城河 格雷厄姆，很高兴为您服务。《证券分析》奠基人，安全边际 + 净流动资产估值'),
+(3300050, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', '巴菲特 · 专属活码 50', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0050', '2025-05-21 08:42:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000001,1000024', '超高净值,重点客户', '2025-07-05 01:57:03', 'MOAT_BUFFETT', '巴菲特', '您好，我是护城河 巴菲特，很高兴为您服务。长期持有 + 优秀企业 + 合理价格 + 经济护城河'),
+(3300051, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', '芒格 · 专属活码 51', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0051', '2025-11-25 08:35:46', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000012', '高净值,医美', '2025-09-30 04:18:46', 'MOAT_MUNGER', '芒格', '您好，我是护城河 芒格，很高兴为您服务。逆向思维 + Lattice of Mental Models + 集中投资'),
+(3300052, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', '彼得·林奇 · 专属活码 52', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0052', '2025-12-08 11:26:19', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000013', '高净值,游资', '2025-08-03 15:25:10', 'MOAT_LYNCH', '彼得·林奇', '您好，我是护城河 彼得·林奇，很高兴为您服务。PEG 估值 + 六类股票分类法 + 生活即选股'),
+(3300053, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', '费雪 · 专属活码 53', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0053', '2024-04-09 01:05:26', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000027', '医美,短线客户', '2026-03-13 02:14:48', 'MOAT_FISHER', '费雪', '您好，我是护城河 费雪，很高兴为您服务。闲聊法调研 + Fifteen Points to Look for in a Common Stock'),
+(3300054, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', '邓普顿 · 专属活码 54', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0054', '2026-01-05 22:48:44', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000003,1000025', '零售客户,跨境', '2024-03-02 22:24:47', 'MOAT_TEMPLETON', '邓普顿', '您好，我是护城河 邓普顿，很高兴为您服务。极度悲观点入场 + 全球分散化'),
+(3300055, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', '段永平 · 专属活码 55', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0055', '2024-06-19 20:30:28', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000011,1000007', '金融,媒体世家', '2026-01-07 11:18:13', 'MOAT_DUAN', '段永平', '您好，我是护城河 段永平，很高兴为您服务。本分 + 敢为天下后 + 用户价值 + 长期视角'),
+(3300056, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', '林园 · 专属活码 56', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0056', '2026-02-03 19:04:42', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000014,1000023', '白酒,长期客户', '2025-01-06 09:27:54', 'MOAT_LINYUAN', '林园', '您好，我是护城河 林园，很高兴为您服务。看得见摸得着的消费龙头 + 集中持有'),
+(3300057, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', '但斌 · 专属活码 57', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0057', '2024-06-27 22:28:05', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000002,1000007', '高净值,媒体世家', '2024-12-28 18:37:37', 'MOAT_DANBIN', '但斌', '您好，我是护城河 但斌，很高兴为您服务。东方港湾 + 时间的玫瑰 + 消费与科技'),
+(3300058, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', '章盟主 · 专属活码 58', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0058', '2025-08-07 12:22:49', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000018,1000003', '医药,零售客户', '2026-04-26 04:17:59', 'MOAT_ZMZ', '章盟主', '您好，我是护城河 章盟主，很高兴为您服务。章建平，龙虎榜常客，情绪短线 vs 长期博弈对照组'),
+(3300059, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', '李录 · 专属活码 59', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0059', '2024-12-29 21:30:28', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000027,1000015', '短线客户,家电龙头', '2024-11-01 05:32:18', 'MOAT_LILU', '李录', '您好，我是护城河 李录，很高兴为您服务。芒格中国白手套，深度价值 + 中国机会'),
+(3300060, 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', '赵丹阳 · 专属活码 60', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0060', '2024-10-04 17:16:07', 0, 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', 1, 0, 0, '1000012,1000018', '医美,医药', '2025-10-16 23:00:04', 'MOAT_ZHAODANYANG', '赵丹阳', '您好，我是护城河 赵丹阳，很高兴为您服务。赤子之心 + 逆向 + 绝对收益');
 
 -- ========================================================================
 -- iyque_short_link · 获客短链
 -- ========================================================================
 INSERT INTO `iyque_short_link` (`id`, `codeName`, `codeState`, `codeUrl`, `config_id`, `createTime`, `delFlag`, `isExclusive`, `remarkType`, `skipVerify`, `startPeriodAnnex`, `tagId`, `tagName`, `updateTime`, `userId`, `userName`, `weclomeMsg`) VALUES
-(3400001, '短链 · 巴菲特建仓可口可乐', '0', 'https://work.weixin.qq.com/ca/cawcdea916571dd8647ddf', 'cfg_0001', '2025-03-02 05:10:19', 0, 0, 1, 0, 0, '1000022', '地产传承', '2026-03-07 21:39:48', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 格雷厄姆 深入交流。'),
-(3400002, '短链 · See\'s Candies 收购', '0', 'https://work.weixin.qq.com/ca/cawcde17b51e28133e1351', 'cfg_0002', '2024-02-23 07:07:10', 0, 0, 1, 0, 0, '1000003', '零售客户', '2025-09-13 16:45:03', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「See\'s Candies 收购」，扫码添加 巴菲特 深入交流。'),
-(3400003, '短链 · 高盛优先股', '0', 'https://work.weixin.qq.com/ca/cawcde7c4c1da4efaa3bba', 'cfg_0003', '2026-03-14 03:02:14', 0, 0, 1, 0, 0, '1000027', '短线客户', '2026-06-05 23:40:49', 'MOAT_MUNGER', '芒格', '欢迎围观「高盛优先股」，扫码添加 芒格 深入交流。'),
-(3400004, '短链 · 巴菲特买苹果', '0', 'https://work.weixin.qq.com/ca/cawcdef23af185c7021d18', 'cfg_0004', '2025-07-16 17:09:27', 0, 0, 1, 0, 0, '1000012', '医美', '2024-06-23 01:44:33', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「巴菲特买苹果」，扫码添加 彼得·林奇 深入交流。'),
-(3400005, '短链 · 日本五大商社', '0', 'https://work.weixin.qq.com/ca/cawcde92300d3ef07599d8', 'cfg_0005', '2025-12-25 23:08:12', 0, 0, 1, 0, 0, '1000025', '跨境', '2024-01-31 00:58:09', 'MOAT_FISHER', '费雪', '欢迎围观「日本五大商社」，扫码添加 费雪 深入交流。'),
-(3400006, '短链 · 网易 1 美元抄底', '0', 'https://work.weixin.qq.com/ca/cawcde818c70980ace5474', 'cfg_0006', '2025-10-11 14:30:20', 0, 0, 1, 0, 0, '1000026', '海外', '2024-11-03 07:48:22', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「网易 1 美元抄底」，扫码添加 邓普顿 深入交流。'),
-(3400007, '短链 · 拼多多种子期', '0', 'https://work.weixin.qq.com/ca/cawcde96dd293ca9dae7f1', 'cfg_0007', '2025-09-14 00:21:34', 0, 0, 1, 0, 0, '1000026', '海外', '2024-07-27 23:45:17', 'MOAT_DUAN', '段永平', '欢迎围观「拼多多种子期」，扫码添加 段永平 深入交流。'),
-(3400008, '短链 · 林园持有茅台', '0', 'https://work.weixin.qq.com/ca/cawcdef851477feddb1a57', 'cfg_0008', '2026-03-08 09:51:56', 0, 0, 1, 0, 0, '1000027', '短线客户', '2024-04-06 07:29:53', 'MOAT_LINYUAN', '林园', '欢迎围观「林园持有茅台」，扫码添加 林园 深入交流。'),
-(3400009, '短链 · 但斌抄底腾讯', '0', 'https://work.weixin.qq.com/ca/cawcde17effe37b9931f30', 'cfg_0009', '2024-07-14 20:58:16', 0, 0, 1, 0, 0, '1000013', '游资', '2024-11-04 09:58:17', 'MOAT_DANBIN', '但斌', '欢迎围观「但斌抄底腾讯」，扫码添加 但斌 深入交流。'),
-(3400010, '短链 · 海天味业上市', '0', 'https://work.weixin.qq.com/ca/cawcde5706143fd19bee4b', 'cfg_0010', '2025-10-18 12:09:13', 0, 0, 1, 0, 0, '1000016', '互联网', '2024-12-23 15:19:00', 'MOAT_ZMZ', '章盟主', '欢迎围观「海天味业上市」，扫码添加 章盟主 深入交流。'),
-(3400011, '短链 · 美团千亿再造', '0', 'https://work.weixin.qq.com/ca/cawcde291daf090b618857', 'cfg_0011', '2026-02-13 03:14:23', 0, 0, 1, 0, 0, '1000004', '潜在客户', '2024-10-12 23:44:18', 'MOAT_LILU', '李录', '欢迎围观「美团千亿再造」，扫码添加 李录 深入交流。'),
-(3400012, '短链 · 华盛顿邮报', '0', 'https://work.weixin.qq.com/ca/cawcde6b594bf311a6d15e', 'cfg_0012', '2026-03-06 14:54:35', 0, 0, 1, 0, 0, '1000006', '制造业创始人', '2025-05-07 22:07:37', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「华盛顿邮报」，扫码添加 赵丹阳 深入交流。'),
-(3400013, '短链 · 巴菲特减持比亚迪', '0', 'https://work.weixin.qq.com/ca/cawcdefe33f31c322aa761', 'cfg_0013', '2024-12-07 20:43:10', 0, 0, 1, 0, 0, '1000018', '医药', '2026-02-08 09:02:41', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「巴菲特减持比亚迪」，扫码添加 格雷厄姆 深入交流。'),
-(3400014, '短链 · 巴菲特建仓中石油', '0', 'https://work.weixin.qq.com/ca/cawcde4e077f199c759a45', 'cfg_0014', '2025-12-11 22:36:07', 0, 0, 1, 0, 0, '1000024', '重点客户', '2025-11-14 07:46:15', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「巴菲特建仓中石油」，扫码添加 巴菲特 深入交流。'),
-(3400015, '短链 · 美国运通色拉油危机', '0', 'https://work.weixin.qq.com/ca/cawcde716ae6ae999129fb', 'cfg_0015', '2024-01-10 11:16:20', 0, 0, 1, 0, 0, '1000004', '潜在客户', '2026-04-22 19:10:41', 'MOAT_MUNGER', '芒格', '欢迎围观「美国运通色拉油危机」，扫码添加 芒格 深入交流。'),
-(3400016, '短链 · 茅台十年 60 倍', '0', 'https://work.weixin.qq.com/ca/cawcde492c624d8723671b', 'cfg_0016', '2025-09-05 13:26:00', 0, 0, 1, 0, 0, '1000021', '零售', '2024-08-19 08:16:27', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「茅台十年 60 倍」，扫码添加 彼得·林奇 深入交流。'),
-(3400017, '短链 · 港股互联网监管危机', '0', 'https://work.weixin.qq.com/ca/cawcde4fb09103e43fd7a7', 'cfg_0017', '2026-05-17 22:17:50', 0, 0, 1, 0, 0, '1000002', '高净值', '2025-06-01 05:18:34', 'MOAT_FISHER', '费雪', '欢迎围观「港股互联网监管危机」，扫码添加 费雪 深入交流。'),
-(3400018, '短链 · 麦哲伦基金 29% CAGR', '0', 'https://work.weixin.qq.com/ca/cawcdead6722fa1db66468', 'cfg_0018', '2024-07-13 21:40:35', 0, 0, 1, 0, 0, '1000017', '新能源', '2025-04-28 08:55:51', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 邓普顿 深入交流。'),
-(3400019, '短链 · 白酒塑化剂危机', '0', 'https://work.weixin.qq.com/ca/cawcde35766f6e0a5d9150', 'cfg_0019', '2025-12-04 00:46:34', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-05-19 15:18:28', 'MOAT_DUAN', '段永平', '欢迎围观「白酒塑化剂危机」，扫码添加 段永平 深入交流。'),
-(3400020, '短链 · 宁德时代千亿', '0', 'https://work.weixin.qq.com/ca/cawcdefa57da13fe5f623f', 'cfg_0020', '2024-11-14 18:26:41', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-08-01 21:21:11', 'MOAT_LINYUAN', '林园', '欢迎围观「宁德时代千亿」，扫码添加 林园 深入交流。'),
-(3400021, '短链 · 巴菲特建仓可口可乐', '0', 'https://work.weixin.qq.com/ca/cawcde8546d1fc730ffea6', 'cfg_0021', '2025-01-07 13:49:25', 0, 0, 1, 0, 0, '1000021', '零售', '2024-07-08 06:01:03', 'MOAT_DANBIN', '但斌', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 但斌 深入交流。'),
-(3400022, '短链 · See\'s Candies 收购', '0', 'https://work.weixin.qq.com/ca/cawcdea126c7b0b3604030', 'cfg_0022', '2024-08-03 23:51:16', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-11-24 07:00:24', 'MOAT_ZMZ', '章盟主', '欢迎围观「See\'s Candies 收购」，扫码添加 章盟主 深入交流。'),
-(3400023, '短链 · 高盛优先股', '0', 'https://work.weixin.qq.com/ca/cawcde51eba669d60594af', 'cfg_0023', '2024-06-17 23:24:56', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2026-01-21 06:24:42', 'MOAT_LILU', '李录', '欢迎围观「高盛优先股」，扫码添加 李录 深入交流。'),
-(3400024, '短链 · 巴菲特买苹果', '0', 'https://work.weixin.qq.com/ca/cawcde8a681962fbf869c2', 'cfg_0024', '2024-09-16 02:21:33', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-07-20 20:38:18', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「巴菲特买苹果」，扫码添加 赵丹阳 深入交流。'),
-(3400025, '短链 · 日本五大商社', '0', 'https://work.weixin.qq.com/ca/cawcdeeaccdd8b7bd00e16', 'cfg_0025', '2024-07-11 12:31:35', 0, 0, 1, 0, 0, '1000012', '医美', '2025-03-28 12:34:13', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「日本五大商社」，扫码添加 格雷厄姆 深入交流。'),
-(3400026, '短链 · 网易 1 美元抄底', '0', 'https://work.weixin.qq.com/ca/cawcded4a43213de469362', 'cfg_0026', '2025-06-01 20:54:26', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2025-04-11 07:41:16', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「网易 1 美元抄底」，扫码添加 巴菲特 深入交流。'),
-(3400027, '短链 · 拼多多种子期', '0', 'https://work.weixin.qq.com/ca/cawcde97fc4081a76a3e86', 'cfg_0027', '2025-06-03 23:59:24', 0, 0, 1, 0, 0, '1000016', '互联网', '2024-10-14 09:59:16', 'MOAT_MUNGER', '芒格', '欢迎围观「拼多多种子期」，扫码添加 芒格 深入交流。'),
-(3400028, '短链 · 林园持有茅台', '0', 'https://work.weixin.qq.com/ca/cawcde041a043f326acd2f', 'cfg_0028', '2025-04-08 22:50:42', 0, 0, 1, 0, 0, '1000008', '科技传承', '2026-01-10 18:06:38', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「林园持有茅台」，扫码添加 彼得·林奇 深入交流。'),
-(3400029, '短链 · 但斌抄底腾讯', '0', 'https://work.weixin.qq.com/ca/cawcde9465f35dd9b55f7c', 'cfg_0029', '2025-09-27 13:02:38', 0, 0, 1, 0, 0, '1000026', '海外', '2025-03-29 14:01:27', 'MOAT_FISHER', '费雪', '欢迎围观「但斌抄底腾讯」，扫码添加 费雪 深入交流。'),
-(3400030, '短链 · 海天味业上市', '0', 'https://work.weixin.qq.com/ca/cawcde422b5806fafc3261', 'cfg_0030', '2024-02-04 01:12:04', 0, 0, 1, 0, 0, '1000011', '金融', '2026-06-24 14:34:15', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「海天味业上市」，扫码添加 邓普顿 深入交流。'),
-(3400031, '短链 · 美团千亿再造', '0', 'https://work.weixin.qq.com/ca/cawcde97c947130f67fa53', 'cfg_0031', '2026-06-28 07:20:03', 0, 0, 1, 0, 0, '1000012', '医美', '2024-08-11 17:30:10', 'MOAT_DUAN', '段永平', '欢迎围观「美团千亿再造」，扫码添加 段永平 深入交流。'),
-(3400032, '短链 · 华盛顿邮报', '0', 'https://work.weixin.qq.com/ca/cawcde4334ae107c8d244e', 'cfg_0032', '2025-11-23 01:41:51', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-12-15 04:29:53', 'MOAT_LINYUAN', '林园', '欢迎围观「华盛顿邮报」，扫码添加 林园 深入交流。'),
-(3400033, '短链 · 巴菲特减持比亚迪', '0', 'https://work.weixin.qq.com/ca/cawcde7051615bfb6432a9', 'cfg_0033', '2025-11-05 21:33:03', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-11-16 08:34:09', 'MOAT_DANBIN', '但斌', '欢迎围观「巴菲特减持比亚迪」，扫码添加 但斌 深入交流。'),
-(3400034, '短链 · 巴菲特建仓中石油', '0', 'https://work.weixin.qq.com/ca/cawcdef8c96c2452ab665f', 'cfg_0034', '2025-03-08 13:36:57', 0, 0, 1, 0, 0, '1000020', '科技', '2024-11-20 14:49:09', 'MOAT_ZMZ', '章盟主', '欢迎围观「巴菲特建仓中石油」，扫码添加 章盟主 深入交流。'),
-(3400035, '短链 · 美国运通色拉油危机', '0', 'https://work.weixin.qq.com/ca/cawcdef9f56761a8dc74f4', 'cfg_0035', '2026-05-09 16:00:36', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-12-11 01:48:47', 'MOAT_LILU', '李录', '欢迎围观「美国运通色拉油危机」，扫码添加 李录 深入交流。'),
-(3400036, '短链 · 茅台十年 60 倍', '0', 'https://work.weixin.qq.com/ca/cawcde089afbd34fe45e98', 'cfg_0036', '2024-01-21 09:57:04', 0, 0, 1, 0, 0, '1000001', '超高净值', '2025-04-28 17:38:31', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「茅台十年 60 倍」，扫码添加 赵丹阳 深入交流。'),
-(3400037, '短链 · 港股互联网监管危机', '0', 'https://work.weixin.qq.com/ca/cawcde06e77909efcf0064', 'cfg_0037', '2024-12-03 05:03:34', 0, 0, 1, 0, 0, '1000021', '零售', '2024-05-17 22:24:14', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「港股互联网监管危机」，扫码添加 格雷厄姆 深入交流。'),
-(3400038, '短链 · 麦哲伦基金 29% CAGR', '0', 'https://work.weixin.qq.com/ca/cawcde38531ef128cdcd26', 'cfg_0038', '2025-11-08 20:48:12', 0, 0, 1, 0, 0, '1000019', '保险再保', '2026-04-28 09:08:58', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 巴菲特 深入交流。'),
-(3400039, '短链 · 白酒塑化剂危机', '0', 'https://work.weixin.qq.com/ca/cawcde34b2ebc8e291591c', 'cfg_0039', '2026-04-20 22:51:54', 0, 0, 1, 0, 0, '1000012', '医美', '2026-03-02 13:35:02', 'MOAT_MUNGER', '芒格', '欢迎围观「白酒塑化剂危机」，扫码添加 芒格 深入交流。'),
-(3400040, '短链 · 宁德时代千亿', '0', 'https://work.weixin.qq.com/ca/cawcde711a8683f95682a5', 'cfg_0040', '2024-12-21 13:22:24', 0, 0, 1, 0, 0, '1000008', '科技传承', '2026-03-06 18:27:37', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「宁德时代千亿」，扫码添加 彼得·林奇 深入交流。'),
-(3400041, '短链 · 巴菲特建仓可口可乐', '0', 'https://work.weixin.qq.com/ca/cawcde5b644b9bdfca2a86', 'cfg_0041', '2025-04-19 03:25:34', 0, 0, 1, 0, 0, '1000011', '金融', '2026-02-09 05:22:37', 'MOAT_FISHER', '费雪', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 费雪 深入交流。'),
-(3400042, '短链 · See\'s Candies 收购', '0', 'https://work.weixin.qq.com/ca/cawcde1d57595cb1077bd5', 'cfg_0042', '2026-04-02 20:50:33', 0, 0, 1, 0, 0, '1000012', '医美', '2026-03-12 12:03:36', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「See\'s Candies 收购」，扫码添加 邓普顿 深入交流。'),
-(3400043, '短链 · 高盛优先股', '0', 'https://work.weixin.qq.com/ca/cawcde217ece49c16262dd', 'cfg_0043', '2024-10-14 07:52:26', 0, 0, 1, 0, 0, '1000020', '科技', '2024-10-31 01:05:12', 'MOAT_DUAN', '段永平', '欢迎围观「高盛优先股」，扫码添加 段永平 深入交流。'),
-(3400044, '短链 · 巴菲特买苹果', '0', 'https://work.weixin.qq.com/ca/cawcde013c25e15c1fcbdc', 'cfg_0044', '2025-03-11 19:35:21', 0, 0, 1, 0, 0, '1000016', '互联网', '2025-12-05 06:01:38', 'MOAT_LINYUAN', '林园', '欢迎围观「巴菲特买苹果」，扫码添加 林园 深入交流。'),
-(3400045, '短链 · 日本五大商社', '0', 'https://work.weixin.qq.com/ca/cawcde695f5e624eb3ace5', 'cfg_0045', '2024-08-14 10:40:48', 0, 0, 1, 0, 0, '1000003', '零售客户', '2024-04-08 19:05:20', 'MOAT_DANBIN', '但斌', '欢迎围观「日本五大商社」，扫码添加 但斌 深入交流。'),
-(3400046, '短链 · 网易 1 美元抄底', '0', 'https://work.weixin.qq.com/ca/cawcde524093001ba03fc9', 'cfg_0046', '2025-02-26 12:18:42', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2024-08-05 21:52:40', 'MOAT_ZMZ', '章盟主', '欢迎围观「网易 1 美元抄底」，扫码添加 章盟主 深入交流。'),
-(3400047, '短链 · 拼多多种子期', '0', 'https://work.weixin.qq.com/ca/cawcde69bb2bf0d9b01394', 'cfg_0047', '2025-08-26 02:56:02', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2025-05-07 10:16:10', 'MOAT_LILU', '李录', '欢迎围观「拼多多种子期」，扫码添加 李录 深入交流。'),
-(3400048, '短链 · 林园持有茅台', '0', 'https://work.weixin.qq.com/ca/cawcde6a4f79b4b50f354f', 'cfg_0048', '2024-11-25 03:31:00', 0, 0, 1, 0, 0, '1000011', '金融', '2024-08-16 10:09:48', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「林园持有茅台」，扫码添加 赵丹阳 深入交流。'),
-(3400049, '短链 · 但斌抄底腾讯', '0', 'https://work.weixin.qq.com/ca/cawcde383c61dc8999d9e0', 'cfg_0049', '2025-05-02 07:52:52', 0, 0, 1, 0, 0, '1000007', '媒体世家', '2025-02-17 00:40:09', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「但斌抄底腾讯」，扫码添加 格雷厄姆 深入交流。'),
-(3400050, '短链 · 海天味业上市', '0', 'https://work.weixin.qq.com/ca/cawcde8da9e2d69f65e268', 'cfg_0050', '2025-06-05 11:30:25', 0, 0, 1, 0, 0, '1000014', '白酒', '2024-01-03 05:39:23', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「海天味业上市」，扫码添加 巴菲特 深入交流。'),
-(3400051, '短链 · 美团千亿再造', '0', 'https://work.weixin.qq.com/ca/cawcde00692c9b0132f9c8', 'cfg_0051', '2024-08-22 18:39:12', 0, 0, 1, 0, 0, '1000011', '金融', '2025-10-08 19:20:39', 'MOAT_MUNGER', '芒格', '欢迎围观「美团千亿再造」，扫码添加 芒格 深入交流。'),
-(3400052, '短链 · 华盛顿邮报', '0', 'https://work.weixin.qq.com/ca/cawcdeb54cc639b122e723', 'cfg_0052', '2025-01-11 14:21:14', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-05-16 19:38:14', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「华盛顿邮报」，扫码添加 彼得·林奇 深入交流。'),
-(3400053, '短链 · 巴菲特减持比亚迪', '0', 'https://work.weixin.qq.com/ca/cawcdeb6a3cfb39acb35f4', 'cfg_0053', '2024-07-03 15:06:38', 0, 0, 1, 0, 0, '1000003', '零售客户', '2025-06-16 02:46:16', 'MOAT_FISHER', '费雪', '欢迎围观「巴菲特减持比亚迪」，扫码添加 费雪 深入交流。'),
-(3400054, '短链 · 巴菲特建仓中石油', '0', 'https://work.weixin.qq.com/ca/cawcdead7cc2782f37652f', 'cfg_0054', '2025-12-26 17:10:04', 0, 0, 1, 0, 0, '1000016', '互联网', '2026-05-27 03:31:21', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「巴菲特建仓中石油」，扫码添加 邓普顿 深入交流。'),
-(3400055, '短链 · 美国运通色拉油危机', '0', 'https://work.weixin.qq.com/ca/cawcde0aa1f98529d91b09', 'cfg_0055', '2026-05-26 21:04:50', 0, 0, 1, 0, 0, '1000012', '医美', '2024-03-11 16:44:14', 'MOAT_DUAN', '段永平', '欢迎围观「美国运通色拉油危机」，扫码添加 段永平 深入交流。'),
-(3400056, '短链 · 茅台十年 60 倍', '0', 'https://work.weixin.qq.com/ca/cawcded6fd485dd4e358e9', 'cfg_0056', '2025-01-06 10:55:20', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-10-29 20:12:50', 'MOAT_LINYUAN', '林园', '欢迎围观「茅台十年 60 倍」，扫码添加 林园 深入交流。'),
-(3400057, '短链 · 港股互联网监管危机', '0', 'https://work.weixin.qq.com/ca/cawcde7271697ad37e53f3', 'cfg_0057', '2025-04-25 11:37:52', 0, 0, 1, 0, 0, '1000020', '科技', '2025-01-29 06:26:19', 'MOAT_DANBIN', '但斌', '欢迎围观「港股互联网监管危机」，扫码添加 但斌 深入交流。'),
-(3400058, '短链 · 麦哲伦基金 29% CAGR', '0', 'https://work.weixin.qq.com/ca/cawcdedbf5202a791f6f1c', 'cfg_0058', '2026-04-20 11:46:48', 0, 0, 1, 0, 0, '1000020', '科技', '2025-11-02 09:17:32', 'MOAT_ZMZ', '章盟主', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 章盟主 深入交流。'),
-(3400059, '短链 · 白酒塑化剂危机', '0', 'https://work.weixin.qq.com/ca/cawcde1f6bdc437bb8983f', 'cfg_0059', '2024-07-28 04:20:44', 0, 0, 1, 0, 0, '1000018', '医药', '2025-04-05 19:01:46', 'MOAT_LILU', '李录', '欢迎围观「白酒塑化剂危机」，扫码添加 李录 深入交流。'),
-(3400060, '短链 · 宁德时代千亿', '0', 'https://work.weixin.qq.com/ca/cawcde6f8eba97523c28f8', 'cfg_0060', '2024-05-04 19:23:35', 0, 0, 1, 0, 0, '1000016', '互联网', '2026-04-21 03:14:34', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「宁德时代千亿」，扫码添加 赵丹阳 深入交流。');
+(3400001, '短链 · 巴菲特建仓可口可乐', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0001', '2025-03-02 05:10:19', 0, 0, 1, 0, 0, '1000022', '地产传承', '2026-03-07 21:39:48', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 格雷厄姆 深入交流。'),
+(3400002, '短链 · See\'s Candies 收购', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0002', '2024-02-23 07:07:10', 0, 0, 1, 0, 0, '1000003', '零售客户', '2025-09-13 16:45:03', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「See\'s Candies 收购」，扫码添加 巴菲特 深入交流。'),
+(3400003, '短链 · 高盛优先股', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0003', '2026-03-14 03:02:14', 0, 0, 1, 0, 0, '1000027', '短线客户', '2026-06-05 23:40:49', 'MOAT_MUNGER', '芒格', '欢迎围观「高盛优先股」，扫码添加 芒格 深入交流。'),
+(3400004, '短链 · 巴菲特买苹果', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0004', '2025-07-16 17:09:27', 0, 0, 1, 0, 0, '1000012', '医美', '2024-06-23 01:44:33', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「巴菲特买苹果」，扫码添加 彼得·林奇 深入交流。'),
+(3400005, '短链 · 日本五大商社', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0005', '2025-12-25 23:08:12', 0, 0, 1, 0, 0, '1000025', '跨境', '2024-01-31 00:58:09', 'MOAT_FISHER', '费雪', '欢迎围观「日本五大商社」，扫码添加 费雪 深入交流。'),
+(3400006, '短链 · 网易 1 美元抄底', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0006', '2025-10-11 14:30:20', 0, 0, 1, 0, 0, '1000026', '海外', '2024-11-03 07:48:22', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「网易 1 美元抄底」，扫码添加 邓普顿 深入交流。'),
+(3400007, '短链 · 拼多多种子期', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0007', '2025-09-14 00:21:34', 0, 0, 1, 0, 0, '1000026', '海外', '2024-07-27 23:45:17', 'MOAT_DUAN', '段永平', '欢迎围观「拼多多种子期」，扫码添加 段永平 深入交流。'),
+(3400008, '短链 · 林园持有茅台', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0008', '2026-03-08 09:51:56', 0, 0, 1, 0, 0, '1000027', '短线客户', '2024-04-06 07:29:53', 'MOAT_LINYUAN', '林园', '欢迎围观「林园持有茅台」，扫码添加 林园 深入交流。'),
+(3400009, '短链 · 但斌抄底腾讯', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0009', '2024-07-14 20:58:16', 0, 0, 1, 0, 0, '1000013', '游资', '2024-11-04 09:58:17', 'MOAT_DANBIN', '但斌', '欢迎围观「但斌抄底腾讯」，扫码添加 但斌 深入交流。'),
+(3400010, '短链 · 海天味业上市', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0010', '2025-10-18 12:09:13', 0, 0, 1, 0, 0, '1000016', '互联网', '2024-12-23 15:19:00', 'MOAT_ZMZ', '章盟主', '欢迎围观「海天味业上市」，扫码添加 章盟主 深入交流。'),
+(3400011, '短链 · 美团千亿再造', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0011', '2026-02-13 03:14:23', 0, 0, 1, 0, 0, '1000004', '潜在客户', '2024-10-12 23:44:18', 'MOAT_LILU', '李录', '欢迎围观「美团千亿再造」，扫码添加 李录 深入交流。'),
+(3400012, '短链 · 华盛顿邮报', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0012', '2026-03-06 14:54:35', 0, 0, 1, 0, 0, '1000006', '制造业创始人', '2025-05-07 22:07:37', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「华盛顿邮报」，扫码添加 赵丹阳 深入交流。'),
+(3400013, '短链 · 巴菲特减持比亚迪', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0013', '2024-12-07 20:43:10', 0, 0, 1, 0, 0, '1000018', '医药', '2026-02-08 09:02:41', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「巴菲特减持比亚迪」，扫码添加 格雷厄姆 深入交流。'),
+(3400014, '短链 · 巴菲特建仓中石油', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0014', '2025-12-11 22:36:07', 0, 0, 1, 0, 0, '1000024', '重点客户', '2025-11-14 07:46:15', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「巴菲特建仓中石油」，扫码添加 巴菲特 深入交流。'),
+(3400015, '短链 · 美国运通色拉油危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0015', '2024-01-10 11:16:20', 0, 0, 1, 0, 0, '1000004', '潜在客户', '2026-04-22 19:10:41', 'MOAT_MUNGER', '芒格', '欢迎围观「美国运通色拉油危机」，扫码添加 芒格 深入交流。'),
+(3400016, '短链 · 茅台十年 60 倍', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0016', '2025-09-05 13:26:00', 0, 0, 1, 0, 0, '1000021', '零售', '2024-08-19 08:16:27', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「茅台十年 60 倍」，扫码添加 彼得·林奇 深入交流。'),
+(3400017, '短链 · 港股互联网监管危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0017', '2026-05-17 22:17:50', 0, 0, 1, 0, 0, '1000002', '高净值', '2025-06-01 05:18:34', 'MOAT_FISHER', '费雪', '欢迎围观「港股互联网监管危机」，扫码添加 费雪 深入交流。'),
+(3400018, '短链 · 麦哲伦基金 29% CAGR', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0018', '2024-07-13 21:40:35', 0, 0, 1, 0, 0, '1000017', '新能源', '2025-04-28 08:55:51', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 邓普顿 深入交流。'),
+(3400019, '短链 · 白酒塑化剂危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0019', '2025-12-04 00:46:34', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-05-19 15:18:28', 'MOAT_DUAN', '段永平', '欢迎围观「白酒塑化剂危机」，扫码添加 段永平 深入交流。'),
+(3400020, '短链 · 宁德时代千亿', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0020', '2024-11-14 18:26:41', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-08-01 21:21:11', 'MOAT_LINYUAN', '林园', '欢迎围观「宁德时代千亿」，扫码添加 林园 深入交流。'),
+(3400021, '短链 · 巴菲特建仓可口可乐', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0021', '2025-01-07 13:49:25', 0, 0, 1, 0, 0, '1000021', '零售', '2024-07-08 06:01:03', 'MOAT_DANBIN', '但斌', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 但斌 深入交流。'),
+(3400022, '短链 · See\'s Candies 收购', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0022', '2024-08-03 23:51:16', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-11-24 07:00:24', 'MOAT_ZMZ', '章盟主', '欢迎围观「See\'s Candies 收购」，扫码添加 章盟主 深入交流。'),
+(3400023, '短链 · 高盛优先股', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0023', '2024-06-17 23:24:56', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2026-01-21 06:24:42', 'MOAT_LILU', '李录', '欢迎围观「高盛优先股」，扫码添加 李录 深入交流。'),
+(3400024, '短链 · 巴菲特买苹果', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0024', '2024-09-16 02:21:33', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-07-20 20:38:18', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「巴菲特买苹果」，扫码添加 赵丹阳 深入交流。'),
+(3400025, '短链 · 日本五大商社', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0025', '2024-07-11 12:31:35', 0, 0, 1, 0, 0, '1000012', '医美', '2025-03-28 12:34:13', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「日本五大商社」，扫码添加 格雷厄姆 深入交流。'),
+(3400026, '短链 · 网易 1 美元抄底', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0026', '2025-06-01 20:54:26', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2025-04-11 07:41:16', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「网易 1 美元抄底」，扫码添加 巴菲特 深入交流。'),
+(3400027, '短链 · 拼多多种子期', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0027', '2025-06-03 23:59:24', 0, 0, 1, 0, 0, '1000016', '互联网', '2024-10-14 09:59:16', 'MOAT_MUNGER', '芒格', '欢迎围观「拼多多种子期」，扫码添加 芒格 深入交流。'),
+(3400028, '短链 · 林园持有茅台', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0028', '2025-04-08 22:50:42', 0, 0, 1, 0, 0, '1000008', '科技传承', '2026-01-10 18:06:38', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「林园持有茅台」，扫码添加 彼得·林奇 深入交流。'),
+(3400029, '短链 · 但斌抄底腾讯', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0029', '2025-09-27 13:02:38', 0, 0, 1, 0, 0, '1000026', '海外', '2025-03-29 14:01:27', 'MOAT_FISHER', '费雪', '欢迎围观「但斌抄底腾讯」，扫码添加 费雪 深入交流。'),
+(3400030, '短链 · 海天味业上市', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0030', '2024-02-04 01:12:04', 0, 0, 1, 0, 0, '1000011', '金融', '2026-06-24 14:34:15', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「海天味业上市」，扫码添加 邓普顿 深入交流。'),
+(3400031, '短链 · 美团千亿再造', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0031', '2026-06-28 07:20:03', 0, 0, 1, 0, 0, '1000012', '医美', '2024-08-11 17:30:10', 'MOAT_DUAN', '段永平', '欢迎围观「美团千亿再造」，扫码添加 段永平 深入交流。'),
+(3400032, '短链 · 华盛顿邮报', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0032', '2025-11-23 01:41:51', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-12-15 04:29:53', 'MOAT_LINYUAN', '林园', '欢迎围观「华盛顿邮报」，扫码添加 林园 深入交流。'),
+(3400033, '短链 · 巴菲特减持比亚迪', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0033', '2025-11-05 21:33:03', 0, 0, 1, 0, 0, '1000015', '家电龙头', '2025-11-16 08:34:09', 'MOAT_DANBIN', '但斌', '欢迎围观「巴菲特减持比亚迪」，扫码添加 但斌 深入交流。'),
+(3400034, '短链 · 巴菲特建仓中石油', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0034', '2025-03-08 13:36:57', 0, 0, 1, 0, 0, '1000020', '科技', '2024-11-20 14:49:09', 'MOAT_ZMZ', '章盟主', '欢迎围观「巴菲特建仓中石油」，扫码添加 章盟主 深入交流。'),
+(3400035, '短链 · 美国运通色拉油危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0035', '2026-05-09 16:00:36', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-12-11 01:48:47', 'MOAT_LILU', '李录', '欢迎围观「美国运通色拉油危机」，扫码添加 李录 深入交流。'),
+(3400036, '短链 · 茅台十年 60 倍', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0036', '2024-01-21 09:57:04', 0, 0, 1, 0, 0, '1000001', '超高净值', '2025-04-28 17:38:31', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「茅台十年 60 倍」，扫码添加 赵丹阳 深入交流。'),
+(3400037, '短链 · 港股互联网监管危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0037', '2024-12-03 05:03:34', 0, 0, 1, 0, 0, '1000021', '零售', '2024-05-17 22:24:14', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「港股互联网监管危机」，扫码添加 格雷厄姆 深入交流。'),
+(3400038, '短链 · 麦哲伦基金 29% CAGR', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0038', '2025-11-08 20:48:12', 0, 0, 1, 0, 0, '1000019', '保险再保', '2026-04-28 09:08:58', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 巴菲特 深入交流。'),
+(3400039, '短链 · 白酒塑化剂危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0039', '2026-04-20 22:51:54', 0, 0, 1, 0, 0, '1000012', '医美', '2026-03-02 13:35:02', 'MOAT_MUNGER', '芒格', '欢迎围观「白酒塑化剂危机」，扫码添加 芒格 深入交流。'),
+(3400040, '短链 · 宁德时代千亿', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0040', '2024-12-21 13:22:24', 0, 0, 1, 0, 0, '1000008', '科技传承', '2026-03-06 18:27:37', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「宁德时代千亿」，扫码添加 彼得·林奇 深入交流。'),
+(3400041, '短链 · 巴菲特建仓可口可乐', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0041', '2025-04-19 03:25:34', 0, 0, 1, 0, 0, '1000011', '金融', '2026-02-09 05:22:37', 'MOAT_FISHER', '费雪', '欢迎围观「巴菲特建仓可口可乐」，扫码添加 费雪 深入交流。'),
+(3400042, '短链 · See\'s Candies 收购', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0042', '2026-04-02 20:50:33', 0, 0, 1, 0, 0, '1000012', '医美', '2026-03-12 12:03:36', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「See\'s Candies 收购」，扫码添加 邓普顿 深入交流。'),
+(3400043, '短链 · 高盛优先股', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0043', '2024-10-14 07:52:26', 0, 0, 1, 0, 0, '1000020', '科技', '2024-10-31 01:05:12', 'MOAT_DUAN', '段永平', '欢迎围观「高盛优先股」，扫码添加 段永平 深入交流。'),
+(3400044, '短链 · 巴菲特买苹果', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0044', '2025-03-11 19:35:21', 0, 0, 1, 0, 0, '1000016', '互联网', '2025-12-05 06:01:38', 'MOAT_LINYUAN', '林园', '欢迎围观「巴菲特买苹果」，扫码添加 林园 深入交流。'),
+(3400045, '短链 · 日本五大商社', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0045', '2024-08-14 10:40:48', 0, 0, 1, 0, 0, '1000003', '零售客户', '2024-04-08 19:05:20', 'MOAT_DANBIN', '但斌', '欢迎围观「日本五大商社」，扫码添加 但斌 深入交流。'),
+(3400046, '短链 · 网易 1 美元抄底', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0046', '2025-02-26 12:18:42', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2024-08-05 21:52:40', 'MOAT_ZMZ', '章盟主', '欢迎围观「网易 1 美元抄底」，扫码添加 章盟主 深入交流。'),
+(3400047, '短链 · 拼多多种子期', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0047', '2025-08-26 02:56:02', 0, 0, 1, 0, 0, '1000005', '互联网创始人', '2025-05-07 10:16:10', 'MOAT_LILU', '李录', '欢迎围观「拼多多种子期」，扫码添加 李录 深入交流。'),
+(3400048, '短链 · 林园持有茅台', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0048', '2024-11-25 03:31:00', 0, 0, 1, 0, 0, '1000011', '金融', '2024-08-16 10:09:48', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「林园持有茅台」，扫码添加 赵丹阳 深入交流。'),
+(3400049, '短链 · 但斌抄底腾讯', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_01.png', 'cfg_0049', '2025-05-02 07:52:52', 0, 0, 1, 0, 0, '1000007', '媒体世家', '2025-02-17 00:40:09', 'MOAT_GRAHAM', '格雷厄姆', '欢迎围观「但斌抄底腾讯」，扫码添加 格雷厄姆 深入交流。'),
+(3400050, '短链 · 海天味业上市', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_02.png', 'cfg_0050', '2025-06-05 11:30:25', 0, 0, 1, 0, 0, '1000014', '白酒', '2024-01-03 05:39:23', 'MOAT_BUFFETT', '巴菲特', '欢迎围观「海天味业上市」，扫码添加 巴菲特 深入交流。'),
+(3400051, '短链 · 美团千亿再造', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_03.png', 'cfg_0051', '2024-08-22 18:39:12', 0, 0, 1, 0, 0, '1000011', '金融', '2025-10-08 19:20:39', 'MOAT_MUNGER', '芒格', '欢迎围观「美团千亿再造」，扫码添加 芒格 深入交流。'),
+(3400052, '短链 · 华盛顿邮报', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_04.png', 'cfg_0052', '2025-01-11 14:21:14', 0, 0, 1, 0, 0, '1000025', '跨境', '2025-05-16 19:38:14', 'MOAT_LYNCH', '彼得·林奇', '欢迎围观「华盛顿邮报」，扫码添加 彼得·林奇 深入交流。'),
+(3400053, '短链 · 巴菲特减持比亚迪', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_05.png', 'cfg_0053', '2024-07-03 15:06:38', 0, 0, 1, 0, 0, '1000003', '零售客户', '2025-06-16 02:46:16', 'MOAT_FISHER', '费雪', '欢迎围观「巴菲特减持比亚迪」，扫码添加 费雪 深入交流。'),
+(3400054, '短链 · 巴菲特建仓中石油', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_06.png', 'cfg_0054', '2025-12-26 17:10:04', 0, 0, 1, 0, 0, '1000016', '互联网', '2026-05-27 03:31:21', 'MOAT_TEMPLETON', '邓普顿', '欢迎围观「巴菲特建仓中石油」，扫码添加 邓普顿 深入交流。'),
+(3400055, '短链 · 美国运通色拉油危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_07.png', 'cfg_0055', '2026-05-26 21:04:50', 0, 0, 1, 0, 0, '1000012', '医美', '2024-03-11 16:44:14', 'MOAT_DUAN', '段永平', '欢迎围观「美国运通色拉油危机」，扫码添加 段永平 深入交流。'),
+(3400056, '短链 · 茅台十年 60 倍', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_08.png', 'cfg_0056', '2025-01-06 10:55:20', 0, 0, 1, 0, 0, '1000009', '家族办公室', '2024-10-29 20:12:50', 'MOAT_LINYUAN', '林园', '欢迎围观「茅台十年 60 倍」，扫码添加 林园 深入交流。'),
+(3400057, '短链 · 港股互联网监管危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_09.png', 'cfg_0057', '2025-04-25 11:37:52', 0, 0, 1, 0, 0, '1000020', '科技', '2025-01-29 06:26:19', 'MOAT_DANBIN', '但斌', '欢迎围观「港股互联网监管危机」，扫码添加 但斌 深入交流。'),
+(3400058, '短链 · 麦哲伦基金 29% CAGR', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_10.png', 'cfg_0058', '2026-04-20 11:46:48', 0, 0, 1, 0, 0, '1000020', '科技', '2025-11-02 09:17:32', 'MOAT_ZMZ', '章盟主', '欢迎围观「麦哲伦基金 29% CAGR」，扫码添加 章盟主 深入交流。'),
+(3400059, '短链 · 白酒塑化剂危机', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_11.png', 'cfg_0059', '2024-07-28 04:20:44', 0, 0, 1, 0, 0, '1000018', '医药', '2025-04-05 19:01:46', 'MOAT_LILU', '李录', '欢迎围观「白酒塑化剂危机」，扫码添加 李录 深入交流。'),
+(3400060, '短链 · 宁德时代千亿', '0', 'http://10.210.156.69:8081/iyque/file/fileView/qr_staff_12.png', 'cfg_0060', '2024-05-04 19:23:35', 0, 0, 1, 0, 0, '1000016', '互联网', '2026-04-21 03:14:34', 'MOAT_ZHAODANYANG', '赵丹阳', '欢迎围观「宁德时代千亿」，扫码添加 赵丹阳 深入交流。');
 
 -- ========================================================================
 -- iyque_material · 素材
 -- ========================================================================
 INSERT INTO `iyque_material` (`id`, `annexContent`, `categoryId`, `createTime`, `delFlag`, `msgtype`, `title`, `updateBy`, `updateTime`) VALUES
-(3500001, '价格是你付出的，价值才是你得到的。', '1200001', '2025-05-28 12:39:14', 0, 'text', '[语录] 格雷厄姆：价格是你付出的，价值才是你得到的。...', '格雷厄姆', '2024-02-02 21:22:38'),
-(3500002, '投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', '1200002', '2025-05-31 22:49:30', 0, 'text', '[语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原...', '巴菲特', '2026-02-09 18:50:20'),
-(3500003, '买股票就是买公司。', '1200003', '2025-12-09 20:47:15', 0, 'text', '[语录] 巴菲特：买股票就是买公司。...', '芒格', '2025-03-17 13:41:42'),
-(3500004, '我们喜欢简单的生意，不喜欢有太多变量的生意。', '1200004', '2024-08-31 02:45:25', 0, 'text', '[语录] 巴菲特：我们喜欢简单的生意，不喜欢有太多变量的生...', '彼得·林奇', '2025-10-18 03:19:59'),
-(3500005, '反过来想，总是反过来想。', '1200005', '2025-08-28 07:15:11', 0, 'text', '[语录] 芒格：反过来想，总是反过来想。...', '费雪', '2025-12-28 09:17:50'),
-(3500006, '宏观是我们必须承受的，微观才是我们能有所作为的。', '1200006', '2025-10-31 15:24:46', 0, 'text', '[语录] 芒格：宏观是我们必须承受的，微观才是我们能有所...', '邓普顿', '2024-05-25 17:39:59'),
-(3500007, '得到你想要的东西的最保险办法，就是让自己配得上它。', '1200007', '2024-04-17 18:48:45', 0, 'text', '[语录] 芒格：得到你想要的东西的最保险办法，就是让自己...', '段永平', '2024-10-17 10:05:03'),
-(3500008, '买你熟悉的股票，避开你不熟悉的。', '1200008', '2024-08-26 12:15:45', 0, 'text', '[语录] 彼得·林奇：买你熟悉的股票，避开你不熟悉的。...', '林园', '2024-12-26 08:42:49'),
-(3500009, '如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', '1200009', '2025-02-06 20:14:45', 0, 'text', '[语录] 彼得·林奇：如果连一家公司的业务你都无法用一支蜡笔说...', '但斌', '2025-07-21 20:07:04'),
-(3500010, '投资的最好时机是找到伟大企业时。', '1200010', '2025-04-24 01:00:34', 0, 'text', '[语录] 费雪：投资的最好时机是找到伟大企业时。...', '章盟主', '2024-11-26 05:39:08'),
-(3500011, '在极度悲观的时候买入，在极度乐观的时候卖出。', '1200011', '2026-06-05 18:41:54', 0, 'text', '[语录] 邓普顿：在极度悲观的时候买入，在极度乐观的时候卖...', '李录', '2025-12-10 07:20:46'),
-(3500012, '做对的事情，把事情做对。', '1200012', '2025-06-08 02:25:46', 0, 'text', '[语录] 段永平：做对的事情，把事情做对。...', '赵丹阳', '2026-02-14 10:42:00'),
-(3500013, '本分比聪明重要。', '1200001', '2026-04-19 16:45:53', 0, 'text', '[语录] 段永平：本分比聪明重要。...', '格雷厄姆', '2024-08-31 08:10:21'),
-(3500014, '长期视角看，好生意最终会给股东回报。', '1200002', '2024-12-06 11:50:44', 0, 'text', '[语录] 段永平：长期视角看，好生意最终会给股东回报。...', '巴菲特', '2024-04-25 17:16:57'),
-(3500015, '看得见摸得着的消费股，才是能陪你一辈子的股票。', '1200003', '2024-09-27 14:09:49', 0, 'text', '[语录] 林园：看得见摸得着的消费股，才是能陪你一辈子的...', '芒格', '2025-04-27 06:53:16'),
-(3500016, '时间的玫瑰只献给坚守的人。', '1200004', '2024-04-12 12:10:09', 0, 'text', '[语录] 但斌：时间的玫瑰只献给坚守的人。...', '彼得·林奇', '2024-05-13 07:53:24'),
-(3500017, '情绪是短线的燃料，但价值是长线的锚。', '1200005', '2025-03-25 05:26:41', 0, 'text', '[语录] 章盟主：情绪是短线的燃料，但价值是长线的锚。...', '费雪', '2025-11-28 04:41:10'),
-(3500018, '在中国做价值投资，需要更长的时间维度。', '1200006', '2026-04-10 14:47:26', 0, 'text', '[语录] 李录：在中国做价值投资，需要更长的时间维度。...', '邓普顿', '2025-10-18 23:06:30'),
-(3500019, '绝对收益是价值投资者的自我修养。', '1200007', '2026-02-14 08:54:10', 0, 'text', '[语录] 赵丹阳：绝对收益是价值投资者的自我修养。...', '段永平', '2025-06-16 11:42:56'),
-(3500020, '2020 后新能源龙头崛起，价投的科技例外', '1200008', '2025-12-15 13:52:26', 0, 'link', '[案例] 宁德时代千亿', '林园', '2026-02-28 20:05:41'),
-(3500021, '1988 年巴菲特以 12.45 美元均价大举建仓可口可乐', '1200009', '2024-12-03 17:57:05', 0, 'text', '[案例] 巴菲特建仓可口可乐', '但斌', '2026-02-25 10:35:00'),
-(3500022, '1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例', '1200010', '2024-09-14 19:40:23', 0, 'text', '[案例] See\'s Candies 收购', '章盟主', '2025-03-29 17:52:22'),
-(3500023, '2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%', '1200011', '2026-04-04 02:47:50', 0, 'text', '[案例] 高盛优先股', '李录', '2025-06-08 00:47:07'),
-(3500024, '2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股', '1200012', '2025-04-01 01:33:38', 0, 'text', '[案例] 巴菲特买苹果', '赵丹阳', '2026-04-16 18:51:56'),
-(3500025, '2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红', '1200001', '2025-03-04 01:55:33', 0, 'text', '[案例] 日本五大商社', '格雷厄姆', '2025-05-06 05:09:20'),
-(3500026, '2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍', '1200002', '2026-05-29 19:24:45', 0, 'link', '[案例] 网易 1 美元抄底', '巴菲特', '2024-06-26 04:30:09'),
-(3500027, '黄峥创业拼多多，段永平以老友身份提供思想 + 资金', '1200003', '2025-08-10 06:41:32', 0, 'link', '[案例] 拼多多种子期', '芒格', '2024-10-25 13:09:51'),
-(3500028, '林园 2003 年 30 元起持有茅台至千元时代', '1200004', '2025-02-17 03:51:26', 0, 'link', '[案例] 林园持有茅台', '彼得·林奇', '2024-07-29 13:06:03'),
-(3500029, '2015 年腾讯 100 港币 但斌大举建仓，年化 25%+', '1200005', '2024-08-08 09:31:14', 0, 'image', '[案例] 但斌抄底腾讯', '费雪', '2025-04-22 12:30:29'),
-(3500030, '价值投资者围观刚上市的海天味业，验证消费护城河', '1200006', '2025-02-09 12:32:48', 0, 'image', '[案例] 海天味业上市', '邓普顿', '2025-07-25 23:27:16'),
-(3500031, '2019 年美团触底反弹，多家价投基金抄底', '1200007', '2024-07-19 06:21:45', 0, 'link', '[案例] 美团千亿再造', '段永平', '2025-05-10 16:04:49'),
-(3500032, '巴菲特 1973 年建仓华盛顿邮报，凯·格雷厄姆挚友', '1200008', '2024-02-14 12:16:22', 0, 'image', '[案例] 华盛顿邮报', '林园', '2024-10-11 17:09:04'),
-(3500033, '2022-2023 年伯克希尔陆续减持比亚迪，价值兑现讨论', '1200009', '2024-06-13 15:14:44', 0, 'text', '[案例] 巴菲特减持比亚迪', '但斌', '2024-07-19 19:40:43'),
-(3500034, '2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出', '1200010', '2025-03-06 09:13:20', 0, 'image', '[案例] 巴菲特建仓中石油', '章盟主', '2024-10-07 01:21:10'),
-(3500035, '1963 年沙拉油诈骗案，巴菲特逆势建仓运通', '1200011', '2024-08-21 17:42:32', 0, 'text', '[案例] 美国运通色拉油危机', '李录', '2025-06-21 01:17:41'),
-(3500036, '2003→2020 白酒龙头长牛', '1200012', '2024-11-27 04:11:08', 0, 'image', '[案例] 茅台十年 60 倍', '赵丹阳', '2024-11-30 07:21:48'),
-(3500037, '2021 年腾讯/美团腰斩，是否价值机会', '1200001', '2026-06-06 23:10:04', 0, 'image', '[案例] 港股互联网监管危机', '格雷厄姆', '2024-05-28 02:04:01'),
-(3500038, '彼得·林奇 1977~1990 传奇业绩', '1200002', '2026-03-26 20:33:46', 0, 'image', '[案例] 麦哲伦基金 29% CAGR', '巴菲特', '2024-05-29 11:37:01'),
-(3500039, '2012 塑化剂事件短期扰动 vs 长期护城河', '1200003', '2024-11-07 00:50:30', 0, 'link', '[案例] 白酒塑化剂危机', '芒格', '2025-11-08 15:08:46'),
-(3500040, '2020 后新能源龙头崛起，价投的科技例外', '1200004', '2024-10-24 21:14:18', 0, 'image', '[案例] 宁德时代千亿', '彼得·林奇', '2025-10-25 22:03:37'),
-(3500041, '1988 年巴菲特以 12.45 美元均价大举建仓可口可乐', '1200005', '2024-09-26 14:05:38', 0, 'text', '[案例] 巴菲特建仓可口可乐', '费雪', '2026-02-17 13:14:16'),
-(3500042, '1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例', '1200006', '2024-02-09 11:03:07', 0, 'text', '[案例] See\'s Candies 收购', '邓普顿', '2025-06-27 16:37:36'),
-(3500043, '2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%', '1200007', '2025-10-05 18:21:33', 0, 'link', '[案例] 高盛优先股', '段永平', '2025-06-11 17:30:33'),
-(3500044, '2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股', '1200008', '2025-06-03 20:56:16', 0, 'image', '[案例] 巴菲特买苹果', '林园', '2026-04-16 11:42:53'),
-(3500045, '2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红', '1200009', '2025-12-04 02:06:43', 0, 'text', '[案例] 日本五大商社', '但斌', '2024-11-13 18:41:59'),
-(3500046, '2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍', '1200010', '2026-03-25 19:15:31', 0, 'link', '[案例] 网易 1 美元抄底', '章盟主', '2024-11-03 19:18:11'),
-(3500047, '黄峥创业拼多多，段永平以老友身份提供思想 + 资金', '1200011', '2025-03-12 00:13:17', 0, 'image', '[案例] 拼多多种子期', '李录', '2024-08-13 01:05:29'),
-(3500048, '林园 2003 年 30 元起持有茅台至千元时代', '1200012', '2025-08-13 20:47:06', 0, 'image', '[案例] 林园持有茅台', '赵丹阳', '2025-12-28 08:01:02'),
-(3500049, '2015 年腾讯 100 港币 但斌大举建仓，年化 25%+', '1200001', '2024-11-03 03:58:11', 0, 'text', '[案例] 但斌抄底腾讯', '格雷厄姆', '2025-06-18 09:01:29'),
-(3500050, '价值投资者围观刚上市的海天味业，验证消费护城河', '1200002', '2025-12-05 09:49:45', 0, 'text', '[案例] 海天味业上市', '巴菲特', '2024-06-20 01:43:37'),
-(3500051, '2019 年美团触底反弹，多家价投基金抄底', '1200003', '2024-02-06 03:12:14', 0, 'text', '[案例] 美团千亿再造', '芒格', '2025-06-20 13:57:00'),
-(3500052, '巴菲特 1973 年建仓华盛顿邮报，凯·格雷厄姆挚友', '1200004', '2025-06-12 21:00:17', 0, 'text', '[案例] 华盛顿邮报', '彼得·林奇', '2024-06-29 11:29:28'),
-(3500053, '2022-2023 年伯克希尔陆续减持比亚迪，价值兑现讨论', '1200005', '2025-11-28 06:20:10', 0, 'image', '[案例] 巴菲特减持比亚迪', '费雪', '2025-05-05 18:36:12'),
-(3500054, '2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出', '1200006', '2024-11-18 10:44:36', 0, 'link', '[案例] 巴菲特建仓中石油', '邓普顿', '2026-04-07 03:58:19'),
-(3500055, '1963 年沙拉油诈骗案，巴菲特逆势建仓运通', '1200007', '2025-06-14 18:31:13', 0, 'image', '[案例] 美国运通色拉油危机', '段永平', '2025-02-13 03:34:43'),
-(3500056, '2003→2020 白酒龙头长牛', '1200008', '2025-05-09 21:10:04', 0, 'text', '[案例] 茅台十年 60 倍', '林园', '2024-11-16 12:45:35'),
-(3500057, '2021 年腾讯/美团腰斩，是否价值机会', '1200009', '2024-06-08 07:03:01', 0, 'text', '[案例] 港股互联网监管危机', '但斌', '2024-06-29 12:18:00'),
-(3500058, '彼得·林奇 1977~1990 传奇业绩', '1200010', '2024-10-02 16:48:26', 0, 'image', '[案例] 麦哲伦基金 29% CAGR', '章盟主', '2025-06-29 20:08:03'),
-(3500059, '2012 塑化剂事件短期扰动 vs 长期护城河', '1200011', '2024-03-18 03:18:06', 0, 'text', '[案例] 白酒塑化剂危机', '李录', '2025-01-06 20:54:39'),
-(3500060, '2020 后新能源龙头崛起，价投的科技例外', '1200012', '2024-03-10 07:38:21', 0, 'image', '[案例] 宁德时代千亿', '赵丹阳', '2024-12-11 06:36:31');
+(3500001, '{"content": "价格是你付出的，价值才是你得到的。"}', '1200001', '2025-05-28 12:39:14', 0, 'text', '[语录] 格雷厄姆：价格是你付出的，价值才是你得到的。...', '格雷厄姆', '2024-02-02 21:22:38'),
+(3500002, '{"content": "投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', '1200002', '2025-05-31 22:49:30', 0, 'text', '[语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原...', '巴菲特', '2026-02-09 18:50:20'),
+(3500003, '{"content": "买股票就是买公司。"}', '1200003', '2025-12-09 20:47:15', 0, 'text', '[语录] 巴菲特：买股票就是买公司。...', '芒格', '2025-03-17 13:41:42'),
+(3500004, '{"content": "我们喜欢简单的生意，不喜欢有太多变量的生意。"}', '1200004', '2024-08-31 02:45:25', 0, 'text', '[语录] 巴菲特：我们喜欢简单的生意，不喜欢有太多变量的生...', '彼得·林奇', '2025-10-18 03:19:59'),
+(3500005, '{"content": "反过来想，总是反过来想。"}', '1200005', '2025-08-28 07:15:11', 0, 'text', '[语录] 芒格：反过来想，总是反过来想。...', '费雪', '2025-12-28 09:17:50'),
+(3500006, '{"content": "宏观是我们必须承受的，微观才是我们能有所作为的。"}', '1200006', '2025-10-31 15:24:46', 0, 'text', '[语录] 芒格：宏观是我们必须承受的，微观才是我们能有所...', '邓普顿', '2024-05-25 17:39:59'),
+(3500007, '{"content": "得到你想要的东西的最保险办法，就是让自己配得上它。"}', '1200007', '2024-04-17 18:48:45', 0, 'text', '[语录] 芒格：得到你想要的东西的最保险办法，就是让自己...', '段永平', '2024-10-17 10:05:03'),
+(3500008, '{"content": "买你熟悉的股票，避开你不熟悉的。"}', '1200008', '2024-08-26 12:15:45', 0, 'text', '[语录] 彼得·林奇：买你熟悉的股票，避开你不熟悉的。...', '林园', '2024-12-26 08:42:49'),
+(3500009, '{"content": "如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', '1200009', '2025-02-06 20:14:45', 0, 'text', '[语录] 彼得·林奇：如果连一家公司的业务你都无法用一支蜡笔说...', '但斌', '2025-07-21 20:07:04'),
+(3500010, '{"content": "投资的最好时机是找到伟大企业时。"}', '1200010', '2025-04-24 01:00:34', 0, 'text', '[语录] 费雪：投资的最好时机是找到伟大企业时。...', '章盟主', '2024-11-26 05:39:08'),
+(3500011, '{"content": "在极度悲观的时候买入，在极度乐观的时候卖出。"}', '1200011', '2026-06-05 18:41:54', 0, 'text', '[语录] 邓普顿：在极度悲观的时候买入，在极度乐观的时候卖...', '李录', '2025-12-10 07:20:46'),
+(3500012, '{"content": "做对的事情，把事情做对。"}', '1200012', '2025-06-08 02:25:46', 0, 'text', '[语录] 段永平：做对的事情，把事情做对。...', '赵丹阳', '2026-02-14 10:42:00'),
+(3500013, '{"content": "本分比聪明重要。"}', '1200001', '2026-04-19 16:45:53', 0, 'text', '[语录] 段永平：本分比聪明重要。...', '格雷厄姆', '2024-08-31 08:10:21'),
+(3500014, '{"content": "长期视角看，好生意最终会给股东回报。"}', '1200002', '2024-12-06 11:50:44', 0, 'text', '[语录] 段永平：长期视角看，好生意最终会给股东回报。...', '巴菲特', '2024-04-25 17:16:57'),
+(3500015, '{"content": "看得见摸得着的消费股，才是能陪你一辈子的股票。"}', '1200003', '2024-09-27 14:09:49', 0, 'text', '[语录] 林园：看得见摸得着的消费股，才是能陪你一辈子的...', '芒格', '2025-04-27 06:53:16'),
+(3500016, '{"content": "时间的玫瑰只献给坚守的人。"}', '1200004', '2024-04-12 12:10:09', 0, 'text', '[语录] 但斌：时间的玫瑰只献给坚守的人。...', '彼得·林奇', '2024-05-13 07:53:24'),
+(3500017, '{"content": "情绪是短线的燃料，但价值是长线的锚。"}', '1200005', '2025-03-25 05:26:41', 0, 'text', '[语录] 章盟主：情绪是短线的燃料，但价值是长线的锚。...', '费雪', '2025-11-28 04:41:10'),
+(3500018, '{"content": "在中国做价值投资，需要更长的时间维度。"}', '1200006', '2026-04-10 14:47:26', 0, 'text', '[语录] 李录：在中国做价值投资，需要更长的时间维度。...', '邓普顿', '2025-10-18 23:06:30'),
+(3500019, '{"content": "绝对收益是价值投资者的自我修养。"}', '1200007', '2026-02-14 08:54:10', 0, 'text', '[语录] 赵丹阳：绝对收益是价值投资者的自我修养。...', '段永平', '2025-06-16 11:42:56'),
+(3500020, '{"title": "宁德时代千亿", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "2020 后新能源龙头崛起，价投的科技例外", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', '1200008', '2025-12-15 13:52:26', 0, 'link', '[案例] 宁德时代千亿', '林园', '2026-02-28 20:05:41'),
+(3500021, '{"content": "1988 年巴菲特以 12.45 美元均价大举建仓可口可乐"}', '1200009', '2024-12-03 17:57:05', 0, 'text', '[案例] 巴菲特建仓可口可乐', '但斌', '2026-02-25 10:35:00'),
+(3500022, '{"content": "1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例"}', '1200010', '2024-09-14 19:40:23', 0, 'text', '[案例] See\'s Candies 收购', '章盟主', '2025-03-29 17:52:22'),
+(3500023, '{"content": "2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%"}', '1200011', '2026-04-04 02:47:50', 0, 'text', '[案例] 高盛优先股', '李录', '2025-06-08 00:47:07'),
+(3500024, '{"content": "2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股"}', '1200012', '2025-04-01 01:33:38', 0, 'text', '[案例] 巴菲特买苹果', '赵丹阳', '2026-04-16 18:51:56'),
+(3500025, '{"content": "2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红"}', '1200001', '2025-03-04 01:55:33', 0, 'text', '[案例] 日本五大商社', '格雷厄姆', '2025-05-06 05:09:20'),
+(3500026, '{"title": "网易 1 美元抄底", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png", "desc": "2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=2"}', '1200002', '2026-05-29 19:24:45', 0, 'link', '[案例] 网易 1 美元抄底', '巴菲特', '2024-06-26 04:30:09'),
+(3500027, '{"title": "拼多多种子期", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png", "desc": "黄峥创业拼多多，段永平以老友身份提供思想 + 资金", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=3"}', '1200003', '2025-08-10 06:41:32', 0, 'link', '[案例] 拼多多种子期', '芒格', '2024-10-25 13:09:51'),
+(3500028, '{"title": "林园持有茅台", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "林园 2003 年 30 元起持有茅台至千元时代", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', '1200004', '2025-02-17 03:51:26', 0, 'link', '[案例] 林园持有茅台', '彼得·林奇', '2024-07-29 13:06:03'),
+(3500029, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', '1200005', '2024-08-08 09:31:14', 0, 'image', '[案例] 但斌抄底腾讯', '费雪', '2025-04-22 12:30:29'),
+(3500030, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png"}', '1200006', '2025-02-09 12:32:48', 0, 'image', '[案例] 海天味业上市', '邓普顿', '2025-07-25 23:27:16'),
+(3500031, '{"title": "美团千亿再造", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "2019 年美团触底反弹，多家价投基金抄底", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', '1200007', '2024-07-19 06:21:45', 0, 'link', '[案例] 美团千亿再造', '段永平', '2025-05-10 16:04:49'),
+(3500032, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', '1200008', '2024-02-14 12:16:22', 0, 'image', '[案例] 华盛顿邮报', '林园', '2024-10-11 17:09:04'),
+(3500033, '{"content": "2022-2023 年伯克希尔陆续减持比亚迪，价值兑现讨论"}', '1200009', '2024-06-13 15:14:44', 0, 'text', '[案例] 巴菲特减持比亚迪', '但斌', '2024-07-19 19:40:43'),
+(3500034, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', '1200010', '2025-03-06 09:13:20', 0, 'image', '[案例] 巴菲特建仓中石油', '章盟主', '2024-10-07 01:21:10'),
+(3500035, '{"content": "1963 年沙拉油诈骗案，巴菲特逆势建仓运通"}', '1200011', '2024-08-21 17:42:32', 0, 'text', '[案例] 美国运通色拉油危机', '李录', '2025-06-21 01:17:41'),
+(3500036, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', '1200012', '2024-11-27 04:11:08', 0, 'image', '[案例] 茅台十年 60 倍', '赵丹阳', '2024-11-30 07:21:48'),
+(3500037, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', '1200001', '2026-06-06 23:10:04', 0, 'image', '[案例] 港股互联网监管危机', '格雷厄姆', '2024-05-28 02:04:01'),
+(3500038, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png"}', '1200002', '2026-03-26 20:33:46', 0, 'image', '[案例] 麦哲伦基金 29% CAGR', '巴菲特', '2024-05-29 11:37:01'),
+(3500039, '{"title": "白酒塑化剂危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "2012 塑化剂事件短期扰动 vs 长期护城河", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', '1200003', '2024-11-07 00:50:30', 0, 'link', '[案例] 白酒塑化剂危机', '芒格', '2025-11-08 15:08:46'),
+(3500040, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', '1200004', '2024-10-24 21:14:18', 0, 'image', '[案例] 宁德时代千亿', '彼得·林奇', '2025-10-25 22:03:37'),
+(3500041, '{"content": "1988 年巴菲特以 12.45 美元均价大举建仓可口可乐"}', '1200005', '2024-09-26 14:05:38', 0, 'text', '[案例] 巴菲特建仓可口可乐', '费雪', '2026-02-17 13:14:16'),
+(3500042, '{"content": "1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例"}', '1200006', '2024-02-09 11:03:07', 0, 'text', '[案例] See\'s Candies 收购', '邓普顿', '2025-06-27 16:37:36'),
+(3500043, '{"title": "高盛优先股", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png", "desc": "2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=3"}', '1200007', '2025-10-05 18:21:33', 0, 'link', '[案例] 高盛优先股', '段永平', '2025-06-11 17:30:33'),
+(3500044, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', '1200008', '2025-06-03 20:56:16', 0, 'image', '[案例] 巴菲特买苹果', '林园', '2026-04-16 11:42:53'),
+(3500045, '{"content": "2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红"}', '1200009', '2025-12-04 02:06:43', 0, 'text', '[案例] 日本五大商社', '但斌', '2024-11-13 18:41:59'),
+(3500046, '{"title": "网易 1 美元抄底", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', '1200010', '2026-03-25 19:15:31', 0, 'link', '[案例] 网易 1 美元抄底', '章盟主', '2024-11-03 19:18:11'),
+(3500047, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', '1200011', '2025-03-12 00:13:17', 0, 'image', '[案例] 拼多多种子期', '李录', '2024-08-13 01:05:29'),
+(3500048, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', '1200012', '2025-08-13 20:47:06', 0, 'image', '[案例] 林园持有茅台', '赵丹阳', '2025-12-28 08:01:02'),
+(3500049, '{"content": "2015 年腾讯 100 港币 但斌大举建仓，年化 25%+"}', '1200001', '2024-11-03 03:58:11', 0, 'text', '[案例] 但斌抄底腾讯', '格雷厄姆', '2025-06-18 09:01:29'),
+(3500050, '{"content": "价值投资者围观刚上市的海天味业，验证消费护城河"}', '1200002', '2025-12-05 09:49:45', 0, 'text', '[案例] 海天味业上市', '巴菲特', '2024-06-20 01:43:37'),
+(3500051, '{"content": "2019 年美团触底反弹，多家价投基金抄底"}', '1200003', '2024-02-06 03:12:14', 0, 'text', '[案例] 美团千亿再造', '芒格', '2025-06-20 13:57:00'),
+(3500052, '{"content": "巴菲特 1973 年建仓华盛顿邮报，凯·格雷厄姆挚友"}', '1200004', '2025-06-12 21:00:17', 0, 'text', '[案例] 华盛顿邮报', '彼得·林奇', '2024-06-29 11:29:28'),
+(3500053, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', '1200005', '2025-11-28 06:20:10', 0, 'image', '[案例] 巴菲特减持比亚迪', '费雪', '2025-05-05 18:36:12'),
+(3500054, '{"title": "巴菲特建仓中石油", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', '1200006', '2024-11-18 10:44:36', 0, 'link', '[案例] 巴菲特建仓中石油', '邓普顿', '2026-04-07 03:58:19'),
+(3500055, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', '1200007', '2025-06-14 18:31:13', 0, 'image', '[案例] 美国运通色拉油危机', '段永平', '2025-02-13 03:34:43'),
+(3500056, '{"content": "2003→2020 白酒龙头长牛"}', '1200008', '2025-05-09 21:10:04', 0, 'text', '[案例] 茅台十年 60 倍', '林园', '2024-11-16 12:45:35'),
+(3500057, '{"content": "2021 年腾讯/美团腰斩，是否价值机会"}', '1200009', '2024-06-08 07:03:01', 0, 'text', '[案例] 港股互联网监管危机', '但斌', '2024-06-29 12:18:00'),
+(3500058, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', '1200010', '2024-10-02 16:48:26', 0, 'image', '[案例] 麦哲伦基金 29% CAGR', '章盟主', '2025-06-29 20:08:03'),
+(3500059, '{"content": "2012 塑化剂事件短期扰动 vs 长期护城河"}', '1200011', '2024-03-18 03:18:06', 0, 'text', '[案例] 白酒塑化剂危机', '李录', '2025-01-06 20:54:39'),
+(3500060, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', '1200012', '2024-03-10 07:38:21', 0, 'image', '[案例] 宁德时代千亿', '赵丹阳', '2024-12-11 06:36:31');
 
 -- ========================================================================
 -- iyque_msg_annex · 消息附件
 -- ========================================================================
 INSERT INTO `iyque_msg_annex` (`id`, `annexContent`, `msgId`, `msgtype`) VALUES
-(3600001, '[附件 1] 巴菲特建仓可口可乐 摘要 PDF', 3500001, 'image'),
-(3600002, '[附件 2] See\'s Candies 收购 摘要 PDF', 3500002, 'text'),
-(3600003, '[附件 3] 高盛优先股 摘要 PDF', 3500003, 'video'),
-(3600004, '[附件 4] 巴菲特买苹果 摘要 PDF', 3500004, 'text'),
-(3600005, '[附件 5] 日本五大商社 摘要 PDF', 3500005, 'video'),
-(3600006, '[附件 6] 网易 1 美元抄底 摘要 PDF', 3500006, 'image'),
-(3600007, '[附件 7] 拼多多种子期 摘要 PDF', 3500007, 'text'),
-(3600008, '[附件 8] 林园持有茅台 摘要 PDF', 3500008, 'image'),
-(3600009, '[附件 9] 但斌抄底腾讯 摘要 PDF', 3500009, 'image'),
-(3600010, '[附件 10] 海天味业上市 摘要 PDF', 3500010, 'file'),
-(3600011, '[附件 11] 美团千亿再造 摘要 PDF', 3500011, 'text'),
-(3600012, '[附件 12] 华盛顿邮报 摘要 PDF', 3500012, 'file'),
-(3600013, '[附件 13] 巴菲特减持比亚迪 摘要 PDF', 3500013, 'text'),
-(3600014, '[附件 14] 巴菲特建仓中石油 摘要 PDF', 3500014, 'text'),
-(3600015, '[附件 15] 美国运通色拉油危机 摘要 PDF', 3500015, 'file'),
-(3600016, '[附件 16] 茅台十年 60 倍 摘要 PDF', 3500016, 'video'),
-(3600017, '[附件 17] 港股互联网监管危机 摘要 PDF', 3500017, 'file'),
-(3600018, '[附件 18] 麦哲伦基金 29% CAGR 摘要 PDF', 3500018, 'video'),
-(3600019, '[附件 19] 白酒塑化剂危机 摘要 PDF', 3500019, 'file'),
-(3600020, '[附件 20] 宁德时代千亿 摘要 PDF', 3500020, 'video'),
-(3600021, '[附件 21] 巴菲特建仓可口可乐 摘要 PDF', 3500021, 'file'),
-(3600022, '[附件 22] See\'s Candies 收购 摘要 PDF', 3500022, 'video'),
-(3600023, '[附件 23] 高盛优先股 摘要 PDF', 3500023, 'image'),
-(3600024, '[附件 24] 巴菲特买苹果 摘要 PDF', 3500024, 'image'),
-(3600025, '[附件 25] 日本五大商社 摘要 PDF', 3500025, 'file'),
-(3600026, '[附件 26] 网易 1 美元抄底 摘要 PDF', 3500026, 'image'),
-(3600027, '[附件 27] 拼多多种子期 摘要 PDF', 3500027, 'image'),
-(3600028, '[附件 28] 林园持有茅台 摘要 PDF', 3500028, 'file'),
-(3600029, '[附件 29] 但斌抄底腾讯 摘要 PDF', 3500029, 'video'),
-(3600030, '[附件 30] 海天味业上市 摘要 PDF', 3500030, 'video'),
-(3600031, '[附件 31] 美团千亿再造 摘要 PDF', 3500031, 'text'),
-(3600032, '[附件 32] 华盛顿邮报 摘要 PDF', 3500032, 'video'),
-(3600033, '[附件 33] 巴菲特减持比亚迪 摘要 PDF', 3500033, 'video'),
-(3600034, '[附件 34] 巴菲特建仓中石油 摘要 PDF', 3500034, 'image'),
-(3600035, '[附件 35] 美国运通色拉油危机 摘要 PDF', 3500035, 'text'),
-(3600036, '[附件 36] 茅台十年 60 倍 摘要 PDF', 3500036, 'file'),
-(3600037, '[附件 37] 港股互联网监管危机 摘要 PDF', 3500037, 'video'),
-(3600038, '[附件 38] 麦哲伦基金 29% CAGR 摘要 PDF', 3500038, 'file'),
-(3600039, '[附件 39] 白酒塑化剂危机 摘要 PDF', 3500039, 'image'),
-(3600040, '[附件 40] 宁德时代千亿 摘要 PDF', 3500040, 'text'),
-(3600041, '[附件 41] 巴菲特建仓可口可乐 摘要 PDF', 3500041, 'text'),
-(3600042, '[附件 42] See\'s Candies 收购 摘要 PDF', 3500042, 'image'),
-(3600043, '[附件 43] 高盛优先股 摘要 PDF', 3500043, 'video'),
-(3600044, '[附件 44] 巴菲特买苹果 摘要 PDF', 3500044, 'image'),
-(3600045, '[附件 45] 日本五大商社 摘要 PDF', 3500045, 'video'),
-(3600046, '[附件 46] 网易 1 美元抄底 摘要 PDF', 3500046, 'file'),
-(3600047, '[附件 47] 拼多多种子期 摘要 PDF', 3500047, 'video'),
-(3600048, '[附件 48] 林园持有茅台 摘要 PDF', 3500048, 'image'),
-(3600049, '[附件 49] 但斌抄底腾讯 摘要 PDF', 3500049, 'video'),
-(3600050, '[附件 50] 海天味业上市 摘要 PDF', 3500050, 'image'),
-(3600051, '[附件 51] 美团千亿再造 摘要 PDF', 3500051, 'file'),
-(3600052, '[附件 52] 华盛顿邮报 摘要 PDF', 3500052, 'text'),
-(3600053, '[附件 53] 巴菲特减持比亚迪 摘要 PDF', 3500053, 'video'),
-(3600054, '[附件 54] 巴菲特建仓中石油 摘要 PDF', 3500054, 'text'),
-(3600055, '[附件 55] 美国运通色拉油危机 摘要 PDF', 3500055, 'text'),
-(3600056, '[附件 56] 茅台十年 60 倍 摘要 PDF', 3500056, 'video'),
-(3600057, '[附件 57] 港股互联网监管危机 摘要 PDF', 3500057, 'file'),
-(3600058, '[附件 58] 麦哲伦基金 29% CAGR 摘要 PDF', 3500058, 'video'),
-(3600059, '[附件 59] 白酒塑化剂危机 摘要 PDF', 3500059, 'video'),
-(3600060, '[附件 60] 宁德时代千亿 摘要 PDF', 3500060, 'image');
+(3600001, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png"}', 3500001, 'image'),
+(3600002, '{"title": "See\'s Candies 收购", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png", "desc": "1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=2"}', 3500002, 'link'),
+(3600003, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500003, 'video'),
+(3600004, '{"title": "巴菲特买苹果", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', 3500004, 'link'),
+(3600005, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500005, 'video'),
+(3600006, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png"}', 3500006, 'image'),
+(3600007, '{"title": "拼多多种子期", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "黄峥创业拼多多，段永平以老友身份提供思想 + 资金", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 3500007, 'link'),
+(3600008, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', 3500008, 'image'),
+(3600009, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png"}', 3500009, 'image'),
+(3600010, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500010, 'file'),
+(3600011, '{"title": "美团千亿再造", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png", "desc": "2019 年美团触底反弹，多家价投基金抄底", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=3"}', 3500011, 'link'),
+(3600012, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500012, 'file'),
+(3600013, '{"title": "巴菲特减持比亚迪", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png", "desc": "2022-2023 年伯克希尔陆续减持比亚迪，价值兑现讨论", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=5"}', 3500013, 'link'),
+(3600014, '{"title": "巴菲特建仓中石油", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', 3500014, 'link'),
+(3600015, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500015, 'file'),
+(3600016, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500016, 'video'),
+(3600017, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500017, 'file'),
+(3600018, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500018, 'video'),
+(3600019, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500019, 'file'),
+(3600020, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500020, 'video'),
+(3600021, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500021, 'file'),
+(3600022, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500022, 'video'),
+(3600023, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', 3500023, 'image'),
+(3600024, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', 3500024, 'image'),
+(3600025, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500025, 'file'),
+(3600026, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 3500026, 'image'),
+(3600027, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png"}', 3500027, 'image'),
+(3600028, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500028, 'file'),
+(3600029, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500029, 'video'),
+(3600030, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500030, 'video'),
+(3600031, '{"title": "美团千亿再造", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "2019 年美团触底反弹，多家价投基金抄底", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 3500031, 'link'),
+(3600032, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500032, 'video'),
+(3600033, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500033, 'video'),
+(3600034, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 3500034, 'image'),
+(3600035, '{"title": "美国运通色拉油危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png", "desc": "1963 年沙拉油诈骗案，巴菲特逆势建仓运通", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=3"}', 3500035, 'link'),
+(3600036, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500036, 'file'),
+(3600037, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500037, 'video'),
+(3600038, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500038, 'file'),
+(3600039, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', 3500039, 'image'),
+(3600040, '{"title": "宁德时代千亿", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png", "desc": "2020 后新能源龙头崛起，价投的科技例外", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=8"}', 3500040, 'link'),
+(3600041, '{"title": "巴菲特建仓可口可乐", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png", "desc": "1988 年巴菲特以 12.45 美元均价大举建仓可口可乐", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=1"}', 3500041, 'link'),
+(3600042, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 3500042, 'image'),
+(3600043, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500043, 'video'),
+(3600044, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', 3500044, 'image'),
+(3600045, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500045, 'video'),
+(3600046, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500046, 'file'),
+(3600047, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500047, 'video'),
+(3600048, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', 3500048, 'image'),
+(3600049, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500049, 'video'),
+(3600050, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 3500050, 'image'),
+(3600051, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500051, 'file'),
+(3600052, '{"title": "华盛顿邮报", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "巴菲特 1973 年建仓华盛顿邮报，凯·格雷厄姆挚友", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', 3500052, 'link'),
+(3600053, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500053, 'video'),
+(3600054, '{"title": "巴菲特建仓中石油", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', 3500054, 'link'),
+(3600055, '{"title": "美国运通色拉油危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "1963 年沙拉油诈骗案，巴菲特逆势建仓运通", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 3500055, 'link'),
+(3600056, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500056, 'video'),
+(3600057, '{"fileUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500057, 'file'),
+(3600058, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500058, 'video'),
+(3600059, '{"videoUrl": "http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png"}', 3500059, 'video'),
+(3600060, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', 3500060, 'image');
 
 -- ========================================================================
 -- iyque_script · 话术库
@@ -826,66 +826,66 @@ INSERT INTO `iyque_script` (`id`, `categoryId`, `createTime`, `delFlag`, `title`
 -- iyque_script_sub · 话术明细
 -- ========================================================================
 INSERT INTO `iyque_script_sub` (`id`, `annexContent`, `delFlag`, `msgtype`, `scriptId`) VALUES
-(3800001, '话术正文 1：价格是你付出的，价值才是你得到的。', 0, 'text', 3700001),
-(3800002, '话术正文 2：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, 'text', 3700002),
-(3800003, '话术正文 3：买股票就是买公司。', 0, 'text', 3700003),
-(3800004, '话术正文 4：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, 'text', 3700004),
-(3800005, '话术正文 5：反过来想，总是反过来想。', 0, 'text', 3700005),
-(3800006, '话术正文 6：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, 'text', 3700006),
-(3800007, '话术正文 7：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, 'text', 3700007),
-(3800008, '话术正文 8：买你熟悉的股票，避开你不熟悉的。', 0, 'text', 3700008),
-(3800009, '话术正文 9：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, 'text', 3700009),
-(3800010, '话术正文 10：投资的最好时机是找到伟大企业时。', 0, 'text', 3700010),
-(3800011, '话术正文 11：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, 'text', 3700011),
-(3800012, '话术正文 12：做对的事情，把事情做对。', 0, 'text', 3700012),
-(3800013, '话术正文 13：本分比聪明重要。', 0, 'text', 3700013),
-(3800014, '话术正文 14：长期视角看，好生意最终会给股东回报。', 0, 'text', 3700014),
-(3800015, '话术正文 15：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, 'text', 3700015),
-(3800016, '话术正文 16：时间的玫瑰只献给坚守的人。', 0, 'text', 3700016),
-(3800017, '话术正文 17：情绪是短线的燃料，但价值是长线的锚。', 0, 'text', 3700017),
-(3800018, '话术正文 18：在中国做价值投资，需要更长的时间维度。', 0, 'text', 3700018),
-(3800019, '话术正文 19：绝对收益是价值投资者的自我修养。', 0, 'text', 3700019),
-(3800020, '话术正文 20：价格是你付出的，价值才是你得到的。', 0, 'text', 3700020),
-(3800021, '话术正文 21：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, 'text', 3700021),
-(3800022, '话术正文 22：买股票就是买公司。', 0, 'text', 3700022),
-(3800023, '话术正文 23：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, 'text', 3700023),
-(3800024, '话术正文 24：反过来想，总是反过来想。', 0, 'text', 3700024),
-(3800025, '话术正文 25：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, 'text', 3700025),
-(3800026, '话术正文 26：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, 'text', 3700026),
-(3800027, '话术正文 27：买你熟悉的股票，避开你不熟悉的。', 0, 'text', 3700027),
-(3800028, '话术正文 28：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, 'text', 3700028),
-(3800029, '话术正文 29：投资的最好时机是找到伟大企业时。', 0, 'text', 3700029),
-(3800030, '话术正文 30：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, 'text', 3700030),
-(3800031, '话术正文 31：做对的事情，把事情做对。', 0, 'text', 3700031),
-(3800032, '话术正文 32：本分比聪明重要。', 0, 'text', 3700032),
-(3800033, '话术正文 33：长期视角看，好生意最终会给股东回报。', 0, 'text', 3700033),
-(3800034, '话术正文 34：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, 'text', 3700034),
-(3800035, '话术正文 35：时间的玫瑰只献给坚守的人。', 0, 'text', 3700035),
-(3800036, '话术正文 36：情绪是短线的燃料，但价值是长线的锚。', 0, 'text', 3700036),
-(3800037, '话术正文 37：在中国做价值投资，需要更长的时间维度。', 0, 'text', 3700037),
-(3800038, '话术正文 38：绝对收益是价值投资者的自我修养。', 0, 'text', 3700038),
-(3800039, '话术正文 39：价格是你付出的，价值才是你得到的。', 0, 'text', 3700039),
-(3800040, '话术正文 40：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, 'text', 3700040),
-(3800041, '话术正文 41：买股票就是买公司。', 0, 'text', 3700041),
-(3800042, '话术正文 42：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, 'text', 3700042),
-(3800043, '话术正文 43：反过来想，总是反过来想。', 0, 'text', 3700043),
-(3800044, '话术正文 44：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, 'text', 3700044),
-(3800045, '话术正文 45：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, 'text', 3700045),
-(3800046, '话术正文 46：买你熟悉的股票，避开你不熟悉的。', 0, 'text', 3700046),
-(3800047, '话术正文 47：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, 'text', 3700047),
-(3800048, '话术正文 48：投资的最好时机是找到伟大企业时。', 0, 'text', 3700048),
-(3800049, '话术正文 49：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, 'text', 3700049),
-(3800050, '话术正文 50：做对的事情，把事情做对。', 0, 'text', 3700050),
-(3800051, '话术正文 51：本分比聪明重要。', 0, 'text', 3700051),
-(3800052, '话术正文 52：长期视角看，好生意最终会给股东回报。', 0, 'text', 3700052),
-(3800053, '话术正文 53：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, 'text', 3700053),
-(3800054, '话术正文 54：时间的玫瑰只献给坚守的人。', 0, 'text', 3700054),
-(3800055, '话术正文 55：情绪是短线的燃料，但价值是长线的锚。', 0, 'text', 3700055),
-(3800056, '话术正文 56：在中国做价值投资，需要更长的时间维度。', 0, 'text', 3700056),
-(3800057, '话术正文 57：绝对收益是价值投资者的自我修养。', 0, 'text', 3700057),
-(3800058, '话术正文 58：价格是你付出的，价值才是你得到的。', 0, 'text', 3700058),
-(3800059, '话术正文 59：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, 'text', 3700059),
-(3800060, '话术正文 60：买股票就是买公司。', 0, 'text', 3700060);
+(3800001, '{"content": "【格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, 'text', 3700001),
+(3800002, '{"content": "【巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, 'text', 3700002),
+(3800003, '{"content": "【巴菲特】买股票就是买公司。"}', 0, 'text', 3700003),
+(3800004, '{"content": "【巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, 'text', 3700004),
+(3800005, '{"content": "【芒格】反过来想，总是反过来想。"}', 0, 'text', 3700005),
+(3800006, '{"content": "【芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, 'text', 3700006),
+(3800007, '{"content": "【芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, 'text', 3700007),
+(3800008, '{"content": "【彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, 'text', 3700008),
+(3800009, '{"content": "【彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, 'text', 3700009),
+(3800010, '{"content": "【费雪】投资的最好时机是找到伟大企业时。"}', 0, 'text', 3700010),
+(3800011, '{"content": "【邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, 'text', 3700011),
+(3800012, '{"content": "【段永平】做对的事情，把事情做对。"}', 0, 'text', 3700012),
+(3800013, '{"content": "【段永平】本分比聪明重要。"}', 0, 'text', 3700013),
+(3800014, '{"content": "【段永平】长期视角看，好生意最终会给股东回报。"}', 0, 'text', 3700014),
+(3800015, '{"content": "【林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, 'text', 3700015),
+(3800016, '{"content": "【但斌】时间的玫瑰只献给坚守的人。"}', 0, 'text', 3700016),
+(3800017, '{"content": "【章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, 'text', 3700017),
+(3800018, '{"content": "【李录】在中国做价值投资，需要更长的时间维度。"}', 0, 'text', 3700018),
+(3800019, '{"content": "【赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, 'text', 3700019),
+(3800020, '{"content": "【格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, 'text', 3700020),
+(3800021, '{"content": "【巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, 'text', 3700021),
+(3800022, '{"content": "【巴菲特】买股票就是买公司。"}', 0, 'text', 3700022),
+(3800023, '{"content": "【巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, 'text', 3700023),
+(3800024, '{"content": "【芒格】反过来想，总是反过来想。"}', 0, 'text', 3700024),
+(3800025, '{"content": "【芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, 'text', 3700025),
+(3800026, '{"content": "【芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, 'text', 3700026),
+(3800027, '{"content": "【彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, 'text', 3700027),
+(3800028, '{"content": "【彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, 'text', 3700028),
+(3800029, '{"content": "【费雪】投资的最好时机是找到伟大企业时。"}', 0, 'text', 3700029),
+(3800030, '{"content": "【邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, 'text', 3700030),
+(3800031, '{"content": "【段永平】做对的事情，把事情做对。"}', 0, 'text', 3700031),
+(3800032, '{"content": "【段永平】本分比聪明重要。"}', 0, 'text', 3700032),
+(3800033, '{"content": "【段永平】长期视角看，好生意最终会给股东回报。"}', 0, 'text', 3700033),
+(3800034, '{"content": "【林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, 'text', 3700034),
+(3800035, '{"content": "【但斌】时间的玫瑰只献给坚守的人。"}', 0, 'text', 3700035),
+(3800036, '{"content": "【章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, 'text', 3700036),
+(3800037, '{"content": "【李录】在中国做价值投资，需要更长的时间维度。"}', 0, 'text', 3700037),
+(3800038, '{"content": "【赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, 'text', 3700038),
+(3800039, '{"content": "【格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, 'text', 3700039),
+(3800040, '{"content": "【巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, 'text', 3700040),
+(3800041, '{"content": "【巴菲特】买股票就是买公司。"}', 0, 'text', 3700041),
+(3800042, '{"content": "【巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, 'text', 3700042),
+(3800043, '{"content": "【芒格】反过来想，总是反过来想。"}', 0, 'text', 3700043),
+(3800044, '{"content": "【芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, 'text', 3700044),
+(3800045, '{"content": "【芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, 'text', 3700045),
+(3800046, '{"content": "【彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, 'text', 3700046),
+(3800047, '{"content": "【彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, 'text', 3700047),
+(3800048, '{"content": "【费雪】投资的最好时机是找到伟大企业时。"}', 0, 'text', 3700048),
+(3800049, '{"content": "【邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, 'text', 3700049),
+(3800050, '{"content": "【段永平】做对的事情，把事情做对。"}', 0, 'text', 3700050),
+(3800051, '{"content": "【段永平】本分比聪明重要。"}', 0, 'text', 3700051),
+(3800052, '{"content": "【段永平】长期视角看，好生意最终会给股东回报。"}', 0, 'text', 3700052),
+(3800053, '{"content": "【林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, 'text', 3700053),
+(3800054, '{"content": "【但斌】时间的玫瑰只献给坚守的人。"}', 0, 'text', 3700054),
+(3800055, '{"content": "【章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, 'text', 3700055),
+(3800056, '{"content": "【李录】在中国做价值投资，需要更长的时间维度。"}', 0, 'text', 3700056),
+(3800057, '{"content": "【赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, 'text', 3700057),
+(3800058, '{"content": "【格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, 'text', 3700058),
+(3800059, '{"content": "【巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, 'text', 3700059),
+(3800060, '{"content": "【巴菲特】买股票就是买公司。"}', 0, 'text', 3700060);
 
 -- ========================================================================
 -- iyque_knowledge_info · AI 知识库
@@ -1336,66 +1336,66 @@ INSERT INTO `iyque_knowledge_fragment` (`id`, `content`, `createTime`, `delFlag`
 -- iyque_kf · 客服接待员
 -- ========================================================================
 INSERT INTO `iyque_kf` (`id`, `beginTime`, `createTime`, `endTime`, `kfName`, `kfPicUrl`, `kfQrUrl`, `kfType`, `kfUrl`, `kid`, `kname`, `oorWelcome`, `openKfid`, `swichQrUrl`, `switchText`, `switchType`, `switchUserIds`, `switchUserNames`, `updateTime`, `useKnowLedge`, `welcomeMsg`, `workCycle`) VALUES
-(5000001, '09:00', '2024-08-21 13:54:38', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'https://wework.qpic.cn/wwpic3az/f24a61408bffe8aeb92c5f663cbf1b44/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkf24a61408bffe8', 'kf_id_0001', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0001', 'https://wework.qpic.cn/wwpic3az/01589df5065f2bef45b6f21f65a4026f/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-09-01 17:34:00', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
-(5000002, '09:00', '2024-09-07 02:32:23', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'https://wework.qpic.cn/wwpic3az/18f8cf2ada6fd2b19e87dacaff255ff3/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk18f8cf2ada6fd2', 'kf_id_0002', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0002', 'https://wework.qpic.cn/wwpic3az/a09516ea6cb8e467d1cee3f5d706775a/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-02-04 08:25:42', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
-(5000003, '09:00', '2025-06-06 16:26:23', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'https://wework.qpic.cn/wwpic3az/f223edf8e9781156f85ac8f879f8e1a0/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkf223edf8e97811', 'kf_id_0003', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0003', 'https://wework.qpic.cn/wwpic3az/25d3ed2529f3d371066559ebe71442e2/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-09-18 02:39:38', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
-(5000004, '09:00', '2026-06-11 01:26:28', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'https://wework.qpic.cn/wwpic3az/2719d063ae8653060cf2ff97ab6a6496/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2719d063ae8653', 'kf_id_0004', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0004', 'https://wework.qpic.cn/wwpic3az/b2fe11b24bc87e6a71c0dfe7799f2282/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2024-05-01 21:56:03', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
-(5000005, '09:00', '2026-04-01 13:41:05', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'https://wework.qpic.cn/wwpic3az/32ee31fd37ce3394d1c120255fbbf64b/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk32ee31fd37ce33', 'kf_id_0005', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0005', 'https://wework.qpic.cn/wwpic3az/768ccdd14dea9a3e454d857ef1790e43/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2026-05-17 20:54:34', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
-(5000006, '09:00', '2026-01-14 21:23:24', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'https://wework.qpic.cn/wwpic3az/6afbb4cb295443493627aa5f2113856f/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk6afbb4cb295443', 'kf_id_0006', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0006', 'https://wework.qpic.cn/wwpic3az/0a05a317a100f3ca70c29a42e246e585/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2026-06-02 16:51:52', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
-(5000007, '09:00', '2025-03-04 16:37:06', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'https://wework.qpic.cn/wwpic3az/a8e5b671131fe71c3354c0764433e69e/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wka8e5b671131fe7', 'kf_id_0007', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0007', 'https://wework.qpic.cn/wwpic3az/568867d2b8d57d0ecb61c1ad09082bff/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2024-12-21 21:09:54', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
-(5000008, '09:00', '2026-06-24 14:15:11', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'https://wework.qpic.cn/wwpic3az/961e9295afd0aad96146881bffb822aa/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk961e9295afd0aa', 'kf_id_0008', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0008', 'https://wework.qpic.cn/wwpic3az/0907a1eed22a098a5e5444a52a476cba/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-01-07 20:07:08', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
-(5000009, '09:00', '2025-01-31 06:32:18', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'https://wework.qpic.cn/wwpic3az/2a638549ba5c43e8297ddf43dabc76bf/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2a638549ba5c43', 'kf_id_0009', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0009', 'https://wework.qpic.cn/wwpic3az/99a05343e0849fa1c5cb7c0fcdfd7cfc/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2026-03-31 22:23:05', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
-(5000010, '09:00', '2026-04-02 08:56:21', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'https://wework.qpic.cn/wwpic3az/91c9023ced67abc2b835669ebf6c1f5d/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk91c9023ced67ab', 'kf_id_0010', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0010', 'https://wework.qpic.cn/wwpic3az/0d25b999586a1ebaab972da1ac4bfd2e/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-10-10 18:50:36', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
-(5000011, '09:00', '2025-09-20 07:56:58', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'https://wework.qpic.cn/wwpic3az/649b6a96f2ee6e41b250a1c981a3cd5c/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk649b6a96f2ee6e', 'kf_id_0011', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0011', 'https://wework.qpic.cn/wwpic3az/cbe2aa0564ff277b48c7e94ed46340fd/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-12-30 09:06:50', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
-(5000012, '09:00', '2025-06-28 07:51:00', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'https://wework.qpic.cn/wwpic3az/f0a2dbdd9ffde42b5b6273e910df3343/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkf0a2dbdd9ffde4', 'kf_id_0012', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0012', 'https://wework.qpic.cn/wwpic3az/4410dedb8366ec807fba7c13ec2a0217/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-07-25 03:06:28', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
-(5000013, '09:00', '2024-04-26 05:59:03', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'https://wework.qpic.cn/wwpic3az/900815075cf45aad9f59ce14b5e9f3bb/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk900815075cf45a', 'kf_id_0013', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0013', 'https://wework.qpic.cn/wwpic3az/8b8a95d1f74001b2186dd2b949937a07/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2026-03-30 07:28:40', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
-(5000014, '09:00', '2024-04-15 09:36:18', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'https://wework.qpic.cn/wwpic3az/2f176f6e19d546a71c901c38940a7a26/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2f176f6e19d546', 'kf_id_0014', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0014', 'https://wework.qpic.cn/wwpic3az/7b9663623f1cb38c159ac186c7786604/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2025-08-11 01:29:10', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
-(5000015, '09:00', '2024-08-13 21:17:31', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'https://wework.qpic.cn/wwpic3az/e01a16b4525cc4836fa76d5ac3c3c51d/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wke01a16b4525cc4', 'kf_id_0015', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0015', 'https://wework.qpic.cn/wwpic3az/01de77e02386430bfa738727c92056ba/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2024-08-17 16:39:53', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
-(5000016, '09:00', '2026-06-03 01:24:33', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'https://wework.qpic.cn/wwpic3az/0fbec159c12963e64e4775c5bc8cae27/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk0fbec159c12963', 'kf_id_0016', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0016', 'https://wework.qpic.cn/wwpic3az/fb8602b5c2ee0cd26f6f1787899e4ae4/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-03-17 06:07:09', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
-(5000017, '09:00', '2025-12-24 20:01:42', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'https://wework.qpic.cn/wwpic3az/736971aa5f1953c0a54717938796c99e/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk736971aa5f1953', 'kf_id_0017', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0017', 'https://wework.qpic.cn/wwpic3az/e0160e1acbfc65af183f5b9598903a8a/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2026-02-04 08:58:31', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
-(5000018, '09:00', '2025-02-12 17:28:40', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'https://wework.qpic.cn/wwpic3az/a1293f76dffb4014b6794ef43fe7355f/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wka1293f76dffb40', 'kf_id_0018', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0018', 'https://wework.qpic.cn/wwpic3az/01d4290236e6faddb9daf8d8c7f638a6/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-02-23 00:01:25', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
-(5000019, '09:00', '2024-12-21 11:19:19', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'https://wework.qpic.cn/wwpic3az/a8d842defd29aa7ea593b5a0dee1fe22/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wka8d842defd29aa', 'kf_id_0019', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0019', 'https://wework.qpic.cn/wwpic3az/e512935c39b14017d3def9e511c79616/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2025-07-17 19:39:32', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
-(5000020, '09:00', '2025-11-25 06:52:55', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'https://wework.qpic.cn/wwpic3az/3484b0147b71b27f52114f3ede307e29/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk3484b0147b71b2', 'kf_id_0020', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0020', 'https://wework.qpic.cn/wwpic3az/b4cdc30c37a7cdb1f56063ae923ac912/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-12-02 13:37:08', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
-(5000021, '09:00', '2025-07-12 13:19:11', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'https://wework.qpic.cn/wwpic3az/2a905fd86e25b5c402a808cea0b43669/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2a905fd86e25b5', 'kf_id_0021', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0021', 'https://wework.qpic.cn/wwpic3az/0007ecf6828ac78e80f9ef5bf26cffa8/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-03-05 08:09:39', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
-(5000022, '09:00', '2024-06-08 14:35:40', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'https://wework.qpic.cn/wwpic3az/d4d6ae0a49f099bd7d13cb950267df69/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkd4d6ae0a49f099', 'kf_id_0022', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0022', 'https://wework.qpic.cn/wwpic3az/3aef865cd877de3483f23ae34a3106ff/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-02-12 00:58:12', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
-(5000023, '09:00', '2025-10-05 15:25:20', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'https://wework.qpic.cn/wwpic3az/cade8f43afcf40f82caa212a81f49b69/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkcade8f43afcf40', 'kf_id_0023', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0023', 'https://wework.qpic.cn/wwpic3az/a4ab0b74edb67e607863fefc097811e4/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-04-27 13:42:50', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
-(5000024, '09:00', '2024-04-29 06:31:34', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'https://wework.qpic.cn/wwpic3az/b142eb597c118213a6e719b239e3d3d5/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkb142eb597c1182', 'kf_id_0024', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0024', 'https://wework.qpic.cn/wwpic3az/c1d89bdc5012da9f6de27e929453717e/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-10-22 09:54:48', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
-(5000025, '09:00', '2025-10-07 06:44:21', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'https://wework.qpic.cn/wwpic3az/ed778d73d86079f93f34be807f524be6/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wked778d73d86079', 'kf_id_0025', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0025', 'https://wework.qpic.cn/wwpic3az/d62ba9e8317f73d1cc153ec3aa07ff68/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2024-11-06 23:36:15', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
-(5000026, '09:00', '2024-08-15 17:50:44', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'https://wework.qpic.cn/wwpic3az/0181b7976583f899c33ee5c5c0680aa0/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk0181b7976583f8', 'kf_id_0026', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0026', 'https://wework.qpic.cn/wwpic3az/43ab6d3097c9cffcf9801a5eb13d73b4/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2025-01-31 09:29:01', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
-(5000027, '09:00', '2024-06-12 20:56:01', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'https://wework.qpic.cn/wwpic3az/4bf1cebfb928dcc66579f3c944ff05c5/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk4bf1cebfb928dc', 'kf_id_0027', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0027', 'https://wework.qpic.cn/wwpic3az/822871abb2c4b25257745458f08780b7/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2024-03-15 13:42:58', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
-(5000028, '09:00', '2024-08-28 22:00:38', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'https://wework.qpic.cn/wwpic3az/2bc4ab79286e57cab870df6f36d50a84/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2bc4ab79286e57', 'kf_id_0028', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0028', 'https://wework.qpic.cn/wwpic3az/9512c58b7b7984df9912e592bbb037aa/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-03-16 06:46:28', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
-(5000029, '09:00', '2026-03-15 20:36:19', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'https://wework.qpic.cn/wwpic3az/c7244104fd6632f065aa7a695ce54da8/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkc7244104fd6632', 'kf_id_0029', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0029', 'https://wework.qpic.cn/wwpic3az/148a31b69e608fa8ea8b2e59b75703fd/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-10-07 16:31:42', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
-(5000030, '09:00', '2026-02-08 09:11:03', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'https://wework.qpic.cn/wwpic3az/7165f3cf07d237dda81ffb37cb92c912/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk7165f3cf07d237', 'kf_id_0030', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0030', 'https://wework.qpic.cn/wwpic3az/a7c69394620b5379bbc4ab9155d02f27/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-07-19 09:47:03', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
-(5000031, '09:00', '2025-03-07 16:37:10', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'https://wework.qpic.cn/wwpic3az/d1bfddfbe0aa1573ea898a44d08fdfbf/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkd1bfddfbe0aa15', 'kf_id_0031', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0031', 'https://wework.qpic.cn/wwpic3az/35f705adc5a8671e7244f5c2a11f87dc/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2024-11-26 04:15:41', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
-(5000032, '09:00', '2025-08-15 15:43:24', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'https://wework.qpic.cn/wwpic3az/5283bd059bd8e311cfb25a2b7ab320b7/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk5283bd059bd8e3', 'kf_id_0032', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0032', 'https://wework.qpic.cn/wwpic3az/9cca67e1ee815f3eea6f05a34b01c1dd/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2024-08-16 18:25:44', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
-(5000033, '09:00', '2024-05-21 14:50:23', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'https://wework.qpic.cn/wwpic3az/6920493ed679e2948f81e6e561c41e67/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk6920493ed679e2', 'kf_id_0033', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0033', 'https://wework.qpic.cn/wwpic3az/cfa87a88306629fad4ceb63657196c3e/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2025-03-02 01:51:06', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
-(5000034, '09:00', '2024-04-19 03:55:24', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'https://wework.qpic.cn/wwpic3az/a6e57fcea24d273a8467a288dba35842/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wka6e57fcea24d27', 'kf_id_0034', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0034', 'https://wework.qpic.cn/wwpic3az/965259647391bcf6f1e5943d50092b87/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-08-30 10:16:34', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
-(5000035, '09:00', '2025-01-15 14:19:06', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'https://wework.qpic.cn/wwpic3az/efbc7a50573065194e727aec2dc6a7a0/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkefbc7a50573065', 'kf_id_0035', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0035', 'https://wework.qpic.cn/wwpic3az/1c085748dea7eb93115e8253c2e61e55/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-07-26 03:28:59', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
-(5000036, '09:00', '2026-03-22 02:40:57', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'https://wework.qpic.cn/wwpic3az/627ac218c4ef39ba9a7d03f3f0df02cc/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk627ac218c4ef39', 'kf_id_0036', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0036', 'https://wework.qpic.cn/wwpic3az/b2c5152761cfe7e46cc49792b6ebedca/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-12-26 15:10:53', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
-(5000037, '09:00', '2024-02-15 03:02:29', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'https://wework.qpic.cn/wwpic3az/71c4894c3c5fb6f95e90cffbe6b3324f/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk71c4894c3c5fb6', 'kf_id_0037', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0037', 'https://wework.qpic.cn/wwpic3az/a01715f524c89da75a07faf09d0b830d/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-01-14 19:56:40', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
-(5000038, '09:00', '2024-04-21 19:42:12', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'https://wework.qpic.cn/wwpic3az/4b4720eb3343035d85d6a44a7e1bfc56/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk4b4720eb334303', 'kf_id_0038', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0038', 'https://wework.qpic.cn/wwpic3az/ecdf8fd267fa225a894c781b7c5ff147/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-03-13 19:06:24', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
-(5000039, '09:00', '2024-12-05 00:39:12', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'https://wework.qpic.cn/wwpic3az/eaad74972863bc7abd6ec6d1eab84267/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkeaad74972863bc', 'kf_id_0039', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0039', 'https://wework.qpic.cn/wwpic3az/e6c688e4a408a1cf5e56bb03c72d29e8/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-02-20 14:09:27', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
-(5000040, '09:00', '2026-06-08 14:09:52', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'https://wework.qpic.cn/wwpic3az/1aa5755ab7de1f11625c85243663b22a/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk1aa5755ab7de1f', 'kf_id_0040', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0040', 'https://wework.qpic.cn/wwpic3az/9b47f3ebf5bc5e422dc26f975dbecc43/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2026-01-06 03:31:58', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
-(5000041, '09:00', '2025-05-11 16:04:35', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'https://wework.qpic.cn/wwpic3az/4144c31f785cdc520176b7d1222c048e/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk4144c31f785cdc', 'kf_id_0041', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0041', 'https://wework.qpic.cn/wwpic3az/8a3019c6f32e8c0754ec80bdfff0ccae/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-11-09 16:10:19', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
-(5000042, '09:00', '2025-02-14 12:30:10', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'https://wework.qpic.cn/wwpic3az/a961ea7495d0bde2c19bc980afd273a0/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wka961ea7495d0bd', 'kf_id_0042', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0042', 'https://wework.qpic.cn/wwpic3az/26e80e4dd62dd3c81957c96f096499b6/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2026-01-25 20:28:51', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
-(5000043, '09:00', '2025-01-24 21:21:54', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'https://wework.qpic.cn/wwpic3az/1dc38b7b20f1b4c4e5265ffa3b731a67/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk1dc38b7b20f1b4', 'kf_id_0043', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0043', 'https://wework.qpic.cn/wwpic3az/84be330a5f4758af4e15f45b181e9e2f/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2025-07-13 07:40:33', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
-(5000044, '09:00', '2024-07-28 11:20:18', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'https://wework.qpic.cn/wwpic3az/9f3256bdc38e9068e78864aa341aaf2f/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk9f3256bdc38e90', 'kf_id_0044', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0044', 'https://wework.qpic.cn/wwpic3az/7f102cfe9957e97926a0d30187ace0cb/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2024-06-18 18:34:04', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
-(5000045, '09:00', '2024-04-21 13:28:45', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'https://wework.qpic.cn/wwpic3az/48cdece74268f57a175fc1b748c026da/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk48cdece74268f5', 'kf_id_0045', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0045', 'https://wework.qpic.cn/wwpic3az/3af07713a3f2c73ef2a4c9cdc30c6dd9/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-01-11 09:54:11', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
-(5000046, '09:00', '2026-01-24 22:09:28', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'https://wework.qpic.cn/wwpic3az/6cb2a55480e73124e4b6b271dff70949/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk6cb2a55480e731', 'kf_id_0046', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0046', 'https://wework.qpic.cn/wwpic3az/a728f4ba8cf73ad1e0d09176b2e42a54/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-06-25 13:59:21', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
-(5000047, '09:00', '2024-05-16 12:06:55', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'https://wework.qpic.cn/wwpic3az/48810c33018fd9d6c2e5a0d1f79792c8/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk48810c33018fd9', 'kf_id_0047', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0047', 'https://wework.qpic.cn/wwpic3az/103a05dac7d58f0c035b77fb58b03c07/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-06-12 01:18:51', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
-(5000048, '09:00', '2024-03-29 06:06:03', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'https://wework.qpic.cn/wwpic3az/3e3c29d22b371a279b2209f24e062514/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk3e3c29d22b371a', 'kf_id_0048', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0048', 'https://wework.qpic.cn/wwpic3az/ba9b81fb33ed2aba2b470337747d8db1/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-11-03 06:13:13', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
-(5000049, '09:00', '2025-08-30 19:29:55', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'https://wework.qpic.cn/wwpic3az/58d766a8c680f87215a245bb7ae39ada/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk58d766a8c680f8', 'kf_id_0049', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0049', 'https://wework.qpic.cn/wwpic3az/6a8e80d9b16b51f59d7cee6d0356a023/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-05-31 03:47:34', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
-(5000050, '09:00', '2025-09-06 12:23:13', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'https://wework.qpic.cn/wwpic3az/ec1687a0cb427770423a0e3e685590b7/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkec1687a0cb4277', 'kf_id_0050', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0050', 'https://wework.qpic.cn/wwpic3az/936c075ff8f5fbabc1e80ae4c35807a5/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-02-13 23:46:32', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
-(5000051, '09:00', '2025-10-09 03:58:34', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'https://wework.qpic.cn/wwpic3az/8530a0795417e40282a3ce41dec021bc/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk8530a0795417e4', 'kf_id_0051', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0051', 'https://wework.qpic.cn/wwpic3az/a95066961515bfb3384359cdfb376522/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-09-17 13:56:30', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
-(5000052, '09:00', '2025-04-11 02:50:40', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'https://wework.qpic.cn/wwpic3az/59d32ae10d41077ae45250e4cacfd923/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk59d32ae10d4107', 'kf_id_0052', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0052', 'https://wework.qpic.cn/wwpic3az/b6d153d26654f538a9b80448bbef9ab5/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-09-13 03:55:31', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
-(5000053, '09:00', '2025-02-03 06:12:37', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'https://wework.qpic.cn/wwpic3az/c1922ab76baee0ac3ca78dc105931e48/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkc1922ab76baee0', 'kf_id_0053', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0053', 'https://wework.qpic.cn/wwpic3az/8f37c9389aa091deccf7cde351434a6b/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-11-12 02:43:00', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
-(5000054, '09:00', '2024-09-21 09:18:33', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'https://wework.qpic.cn/wwpic3az/eb49436264c8e2eb4cfab3766fcdec6c/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkeb49436264c8e2', 'kf_id_0054', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0054', 'https://wework.qpic.cn/wwpic3az/a911e65354bdedd980d50a6f166640fa/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-01-08 17:57:33', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
-(5000055, '09:00', '2025-11-14 00:09:26', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'https://wework.qpic.cn/wwpic3az/83f87ae51cac67ab080bddf7580d0084/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk83f87ae51cac67', 'kf_id_0055', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0055', 'https://wework.qpic.cn/wwpic3az/0e589ffe9815cb17cc673400a0753933/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2026-05-03 21:29:54', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
-(5000056, '09:00', '2024-03-19 04:51:00', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'https://wework.qpic.cn/wwpic3az/41fef14c33374fbc70f747ab5293ceaa/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk41fef14c33374f', 'kf_id_0056', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0056', 'https://wework.qpic.cn/wwpic3az/cfb986d698d001d9b4c838e15c905d6f/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-06-25 08:47:31', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
-(5000057, '09:00', '2025-12-24 20:46:02', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'https://wework.qpic.cn/wwpic3az/2ef81f96cf5730e0526bff8d5bf81bd7/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk2ef81f96cf5730', 'kf_id_0057', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0057', 'https://wework.qpic.cn/wwpic3az/da925b3ab1ebf7326b8343cd2bb038ab/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-09-25 18:14:32', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
-(5000058, '09:00', '2024-06-17 16:11:20', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'https://wework.qpic.cn/wwpic3az/d07a447f0dbf3ce2a81df7d9b1c21312/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkd07a447f0dbf3c', 'kf_id_0058', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0058', 'https://wework.qpic.cn/wwpic3az/09a87fa5b17b36e40a413d797ef8da44/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2026-04-23 14:35:54', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
-(5000059, '09:00', '2024-03-15 03:23:20', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'https://wework.qpic.cn/wwpic3az/b24e4497f583bf1785365f3f50082b73/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wkb24e4497f583bf', 'kf_id_0059', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0059', 'https://wework.qpic.cn/wwpic3az/b4cfcb8e8c74d166bd5df0e228764e7a/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2024-07-27 00:16:21', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
-(5000060, '09:00', '2025-01-20 12:17:51', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'https://wework.qpic.cn/wwpic3az/660160c475376c4603e7e3e8775b2dda/kf_qr/0', 1, 'https://work.weixin.qq.com/kfid/wk660160c475376c', 'kf_id_0060', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0060', 'https://wework.qpic.cn/wwpic3az/9b551278de1541397dfdaccd50a43066/switch_qr/0', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-02-07 15:58:19', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5');
+(5000001, '09:00', '2024-08-21 13:54:38', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wkf24a61408bffe8', 'kf_id_0001', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0001', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-09-01 17:34:00', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
+(5000002, '09:00', '2024-09-07 02:32:23', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wk18f8cf2ada6fd2', 'kf_id_0002', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0002', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-02-04 08:25:42', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
+(5000003, '09:00', '2025-06-06 16:26:23', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wkf223edf8e97811', 'kf_id_0003', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0003', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-09-18 02:39:38', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
+(5000004, '09:00', '2026-06-11 01:26:28', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk2719d063ae8653', 'kf_id_0004', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0004', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2024-05-01 21:56:03', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
+(5000005, '09:00', '2026-04-01 13:41:05', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wk32ee31fd37ce33', 'kf_id_0005', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0005', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2026-05-17 20:54:34', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
+(5000006, '09:00', '2026-01-14 21:23:24', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wk6afbb4cb295443', 'kf_id_0006', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0006', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2026-06-02 16:51:52', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
+(5000007, '09:00', '2025-03-04 16:37:06', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wka8e5b671131fe7', 'kf_id_0007', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0007', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2024-12-21 21:09:54', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
+(5000008, '09:00', '2026-06-24 14:15:11', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk961e9295afd0aa', 'kf_id_0008', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0008', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-01-07 20:07:08', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
+(5000009, '09:00', '2025-01-31 06:32:18', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk2a638549ba5c43', 'kf_id_0009', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0009', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2026-03-31 22:23:05', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
+(5000010, '09:00', '2026-04-02 08:56:21', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wk91c9023ced67ab', 'kf_id_0010', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0010', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-10-10 18:50:36', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
+(5000011, '09:00', '2025-09-20 07:56:58', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wk649b6a96f2ee6e', 'kf_id_0011', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0011', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-12-30 09:06:50', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
+(5000012, '09:00', '2025-06-28 07:51:00', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wkf0a2dbdd9ffde4', 'kf_id_0012', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0012', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-07-25 03:06:28', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
+(5000013, '09:00', '2024-04-26 05:59:03', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wk900815075cf45a', 'kf_id_0013', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0013', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2026-03-30 07:28:40', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
+(5000014, '09:00', '2024-04-15 09:36:18', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wk2f176f6e19d546', 'kf_id_0014', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0014', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2025-08-11 01:29:10', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
+(5000015, '09:00', '2024-08-13 21:17:31', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wke01a16b4525cc4', 'kf_id_0015', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0015', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2024-08-17 16:39:53', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
+(5000016, '09:00', '2026-06-03 01:24:33', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk0fbec159c12963', 'kf_id_0016', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0016', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-03-17 06:07:09', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
+(5000017, '09:00', '2025-12-24 20:01:42', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk736971aa5f1953', 'kf_id_0017', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0017', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2026-02-04 08:58:31', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
+(5000018, '09:00', '2025-02-12 17:28:40', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wka1293f76dffb40', 'kf_id_0018', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0018', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-02-23 00:01:25', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
+(5000019, '09:00', '2024-12-21 11:19:19', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wka8d842defd29aa', 'kf_id_0019', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0019', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2025-07-17 19:39:32', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
+(5000020, '09:00', '2025-11-25 06:52:55', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk3484b0147b71b2', 'kf_id_0020', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0020', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-12-02 13:37:08', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
+(5000021, '09:00', '2025-07-12 13:19:11', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wk2a905fd86e25b5', 'kf_id_0021', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0021', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-03-05 08:09:39', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
+(5000022, '09:00', '2024-06-08 14:35:40', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wkd4d6ae0a49f099', 'kf_id_0022', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0022', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-02-12 00:58:12', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
+(5000023, '09:00', '2025-10-05 15:25:20', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wkcade8f43afcf40', 'kf_id_0023', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0023', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-04-27 13:42:50', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
+(5000024, '09:00', '2024-04-29 06:31:34', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wkb142eb597c1182', 'kf_id_0024', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0024', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-10-22 09:54:48', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
+(5000025, '09:00', '2025-10-07 06:44:21', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wked778d73d86079', 'kf_id_0025', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0025', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2024-11-06 23:36:15', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
+(5000026, '09:00', '2024-08-15 17:50:44', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wk0181b7976583f8', 'kf_id_0026', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0026', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2025-01-31 09:29:01', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
+(5000027, '09:00', '2024-06-12 20:56:01', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wk4bf1cebfb928dc', 'kf_id_0027', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0027', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2024-03-15 13:42:58', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
+(5000028, '09:00', '2024-08-28 22:00:38', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk2bc4ab79286e57', 'kf_id_0028', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0028', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-03-16 06:46:28', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
+(5000029, '09:00', '2026-03-15 20:36:19', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wkc7244104fd6632', 'kf_id_0029', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0029', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-10-07 16:31:42', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
+(5000030, '09:00', '2026-02-08 09:11:03', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wk7165f3cf07d237', 'kf_id_0030', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0030', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-07-19 09:47:03', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
+(5000031, '09:00', '2025-03-07 16:37:10', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wkd1bfddfbe0aa15', 'kf_id_0031', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0031', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2024-11-26 04:15:41', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
+(5000032, '09:00', '2025-08-15 15:43:24', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk5283bd059bd8e3', 'kf_id_0032', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0032', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2024-08-16 18:25:44', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
+(5000033, '09:00', '2024-05-21 14:50:23', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk6920493ed679e2', 'kf_id_0033', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0033', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2025-03-02 01:51:06', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
+(5000034, '09:00', '2024-04-19 03:55:24', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wka6e57fcea24d27', 'kf_id_0034', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0034', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-08-30 10:16:34', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
+(5000035, '09:00', '2025-01-15 14:19:06', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wkefbc7a50573065', 'kf_id_0035', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0035', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-07-26 03:28:59', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
+(5000036, '09:00', '2026-03-22 02:40:57', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk627ac218c4ef39', 'kf_id_0036', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0036', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-12-26 15:10:53', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
+(5000037, '09:00', '2024-02-15 03:02:29', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wk71c4894c3c5fb6', 'kf_id_0037', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0037', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-01-14 19:56:40', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
+(5000038, '09:00', '2024-04-21 19:42:12', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wk4b4720eb334303', 'kf_id_0038', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0038', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-03-13 19:06:24', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
+(5000039, '09:00', '2024-12-05 00:39:12', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wkeaad74972863bc', 'kf_id_0039', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0039', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-02-20 14:09:27', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
+(5000040, '09:00', '2026-06-08 14:09:52', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk1aa5755ab7de1f', 'kf_id_0040', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0040', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2026-01-06 03:31:58', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
+(5000041, '09:00', '2025-05-11 16:04:35', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk4144c31f785cdc', 'kf_id_0041', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0041', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-11-09 16:10:19', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
+(5000042, '09:00', '2025-02-14 12:30:10', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wka961ea7495d0bd', 'kf_id_0042', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0042', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2026-01-25 20:28:51', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
+(5000043, '09:00', '2025-01-24 21:21:54', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wk1dc38b7b20f1b4', 'kf_id_0043', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0043', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2025-07-13 07:40:33', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
+(5000044, '09:00', '2024-07-28 11:20:18', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk9f3256bdc38e90', 'kf_id_0044', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0044', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2024-06-18 18:34:04', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
+(5000045, '09:00', '2024-04-21 13:28:45', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wk48cdece74268f5', 'kf_id_0045', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0045', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-01-11 09:54:11', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
+(5000046, '09:00', '2026-01-24 22:09:28', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wk6cb2a55480e731', 'kf_id_0046', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0046', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2024-06-25 13:59:21', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
+(5000047, '09:00', '2024-05-16 12:06:55', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wk48810c33018fd9', 'kf_id_0047', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0047', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2025-06-12 01:18:51', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
+(5000048, '09:00', '2024-03-29 06:06:03', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk3e3c29d22b371a', 'kf_id_0048', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0048', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-11-03 06:13:13', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5'),
+(5000049, '09:00', '2025-08-30 19:29:55', '21:00', '格雷厄姆 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk58d766a8c680f8', 'kf_id_0049', '格雷厄姆 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0049', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_GRAHAM', '格雷厄姆', '2025-05-31 03:47:34', 1, '您好，我是护城河的 格雷厄姆，请描述您的问题。', '1,2,3,4,5'),
+(5000050, '09:00', '2025-09-06 12:23:13', '21:00', '巴菲特 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wkec1687a0cb4277', 'kf_id_0050', '巴菲特 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0050', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_BUFFETT', '巴菲特', '2024-02-13 23:46:32', 1, '您好，我是护城河的 巴菲特，请描述您的问题。', '1,2,3,4,5'),
+(5000051, '09:00', '2025-10-09 03:58:34', '21:00', '芒格 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wk8530a0795417e4', 'kf_id_0051', '芒格 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0051', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_MUNGER', '芒格', '2025-09-17 13:56:30', 1, '您好，我是护城河的 芒格，请描述您的问题。', '1,2,3,4,5'),
+(5000052, '09:00', '2025-04-11 02:50:40', '21:00', '彼得·林奇 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk59d32ae10d4107', 'kf_id_0052', '彼得·林奇 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0052', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_LYNCH', '彼得·林奇', '2025-09-13 03:55:31', 1, '您好，我是护城河的 彼得·林奇，请描述您的问题。', '1,2,3,4,5'),
+(5000053, '09:00', '2025-02-03 06:12:37', '21:00', '费雪 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', 1, 'https://work.weixin.qq.com/kfid/wkc1922ab76baee0', 'kf_id_0053', '费雪 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0053', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', '转人工请回复 [人工]', 1, 'MOAT_FISHER', '费雪', '2024-11-12 02:43:00', 1, '您好，我是护城河的 费雪，请描述您的问题。', '1,2,3,4,5'),
+(5000054, '09:00', '2024-09-21 09:18:33', '21:00', '邓普顿 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', 1, 'https://work.weixin.qq.com/kfid/wkeb49436264c8e2', 'kf_id_0054', '邓普顿 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0054', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', '转人工请回复 [人工]', 1, 'MOAT_TEMPLETON', '邓普顿', '2025-01-08 17:57:33', 1, '您好，我是护城河的 邓普顿，请描述您的问题。', '1,2,3,4,5'),
+(5000055, '09:00', '2025-11-14 00:09:26', '21:00', '段永平 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', 1, 'https://work.weixin.qq.com/kfid/wk83f87ae51cac67', 'kf_id_0055', '段永平 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0055', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', '转人工请回复 [人工]', 1, 'MOAT_DUAN', '段永平', '2026-05-03 21:29:54', 1, '您好，我是护城河的 段永平，请描述您的问题。', '1,2,3,4,5'),
+(5000056, '09:00', '2024-03-19 04:51:00', '21:00', '林园 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', 1, 'https://work.weixin.qq.com/kfid/wk41fef14c33374f', 'kf_id_0056', '林园 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0056', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', '转人工请回复 [人工]', 1, 'MOAT_LINYUAN', '林园', '2025-06-25 08:47:31', 1, '您好，我是护城河的 林园，请描述您的问题。', '1,2,3,4,5'),
+(5000057, '09:00', '2025-12-24 20:46:02', '21:00', '但斌 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_01.png', 1, 'https://work.weixin.qq.com/kfid/wk2ef81f96cf5730', 'kf_id_0057', '但斌 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0057', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_05.png', '转人工请回复 [人工]', 1, 'MOAT_DANBIN', '但斌', '2024-09-25 18:14:32', 1, '您好，我是护城河的 但斌，请描述您的问题。', '1,2,3,4,5'),
+(5000058, '09:00', '2024-06-17 16:11:20', '21:00', '章盟主 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_02.png', 1, 'https://work.weixin.qq.com/kfid/wkd07a447f0dbf3c', 'kf_id_0058', '章盟主 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0058', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_06.png', '转人工请回复 [人工]', 1, 'MOAT_ZMZ', '章盟主', '2026-04-23 14:35:54', 1, '您好，我是护城河的 章盟主，请描述您的问题。', '1,2,3,4,5'),
+(5000059, '09:00', '2024-03-15 03:23:20', '21:00', '李录 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_03.png', 1, 'https://work.weixin.qq.com/kfid/wkb24e4497f583bf', 'kf_id_0059', '李录 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0059', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_07.png', '转人工请回复 [人工]', 1, 'MOAT_LILU', '李录', '2024-07-27 00:16:21', 1, '您好，我是护城河的 李录，请描述您的问题。', '1,2,3,4,5'),
+(5000060, '09:00', '2025-01-20 12:17:51', '21:00', '赵丹阳 值班', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_04.png', 1, 'https://work.weixin.qq.com/kfid/wk660160c475376c', 'kf_id_0060', '赵丹阳 客服号', '非工作时间将安排值班同事回复~', 'open_kf_0060', 'http://10.210.156.69:8081/iyque/file/fileView/qr_kf_08.png', '转人工请回复 [人工]', 1, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-02-07 15:58:19', 1, '您好，我是护城河的 赵丹阳，请描述您的问题。', '1,2,3,4,5');
 
 -- ========================================================================
 -- iyque_kf_msg · 客服消息批次
@@ -1463,829 +1463,1016 @@ INSERT INTO `iyque_kf_msg` (`id`, `messageCursor`, `openKfid`, `pullTime`) VALUE
 (5100060, 'cursor_000060', 'open_kf_0060', '2025-07-20 04:03:12');
 
 -- ========================================================================
--- iyque_kf_msg_sub · 客服会话消息（价值投资经典对话）
+-- iyque_kf_msg_sub · 客服会话消息（多轮价值投资对话）
 -- ========================================================================
 INSERT INTO `iyque_kf_msg_sub` (`id`, `avatar`, `content`, `externalUserId`, `gender`, `kfMsgId`, `kfName`, `kfPicUrl`, `msgId`, `msgType`, `nickname`, `openKfid`, `origin`, `sendTime`, `switchUserId`, `switchUserName`, `unionid`) VALUES
-(5200001, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_bill_gates.png', '最近茅台又跌了，还能拿吗？', 'wm_bill_gates', 1, 5100001, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000001', 'text', '比尔·盖茨', 'open_kf_0001', 3, '2025-01-01 00:00:00', NULL, NULL, 'union_wm_bill_gates'),
-(5200002, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_bill_gates.png', '长期看茅台的品牌与提价能力仍然稳固。短期波动是市场情绪，参考林园的建议："看得见摸得着的消费股才是能陪你一辈子的股票"。', 'wm_bill_gates', 1, 5100001, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000002', 'text', '比尔·盖茨', 'open_kf_0002', 4, '2025-01-01 06:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_bill_gates'),
-(5200003, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kay_graham.png', '腾讯这次监管风险有多大？', 'wm_kay_graham', 1, 5100001, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000003', 'text', '凯瑟琳·格雷厄姆', 'open_kf_0003', 3, '2025-01-01 12:00:00', NULL, NULL, 'union_wm_kay_graham'),
-(5200004, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kay_graham.png', '参考 2021 港股互联网腰斩案例，最终基本面修复。芒格也说过："反过来想，如果所有坏消息都出来了，还剩下什么？"', 'wm_kay_graham', 1, 5100001, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000004', 'text', '凯瑟琳·格雷厄姆', 'open_kf_0004', 4, '2025-01-01 18:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_kay_graham'),
-(5200005, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_turner.png', '我有 500 万想开始做价值投资，从哪入手？', 'wm_ted_turner', 1, 5100001, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000005', 'text', '特德·特纳', 'open_kf_0005', 3, '2025-01-02 00:00:00', NULL, NULL, 'union_wm_ted_turner'),
-(5200006, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_turner.png', '推荐从格雷厄姆《聪明的投资者》开始，然后读巴菲特 1977 年后所有致股东信。第一步：先做资产配置，60% 权益 + 40% 债券固收。', 'wm_ted_turner', 1, 5100001, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000006', 'text', '特德·特纳', 'open_kf_0006', 4, '2025-01-02 06:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_ted_turner'),
-(5200007, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ajit_jain.png', '段永平最近雪球又发了什么？', 'wm_ajit_jain', 1, 5100001, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000007', 'text', '阿吉特·贾因', 'open_kf_0007', 3, '2025-01-02 12:00:00', NULL, NULL, 'union_wm_ajit_jain'),
-(5200008, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ajit_jain.png', '段总最近强调「敢为天下后」和「本分比聪明重要」，建议关注他 8 月对拼多多的评论。', 'wm_ajit_jain', 1, 5100001, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000008', 'text', '阿吉特·贾因', 'open_kf_0008', 4, '2025-01-02 18:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_ajit_jain'),
-(5200009, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_greg_abel.png', '这次比亚迪减持是不是巴菲特看空了？', 'wm_greg_abel', 1, 5100001, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000009', 'text', '格雷格·阿贝尔', 'open_kf_0009', 3, '2025-01-03 00:00:00', NULL, NULL, 'union_wm_greg_abel'),
-(5200010, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_greg_abel.png', '更可能是仓位调整。参考"案例 · 巴菲特减持比亚迪"：老爷子在 200 港币左右开始减持，价值兑现的常规操作。', 'wm_greg_abel', 1, 5100001, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000010', 'text', '格雷格·阿贝尔', 'open_kf_0010', 4, '2025-01-03 06:00:00', 'MOAT_FISHER', '费雪', 'union_wm_greg_abel'),
-(5200011, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_todd_combs.png', '章盟主又上龙虎榜了，我要不要跟？', 'wm_todd_combs', 1, 5100001, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000011', 'text', '托德·库姆斯', 'open_kf_0011', 3, '2025-01-03 12:00:00', NULL, NULL, 'union_wm_todd_combs'),
-(5200012, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_todd_combs.png', '短线游资的仓位和成本我们都不掌握，但斌老师说过：「时间的玫瑰只献给坚守的人」，建议以研究学习心态观察。', 'wm_todd_combs', 1, 5100001, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000012', 'text', '托德·库姆斯', 'open_kf_0012', 4, '2025-01-03 18:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_todd_combs'),
-(5200013, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_weschler.png', '我想给孩子买份 40 年的定投，怎么选？', 'wm_ted_weschler', 1, 5100001, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000013', 'text', '特德·韦施勒', 'open_kf_0013', 3, '2025-01-04 00:00:00', NULL, NULL, 'union_wm_ted_weschler'),
-(5200014, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_weschler.png', '考虑标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化 8-10% 的长期回报。参考彼得·林奇 Magellan 时期 29% CAGR 的启示。', 'wm_ted_weschler', 1, 5100001, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000014', 'text', '特德·韦施勒', 'open_kf_0014', 4, '2025-01-04 06:00:00', 'MOAT_DUAN', '段永平', 'union_wm_ted_weschler'),
-(5200015, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ron_olson.png', '苹果还能拿吗？', 'wm_ron_olson', 1, 5100001, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000015', 'text', '罗恩·奥尔森', 'open_kf_0015', 3, '2025-01-04 12:00:00', NULL, NULL, 'union_wm_ron_olson'),
-(5200016, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ron_olson.png', '巴菲特 2016 建仓时的逻辑是消费品+护城河，逻辑没变就继续拿。近期他也只减持了 20% 左右，仍是伯克希尔第一大仓。', 'wm_ron_olson', 1, 5100001, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000016', 'text', '罗恩·奥尔森', 'open_kf_0016', 4, '2025-01-04 18:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_ron_olson'),
-(5200017, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_rick_guerin.png', '新能源赛道是不是已经泡沫破了？', 'wm_rick_guerin', 1, 5100001, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000017', 'text', '里克·盖林', 'open_kf_0017', 3, '2025-01-05 00:00:00', NULL, NULL, 'union_wm_rick_guerin'),
-(5200018, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_rick_guerin.png', '新能源板块与半导体一样，是长期趋势中的短期回撤。链式回答：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。', 'wm_rick_guerin', 1, 5100001, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000018', 'text', '里克·盖林', 'open_kf_0018', 4, '2025-01-05 06:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_rick_guerin'),
-(5200019, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_walter_schloss.png', '最近想加仓，你们的建议是？', 'wm_walter_schloss', 1, 5100001, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000019', 'text', '沃尔特·施洛斯', 'open_kf_0019', 3, '2025-01-05 12:00:00', NULL, NULL, 'union_wm_walter_schloss'),
-(5200020, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_walter_schloss.png', '如果是坚定的长期持有者，任何回撤都是加仓机会，但请务必控制单只持仓不超过总仓位的 15%。', 'wm_walter_schloss', 1, 5100001, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000020', 'text', '沃尔特·施洛斯', 'open_kf_0020', 4, '2025-01-05 18:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_walter_schloss'),
-(5200021, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_seth_klarman.png', '最近茅台又跌了，还能拿吗？', 'wm_seth_klarman', 1, 5100002, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000021', 'text', '塞斯·卡拉曼', 'open_kf_0021', 3, '2025-01-06 00:00:00', NULL, NULL, 'union_wm_seth_klarman'),
-(5200022, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_seth_klarman.png', '长期看茅台的品牌与提价能力仍然稳固。短期波动是市场情绪，参考林园的建议："看得见摸得着的消费股才是能陪你一辈子的股票"。', 'wm_seth_klarman', 1, 5100002, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000022', 'text', '塞斯·卡拉曼', 'open_kf_0022', 4, '2025-01-06 06:00:00', 'MOAT_LILU', '李录', 'union_wm_seth_klarman'),
-(5200023, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_howard_marks.png', '腾讯这次监管风险有多大？', 'wm_howard_marks', 1, 5100002, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000023', 'text', '霍华德·马克斯', 'open_kf_0023', 3, '2025-01-06 12:00:00', NULL, NULL, 'union_wm_howard_marks'),
-(5200024, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_howard_marks.png', '参考 2021 港股互联网腰斩案例，最终基本面修复。芒格也说过："反过来想，如果所有坏消息都出来了，还剩下什么？"', 'wm_howard_marks', 1, 5100002, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000024', 'text', '霍华德·马克斯', 'open_kf_0024', 4, '2025-01-06 18:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_howard_marks'),
-(5200025, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yohei_hosoda.png', '我有 500 万想开始做价值投资，从哪入手？', 'wm_yohei_hosoda', 1, 5100002, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000025', 'text', '细田洋平', 'open_kf_0025', 3, '2025-01-07 00:00:00', NULL, NULL, 'union_wm_yohei_hosoda'),
-(5200026, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yohei_hosoda.png', '推荐从格雷厄姆《聪明的投资者》开始，然后读巴菲特 1977 年后所有致股东信。第一步：先做资产配置，60% 权益 + 40% 债券固收。', 'wm_yohei_hosoda', 1, 5100002, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000026', 'text', '细田洋平', 'open_kf_0026', 4, '2025-01-07 06:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_yohei_hosoda'),
-(5200027, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lynchfund_fan.png', '段永平最近雪球又发了什么？', 'wm_lynchfund_fan', 1, 5100002, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000027', 'text', '麦哲伦基金老持有人', 'open_kf_0027', 3, '2025-01-07 12:00:00', NULL, NULL, 'union_wm_lynchfund_fan'),
-(5200028, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lynchfund_fan.png', '段总最近强调「敢为天下后」和「本分比聪明重要」，建议关注他 8 月对拼多多的评论。', 'wm_lynchfund_fan', 1, 5100002, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000028', 'text', '麦哲伦基金老持有人', 'open_kf_0028', 4, '2025-01-07 18:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_lynchfund_fan'),
-(5200029, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_dinglei.png', '这次比亚迪减持是不是巴菲特看空了？', 'wm_dinglei', 1, 5100002, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000029', 'text', '丁磊', 'open_kf_0029', 3, '2025-01-08 00:00:00', NULL, NULL, 'union_wm_dinglei'),
-(5200030, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_dinglei.png', '更可能是仓位调整。参考"案例 · 巴菲特减持比亚迪"：老爷子在 200 港币左右开始减持，价值兑现的常规操作。', 'wm_dinglei', 1, 5100002, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000030', 'text', '丁磊', 'open_kf_0030', 4, '2025-01-08 06:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_dinglei'),
-(5200031, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_huangzheng.png', '章盟主又上龙虎榜了，我要不要跟？', 'wm_huangzheng', 1, 5100002, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000031', 'text', '黄峥', 'open_kf_0031', 3, '2025-01-08 12:00:00', NULL, NULL, 'union_wm_huangzheng'),
-(5200032, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_huangzheng.png', '短线游资的仓位和成本我们都不掌握，但斌老师说过：「时间的玫瑰只献给坚守的人」，建议以研究学习心态观察。', 'wm_huangzheng', 1, 5100002, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000032', 'text', '黄峥', 'open_kf_0032', 4, '2025-01-08 18:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_huangzheng'),
-(5200033, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_chenmingyong.png', '我想给孩子买份 40 年的定投，怎么选？', 'wm_chenmingyong', 1, 5100002, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000033', 'text', '陈明永', 'open_kf_0033', 3, '2025-01-09 00:00:00', NULL, NULL, 'union_wm_chenmingyong'),
-(5200034, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_chenmingyong.png', '考虑标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化 8-10% 的长期回报。参考彼得·林奇 Magellan 时期 29% CAGR 的启示。', 'wm_chenmingyong', 1, 5100002, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000034', 'text', '陈明永', 'open_kf_0034', 4, '2025-01-09 06:00:00', 'MOAT_FISHER', '费雪', 'union_wm_chenmingyong'),
-(5200035, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_shenwei.png', '苹果还能拿吗？', 'wm_shenwei', 1, 5100002, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000035', 'text', '沈炜', 'open_kf_0035', 3, '2025-01-09 12:00:00', NULL, NULL, 'union_wm_shenwei'),
-(5200036, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_shenwei.png', '巴菲特 2016 建仓时的逻辑是消费品+护城河，逻辑没变就继续拿。近期他也只减持了 20% 左右，仍是伯克希尔第一大仓。', 'wm_shenwei', 1, 5100002, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000036', 'text', '沈炜', 'open_kf_0036', 4, '2025-01-09 18:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_shenwei'),
-(5200037, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_fangsanwen.png', '新能源赛道是不是已经泡沫破了？', 'wm_fangsanwen', 1, 5100002, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000037', 'text', '方三文', 'open_kf_0037', 3, '2025-01-10 00:00:00', NULL, NULL, 'union_wm_fangsanwen'),
-(5200038, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_fangsanwen.png', '新能源板块与半导体一样，是长期趋势中的短期回撤。链式回答：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。', 'wm_fangsanwen', 1, 5100002, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000038', 'text', '方三文', 'open_kf_0038', 4, '2025-01-10 06:00:00', 'MOAT_DUAN', '段永平', 'union_wm_fangsanwen'),
-(5200039, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liuhaoran.png', '最近想加仓，你们的建议是？', 'wm_liuhaoran', 1, 5100002, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000039', 'text', '刘昊然（同名）', 'open_kf_0039', 3, '2025-01-10 12:00:00', NULL, NULL, 'union_wm_liuhaoran'),
-(5200040, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liuhaoran.png', '如果是坚定的长期持有者，任何回撤都是加仓机会，但请务必控制单只持仓不超过总仓位的 15%。', 'wm_liuhaoran', 1, 5100002, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000040', 'text', '刘昊然（同名）', 'open_kf_0040', 4, '2025-01-10 18:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_liuhaoran'),
-(5200041, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhugeliang.png', '最近茅台又跌了，还能拿吗？', 'wm_zhugeliang', 1, 5100003, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000041', 'text', '但斌客户 A（诸葛量）', 'open_kf_0041', 3, '2025-01-11 00:00:00', NULL, NULL, 'union_wm_zhugeliang'),
-(5200042, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhugeliang.png', '长期看茅台的品牌与提价能力仍然稳固。短期波动是市场情绪，参考林园的建议："看得见摸得着的消费股才是能陪你一辈子的股票"。', 'wm_zhugeliang', 1, 5100003, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000042', 'text', '但斌客户 A（诸葛量）', 'open_kf_0042', 4, '2025-01-11 06:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_zhugeliang'),
-(5200043, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_maotai_holder.png', '腾讯这次监管风险有多大？', 'wm_maotai_holder', 1, 5100003, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000043', 'text', '茅台老股东', 'open_kf_0043', 3, '2025-01-11 12:00:00', NULL, NULL, 'union_wm_maotai_holder'),
-(5200044, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_maotai_holder.png', '参考 2021 港股互联网腰斩案例，最终基本面修复。芒格也说过："反过来想，如果所有坏消息都出来了，还剩下什么？"', 'wm_maotai_holder', 1, 5100003, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000044', 'text', '茅台老股东', 'open_kf_0044', 4, '2025-01-11 18:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_maotai_holder'),
-(5200045, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wuliangye_lp.png', '我有 500 万想开始做价值投资，从哪入手？', 'wm_wuliangye_lp', 1, 5100003, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000045', 'text', '五粮液 LP', 'open_kf_0045', 3, '2025-01-12 00:00:00', NULL, NULL, 'union_wm_wuliangye_lp'),
-(5200046, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wuliangye_lp.png', '推荐从格雷厄姆《聪明的投资者》开始，然后读巴菲特 1977 年后所有致股东信。第一步：先做资产配置，60% 权益 + 40% 债券固收。', 'wm_wuliangye_lp', 1, 5100003, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000046', 'text', '五粮液 LP', 'open_kf_0046', 4, '2025-01-12 06:00:00', 'MOAT_LILU', '李录', 'union_wm_wuliangye_lp'),
-(5200047, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pinganhuang.png', '段永平最近雪球又发了什么？', 'wm_pinganhuang', 1, 5100003, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000047', 'text', '平安黄总', 'open_kf_0047', 3, '2025-01-12 12:00:00', NULL, NULL, 'union_wm_pinganhuang'),
-(5200048, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pinganhuang.png', '段总最近强调「敢为天下后」和「本分比聪明重要」，建议关注他 8 月对拼多多的评论。', 'wm_pinganhuang', 1, 5100003, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000048', 'text', '平安黄总', 'open_kf_0048', 4, '2025-01-12 18:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_pinganhuang'),
-(5200049, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_geli_dong.png', '这次比亚迪减持是不是巴菲特看空了？', 'wm_geli_dong', 1, 5100003, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000049', 'text', '董明珠', 'open_kf_0049', 3, '2025-01-13 00:00:00', NULL, NULL, 'union_wm_geli_dong'),
-(5200050, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_geli_dong.png', '更可能是仓位调整。参考"案例 · 巴菲特减持比亚迪"：老爷子在 200 港币左右开始减持，价值兑现的常规操作。', 'wm_geli_dong', 1, 5100003, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000050', 'text', '董明珠', 'open_kf_0050', 4, '2025-01-13 06:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_geli_dong'),
-(5200051, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_meidi_fangh.png', '章盟主又上龙虎榜了，我要不要跟？', 'wm_meidi_fangh', 1, 5100003, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000051', 'text', '方洪波', 'open_kf_0051', 3, '2025-01-13 12:00:00', NULL, NULL, 'union_wm_meidi_fangh'),
-(5200052, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_meidi_fangh.png', '短线游资的仓位和成本我们都不掌握，但斌老师说过：「时间的玫瑰只献给坚守的人」，建议以研究学习心态观察。', 'wm_meidi_fangh', 1, 5100003, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000052', 'text', '方洪波', 'open_kf_0052', 4, '2025-01-13 18:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_meidi_fangh'),
-(5200053, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_byd_wangchuanfu.png', '我想给孩子买份 40 年的定投，怎么选？', 'wm_byd_wangchuanfu', 1, 5100003, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000053', 'text', '王传福', 'open_kf_0053', 3, '2025-01-14 00:00:00', NULL, NULL, 'union_wm_byd_wangchuanfu'),
-(5200054, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_byd_wangchuanfu.png', '考虑标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化 8-10% 的长期回报。参考彼得·林奇 Magellan 时期 29% CAGR 的启示。', 'wm_byd_wangchuanfu', 1, 5100003, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000054', 'text', '王传福', 'open_kf_0054', 4, '2025-01-14 06:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_byd_wangchuanfu'),
-(5200055, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_catl_zeng.png', '苹果还能拿吗？', 'wm_catl_zeng', 1, 5100003, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000055', 'text', '曾毓群', 'open_kf_0055', 3, '2025-01-14 12:00:00', NULL, NULL, 'union_wm_catl_zeng'),
-(5200056, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_catl_zeng.png', '巴菲特 2016 建仓时的逻辑是消费品+护城河，逻辑没变就继续拿。近期他也只减持了 20% 左右，仍是伯克希尔第一大仓。', 'wm_catl_zeng', 1, 5100003, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000056', 'text', '曾毓群', 'open_kf_0056', 4, '2025-01-14 18:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_catl_zeng'),
-(5200057, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pony_ma.png', '新能源赛道是不是已经泡沫破了？', 'wm_pony_ma', 1, 5100003, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000057', 'text', '马化腾', 'open_kf_0057', 3, '2025-01-15 00:00:00', NULL, NULL, 'union_wm_pony_ma'),
-(5200058, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pony_ma.png', '新能源板块与半导体一样，是长期趋势中的短期回撤。链式回答：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。', 'wm_pony_ma', 1, 5100003, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000058', 'text', '马化腾', 'open_kf_0058', 4, '2025-01-15 06:00:00', 'MOAT_FISHER', '费雪', 'union_wm_pony_ma'),
-(5200059, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_jack_ma.png', '最近想加仓，你们的建议是？', 'wm_jack_ma', 1, 5100003, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000059', 'text', '马云', 'open_kf_0059', 3, '2025-01-15 12:00:00', NULL, NULL, 'union_wm_jack_ma'),
-(5200060, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_jack_ma.png', '如果是坚定的长期持有者，任何回撤都是加仓机会，但请务必控制单只持仓不超过总仓位的 15%。', 'wm_jack_ma', 1, 5100003, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000060', 'text', '马云', 'open_kf_0060', 4, '2025-01-15 18:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_jack_ma'),
-(5200061, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lei_jun.png', '最近茅台又跌了，还能拿吗？', 'wm_lei_jun', 1, 5100004, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000061', 'text', '雷军', 'open_kf_0001', 3, '2025-01-16 00:00:00', NULL, NULL, 'union_wm_lei_jun'),
-(5200062, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lei_jun.png', '长期看茅台的品牌与提价能力仍然稳固。短期波动是市场情绪，参考林园的建议："看得见摸得着的消费股才是能陪你一辈子的股票"。', 'wm_lei_jun', 1, 5100004, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000062', 'text', '雷军', 'open_kf_0002', 4, '2025-01-16 06:00:00', 'MOAT_DUAN', '段永平', 'union_wm_lei_jun'),
-(5200063, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhang_yiming.png', '腾讯这次监管风险有多大？', 'wm_zhang_yiming', 1, 5100004, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000063', 'text', '张一鸣', 'open_kf_0003', 3, '2025-01-16 12:00:00', NULL, NULL, 'union_wm_zhang_yiming'),
-(5200064, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhang_yiming.png', '参考 2021 港股互联网腰斩案例，最终基本面修复。芒格也说过："反过来想，如果所有坏消息都出来了，还剩下什么？"', 'wm_zhang_yiming', 1, 5100004, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000064', 'text', '张一鸣', 'open_kf_0004', 4, '2025-01-16 18:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_zhang_yiming'),
-(5200065, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liu_qiangdong.png', '我有 500 万想开始做价值投资，从哪入手？', 'wm_liu_qiangdong', 1, 5100004, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000065', 'text', '刘强东', 'open_kf_0005', 3, '2025-01-17 00:00:00', NULL, NULL, 'union_wm_liu_qiangdong'),
-(5200066, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liu_qiangdong.png', '推荐从格雷厄姆《聪明的投资者》开始，然后读巴菲特 1977 年后所有致股东信。第一步：先做资产配置，60% 权益 + 40% 债券固收。', 'wm_liu_qiangdong', 1, 5100004, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000066', 'text', '刘强东', 'open_kf_0006', 4, '2025-01-17 06:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_liu_qiangdong'),
-(5200067, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_haier_zhang.png', '段永平最近雪球又发了什么？', 'wm_haier_zhang', 1, 5100004, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000067', 'text', '张瑞敏', 'open_kf_0007', 3, '2025-01-17 12:00:00', NULL, NULL, 'union_wm_haier_zhang'),
-(5200068, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_haier_zhang.png', '段总最近强调「敢为天下后」和「本分比聪明重要」，建议关注他 8 月对拼多多的评论。', 'wm_haier_zhang', 1, 5100004, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000068', 'text', '张瑞敏', 'open_kf_0008', 4, '2025-01-17 18:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_haier_zhang'),
-(5200069, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lenovo_liu.png', '这次比亚迪减持是不是巴菲特看空了？', 'wm_lenovo_liu', 1, 5100004, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000069', 'text', '柳传志', 'open_kf_0009', 3, '2025-01-18 00:00:00', NULL, NULL, 'union_wm_lenovo_liu'),
-(5200070, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lenovo_liu.png', '更可能是仓位调整。参考"案例 · 巴菲特减持比亚迪"：老爷子在 200 港币左右开始减持，价值兑现的常规操作。', 'wm_lenovo_liu', 1, 5100004, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000070', 'text', '柳传志', 'open_kf_0010', 4, '2025-01-18 06:00:00', 'MOAT_LILU', '李录', 'union_wm_lenovo_liu'),
-(5200071, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_gree_meng.png', '章盟主又上龙虎榜了，我要不要跟？', 'wm_gree_meng', 1, 5100004, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000071', 'text', '孟羽童', 'open_kf_0011', 3, '2025-01-18 12:00:00', NULL, NULL, 'union_wm_gree_meng'),
-(5200072, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_gree_meng.png', '短线游资的仓位和成本我们都不掌握，但斌老师说过：「时间的玫瑰只献给坚守的人」，建议以研究学习心态观察。', 'wm_gree_meng', 1, 5100004, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000072', 'text', '孟羽童', 'open_kf_0012', 4, '2025-01-18 18:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_gree_meng'),
-(5200073, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_kashing.png', '我想给孩子买份 40 年的定投，怎么选？', 'wm_li_kashing', 1, 5100004, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000073', 'text', '李嘉诚', 'open_kf_0013', 3, '2025-01-19 00:00:00', NULL, NULL, 'union_wm_li_kashing'),
-(5200074, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_kashing.png', '考虑标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化 8-10% 的长期回报。参考彼得·林奇 Magellan 时期 29% CAGR 的启示。', 'wm_li_kashing', 1, 5100004, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000074', 'text', '李嘉诚', 'open_kf_0014', 4, '2025-01-19 06:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_li_kashing'),
-(5200075, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_zeju.png', '苹果还能拿吗？', 'wm_li_zeju', 1, 5100004, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000075', 'text', '李泽钜', 'open_kf_0015', 3, '2025-01-19 12:00:00', NULL, NULL, 'union_wm_li_zeju'),
-(5200076, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_zeju.png', '巴菲特 2016 建仓时的逻辑是消费品+护城河，逻辑没变就继续拿。近期他也只减持了 20% 左右，仍是伯克希尔第一大仓。', 'wm_li_zeju', 1, 5100004, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000076', 'text', '李泽钜', 'open_kf_0016', 4, '2025-01-19 18:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_li_zeju'),
-(5200077, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_terry_gou.png', '新能源赛道是不是已经泡沫破了？', 'wm_terry_gou', 1, 5100004, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000077', 'text', '郭台铭', 'open_kf_0017', 3, '2025-01-20 00:00:00', NULL, NULL, 'union_wm_terry_gou'),
-(5200078, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_terry_gou.png', '新能源板块与半导体一样，是长期趋势中的短期回撤。链式回答：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。', 'wm_terry_gou', 1, 5100004, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000078', 'text', '郭台铭', 'open_kf_0018', 4, '2025-01-20 06:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_terry_gou'),
-(5200079, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tsai_ing.png', '最近想加仓，你们的建议是？', 'wm_tsai_ing', 1, 5100004, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000079', 'text', '蔡崇信', 'open_kf_0019', 3, '2025-01-20 12:00:00', NULL, NULL, 'union_wm_tsai_ing'),
-(5200080, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tsai_ing.png', '如果是坚定的长期持有者，任何回撤都是加仓机会，但请务必控制单只持仓不超过总仓位的 15%。', 'wm_tsai_ing', 1, 5100004, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000080', 'text', '蔡崇信', 'open_kf_0020', 4, '2025-01-20 18:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_tsai_ing');
+(5200001, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_bill_gates.png', '[00:00] 比尔·盖茨：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[00:02] 格雷厄姆：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[00:06] 比尔·盖茨：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[00:09] 格雷厄姆：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。', 'wm_bill_gates', 1, 5100001, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000001', 'text', '比尔·盖茨', 'open_kf_0001', 3, '2025-03-01 00:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_bill_gates'),
+(5200002, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kay_graham.png', '[04:00] 凯瑟琳·格雷厄姆：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[04:02] 巴菲特：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[04:06] 凯瑟琳·格雷厄姆：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[04:09] 巴菲特：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。', 'wm_kay_graham', 1, 5100001, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000002', 'text', '凯瑟琳·格雷厄姆', 'open_kf_0002', 3, '2025-03-01 04:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_kay_graham'),
+(5200003, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_turner.png', '[08:00] 特德·特纳：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[08:02] 芒格：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[08:06] 特德·特纳：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[08:09] 芒格：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。', 'wm_ted_turner', 1, 5100001, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000003', 'text', '特德·特纳', 'open_kf_0003', 3, '2025-03-01 08:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_ted_turner'),
+(5200004, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ajit_jain.png', '[12:00] 阿吉特·贾因：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[12:02] 彼得·林奇：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[12:06] 阿吉特·贾因：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[12:09] 彼得·林奇：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。
+[12:11] 阿吉特·贾因：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_ajit_jain', 1, 5100001, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000004', 'text', '阿吉特·贾因', 'open_kf_0004', 3, '2025-03-01 12:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_ajit_jain'),
+(5200005, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_greg_abel.png', '[16:00] 格雷格·阿贝尔：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[16:02] 费雪：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[16:06] 格雷格·阿贝尔：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[16:09] 费雪：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。
+[16:11] 格雷格·阿贝尔：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_greg_abel', 1, 5100001, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000005', 'text', '格雷格·阿贝尔', 'open_kf_0005', 3, '2025-03-01 16:00:00', 'MOAT_FISHER', '费雪', 'union_wm_greg_abel'),
+(5200006, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_todd_combs.png', '[20:00] 托德·库姆斯：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[20:02] 邓普顿：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[20:06] 托德·库姆斯：那我这种小散怎么办？完全不看短线消息吗？
+[20:09] 邓普顿：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。
+[20:11] 托德·库姆斯：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_todd_combs', 1, 5100001, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000006', 'text', '托德·库姆斯', 'open_kf_0006', 3, '2025-03-01 20:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_todd_combs'),
+(5200007, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_weschler.png', '[00:00] 特德·韦施勒：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[00:02] 段永平：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[00:06] 特德·韦施勒：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[00:09] 段永平：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。
+[00:11] 特德·韦施勒：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_ted_weschler', 1, 5100001, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000007', 'text', '特德·韦施勒', 'open_kf_0007', 3, '2025-03-02 00:00:00', 'MOAT_DUAN', '段永平', 'union_wm_ted_weschler'),
+(5200008, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ron_olson.png', '[04:00] 罗恩·奥尔森：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[04:02] 林园：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[04:06] 罗恩·奥尔森：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[04:09] 林园：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_ron_olson', 1, 5100001, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000008', 'text', '罗恩·奥尔森', 'open_kf_0008', 3, '2025-03-02 04:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_ron_olson'),
+(5200009, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_rick_guerin.png', '[08:00] 里克·盖林：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[08:02] 但斌：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[08:06] 里克·盖林：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[08:09] 但斌：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。', 'wm_rick_guerin', 1, 5100001, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000009', 'text', '里克·盖林', 'open_kf_0009', 3, '2025-03-02 08:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_rick_guerin'),
+(5200010, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_walter_schloss.png', '[12:00] 沃尔特·施洛斯：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[12:02] 章盟主：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[12:06] 沃尔特·施洛斯：那加仓节奏怎么把握？一次性买入还是分批？
+[12:09] 章盟主：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。
+[12:11] 沃尔特·施洛斯：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_walter_schloss', 1, 5100001, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000010', 'text', '沃尔特·施洛斯', 'open_kf_0010', 3, '2025-03-02 12:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_walter_schloss'),
+(5200011, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_seth_klarman.png', '[16:00] 塞斯·卡拉曼：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[16:02] 李录：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[16:06] 塞斯·卡拉曼：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[16:09] 李录：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。
+[16:11] 塞斯·卡拉曼：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_seth_klarman', 1, 5100001, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000011', 'text', '塞斯·卡拉曼', 'open_kf_0011', 3, '2025-03-02 16:00:00', 'MOAT_LILU', '李录', 'union_wm_seth_klarman'),
+(5200012, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_howard_marks.png', '[20:00] 霍华德·马克斯：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[20:02] 赵丹阳：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[20:06] 霍华德·马克斯：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[20:09] 赵丹阳：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。', 'wm_howard_marks', 1, 5100001, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000012', 'text', '霍华德·马克斯', 'open_kf_0012', 3, '2025-03-02 20:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_howard_marks'),
+(5200013, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yohei_hosoda.png', '[00:00] 细田洋平：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[00:02] 格雷厄姆：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[00:06] 细田洋平：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[00:09] 格雷厄姆：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。', 'wm_yohei_hosoda', 1, 5100001, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000013', 'text', '细田洋平', 'open_kf_0013', 3, '2025-03-03 00:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_yohei_hosoda'),
+(5200014, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lynchfund_fan.png', '[04:00] 麦哲伦基金老持有人：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[04:02] 巴菲特：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[04:06] 麦哲伦基金老持有人：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[04:09] 巴菲特：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。', 'wm_lynchfund_fan', 1, 5100001, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000014', 'text', '麦哲伦基金老持有人', 'open_kf_0014', 3, '2025-03-03 04:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_lynchfund_fan'),
+(5200015, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_dinglei.png', '[08:00] 丁磊：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[08:02] 芒格：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[08:06] 丁磊：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[08:09] 芒格：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。
+[08:11] 丁磊：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_dinglei', 1, 5100001, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000015', 'text', '丁磊', 'open_kf_0015', 3, '2025-03-03 08:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_dinglei'),
+(5200016, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_huangzheng.png', '[12:00] 黄峥：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[12:02] 彼得·林奇：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[12:06] 黄峥：那我这种小散怎么办？完全不看短线消息吗？
+[12:09] 彼得·林奇：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。
+[12:11] 黄峥：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_huangzheng', 1, 5100001, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000016', 'text', '黄峥', 'open_kf_0016', 3, '2025-03-03 12:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_huangzheng'),
+(5200017, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_chenmingyong.png', '[16:00] 陈明永：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[16:02] 费雪：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[16:06] 陈明永：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[16:09] 费雪：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。
+[16:11] 陈明永：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_chenmingyong', 1, 5100001, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000017', 'text', '陈明永', 'open_kf_0017', 3, '2025-03-03 16:00:00', 'MOAT_FISHER', '费雪', 'union_wm_chenmingyong'),
+(5200018, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_shenwei.png', '[20:00] 沈炜：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[20:02] 邓普顿：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[20:06] 沈炜：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[20:09] 邓普顿：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_shenwei', 1, 5100001, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000018', 'text', '沈炜', 'open_kf_0018', 3, '2025-03-03 20:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_shenwei'),
+(5200019, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_fangsanwen.png', '[00:00] 方三文：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[00:02] 段永平：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[00:06] 方三文：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[00:09] 段永平：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。', 'wm_fangsanwen', 1, 5100001, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000019', 'text', '方三文', 'open_kf_0019', 3, '2025-03-04 00:00:00', 'MOAT_DUAN', '段永平', 'union_wm_fangsanwen'),
+(5200020, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liuhaoran.png', '[04:00] 刘昊然（同名）：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[04:02] 林园：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[04:06] 刘昊然（同名）：那加仓节奏怎么把握？一次性买入还是分批？
+[04:09] 林园：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。', 'wm_liuhaoran', 1, 5100001, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000020', 'text', '刘昊然（同名）', 'open_kf_0020', 3, '2025-03-04 04:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_liuhaoran'),
+(5200021, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhugeliang.png', '[08:00] 但斌客户 A（诸葛量）：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[08:02] 但斌：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[08:06] 但斌客户 A（诸葛量）：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[08:09] 但斌：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。
+[08:11] 但斌客户 A（诸葛量）：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_zhugeliang', 1, 5100002, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000021', 'text', '但斌客户 A（诸葛量）', 'open_kf_0021', 3, '2025-03-04 08:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_zhugeliang'),
+(5200022, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_maotai_holder.png', '[12:00] 茅台老股东：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[12:02] 章盟主：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[12:06] 茅台老股东：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[12:09] 章盟主：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。', 'wm_maotai_holder', 1, 5100002, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000022', 'text', '茅台老股东', 'open_kf_0022', 3, '2025-03-04 12:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_maotai_holder'),
+(5200023, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wuliangye_lp.png', '[16:00] 五粮液 LP：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[16:02] 李录：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[16:06] 五粮液 LP：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[16:09] 李录：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。
+[16:11] 五粮液 LP：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_wuliangye_lp', 1, 5100002, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000023', 'text', '五粮液 LP', 'open_kf_0023', 3, '2025-03-04 16:00:00', 'MOAT_LILU', '李录', 'union_wm_wuliangye_lp'),
+(5200024, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pinganhuang.png', '[20:00] 平安黄总：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[20:02] 赵丹阳：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[20:06] 平安黄总：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[20:09] 赵丹阳：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。', 'wm_pinganhuang', 1, 5100002, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000024', 'text', '平安黄总', 'open_kf_0024', 3, '2025-03-04 20:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_pinganhuang'),
+(5200025, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_geli_dong.png', '[00:00] 董明珠：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[00:02] 格雷厄姆：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[00:06] 董明珠：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[00:09] 格雷厄姆：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。', 'wm_geli_dong', 1, 5100002, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000025', 'text', '董明珠', 'open_kf_0025', 3, '2025-03-05 00:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_geli_dong'),
+(5200026, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_meidi_fangh.png', '[04:00] 方洪波：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[04:02] 巴菲特：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[04:06] 方洪波：那我这种小散怎么办？完全不看短线消息吗？
+[04:09] 巴菲特：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。', 'wm_meidi_fangh', 1, 5100002, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000026', 'text', '方洪波', 'open_kf_0026', 3, '2025-03-05 04:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_meidi_fangh'),
+(5200027, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_byd_wangchuanfu.png', '[08:00] 王传福：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[08:02] 芒格：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[08:06] 王传福：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[08:09] 芒格：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。
+[08:11] 王传福：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_byd_wangchuanfu', 1, 5100002, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000027', 'text', '王传福', 'open_kf_0027', 3, '2025-03-05 08:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_byd_wangchuanfu'),
+(5200028, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_catl_zeng.png', '[12:00] 曾毓群：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[12:02] 彼得·林奇：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[12:06] 曾毓群：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[12:09] 彼得·林奇：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_catl_zeng', 1, 5100002, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000028', 'text', '曾毓群', 'open_kf_0028', 3, '2025-03-05 12:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_catl_zeng'),
+(5200029, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pony_ma.png', '[16:00] 马化腾：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[16:02] 费雪：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[16:06] 马化腾：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[16:09] 费雪：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。', 'wm_pony_ma', 1, 5100002, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000029', 'text', '马化腾', 'open_kf_0029', 3, '2025-03-05 16:00:00', 'MOAT_FISHER', '费雪', 'union_wm_pony_ma'),
+(5200030, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_jack_ma.png', '[20:00] 马云：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[20:02] 邓普顿：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[20:06] 马云：那加仓节奏怎么把握？一次性买入还是分批？
+[20:09] 邓普顿：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。', 'wm_jack_ma', 1, 5100002, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000030', 'text', '马云', 'open_kf_0030', 3, '2025-03-05 20:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_jack_ma'),
+(5200031, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lei_jun.png', '[00:00] 雷军：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[00:02] 段永平：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[00:06] 雷军：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[00:09] 段永平：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。
+[00:11] 雷军：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_lei_jun', 1, 5100002, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000031', 'text', '雷军', 'open_kf_0031', 3, '2025-03-06 00:00:00', 'MOAT_DUAN', '段永平', 'union_wm_lei_jun'),
+(5200032, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhang_yiming.png', '[04:00] 张一鸣：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[04:02] 林园：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[04:06] 张一鸣：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[04:09] 林园：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。
+[04:11] 张一鸣：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_zhang_yiming', 1, 5100002, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000032', 'text', '张一鸣', 'open_kf_0032', 3, '2025-03-06 04:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_zhang_yiming'),
+(5200033, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liu_qiangdong.png', '[08:00] 刘强东：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[08:02] 但斌：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[08:06] 刘强东：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[08:09] 但斌：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。
+[08:11] 刘强东：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_liu_qiangdong', 1, 5100002, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000033', 'text', '刘强东', 'open_kf_0033', 3, '2025-03-06 08:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_liu_qiangdong'),
+(5200034, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_haier_zhang.png', '[12:00] 张瑞敏：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[12:02] 章盟主：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[12:06] 张瑞敏：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[12:09] 章盟主：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。', 'wm_haier_zhang', 1, 5100002, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000034', 'text', '张瑞敏', 'open_kf_0034', 3, '2025-03-06 12:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_haier_zhang'),
+(5200035, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lenovo_liu.png', '[16:00] 柳传志：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[16:02] 李录：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[16:06] 柳传志：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[16:09] 李录：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。
+[16:11] 柳传志：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_lenovo_liu', 1, 5100002, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000035', 'text', '柳传志', 'open_kf_0035', 3, '2025-03-06 16:00:00', 'MOAT_LILU', '李录', 'union_wm_lenovo_liu'),
+(5200036, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_gree_meng.png', '[20:00] 孟羽童：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[20:02] 赵丹阳：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[20:06] 孟羽童：那我这种小散怎么办？完全不看短线消息吗？
+[20:09] 赵丹阳：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。', 'wm_gree_meng', 1, 5100002, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000036', 'text', '孟羽童', 'open_kf_0036', 3, '2025-03-06 20:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_gree_meng'),
+(5200037, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_kashing.png', '[00:00] 李嘉诚：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[00:02] 格雷厄姆：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[00:06] 李嘉诚：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[00:09] 格雷厄姆：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。', 'wm_li_kashing', 1, 5100002, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000037', 'text', '李嘉诚', 'open_kf_0037', 3, '2025-03-07 00:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_li_kashing'),
+(5200038, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_zeju.png', '[04:00] 李泽钜：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[04:02] 巴菲特：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[04:06] 李泽钜：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[04:09] 巴菲特：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_li_zeju', 1, 5100002, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000038', 'text', '李泽钜', 'open_kf_0038', 3, '2025-03-07 04:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_li_zeju'),
+(5200039, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_terry_gou.png', '[08:00] 郭台铭：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[08:02] 芒格：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[08:06] 郭台铭：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[08:09] 芒格：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。', 'wm_terry_gou', 1, 5100002, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000039', 'text', '郭台铭', 'open_kf_0039', 3, '2025-03-07 08:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_terry_gou'),
+(5200040, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tsai_ing.png', '[12:00] 蔡崇信：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[12:02] 彼得·林奇：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[12:06] 蔡崇信：那加仓节奏怎么把握？一次性买入还是分批？
+[12:09] 彼得·林奇：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。
+[12:11] 蔡崇信：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_tsai_ing', 1, 5100002, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000040', 'text', '蔡崇信', 'open_kf_0040', 3, '2025-03-07 12:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_tsai_ing'),
+(5200041, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_zhao.png', '[16:00] 游资赵老哥：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[16:02] 费雪：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[16:06] 游资赵老哥：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[16:09] 费雪：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。
+[16:11] 游资赵老哥：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_youzi_zhao', 1, 5100003, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000041', 'text', '游资赵老哥', 'open_kf_0041', 3, '2025-03-07 16:00:00', 'MOAT_FISHER', '费雪', 'union_wm_youzi_zhao'),
+(5200042, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_qiao.png', '[20:00] 游资乔帮主：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[20:02] 邓普顿：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[20:06] 游资乔帮主：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[20:09] 邓普顿：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。
+[20:11] 游资乔帮主：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_youzi_qiao', 1, 5100003, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000042', 'text', '游资乔帮主', 'open_kf_0042', 3, '2025-03-07 20:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_youzi_qiao'),
+(5200043, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_mengniu.png', '[00:00] 游资孟乃：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[00:02] 段永平：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[00:06] 游资孟乃：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[00:09] 段永平：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。', 'wm_youzi_mengniu', 1, 5100003, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000043', 'text', '游资孟乃', 'open_kf_0043', 3, '2025-03-08 00:00:00', 'MOAT_DUAN', '段永平', 'union_wm_youzi_mengniu'),
+(5200044, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hangzhou_tuhao.png', '[04:00] 杭州七哥：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[04:02] 林园：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[04:06] 杭州七哥：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[04:09] 林园：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。', 'wm_hangzhou_tuhao', 1, 5100003, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000044', 'text', '杭州七哥', 'open_kf_0044', 3, '2025-03-08 04:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_hangzhou_tuhao'),
+(5200045, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wine_lover_zhang.png', '[08:00] 张老板：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[08:02] 但斌：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[08:06] 张老板：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[08:09] 但斌：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。', 'wm_wine_lover_zhang', 1, 5100003, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000045', 'text', '张老板', 'open_kf_0045', 3, '2025-03-08 08:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_wine_lover_zhang'),
+(5200046, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pharma_wang.png', '[12:00] 王教授：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[12:02] 章盟主：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[12:06] 王教授：那我这种小散怎么办？完全不看短线消息吗？
+[12:09] 章盟主：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。', 'wm_pharma_wang', 1, 5100003, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000046', 'text', '王教授', 'open_kf_0046', 3, '2025-03-08 12:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_pharma_wang'),
+(5200047, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yunnanbaiyao_ho.png', '[16:00] 何女士：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[16:02] 李录：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[16:06] 何女士：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[16:09] 李录：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。
+[16:11] 何女士：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_yunnanbaiyao_ho', 1, 5100003, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000047', 'text', '何女士', 'open_kf_0047', 3, '2025-03-08 16:00:00', 'MOAT_LILU', '李录', 'union_wm_yunnanbaiyao_ho'),
+(5200048, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tencent_dbc.png', '[20:00] 但斌客户 B（腾讯持有人）：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[20:02] 赵丹阳：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[20:06] 但斌客户 B（腾讯持有人）：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[20:09] 赵丹阳：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_tencent_dbc', 1, 5100003, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000048', 'text', '但斌客户 B（腾讯持有人）', 'open_kf_0048', 3, '2025-03-08 20:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_tencent_dbc'),
+(5200049, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kweichowmoutai_dbc.png', '[00:00] 但斌客户 C（茅台持有人）：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[00:02] 格雷厄姆：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[00:06] 但斌客户 C（茅台持有人）：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[00:09] 格雷厄姆：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。', 'wm_kweichowmoutai_dbc', 1, 5100003, '格雷厄姆', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_GRAHAM.png', 'kfmsg_000049', 'text', '但斌客户 C（茅台持有人）', 'open_kf_0049', 3, '2025-03-09 00:00:00', 'MOAT_GRAHAM', '格雷厄姆', 'union_wm_kweichowmoutai_dbc'),
+(5200050, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_a.png', '[04:00] 上海某家族办：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[04:02] 巴菲特：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[04:06] 上海某家族办：那加仓节奏怎么把握？一次性买入还是分批？
+[04:09] 巴菲特：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。
+[04:11] 上海某家族办：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_family_office_a', 1, 5100003, '巴菲特', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_BUFFETT.png', 'kfmsg_000050', 'text', '上海某家族办', 'open_kf_0050', 3, '2025-03-09 04:00:00', 'MOAT_BUFFETT', '巴菲特', 'union_wm_family_office_a'),
+(5200051, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_b.png', '[08:00] 深圳某家族办：最近茅台又跌了 8%，我持仓已经浮亏 15%，还能拿吗？
+[08:02] 芒格：长期看茅台的品牌与提价能力仍然稳固，短期波动是市场情绪。参考林园的观点——「看得见摸得着的消费股才是能陪你一辈子的股票」。基本面没变化，护城河没被侵蚀，就不要因为一天的价格做决策。
+[08:06] 深圳某家族办：那按你这么说是不是应该继续加仓？我现在持仓大概占总资产的 12%，还有 30 万余粮。
+[08:09] 芒格：可以分批加仓，每次不超过总资产 3%，节奏建议按月定投。如果继续跌 10% 再补一次，控制总仓位不超过 20%。这样既能享受估值修复，又能控制单一持仓风险。', 'wm_family_office_b', 1, 5100003, '芒格', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_MUNGER.png', 'kfmsg_000051', 'text', '深圳某家族办', 'open_kf_0051', 3, '2025-03-09 08:00:00', 'MOAT_MUNGER', '芒格', 'union_wm_family_office_b'),
+(5200052, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pe_partner_lu.png', '[12:00] 路总：腾讯这次因为游戏审批放缓的监管风险有多大？我持仓 15%，要不要减一部分？
+[12:02] 彼得·林奇：参考 2021 港股互联网腰斩案例，最终基本面修复用了 3 年。芒格说过——「反过来想，如果所有坏消息都出来了，还剩下什么？」目前腾讯的估值已经在历史 20% 分位，游戏审批放缓是短期，长期腾讯的现金牛业务没变化。
+[12:06] 路总：那你觉得现在这个价位，可以加仓吗？我另外有 20% 港股现金仓位。
+[12:09] 彼得·林奇：可以，但建议分两次加：现价加 5%，如果跌破 300 港币再加 5%。腾讯的自由现金流每年 1500 亿港币左右，这个价位下的股东回报（回购+分红）已经很有吸引力。
+[12:11] 路总：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_pe_partner_lu', 1, 5100003, '彼得·林奇', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LYNCH.png', 'kfmsg_000052', 'text', '路总', 'open_kf_0052', 3, '2025-03-09 12:00:00', 'MOAT_LYNCH', '彼得·林奇', 'union_wm_pe_partner_lu'),
+(5200053, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hnw_doctor_hu.png', '[16:00] 胡医生：我有 500 万想开始做价值投资，从哪入手？以前只买过基金。
+[16:02] 费雪：先做资产配置：60% 权益 + 30% 债券固收 + 10% 现金。权益部分建议先读格雷厄姆《聪明的投资者》建立框架，然后读巴菲特 1977 年后所有致股东信。前 3 年以学习为主，仓位控制在 30%，边学边做。
+[16:06] 胡医生：那具体买什么股票？我看你们推荐了茅台、腾讯、比亚迪，这些都可以吗？
+[16:09] 费雪：这些都是符合护城河标准的公司，但价格是关键。目前茅台、腾讯估值合理，比亚迪略高。建议先建立观察池 10-15 只，等每只都到达 PE 历史 30% 分位时再买入。定投 3-5 年，让复利在时间里发挥作用。
+[16:11] 胡医生：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_hnw_doctor_hu', 1, 5100003, '费雪', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_FISHER.png', 'kfmsg_000053', 'text', '胡医生', 'open_kf_0053', 3, '2025-03-09 16:00:00', 'MOAT_FISHER', '费雪', 'union_wm_hnw_doctor_hu'),
+(5200054, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_liu.png', '[20:00] 刘先生：段永平最近雪球又发言了？他说拼多多现在怎么样？
+[20:02] 邓普顿：段总最近强调「本分比聪明重要」和「敢为天下后」，对拼多多的态度是继续持有。他之前在雪球分享过——拼多多的护城河是「让消费者觉得占便宜」，这个模式在中国下沉市场很难被替代。
+[20:06] 刘先生：那段总的持仓里，拼多多占比这么高，我们个人投资者可以学吗？
+[20:09] 邓普顿：段总的仓位集中度对个人投资者不建议照搬（他单只 40%+ 是私募的组合）。个人建议单只不超过 15%，除非你对公司有 10 年以上的深度理解。段总的方法论可以学，仓位管理要根据个人情况。
+[20:11] 刘先生：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_retail_liu', 1, 5100003, '邓普顿', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_TEMPLETON.png', 'kfmsg_000054', 'text', '刘先生', 'open_kf_0054', 3, '2025-03-09 20:00:00', 'MOAT_TEMPLETON', '邓普顿', 'union_wm_retail_liu'),
+(5200055, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_chen.png', '[00:00] 陈女士：这次比亚迪减持是不是巴菲特看空了？他从 2022 年开始一直在卖。
+[00:02] 段永平：更可能是仓位调整和价值兑现。老爷子在 200 港币左右开始减持，成本 8 港币，收益 25 倍，正常兑现。参考「案例 · 巴菲特买苹果」，他也是逐步兑现苹果的浮盈。价值兑现不等于看空基本面。
+[00:06] 陈女士：那比亚迪现在这个价格，我要不要参考巴菲特的操作也减仓？
+[00:09] 段永平：巴菲特的减仓是资产配置需要（伯克希尔现金已经 3000 亿美金），跟个人投资者的场景不同。如果你对比亚迪的护城河（电池+整车+平台）有信心，继续持有。如果只是短期赚钱，可以考虑减 30% 落袋。
+[00:11] 陈女士：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_retail_chen', 1, 5100003, '段永平', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DUAN.png', 'kfmsg_000055', 'text', '陈女士', 'open_kf_0055', 3, '2025-03-10 00:00:00', 'MOAT_DUAN', '段永平', 'union_wm_retail_chen'),
+(5200056, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_wu.png', '[04:00] 吴老师：章盟主又上龙虎榜了，我要不要跟他买入的股票？
+[04:02] 林园：短线游资的仓位和成本我们都不掌握，跟单是很危险的。但斌老师说过——「时间的玫瑰只献给坚守的人」。建议以研究学习的心态观察章盟主的操作，理解他的框架，但不要跟单交易。
+[04:06] 吴老师：那我这种小散怎么办？完全不看短线消息吗？
+[04:09] 林园：可以看，但把它作为「情绪指标」而不是「交易信号」。当情绪极度亢奋时（如章盟主频繁上榜时），反而是价值投资者观望的时候；当市场恐慌时，才是我们买入的时候。芒格说的「宏观是承受，微观是作为」。
+[04:11] 吴老师：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_retail_wu', 1, 5100003, '林园', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LINYUAN.png', 'kfmsg_000056', 'text', '吴老师', 'open_kf_0056', 3, '2025-03-10 04:00:00', 'MOAT_LINYUAN', '林园', 'union_wm_retail_wu'),
+(5200057, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_zhou.png', '[08:00] 周同学：我想给孩子买份 40 年的定投，现在孩子 3 岁，40 年后正好 43 岁退休。
+[08:02] 但斌：40 年的时间维度非常适合价值投资。建议配置：标普 500 + 沪深 300 + 恒生 ETF 各 1/3，年化预期 8-10%。40 年后每投入 1 元大约变成 25-45 元。参考彼得·林奇 Magellan 时期 29% CAGR 的启示——长期主义 + 分散配置就够了。
+[08:06] 周同学：每个月投多少合适？我打算每月 5000 元，能达到什么效果？
+[08:09] 但斌：每月 5000，40 年累计投入 240 万，按 8% 年化，最终大约 1500-1800 万。这就是复利的力量。建议不要中途因为市场波动停投，越是市场恐慌越要坚持定投。40 年后你会感谢现在的决定。', 'wm_retail_zhou', 1, 5100003, '但斌', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_DANBIN.png', 'kfmsg_000057', 'text', '周同学', 'open_kf_0057', 3, '2025-03-10 08:00:00', 'MOAT_DANBIN', '但斌', 'union_wm_retail_zhou'),
+(5200058, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_han.png', '[12:00] 韩总：苹果还能拿吗？巴菲特已经减了 60%，我要不要跟着卖？
+[12:02] 章盟主：巴菲特 2016 建仓时的逻辑是「消费品+护城河」，逻辑没变就继续拿。近期他减持 60% 主要是税务和仓位管理（苹果曾占伯克希尔 45%），不代表看空苹果。苹果目前的服务业务年收入 900 亿美金，护城河比 5 年前更宽。
+[12:06] 韩总：那如果拿住的话，未来 5 年苹果的空间还有多大？
+[12:09] 章盟主：5 年维度看，苹果的 EPS 复合增长率大约 8-10%，加上 3% 的股东回报（回购+分红），年化预期 12-15%。不算爆发，但胜在确定。适合作为组合的核心持仓，不建议单只超过 15%。', 'wm_retail_han', 1, 5100003, '章盟主', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZMZ.png', 'kfmsg_000058', 'text', '韩总', 'open_kf_0058', 3, '2025-03-10 12:00:00', 'MOAT_ZMZ', '章盟主', 'union_wm_retail_han'),
+(5200059, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_gao.png', '[16:00] 高姐：新能源赛道是不是已经泡沫破了？宁德时代从 380 跌到 180，跌了一半。
+[16:02] 李录：新能源板块与半导体一样，是长期趋势中的短期回撤。链式分析：整车 → 电池 → 材料 → 设备，各环节竞争格局差异大。宁德的护城河（技术+客户+规模）没变化，只是估值从 60 倍 PE 回到 20 倍 PE。目前是长期投资者建仓的好时机。
+[16:06] 高姐：那我要不要抄底宁德？现在 20 倍 PE 真的合理吗？
+[16:09] 李录：20 倍对于一家高质量制造业龙头是合理的，甚至偏低。但需要观察全球电动车渗透率的斜率（从 15% 到 30% 的进程），如果放缓，估值可能进一步回落到 15 倍。建议分 3 次加仓，每次间隔 6 个月，控制单只不超过 15%。
+[16:11] 高姐：明白了，谢谢老师！那我先按你说的分批操作，下周再复盘。', 'wm_retail_gao', 1, 5100003, '李录', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_LILU.png', 'kfmsg_000059', 'text', '高姐', 'open_kf_0059', 3, '2025-03-10 16:00:00', 'MOAT_LILU', '李录', 'union_wm_retail_gao'),
+(5200060, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_shen.png', '[20:00] 沈总：我最近想加仓，你们的建议是？现金比例已经到 40% 了。
+[20:02] 赵丹阳：40% 现金比例偏高，说明你之前在高位做过减仓——这是好事。当前建议：如果坚定长期持有者，可以把现金降到 20-25%。目标标的：茅台、腾讯、宁德时代、比亚迪，各配置 10-15%。
+[20:06] 沈总：那加仓节奏怎么把握？一次性买入还是分批？
+[20:09] 赵丹阳：任何时候都建议分批。当前市场情绪偏悲观，是分批建仓的窗口。建议：现在买 40%，如果继续跌 10% 再买 30%，剩下 30% 保留应对更极端的下跌。这样既能享受估值修复，又能控制风险。', 'wm_retail_shen', 1, 5100003, '赵丹阳', 'http://10.210.156.69:8081/iyque/file/fileView/avatar_MOAT_ZHAODANYANG.png', 'kfmsg_000060', 'text', '沈总', 'open_kf_0060', 3, '2025-03-10 20:00:00', 'MOAT_ZHAODANYANG', '赵丹阳', 'union_wm_retail_shen');
 
 -- ========================================================================
 -- iyque_summary_kf_msg · AI 会话总结
 -- ========================================================================
 INSERT INTO `iyque_summary_kf_msg` (`id`, `avatar`, `createTime`, `endTime`, `externalUserId`, `nickname`, `startTime`, `summaryContent`, `unionid`) VALUES
-(5300001, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_bill_gates.png', '2025-08-08 08:01:06', '2025-06-01 01:00:00', 'wm_bill_gates', '比尔·盖茨', '2025-06-01 00:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_bill_gates'),
-(5300002, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kay_graham.png', '2025-09-20 01:50:53', '2025-06-01 05:00:00', 'wm_kay_graham', '凯瑟琳·格雷厄姆', '2025-06-01 04:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_kay_graham'),
-(5300003, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_turner.png', '2024-12-28 20:22:34', '2025-06-01 09:00:00', 'wm_ted_turner', '特德·特纳', '2025-06-01 08:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_ted_turner'),
-(5300004, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ajit_jain.png', '2026-01-24 10:34:12', '2025-06-01 13:00:00', 'wm_ajit_jain', '阿吉特·贾因', '2025-06-01 12:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_ajit_jain'),
-(5300005, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_greg_abel.png', '2024-10-30 12:58:19', '2025-06-01 17:00:00', 'wm_greg_abel', '格雷格·阿贝尔', '2025-06-01 16:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_greg_abel'),
-(5300006, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_todd_combs.png', '2025-07-15 17:47:36', '2025-06-01 21:00:00', 'wm_todd_combs', '托德·库姆斯', '2025-06-01 20:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_todd_combs'),
-(5300007, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_weschler.png', '2024-07-23 03:05:17', '2025-06-02 01:00:00', 'wm_ted_weschler', '特德·韦施勒', '2025-06-02 00:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_ted_weschler'),
-(5300008, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ron_olson.png', '2024-07-05 16:01:25', '2025-06-02 05:00:00', 'wm_ron_olson', '罗恩·奥尔森', '2025-06-02 04:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_ron_olson'),
-(5300009, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_rick_guerin.png', '2026-05-27 02:11:50', '2025-06-02 09:00:00', 'wm_rick_guerin', '里克·盖林', '2025-06-02 08:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_rick_guerin'),
-(5300010, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_walter_schloss.png', '2024-11-05 00:30:13', '2025-06-02 13:00:00', 'wm_walter_schloss', '沃尔特·施洛斯', '2025-06-02 12:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_walter_schloss'),
-(5300011, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_seth_klarman.png', '2025-04-03 18:58:13', '2025-06-02 17:00:00', 'wm_seth_klarman', '塞斯·卡拉曼', '2025-06-02 16:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_seth_klarman'),
-(5300012, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_howard_marks.png', '2025-04-02 04:48:38', '2025-06-02 21:00:00', 'wm_howard_marks', '霍华德·马克斯', '2025-06-02 20:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_howard_marks'),
-(5300013, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yohei_hosoda.png', '2026-01-03 23:32:54', '2025-06-03 01:00:00', 'wm_yohei_hosoda', '细田洋平', '2025-06-03 00:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_yohei_hosoda'),
-(5300014, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lynchfund_fan.png', '2025-03-25 20:55:17', '2025-06-03 05:00:00', 'wm_lynchfund_fan', '麦哲伦基金老持有人', '2025-06-03 04:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_lynchfund_fan'),
-(5300015, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_dinglei.png', '2026-06-27 14:15:47', '2025-06-03 09:00:00', 'wm_dinglei', '丁磊', '2025-06-03 08:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_dinglei'),
-(5300016, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_huangzheng.png', '2024-06-01 10:55:30', '2025-06-03 13:00:00', 'wm_huangzheng', '黄峥', '2025-06-03 12:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_huangzheng'),
-(5300017, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_chenmingyong.png', '2024-12-23 06:30:02', '2025-06-03 17:00:00', 'wm_chenmingyong', '陈明永', '2025-06-03 16:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_chenmingyong'),
-(5300018, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_shenwei.png', '2024-02-14 06:28:33', '2025-06-03 21:00:00', 'wm_shenwei', '沈炜', '2025-06-03 20:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_shenwei'),
-(5300019, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_fangsanwen.png', '2025-06-24 21:18:50', '2025-06-04 01:00:00', 'wm_fangsanwen', '方三文', '2025-06-04 00:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_fangsanwen'),
-(5300020, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liuhaoran.png', '2024-08-13 02:52:39', '2025-06-04 05:00:00', 'wm_liuhaoran', '刘昊然（同名）', '2025-06-04 04:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_liuhaoran'),
-(5300021, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhugeliang.png', '2024-05-13 05:47:27', '2025-06-04 09:00:00', 'wm_zhugeliang', '但斌客户 A（诸葛量）', '2025-06-04 08:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_zhugeliang'),
-(5300022, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_maotai_holder.png', '2026-01-28 11:52:43', '2025-06-04 13:00:00', 'wm_maotai_holder', '茅台老股东', '2025-06-04 12:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_maotai_holder'),
-(5300023, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wuliangye_lp.png', '2025-10-16 22:51:34', '2025-06-04 17:00:00', 'wm_wuliangye_lp', '五粮液 LP', '2025-06-04 16:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_wuliangye_lp'),
-(5300024, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pinganhuang.png', '2024-07-19 05:54:10', '2025-06-04 21:00:00', 'wm_pinganhuang', '平安黄总', '2025-06-04 20:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_pinganhuang'),
-(5300025, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_geli_dong.png', '2025-12-13 05:18:50', '2025-06-05 01:00:00', 'wm_geli_dong', '董明珠', '2025-06-05 00:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_geli_dong'),
-(5300026, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_meidi_fangh.png', '2024-09-28 17:34:11', '2025-06-05 05:00:00', 'wm_meidi_fangh', '方洪波', '2025-06-05 04:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_meidi_fangh'),
-(5300027, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_byd_wangchuanfu.png', '2024-02-01 07:21:37', '2025-06-05 09:00:00', 'wm_byd_wangchuanfu', '王传福', '2025-06-05 08:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_byd_wangchuanfu'),
-(5300028, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_catl_zeng.png', '2024-07-18 23:02:56', '2025-06-05 13:00:00', 'wm_catl_zeng', '曾毓群', '2025-06-05 12:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_catl_zeng'),
-(5300029, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pony_ma.png', '2024-06-02 09:56:55', '2025-06-05 17:00:00', 'wm_pony_ma', '马化腾', '2025-06-05 16:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_pony_ma'),
-(5300030, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_jack_ma.png', '2026-05-20 01:35:01', '2025-06-05 21:00:00', 'wm_jack_ma', '马云', '2025-06-05 20:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_jack_ma'),
-(5300031, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lei_jun.png', '2025-08-06 15:52:58', '2025-06-06 01:00:00', 'wm_lei_jun', '雷军', '2025-06-06 00:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_lei_jun'),
-(5300032, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhang_yiming.png', '2024-02-07 04:56:31', '2025-06-06 05:00:00', 'wm_zhang_yiming', '张一鸣', '2025-06-06 04:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_zhang_yiming'),
-(5300033, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liu_qiangdong.png', '2025-04-25 02:03:29', '2025-06-06 09:00:00', 'wm_liu_qiangdong', '刘强东', '2025-06-06 08:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_liu_qiangdong'),
-(5300034, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_haier_zhang.png', '2024-11-27 17:19:03', '2025-06-06 13:00:00', 'wm_haier_zhang', '张瑞敏', '2025-06-06 12:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_haier_zhang'),
-(5300035, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lenovo_liu.png', '2024-02-25 09:52:01', '2025-06-06 17:00:00', 'wm_lenovo_liu', '柳传志', '2025-06-06 16:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_lenovo_liu'),
-(5300036, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_gree_meng.png', '2025-03-27 09:39:59', '2025-06-06 21:00:00', 'wm_gree_meng', '孟羽童', '2025-06-06 20:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_gree_meng'),
-(5300037, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_kashing.png', '2025-07-28 18:04:48', '2025-06-07 01:00:00', 'wm_li_kashing', '李嘉诚', '2025-06-07 00:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_li_kashing'),
-(5300038, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_zeju.png', '2026-01-27 04:33:38', '2025-06-07 05:00:00', 'wm_li_zeju', '李泽钜', '2025-06-07 04:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_li_zeju'),
-(5300039, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_terry_gou.png', '2024-11-05 11:56:59', '2025-06-07 09:00:00', 'wm_terry_gou', '郭台铭', '2025-06-07 08:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_terry_gou'),
-(5300040, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tsai_ing.png', '2026-05-06 07:52:01', '2025-06-07 13:00:00', 'wm_tsai_ing', '蔡崇信', '2025-06-07 12:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_tsai_ing'),
-(5300041, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_zhao.png', '2024-12-31 00:57:54', '2025-06-07 17:00:00', 'wm_youzi_zhao', '游资赵老哥', '2025-06-07 16:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_youzi_zhao'),
-(5300042, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_qiao.png', '2026-05-09 22:20:12', '2025-06-07 21:00:00', 'wm_youzi_qiao', '游资乔帮主', '2025-06-07 20:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_youzi_qiao'),
-(5300043, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_mengniu.png', '2025-11-24 03:45:25', '2025-06-08 01:00:00', 'wm_youzi_mengniu', '游资孟乃', '2025-06-08 00:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_youzi_mengniu'),
-(5300044, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hangzhou_tuhao.png', '2024-10-27 09:55:33', '2025-06-08 05:00:00', 'wm_hangzhou_tuhao', '杭州七哥', '2025-06-08 04:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_hangzhou_tuhao'),
-(5300045, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wine_lover_zhang.png', '2026-02-16 20:11:16', '2025-06-08 09:00:00', 'wm_wine_lover_zhang', '张老板', '2025-06-08 08:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_wine_lover_zhang'),
-(5300046, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pharma_wang.png', '2024-06-19 11:23:53', '2025-06-08 13:00:00', 'wm_pharma_wang', '王教授', '2025-06-08 12:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_pharma_wang'),
-(5300047, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yunnanbaiyao_ho.png', '2024-03-03 00:17:31', '2025-06-08 17:00:00', 'wm_yunnanbaiyao_ho', '何女士', '2025-06-08 16:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_yunnanbaiyao_ho'),
-(5300048, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tencent_dbc.png', '2026-04-10 22:07:50', '2025-06-08 21:00:00', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', '2025-06-08 20:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_tencent_dbc'),
-(5300049, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kweichowmoutai_dbc.png', '2025-10-07 01:06:57', '2025-06-09 01:00:00', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', '2025-06-09 00:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_kweichowmoutai_dbc'),
-(5300050, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_a.png', '2024-04-02 17:30:17', '2025-06-09 05:00:00', 'wm_family_office_a', '上海某家族办', '2025-06-09 04:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_family_office_a'),
-(5300051, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_b.png', '2026-01-15 22:42:38', '2025-06-09 09:00:00', 'wm_family_office_b', '深圳某家族办', '2025-06-09 08:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_family_office_b'),
-(5300052, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pe_partner_lu.png', '2024-01-09 04:49:52', '2025-06-09 13:00:00', 'wm_pe_partner_lu', '路总', '2025-06-09 12:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_pe_partner_lu'),
-(5300053, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hnw_doctor_hu.png', '2024-11-22 04:17:54', '2025-06-09 17:00:00', 'wm_hnw_doctor_hu', '胡医生', '2025-06-09 16:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_hnw_doctor_hu'),
-(5300054, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_liu.png', '2024-11-20 03:04:24', '2025-06-09 21:00:00', 'wm_retail_liu', '刘先生', '2025-06-09 20:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_retail_liu'),
-(5300055, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_chen.png', '2026-04-11 20:43:28', '2025-06-10 01:00:00', 'wm_retail_chen', '陈女士', '2025-06-10 00:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_retail_chen'),
-(5300056, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_wu.png', '2025-06-10 21:07:13', '2025-06-10 05:00:00', 'wm_retail_wu', '吴老师', '2025-06-10 04:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_retail_wu'),
-(5300057, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_zhou.png', '2026-03-11 03:07:01', '2025-06-10 09:00:00', 'wm_retail_zhou', '周同学', '2025-06-10 08:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_retail_zhou'),
-(5300058, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_han.png', '2025-01-04 09:01:49', '2025-06-10 13:00:00', 'wm_retail_han', '韩总', '2025-06-10 12:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_retail_han'),
-(5300059, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_gao.png', '2024-07-05 06:34:28', '2025-06-10 17:00:00', 'wm_retail_gao', '高姐', '2025-06-10 16:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_retail_gao'),
-(5300060, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_shen.png', '2025-04-08 10:07:41', '2025-06-10 21:00:00', 'wm_retail_shen', '沈总', '2025-06-10 20:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_retail_shen');
+(5300001, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_bill_gates.png', '2025-11-13 19:12:52', '2025-06-01 01:00:00', 'wm_bill_gates', '比尔·盖茨', '2025-06-01 00:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_bill_gates'),
+(5300002, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kay_graham.png', '2026-04-01 19:53:15', '2025-06-01 05:00:00', 'wm_kay_graham', '凯瑟琳·格雷厄姆', '2025-06-01 04:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_kay_graham'),
+(5300003, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_turner.png', '2025-01-29 13:39:30', '2025-06-01 09:00:00', 'wm_ted_turner', '特德·特纳', '2025-06-01 08:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_ted_turner'),
+(5300004, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ajit_jain.png', '2025-02-09 10:23:45', '2025-06-01 13:00:00', 'wm_ajit_jain', '阿吉特·贾因', '2025-06-01 12:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_ajit_jain'),
+(5300005, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_greg_abel.png', '2026-05-18 07:03:14', '2025-06-01 17:00:00', 'wm_greg_abel', '格雷格·阿贝尔', '2025-06-01 16:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_greg_abel'),
+(5300006, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_todd_combs.png', '2026-02-17 05:43:40', '2025-06-01 21:00:00', 'wm_todd_combs', '托德·库姆斯', '2025-06-01 20:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_todd_combs'),
+(5300007, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ted_weschler.png', '2025-02-24 12:01:08', '2025-06-02 01:00:00', 'wm_ted_weschler', '特德·韦施勒', '2025-06-02 00:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_ted_weschler'),
+(5300008, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_ron_olson.png', '2025-01-10 01:00:27', '2025-06-02 05:00:00', 'wm_ron_olson', '罗恩·奥尔森', '2025-06-02 04:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_ron_olson'),
+(5300009, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_rick_guerin.png', '2024-09-08 19:53:21', '2025-06-02 09:00:00', 'wm_rick_guerin', '里克·盖林', '2025-06-02 08:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_rick_guerin'),
+(5300010, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_walter_schloss.png', '2025-05-23 18:46:32', '2025-06-02 13:00:00', 'wm_walter_schloss', '沃尔特·施洛斯', '2025-06-02 12:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_walter_schloss'),
+(5300011, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_seth_klarman.png', '2025-04-04 18:51:42', '2025-06-02 17:00:00', 'wm_seth_klarman', '塞斯·卡拉曼', '2025-06-02 16:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_seth_klarman'),
+(5300012, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_howard_marks.png', '2026-02-03 14:15:34', '2025-06-02 21:00:00', 'wm_howard_marks', '霍华德·马克斯', '2025-06-02 20:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_howard_marks'),
+(5300013, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yohei_hosoda.png', '2024-05-23 18:04:25', '2025-06-03 01:00:00', 'wm_yohei_hosoda', '细田洋平', '2025-06-03 00:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_yohei_hosoda'),
+(5300014, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lynchfund_fan.png', '2024-01-06 23:18:35', '2025-06-03 05:00:00', 'wm_lynchfund_fan', '麦哲伦基金老持有人', '2025-06-03 04:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_lynchfund_fan'),
+(5300015, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_dinglei.png', '2024-03-11 16:18:35', '2025-06-03 09:00:00', 'wm_dinglei', '丁磊', '2025-06-03 08:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_dinglei'),
+(5300016, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_huangzheng.png', '2025-03-10 19:49:05', '2025-06-03 13:00:00', 'wm_huangzheng', '黄峥', '2025-06-03 12:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_huangzheng'),
+(5300017, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_chenmingyong.png', '2025-11-13 20:06:55', '2025-06-03 17:00:00', 'wm_chenmingyong', '陈明永', '2025-06-03 16:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_chenmingyong'),
+(5300018, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_shenwei.png', '2025-09-03 09:51:08', '2025-06-03 21:00:00', 'wm_shenwei', '沈炜', '2025-06-03 20:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_shenwei'),
+(5300019, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_fangsanwen.png', '2026-06-01 16:37:09', '2025-06-04 01:00:00', 'wm_fangsanwen', '方三文', '2025-06-04 00:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_fangsanwen'),
+(5300020, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liuhaoran.png', '2025-01-08 19:52:06', '2025-06-04 05:00:00', 'wm_liuhaoran', '刘昊然（同名）', '2025-06-04 04:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_liuhaoran'),
+(5300021, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhugeliang.png', '2024-04-26 11:38:23', '2025-06-04 09:00:00', 'wm_zhugeliang', '但斌客户 A（诸葛量）', '2025-06-04 08:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_zhugeliang'),
+(5300022, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_maotai_holder.png', '2026-04-27 21:13:20', '2025-06-04 13:00:00', 'wm_maotai_holder', '茅台老股东', '2025-06-04 12:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_maotai_holder'),
+(5300023, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wuliangye_lp.png', '2024-07-23 15:04:18', '2025-06-04 17:00:00', 'wm_wuliangye_lp', '五粮液 LP', '2025-06-04 16:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_wuliangye_lp'),
+(5300024, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pinganhuang.png', '2025-07-31 06:07:43', '2025-06-04 21:00:00', 'wm_pinganhuang', '平安黄总', '2025-06-04 20:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_pinganhuang'),
+(5300025, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_geli_dong.png', '2025-10-07 10:14:15', '2025-06-05 01:00:00', 'wm_geli_dong', '董明珠', '2025-06-05 00:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_geli_dong'),
+(5300026, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_meidi_fangh.png', '2025-09-11 08:19:25', '2025-06-05 05:00:00', 'wm_meidi_fangh', '方洪波', '2025-06-05 04:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_meidi_fangh'),
+(5300027, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_byd_wangchuanfu.png', '2024-09-04 14:31:10', '2025-06-05 09:00:00', 'wm_byd_wangchuanfu', '王传福', '2025-06-05 08:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_byd_wangchuanfu'),
+(5300028, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_catl_zeng.png', '2024-09-11 08:47:41', '2025-06-05 13:00:00', 'wm_catl_zeng', '曾毓群', '2025-06-05 12:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_catl_zeng'),
+(5300029, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pony_ma.png', '2024-02-04 05:08:36', '2025-06-05 17:00:00', 'wm_pony_ma', '马化腾', '2025-06-05 16:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_pony_ma'),
+(5300030, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_jack_ma.png', '2024-08-04 15:31:03', '2025-06-05 21:00:00', 'wm_jack_ma', '马云', '2025-06-05 20:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_jack_ma'),
+(5300031, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lei_jun.png', '2024-07-15 04:44:17', '2025-06-06 01:00:00', 'wm_lei_jun', '雷军', '2025-06-06 00:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_lei_jun'),
+(5300032, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_zhang_yiming.png', '2025-05-07 15:29:11', '2025-06-06 05:00:00', 'wm_zhang_yiming', '张一鸣', '2025-06-06 04:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_zhang_yiming'),
+(5300033, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_liu_qiangdong.png', '2026-01-30 10:20:58', '2025-06-06 09:00:00', 'wm_liu_qiangdong', '刘强东', '2025-06-06 08:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_liu_qiangdong'),
+(5300034, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_haier_zhang.png', '2025-08-13 15:06:05', '2025-06-06 13:00:00', 'wm_haier_zhang', '张瑞敏', '2025-06-06 12:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_haier_zhang'),
+(5300035, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_lenovo_liu.png', '2025-01-06 12:35:48', '2025-06-06 17:00:00', 'wm_lenovo_liu', '柳传志', '2025-06-06 16:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_lenovo_liu'),
+(5300036, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_gree_meng.png', '2025-12-22 16:51:30', '2025-06-06 21:00:00', 'wm_gree_meng', '孟羽童', '2025-06-06 20:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_gree_meng'),
+(5300037, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_kashing.png', '2024-11-10 18:49:48', '2025-06-07 01:00:00', 'wm_li_kashing', '李嘉诚', '2025-06-07 00:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_li_kashing'),
+(5300038, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_li_zeju.png', '2025-03-20 04:21:36', '2025-06-07 05:00:00', 'wm_li_zeju', '李泽钜', '2025-06-07 04:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_li_zeju'),
+(5300039, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_terry_gou.png', '2024-10-30 00:07:44', '2025-06-07 09:00:00', 'wm_terry_gou', '郭台铭', '2025-06-07 08:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_terry_gou'),
+(5300040, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tsai_ing.png', '2025-06-19 19:56:18', '2025-06-07 13:00:00', 'wm_tsai_ing', '蔡崇信', '2025-06-07 12:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_tsai_ing'),
+(5300041, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_zhao.png', '2026-06-29 23:36:28', '2025-06-07 17:00:00', 'wm_youzi_zhao', '游资赵老哥', '2025-06-07 16:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_youzi_zhao'),
+(5300042, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_qiao.png', '2024-01-09 14:17:01', '2025-06-07 21:00:00', 'wm_youzi_qiao', '游资乔帮主', '2025-06-07 20:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_youzi_qiao'),
+(5300043, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_youzi_mengniu.png', '2025-10-02 20:33:20', '2025-06-08 01:00:00', 'wm_youzi_mengniu', '游资孟乃', '2025-06-08 00:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_youzi_mengniu'),
+(5300044, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hangzhou_tuhao.png', '2024-04-06 19:56:44', '2025-06-08 05:00:00', 'wm_hangzhou_tuhao', '杭州七哥', '2025-06-08 04:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_hangzhou_tuhao'),
+(5300045, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_wine_lover_zhang.png', '2025-02-03 17:57:44', '2025-06-08 09:00:00', 'wm_wine_lover_zhang', '张老板', '2025-06-08 08:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_wine_lover_zhang'),
+(5300046, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pharma_wang.png', '2024-10-09 15:39:46', '2025-06-08 13:00:00', 'wm_pharma_wang', '王教授', '2025-06-08 12:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_pharma_wang'),
+(5300047, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_yunnanbaiyao_ho.png', '2025-02-20 19:23:45', '2025-06-08 17:00:00', 'wm_yunnanbaiyao_ho', '何女士', '2025-06-08 16:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_yunnanbaiyao_ho'),
+(5300048, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_tencent_dbc.png', '2025-04-30 18:11:41', '2025-06-08 21:00:00', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', '2025-06-08 20:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_tencent_dbc'),
+(5300049, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_kweichowmoutai_dbc.png', '2024-01-09 12:23:50', '2025-06-09 01:00:00', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', '2025-06-09 00:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_kweichowmoutai_dbc'),
+(5300050, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_a.png', '2024-10-18 21:10:27', '2025-06-09 05:00:00', 'wm_family_office_a', '上海某家族办', '2025-06-09 04:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_family_office_a'),
+(5300051, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_family_office_b.png', '2024-09-05 23:40:00', '2025-06-09 09:00:00', 'wm_family_office_b', '深圳某家族办', '2025-06-09 08:00:00', '客户主要询问茅台在集采/塑化剂事件后的持仓策略，投顾建议以长期视角持有，回顾 2012 塑化剂危机与十年 60 倍案例。', 'union_wm_family_office_b'),
+(5300052, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_pe_partner_lu.png', '2025-12-24 16:56:18', '2025-06-09 13:00:00', 'wm_pe_partner_lu', '路总', '2025-06-09 12:00:00', '客户咨询港股互联网板块，是否为 2021 监管危机后的价值机会。投顾结合基本面 + 芒格反过来思考模型给出建议。', 'union_wm_pe_partner_lu'),
+(5300053, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_hnw_doctor_hu.png', '2024-06-12 02:10:32', '2025-06-09 17:00:00', 'wm_hnw_doctor_hu', '胡医生', '2025-06-09 16:00:00', '客户询问段永平最新雪球观点。投顾摘录本分/敢为天下后核心观点。', 'union_wm_hnw_doctor_hu'),
+(5300054, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_liu.png', '2024-07-15 03:36:55', '2025-06-09 21:00:00', 'wm_retail_liu', '刘先生', '2025-06-09 20:00:00', '客户询问 500 万资金配置。投顾建议 60/40 组合，并推荐格雷厄姆《聪明的投资者》。', 'union_wm_retail_liu'),
+(5300055, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_chen.png', '2024-08-14 03:14:29', '2025-06-10 01:00:00', 'wm_retail_chen', '陈女士', '2025-06-10 00:00:00', '客户咨询比亚迪减持事件。投顾结合案例还原巴菲特 2008 建仓、2022 减持的完整脉络。', 'union_wm_retail_chen'),
+(5300056, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_wu.png', '2025-06-09 19:34:10', '2025-06-10 05:00:00', 'wm_retail_wu', '吴老师', '2025-06-10 04:00:00', '客户咨询章盟主龙虎榜跟风。投顾以研究观察心态回应，未鼓励短线。', 'union_wm_retail_wu'),
+(5300057, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_zhou.png', '2024-10-08 00:25:57', '2025-06-10 09:00:00', 'wm_retail_zhou', '周同学', '2025-06-10 08:00:00', '客户咨询儿童 40 年定投。投顾给出标普/沪深/恒生三分方案。', 'union_wm_retail_zhou'),
+(5300058, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_han.png', '2026-03-28 12:15:45', '2025-06-10 13:00:00', 'wm_retail_han', '韩总', '2025-06-10 12:00:00', '客户咨询苹果持仓。投顾复述 2016 巴菲特建仓逻辑与消费品护城河判断。', 'union_wm_retail_han'),
+(5300059, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_gao.png', '2024-05-11 17:33:44', '2025-06-10 17:00:00', 'wm_retail_gao', '高姐', '2025-06-10 16:00:00', '客户询问新能源板块。投顾拆解整车/电池/材料/设备产业链竞争格局。', 'union_wm_retail_gao'),
+(5300060, 'http://10.210.156.69:8081/iyque/file/fileView/avatar_wm_retail_shen.png', '2024-06-15 12:12:27', '2025-06-10 21:00:00', 'wm_retail_shen', '沈总', '2025-06-10 20:00:00', '客户询问加仓策略。投顾强调单一持仓 15% 上限的仓位纪律。', 'union_wm_retail_shen');
 
 -- ========================================================================
 -- iyque_msg_audit · 会话存档
 -- ========================================================================
 INSERT INTO `iyque_msg_audit` (`msgId`, `acceptId`, `acceptName`, `acceptType`, `content`, `createTime`, `dataSeq`, `fromId`, `fromName`, `msgTime`, `msgType`) VALUES
-('msg_audit_000001', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特建仓可口可乐怎么看？', '2024-09-13 11:53:52', 1000, 'wm_bill_gates', '比尔·盖茨', '2024-11-15 00:39:53', 'text'),
-('msg_audit_000002', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-06-19 09:23:01', 1001, 'MOAT_BUFFETT', '巴菲特', '2024-05-28 00:20:54', 'text'),
-('msg_audit_000003', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-05-06 09:53:35', 1002, 'wm_ted_turner', '特德·特纳', '2026-03-23 18:25:07', 'text'),
-('msg_audit_000004', 'wm_ajit_jain', '阿吉特·贾因', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2025-07-16 17:36:06', 1003, 'MOAT_LYNCH', '彼得·林奇', '2024-03-18 04:29:16', 'text'),
-('msg_audit_000005', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2025-08-23 06:48:10', 1004, 'wm_greg_abel', '格雷格·阿贝尔', '2025-11-21 00:56:59', 'text'),
-('msg_audit_000006', 'wm_todd_combs', '托德·库姆斯', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-11-13 19:12:52', 1005, 'MOAT_TEMPLETON', '邓普顿', '2026-04-01 19:53:15', 'text'),
-('msg_audit_000007', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近拼多多种子期怎么看？', '2025-01-29 13:39:30', 1006, 'wm_ted_weschler', '特德·韦施勒', '2025-02-09 10:23:45', 'text'),
-('msg_audit_000008', 'wm_ron_olson', '罗恩·奥尔森', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-05-18 07:03:14', 1007, 'MOAT_LINYUAN', '林园', '2026-02-17 05:43:40', 'text'),
-('msg_audit_000009', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2025-02-24 12:01:08', 1008, 'wm_rick_guerin', '里克·盖林', '2025-01-10 01:00:27', 'text'),
-('msg_audit_000010', 'wm_walter_schloss', '沃尔特·施洛斯', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-09-08 19:53:21', 1009, 'MOAT_ZMZ', '章盟主', '2025-05-23 18:46:32', 'text'),
-('msg_audit_000011', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-04-04 18:51:42', 1010, 'wm_seth_klarman', '塞斯·卡拉曼', '2026-02-03 14:15:34', 'text'),
-('msg_audit_000012', 'wm_howard_marks', '霍华德·马克斯', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-05-23 18:04:25', 1011, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-01-06 23:18:35', 'text'),
-('msg_audit_000013', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特减持比亚迪怎么看？', '2024-03-11 16:18:35', 1012, 'wm_yohei_hosoda', '细田洋平', '2025-03-10 19:49:05', 'text'),
-('msg_audit_000014', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2025-11-13 20:06:55', 1013, 'MOAT_BUFFETT', '巴菲特', '2025-09-03 09:51:08', 'text'),
-('msg_audit_000015', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2026-06-01 16:37:09', 1014, 'wm_dinglei', '丁磊', '2025-01-08 19:52:06', 'text'),
-('msg_audit_000016', 'wm_huangzheng', '黄峥', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-04-26 11:38:23', 1015, 'MOAT_LYNCH', '彼得·林奇', '2026-04-27 21:13:20', 'text'),
-('msg_audit_000017', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-07-23 15:04:18', 1016, 'wm_chenmingyong', '陈明永', '2025-07-31 06:07:43', 'text'),
-('msg_audit_000018', 'wm_shenwei', '沈炜', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-10-07 10:14:15', 1017, 'MOAT_TEMPLETON', '邓普顿', '2025-09-11 08:19:25', 'text'),
-('msg_audit_000019', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近白酒塑化剂危机怎么看？', '2024-09-04 14:31:10', 1018, 'wm_fangsanwen', '方三文', '2024-09-11 08:47:41', 'text'),
-('msg_audit_000020', 'wm_liuhaoran', '刘昊然（同名）', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-02-04 05:08:36', 1019, 'MOAT_LINYUAN', '林园', '2024-08-04 15:31:03', 'text'),
-('msg_audit_000021', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-07-15 04:44:17', 1020, 'wm_zhugeliang', '但斌客户 A（诸葛量）', '2025-05-07 15:29:11', 'text'),
-('msg_audit_000022', 'wm_maotai_holder', '茅台老股东', 2, '格雷厄姆的安全边际是价值投资的基石。', '2026-01-30 10:20:58', 1021, 'MOAT_ZMZ', '章盟主', '2025-08-13 15:06:05', 'text'),
-('msg_audit_000023', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-01-06 12:35:48', 1022, 'wm_wuliangye_lp', '五粮液 LP', '2025-12-22 16:51:30', 'text'),
-('msg_audit_000024', 'wm_pinganhuang', '平安黄总', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-11-10 18:49:48', 1023, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-03-20 04:21:36', 'text'),
-('msg_audit_000025', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近日本五大商社怎么看？', '2024-10-30 00:07:44', 1024, 'wm_geli_dong', '董明珠', '2025-06-19 19:56:18', 'text'),
-('msg_audit_000026', 'wm_meidi_fangh', '方洪波', 2, '林园：白酒是可以陪你一辈子的股票。', '2026-06-29 23:36:28', 1025, 'MOAT_BUFFETT', '巴菲特', '2024-01-09 14:17:01', 'text'),
-('msg_audit_000027', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-10-02 20:33:20', 1026, 'wm_byd_wangchuanfu', '王传福', '2024-04-06 19:56:44', 'text'),
-('msg_audit_000028', 'wm_catl_zeng', '曾毓群', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-02-03 17:57:44', 1027, 'MOAT_LYNCH', '彼得·林奇', '2024-10-09 15:39:46', 'text'),
-('msg_audit_000029', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2025-02-20 19:23:45', 1028, 'wm_pony_ma', '马化腾', '2025-04-30 18:11:41', 'text'),
-('msg_audit_000030', 'wm_jack_ma', '马云', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-01-09 12:23:50', 1029, 'MOAT_TEMPLETON', '邓普顿', '2024-10-18 21:10:27', 'text'),
-('msg_audit_000031', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近美团千亿再造怎么看？', '2024-09-05 23:40:00', 1030, 'wm_lei_jun', '雷军', '2025-12-24 16:56:18', 'text'),
-('msg_audit_000032', 'wm_zhang_yiming', '张一鸣', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-06-12 02:10:32', 1031, 'MOAT_LINYUAN', '林园', '2024-07-15 03:36:55', 'text'),
-('msg_audit_000033', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-08-14 03:14:29', 1032, 'wm_liu_qiangdong', '刘强东', '2025-06-09 19:34:10', 'text'),
-('msg_audit_000034', 'wm_haier_zhang', '张瑞敏', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-10-08 00:25:57', 1033, 'MOAT_ZMZ', '章盟主', '2026-03-28 12:15:45', 'text'),
-('msg_audit_000035', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2024-05-11 17:33:44', 1034, 'wm_lenovo_liu', '柳传志', '2024-06-15 12:12:27', 'text'),
-('msg_audit_000036', 'wm_gree_meng', '孟羽童', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-03-25 22:07:02', 1035, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-02-06 10:53:35', 'text'),
-('msg_audit_000037', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近港股互联网监管危机怎么看？', '2025-05-31 05:58:14', 1036, 'wm_li_kashing', '李嘉诚', '2025-10-25 09:47:20', 'text'),
-('msg_audit_000038', 'wm_li_zeju', '李泽钜', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-08-12 04:42:36', 1037, 'MOAT_BUFFETT', '巴菲特', '2024-11-06 03:44:20', 'text'),
-('msg_audit_000039', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2026-03-11 02:03:05', 1038, 'wm_terry_gou', '郭台铭', '2024-06-11 23:13:33', 'text'),
-('msg_audit_000040', 'wm_tsai_ing', '蔡崇信', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2026-02-28 18:27:47', 1039, 'MOAT_LYNCH', '彼得·林奇', '2024-02-13 21:38:20', 'text'),
-('msg_audit_000041', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-03-26 09:11:29', 1040, 'wm_youzi_zhao', '游资赵老哥', '2025-04-10 10:31:21', 'text'),
-('msg_audit_000042', 'wm_youzi_qiao', '游资乔帮主', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-04-27 01:33:57', 1041, 'MOAT_TEMPLETON', '邓普顿', '2026-03-15 12:30:50', 'text'),
-('msg_audit_000043', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近高盛优先股怎么看？', '2026-05-04 12:28:51', 1042, 'wm_youzi_mengniu', '游资孟乃', '2025-12-11 23:23:00', 'text'),
-('msg_audit_000044', 'wm_hangzhou_tuhao', '杭州七哥', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2026-03-09 23:34:40', 1043, 'MOAT_LINYUAN', '林园', '2024-03-22 22:56:37', 'text'),
-('msg_audit_000045', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-04-10 12:29:31', 1044, 'wm_wine_lover_zhang', '张老板', '2024-11-13 19:17:48', 'text'),
-('msg_audit_000046', 'wm_pharma_wang', '王教授', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-12-25 16:58:26', 1045, 'MOAT_ZMZ', '章盟主', '2024-12-02 23:50:37', 'text'),
-('msg_audit_000047', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-09-12 21:59:12', 1046, 'wm_yunnanbaiyao_ho', '何女士', '2025-01-15 06:06:37', 'text'),
-('msg_audit_000048', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-02-11 12:07:52', 1047, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-01-04 23:38:15', 'text'),
-('msg_audit_000049', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近但斌抄底腾讯怎么看？', '2024-09-24 18:03:52', 1048, 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', '2025-11-20 10:59:59', 'text'),
-('msg_audit_000050', 'wm_family_office_a', '上海某家族办', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-07-19 00:45:59', 1049, 'MOAT_BUFFETT', '巴菲特', '2024-08-31 04:32:05', 'text'),
-('msg_audit_000051', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2024-03-23 16:28:18', 1050, 'wm_family_office_b', '深圳某家族办', '2024-05-27 04:33:41', 'text'),
-('msg_audit_000052', 'wm_pe_partner_lu', '路总', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-03-20 01:08:52', 1051, 'MOAT_LYNCH', '彼得·林奇', '2025-01-26 14:32:31', 'text'),
-('msg_audit_000053', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-11-19 23:34:57', 1052, 'wm_hnw_doctor_hu', '胡医生', '2026-02-01 11:59:37', 'text'),
-('msg_audit_000054', 'wm_retail_liu', '刘先生', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-08-17 18:58:04', 1053, 'MOAT_TEMPLETON', '邓普顿', '2026-02-19 15:20:33', 'text'),
-('msg_audit_000055', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近美国运通色拉油危机怎么看？', '2025-05-11 08:18:36', 1054, 'wm_retail_chen', '陈女士', '2024-04-20 07:14:04', 'text'),
-('msg_audit_000056', 'wm_retail_wu', '吴老师', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-12-31 00:03:33', 1055, 'MOAT_LINYUAN', '林园', '2026-04-22 10:08:47', 'text'),
-('msg_audit_000057', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2025-04-23 11:52:54', 1056, 'wm_retail_zhou', '周同学', '2024-08-22 13:10:26', 'text'),
-('msg_audit_000058', 'wm_retail_han', '韩总', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2024-07-14 19:00:38', 1057, 'MOAT_ZMZ', '章盟主', '2026-06-04 07:05:21', 'text'),
-('msg_audit_000059', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-08-04 15:47:03', 1058, 'wm_retail_gao', '高姐', '2025-12-20 03:36:20', 'text'),
-('msg_audit_000060', 'wm_retail_shen', '沈总', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-11-17 22:35:59', 1059, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-11-03 18:34:03', 'text'),
-('msg_audit_000061', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特建仓可口可乐怎么看？', '2026-05-20 23:46:00', 1060, 'wm_retail_kong', '孔总', '2024-07-01 11:42:49', 'text'),
-('msg_audit_000062', 'wm_bill_gates', '比尔·盖茨', 2, '格雷厄姆的安全边际是价值投资的基石。', '2025-07-27 07:16:58', 1061, 'MOAT_BUFFETT', '巴菲特', '2026-05-28 03:27:38', 'text'),
-('msg_audit_000063', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2026-02-18 05:55:39', 1062, 'wm_kay_graham', '凯瑟琳·格雷厄姆', '2024-09-11 00:04:20', 'text'),
-('msg_audit_000064', 'wm_ted_turner', '特德·特纳', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-10-11 12:06:35', 1063, 'MOAT_LYNCH', '彼得·林奇', '2024-12-20 19:21:18', 'text'),
-('msg_audit_000065', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-03-16 17:11:37', 1064, 'wm_ajit_jain', '阿吉特·贾因', '2025-08-22 09:02:19', 'text'),
-('msg_audit_000066', 'wm_greg_abel', '格雷格·阿贝尔', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-09-19 07:31:45', 1065, 'MOAT_TEMPLETON', '邓普顿', '2025-03-06 07:51:51', 'text'),
-('msg_audit_000067', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近拼多多种子期怎么看？', '2024-01-13 10:08:21', 1066, 'wm_todd_combs', '托德·库姆斯', '2026-02-02 03:50:48', 'text'),
-('msg_audit_000068', 'wm_ted_weschler', '特德·韦施勒', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-12-10 20:41:15', 1067, 'MOAT_LINYUAN', '林园', '2025-09-10 17:25:02', 'text'),
-('msg_audit_000069', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-02-25 10:26:17', 1068, 'wm_ron_olson', '罗恩·奥尔森', '2024-09-12 23:02:10', 'text'),
-('msg_audit_000070', 'wm_rick_guerin', '里克·盖林', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-01-23 18:22:56', 1069, 'MOAT_ZMZ', '章盟主', '2026-03-22 06:30:30', 'text'),
-('msg_audit_000071', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-11-02 15:51:58', 1070, 'wm_walter_schloss', '沃尔特·施洛斯', '2026-06-27 00:55:57', 'text'),
-('msg_audit_000072', 'wm_seth_klarman', '塞斯·卡拉曼', 2, '格雷厄姆的安全边际是价值投资的基石。', '2025-11-05 13:25:45', 1071, 'MOAT_ZHAODANYANG', '赵丹阳', '2026-06-08 04:03:50', 'text'),
-('msg_audit_000073', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特减持比亚迪怎么看？', '2024-04-02 05:25:29', 1072, 'wm_howard_marks', '霍华德·马克斯', '2025-11-11 16:41:26', 'text'),
-('msg_audit_000074', 'wm_yohei_hosoda', '细田洋平', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2026-02-14 13:28:53', 1073, 'MOAT_BUFFETT', '巴菲特', '2025-10-03 15:54:39', 'text'),
-('msg_audit_000075', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-09-22 03:15:19', 1074, 'wm_lynchfund_fan', '麦哲伦基金老持有人', '2025-03-19 02:06:15', 'text'),
-('msg_audit_000076', 'wm_dinglei', '丁磊', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-12-30 23:39:50', 1075, 'MOAT_LYNCH', '彼得·林奇', '2025-10-16 02:19:20', 'text'),
-('msg_audit_000077', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2026-01-28 23:08:39', 1076, 'wm_huangzheng', '黄峥', '2024-01-19 23:26:03', 'text'),
-('msg_audit_000078', 'wm_chenmingyong', '陈明永', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-09-07 21:28:11', 1077, 'MOAT_TEMPLETON', '邓普顿', '2025-06-14 17:08:12', 'text'),
-('msg_audit_000079', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近白酒塑化剂危机怎么看？', '2024-03-30 17:37:17', 1078, 'wm_shenwei', '沈炜', '2024-01-24 19:21:29', 'text'),
-('msg_audit_000080', 'wm_fangsanwen', '方三文', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-08-17 02:20:36', 1079, 'MOAT_LINYUAN', '林园', '2024-05-10 01:06:08', 'text');
+('msg_audit_000001', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特建仓可口可乐怎么看？', '2024-03-25 22:07:02', 1000, 'wm_bill_gates', '比尔·盖茨', '2024-02-06 10:53:35', 'text'),
+('msg_audit_000002', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 2, '格雷厄姆的安全边际是价值投资的基石。', '2025-05-31 05:58:14', 1001, 'MOAT_BUFFETT', '巴菲特', '2025-10-25 09:47:20', 'text'),
+('msg_audit_000003', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-08-12 04:42:36', 1002, 'wm_ted_turner', '特德·特纳', '2024-11-06 03:44:20', 'text'),
+('msg_audit_000004', 'wm_ajit_jain', '阿吉特·贾因', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2026-03-11 02:03:05', 1003, 'MOAT_LYNCH', '彼得·林奇', '2024-06-11 23:13:33', 'text'),
+('msg_audit_000005', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2026-02-28 18:27:47', 1004, 'wm_greg_abel', '格雷格·阿贝尔', '2024-02-13 21:38:20', 'text'),
+('msg_audit_000006', 'wm_todd_combs', '托德·库姆斯', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-03-26 09:11:29', 1005, 'MOAT_TEMPLETON', '邓普顿', '2025-04-10 10:31:21', 'text'),
+('msg_audit_000007', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近拼多多种子期怎么看？', '2024-04-27 01:33:57', 1006, 'wm_ted_weschler', '特德·韦施勒', '2026-03-15 12:30:50', 'text'),
+('msg_audit_000008', 'wm_ron_olson', '罗恩·奥尔森', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-05-04 12:28:51', 1007, 'MOAT_LINYUAN', '林园', '2025-12-11 23:23:00', 'text'),
+('msg_audit_000009', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2026-03-09 23:34:40', 1008, 'wm_rick_guerin', '里克·盖林', '2024-03-22 22:56:37', 'text'),
+('msg_audit_000010', 'wm_walter_schloss', '沃尔特·施洛斯', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-04-10 12:29:31', 1009, 'MOAT_ZMZ', '章盟主', '2024-11-13 19:17:48', 'text'),
+('msg_audit_000011', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-12-25 16:58:26', 1010, 'wm_seth_klarman', '塞斯·卡拉曼', '2024-12-02 23:50:37', 'text'),
+('msg_audit_000012', 'wm_howard_marks', '霍华德·马克斯', 2, '格雷厄姆的安全边际是价值投资的基石。', '2025-09-12 21:59:12', 1011, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-01-15 06:06:37', 'text'),
+('msg_audit_000013', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特减持比亚迪怎么看？', '2026-02-11 12:07:52', 1012, 'wm_yohei_hosoda', '细田洋平', '2024-01-04 23:38:15', 'text'),
+('msg_audit_000014', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-09-24 18:03:52', 1013, 'MOAT_BUFFETT', '巴菲特', '2025-11-20 10:59:59', 'text'),
+('msg_audit_000015', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-07-19 00:45:59', 1014, 'wm_dinglei', '丁磊', '2024-08-31 04:32:05', 'text'),
+('msg_audit_000016', 'wm_huangzheng', '黄峥', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-03-23 16:28:18', 1015, 'MOAT_LYNCH', '彼得·林奇', '2024-05-27 04:33:41', 'text'),
+('msg_audit_000017', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-03-20 01:08:52', 1016, 'wm_chenmingyong', '陈明永', '2025-01-26 14:32:31', 'text'),
+('msg_audit_000018', 'wm_shenwei', '沈炜', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2024-11-19 23:34:57', 1017, 'MOAT_TEMPLETON', '邓普顿', '2026-02-01 11:59:37', 'text'),
+('msg_audit_000019', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近白酒塑化剂危机怎么看？', '2024-08-17 18:58:04', 1018, 'wm_fangsanwen', '方三文', '2026-02-19 15:20:33', 'text'),
+('msg_audit_000020', 'wm_liuhaoran', '刘昊然（同名）', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-05-11 08:18:36', 1019, 'MOAT_LINYUAN', '林园', '2024-04-20 07:14:04', 'text'),
+('msg_audit_000021', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2025-12-31 00:03:33', 1020, 'wm_zhugeliang', '但斌客户 A（诸葛量）', '2026-04-22 10:08:47', 'text'),
+('msg_audit_000022', 'wm_maotai_holder', '茅台老股东', 2, '格雷厄姆的安全边际是价值投资的基石。', '2025-04-23 11:52:54', 1021, 'MOAT_ZMZ', '章盟主', '2024-08-22 13:10:26', 'text'),
+('msg_audit_000023', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2024-07-14 19:00:38', 1022, 'wm_wuliangye_lp', '五粮液 LP', '2026-06-04 07:05:21', 'text'),
+('msg_audit_000024', 'wm_pinganhuang', '平安黄总', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2025-08-04 15:47:03', 1023, 'MOAT_ZHAODANYANG', '赵丹阳', '2025-12-20 03:36:20', 'text'),
+('msg_audit_000025', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近日本五大商社怎么看？', '2025-11-17 22:35:59', 1024, 'wm_geli_dong', '董明珠', '2024-11-03 18:34:03', 'text'),
+('msg_audit_000026', 'wm_meidi_fangh', '方洪波', 2, '林园：白酒是可以陪你一辈子的股票。', '2026-05-20 23:46:00', 1025, 'MOAT_BUFFETT', '巴菲特', '2024-07-01 11:42:49', 'text'),
+('msg_audit_000027', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-07-27 07:16:58', 1026, 'wm_byd_wangchuanfu', '王传福', '2026-05-28 03:27:38', 'text'),
+('msg_audit_000028', 'wm_catl_zeng', '曾毓群', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-02-18 05:55:39', 1027, 'MOAT_LYNCH', '彼得·林奇', '2024-09-11 00:04:20', 'text'),
+('msg_audit_000029', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-10-11 12:06:35', 1028, 'wm_pony_ma', '马化腾', '2024-12-20 19:21:18', 'text'),
+('msg_audit_000030', 'wm_jack_ma', '马云', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-03-16 17:11:37', 1029, 'MOAT_TEMPLETON', '邓普顿', '2025-08-22 09:02:19', 'text'),
+('msg_audit_000031', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近美团千亿再造怎么看？', '2024-09-19 07:31:45', 1030, 'wm_lei_jun', '雷军', '2025-03-06 07:51:51', 'text'),
+('msg_audit_000032', 'wm_zhang_yiming', '张一鸣', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-01-13 10:08:21', 1031, 'MOAT_LINYUAN', '林园', '2026-02-02 03:50:48', 'text'),
+('msg_audit_000033', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2025-12-10 20:41:15', 1032, 'wm_liu_qiangdong', '刘强东', '2025-09-10 17:25:02', 'text'),
+('msg_audit_000034', 'wm_haier_zhang', '张瑞敏', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-02-25 10:26:17', 1033, 'MOAT_ZMZ', '章盟主', '2024-09-12 23:02:10', 'text'),
+('msg_audit_000035', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2024-01-23 18:22:56', 1034, 'wm_lenovo_liu', '柳传志', '2026-03-22 06:30:30', 'text'),
+('msg_audit_000036', 'wm_gree_meng', '孟羽童', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-11-02 15:51:58', 1035, 'MOAT_ZHAODANYANG', '赵丹阳', '2026-06-27 00:55:57', 'text'),
+('msg_audit_000037', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近港股互联网监管危机怎么看？', '2025-11-05 13:25:45', 1036, 'wm_li_kashing', '李嘉诚', '2026-06-08 04:03:50', 'text'),
+('msg_audit_000038', 'wm_li_zeju', '李泽钜', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2024-04-02 05:25:29', 1037, 'MOAT_BUFFETT', '巴菲特', '2025-11-11 16:41:26', 'text'),
+('msg_audit_000039', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2026-02-14 13:28:53', 1038, 'wm_terry_gou', '郭台铭', '2025-10-03 15:54:39', 'text'),
+('msg_audit_000040', 'wm_tsai_ing', '蔡崇信', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-09-22 03:15:19', 1039, 'MOAT_LYNCH', '彼得·林奇', '2025-03-19 02:06:15', 'text'),
+('msg_audit_000041', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-12-30 23:39:50', 1040, 'wm_youzi_zhao', '游资赵老哥', '2025-10-16 02:19:20', 'text'),
+('msg_audit_000042', 'wm_youzi_qiao', '游资乔帮主', 2, '格雷厄姆的安全边际是价值投资的基石。', '2026-01-28 23:08:39', 1041, 'MOAT_TEMPLETON', '邓普顿', '2024-01-19 23:26:03', 'text'),
+('msg_audit_000043', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近高盛优先股怎么看？', '2025-09-07 21:28:11', 1042, 'wm_youzi_mengniu', '游资孟乃', '2025-06-14 17:08:12', 'text'),
+('msg_audit_000044', 'wm_hangzhou_tuhao', '杭州七哥', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2024-03-30 17:37:17', 1043, 'MOAT_LINYUAN', '林园', '2024-01-24 19:21:29', 'text'),
+('msg_audit_000045', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-08-17 02:20:36', 1044, 'wm_wine_lover_zhang', '张老板', '2024-05-10 01:06:08', 'text'),
+('msg_audit_000046', 'wm_pharma_wang', '王教授', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-02-27 05:30:54', 1045, 'MOAT_ZMZ', '章盟主', '2024-03-27 20:45:06', 'text'),
+('msg_audit_000047', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2024-11-11 06:49:19', 1046, 'wm_yunnanbaiyao_ho', '何女士', '2025-03-26 01:12:50', 'text'),
+('msg_audit_000048', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-05-16 15:46:01', 1047, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-07-30 16:52:37', 'text'),
+('msg_audit_000049', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近但斌抄底腾讯怎么看？', '2024-10-18 01:48:37', 1048, 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', '2025-02-24 15:08:27', 'text'),
+('msg_audit_000050', 'wm_family_office_a', '上海某家族办', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-09-17 03:37:43', 1049, 'MOAT_BUFFETT', '巴菲特', '2024-08-29 18:13:07', 'text'),
+('msg_audit_000051', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2024-07-07 15:20:54', 1050, 'wm_family_office_b', '深圳某家族办', '2025-03-19 10:36:25', 'text'),
+('msg_audit_000052', 'wm_pe_partner_lu', '路总', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-01-06 12:09:10', 1051, 'MOAT_LYNCH', '彼得·林奇', '2026-04-01 07:55:04', 'text'),
+('msg_audit_000053', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-04-03 04:08:19', 1052, 'wm_hnw_doctor_hu', '胡医生', '2025-01-02 03:22:43', 'text'),
+('msg_audit_000054', 'wm_retail_liu', '刘先生', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2025-12-02 06:20:20', 1053, 'MOAT_TEMPLETON', '邓普顿', '2026-05-23 19:21:03', 'text'),
+('msg_audit_000055', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近美国运通色拉油危机怎么看？', '2024-09-08 02:26:09', 1054, 'wm_retail_chen', '陈女士', '2025-12-04 23:03:57', 'text'),
+('msg_audit_000056', 'wm_retail_wu', '吴老师', 2, '林园：白酒是可以陪你一辈子的股票。', '2025-09-20 17:15:56', 1055, 'MOAT_LINYUAN', '林园', '2025-01-22 01:28:05', 'text'),
+('msg_audit_000057', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2025-11-22 16:27:51', 1056, 'wm_retail_zhou', '周同学', '2025-10-04 18:18:28', 'text'),
+('msg_audit_000058', 'wm_retail_han', '韩总', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2024-07-15 17:39:54', 1057, 'MOAT_ZMZ', '章盟主', '2025-01-04 00:39:04', 'text'),
+('msg_audit_000059', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2025-12-31 15:14:31', 1058, 'wm_retail_gao', '高姐', '2024-06-09 05:42:52', 'text'),
+('msg_audit_000060', 'wm_retail_shen', '沈总', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-08-24 00:24:04', 1059, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-06-18 16:34:40', 'text'),
+('msg_audit_000061', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特建仓可口可乐怎么看？', '2024-08-01 03:07:42', 1060, 'wm_retail_kong', '孔总', '2026-03-26 13:51:41', 'text'),
+('msg_audit_000062', 'wm_bill_gates', '比尔·盖茨', 2, '格雷厄姆的安全边际是价值投资的基石。', '2026-03-26 20:41:55', 1061, 'MOAT_BUFFETT', '巴菲特', '2026-05-18 02:51:47', 'text'),
+('msg_audit_000063', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2026-06-23 20:47:59', 1062, 'wm_kay_graham', '凯瑟琳·格雷厄姆', '2025-08-01 10:41:07', 'text'),
+('msg_audit_000064', 'wm_ted_turner', '特德·特纳', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2026-04-17 14:21:35', 1063, 'MOAT_LYNCH', '彼得·林奇', '2025-12-04 10:42:26', 'text'),
+('msg_audit_000065', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2024-06-21 07:59:48', 1064, 'wm_ajit_jain', '阿吉特·贾因', '2025-08-08 21:01:02', 'text'),
+('msg_audit_000066', 'wm_greg_abel', '格雷格·阿贝尔', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-03-25 23:18:35', 1065, 'MOAT_TEMPLETON', '邓普顿', '2026-03-15 03:20:08', 'text'),
+('msg_audit_000067', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近拼多多种子期怎么看？', '2025-10-16 14:59:04', 1066, 'wm_todd_combs', '托德·库姆斯', '2026-05-14 12:36:42', 'text'),
+('msg_audit_000068', 'wm_ted_weschler', '特德·韦施勒', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2025-09-19 15:56:44', 1067, 'MOAT_LINYUAN', '林园', '2024-02-17 05:56:51', 'text'),
+('msg_audit_000069', 'MOAT_DANBIN', '但斌', 1, '[客户问] 但斌老师的观点还生效吗？', '2024-09-18 23:24:57', 1068, 'wm_ron_olson', '罗恩·奥尔森', '2024-12-01 06:37:56', 'text'),
+('msg_audit_000070', 'wm_rick_guerin', '里克·盖林', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2024-08-29 00:02:54', 1069, 'MOAT_ZMZ', '章盟主', '2024-07-29 07:39:47', 'text'),
+('msg_audit_000071', 'MOAT_LILU', '李录', 1, '[客户问] 这波下跌能加仓吗？', '2026-03-08 19:17:53', 1070, 'wm_walter_schloss', '沃尔特·施洛斯', '2024-03-07 18:31:41', 'text'),
+('msg_audit_000072', 'wm_seth_klarman', '塞斯·卡拉曼', 2, '格雷厄姆的安全边际是价值投资的基石。', '2024-09-05 06:35:40', 1071, 'MOAT_ZHAODANYANG', '赵丹阳', '2024-04-23 18:47:57', 'text'),
+('msg_audit_000073', 'MOAT_GRAHAM', '格雷厄姆', 1, '[客户问] 最近巴菲特减持比亚迪怎么看？', '2024-06-27 16:47:06', 1072, 'wm_howard_marks', '霍华德·马克斯', '2024-05-03 15:37:30', 'text'),
+('msg_audit_000074', 'wm_yohei_hosoda', '细田洋平', 2, '彼得·林奇的 PEG 估值法：市盈率 / 增长率 < 1 就值得买。', '2025-01-22 04:59:20', 1073, 'MOAT_BUFFETT', '巴菲特', '2026-03-23 03:13:40', 'text'),
+('msg_audit_000075', 'MOAT_MUNGER', '芒格', 1, '[客户问] 芒格老师的观点还生效吗？', '2025-09-04 19:27:44', 1074, 'wm_lynchfund_fan', '麦哲伦基金老持有人', '2026-03-08 12:12:31', 'text'),
+('msg_audit_000076', 'wm_dinglei', '丁磊', 2, '林园：白酒是可以陪你一辈子的股票。', '2024-12-13 04:05:32', 1075, 'MOAT_LYNCH', '彼得·林奇', '2025-10-03 05:34:14', 'text'),
+('msg_audit_000077', 'MOAT_FISHER', '费雪', 1, '[客户问] 这波下跌能加仓吗？', '2025-08-30 19:20:29', 1076, 'wm_huangzheng', '黄峥', '2024-01-10 06:57:38', 'text'),
+('msg_audit_000078', 'wm_chenmingyong', '陈明永', 2, '章盟主的龙虎榜是短线游戏，价投视角只做观察不跟单。', '2026-06-02 16:16:55', 1077, 'MOAT_TEMPLETON', '邓普顿', '2026-03-04 10:37:06', 'text'),
+('msg_audit_000079', 'MOAT_DUAN', '段永平', 1, '[客户问] 最近白酒塑化剂危机怎么看？', '2025-05-18 11:45:12', 1078, 'wm_shenwei', '沈炜', '2024-09-14 22:50:44', 'text'),
+('msg_audit_000080', 'wm_fangsanwen', '方三文', 2, '赵丹阳：绝对收益是我们最基本的自我修养。', '2025-11-14 22:11:24', 1079, 'MOAT_LINYUAN', '林园', '2024-11-14 21:39:56', 'text');
 
 -- ========================================================================
 -- iyque_ai_conversation · AI 投顾助手会话
 -- ========================================================================
 INSERT INTO `iyque_ai_conversation` (`id`, `conversationId`, `title`, `mode`, `userId`, `createTime`, `updateTime`, `deleted`, `modelName`, `role`, `temperature`, `topP`, `maxHistoryRounds`, `deviceType`) VALUES
-(6000001, 'conv_000001', '如何评估比亚迪的经济护城河', 'navigation', 100001, '2024-03-27 20:45:06', '2024-11-11 06:49:19', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
-(6000002, 'conv_000002', '港股互联网估值探讨', 'navigation', 100002, '2026-05-16 15:46:01', '2024-07-30 16:52:37', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
-(6000003, 'conv_000003', '白酒股 2026 展望', 'general', 100003, '2025-02-24 15:08:27', '2025-09-17 03:37:43', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
-(6000004, 'conv_000004', '为客户 A 定制 60/40 组合', 'general', 100004, '2024-07-07 15:20:54', '2025-03-19 10:36:25', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
-(6000005, 'conv_000005', '为家族办公室 B 制定 20 年配置', 'general', 100005, '2026-04-01 07:55:04', '2024-04-03 04:08:19', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
-(6000006, 'conv_000006', '段永平最近观点解读', 'general', 100006, '2025-12-02 06:20:20', '2026-05-23 19:21:03', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
-(6000007, 'conv_000007', '芒格逝世后的思考', 'general', 100007, '2025-12-04 23:03:57', '2025-09-20 17:15:56', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
-(6000008, 'conv_000008', '巴菲特 2025 股东信要点', 'general', 100008, '2025-11-22 16:27:51', '2025-10-04 18:18:28', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
-(6000009, 'conv_000009', '彼得·林奇六类股票 · 现代版', 'general', 100009, '2025-01-04 00:39:04', '2025-12-31 15:14:31', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
-(6000010, 'conv_000010', '林园 2026 十大重仓推演', 'general', 100010, '2025-08-24 00:24:04', '2024-06-18 16:34:40', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
-(6000011, 'conv_000011', '但斌 · 港股腾讯持仓复盘', 'general', 100011, '2026-03-26 13:51:41', '2026-03-26 20:41:55', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
-(6000012, 'conv_000012', '章盟主龙虎榜 · 短线 vs 长线', 'navigation', 100012, '2026-04-17 14:21:35', '2025-12-04 10:42:26', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
-(6000013, 'conv_000013', '李录 · 中国 20 年价值机会', 'general', 100001, '2025-08-08 21:01:02', '2024-03-25 23:18:35', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
-(6000014, 'conv_000014', '赵丹阳 · 绝对收益策略拆解', 'navigation', 100002, '2026-05-14 12:36:42', '2025-09-19 15:56:44', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
-(6000015, 'conv_000015', '新能源赛道 · 3 年内的关键节点', 'general', 100003, '2024-09-18 23:24:57', '2024-12-01 06:37:56', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
-(6000016, 'conv_000016', '半导体自主可控 · 国产替代进度', 'general', 100004, '2024-07-29 07:39:47', '2026-03-08 19:17:53', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
-(6000017, 'conv_000017', '医药出海 · License-out 明星案例', 'general', 100005, '2024-09-05 06:35:40', '2024-04-23 18:47:57', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
-(6000018, 'conv_000018', '小米汽车 · 是否值得建仓', 'general', 100006, '2024-05-03 15:37:30', '2025-01-22 04:59:20', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
-(6000019, 'conv_000019', 'AI 大模型 · 投资叙事', 'navigation', 100007, '2026-03-08 12:12:31', '2024-12-13 04:05:32', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
-(6000020, 'conv_000020', '低空经济 · 短期主题 or 长期机会', 'navigation', 100008, '2025-08-30 19:20:29', '2024-01-10 06:57:38', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
-(6000021, 'conv_000021', '如何评估比亚迪的经济护城河 (#2)', 'navigation', 100009, '2024-09-14 22:50:44', '2025-11-14 22:11:24', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
-(6000022, 'conv_000022', '港股互联网估值探讨 (#2)', 'general', 100010, '2026-06-25 11:45:21', '2025-08-31 04:05:19', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
-(6000023, 'conv_000023', '白酒股 2026 展望 (#2)', 'navigation', 100011, '2024-09-15 18:48:32', '2024-04-15 15:35:11', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
-(6000024, 'conv_000024', '为客户 A 定制 60/40 组合 (#2)', 'navigation', 100012, '2024-08-25 21:03:27', '2024-04-10 17:55:22', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
-(6000025, 'conv_000025', '为家族办公室 B 制定 20 年配置 (#2)', 'navigation', 100001, '2025-05-25 11:56:46', '2026-01-03 06:59:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
-(6000026, 'conv_000026', '段永平最近观点解读 (#2)', 'general', 100002, '2024-06-19 20:59:40', '2026-04-18 23:41:38', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
-(6000027, 'conv_000027', '芒格逝世后的思考 (#2)', 'general', 100003, '2026-01-17 16:17:09', '2025-02-05 17:01:55', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
-(6000028, 'conv_000028', '巴菲特 2025 股东信要点 (#2)', 'general', 100004, '2024-11-19 23:28:25', '2025-06-14 09:05:31', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
-(6000029, 'conv_000029', '彼得·林奇六类股票 · 现代版 (#2)', 'general', 100005, '2024-06-16 20:46:49', '2026-04-18 09:11:50', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
-(6000030, 'conv_000030', '林园 2026 十大重仓推演 (#2)', 'general', 100006, '2026-05-05 09:31:33', '2025-02-25 11:34:03', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
-(6000031, 'conv_000031', '但斌 · 港股腾讯持仓复盘 (#2)', 'general', 100007, '2024-09-02 15:04:11', '2024-04-06 13:32:43', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
-(6000032, 'conv_000032', '章盟主龙虎榜 · 短线 vs 长线 (#2)', 'general', 100008, '2025-10-29 19:28:58', '2025-03-17 22:28:11', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
-(6000033, 'conv_000033', '李录 · 中国 20 年价值机会 (#2)', 'navigation', 100009, '2024-05-25 08:22:53', '2025-08-22 05:56:27', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
-(6000034, 'conv_000034', '赵丹阳 · 绝对收益策略拆解 (#2)', 'navigation', 100010, '2025-05-13 16:39:24', '2024-11-25 17:43:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
-(6000035, 'conv_000035', '新能源赛道 · 3 年内的关键节点 (#2)', 'general', 100011, '2024-05-24 00:33:56', '2025-07-11 15:23:25', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
-(6000036, 'conv_000036', '半导体自主可控 · 国产替代进度 (#2)', 'general', 100012, '2024-01-26 00:17:48', '2026-04-12 00:52:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
-(6000037, 'conv_000037', '医药出海 · License-out 明星案例 (#2)', 'general', 100001, '2026-06-02 22:07:34', '2025-12-06 02:37:50', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
-(6000038, 'conv_000038', '小米汽车 · 是否值得建仓 (#2)', 'navigation', 100002, '2024-12-14 06:02:42', '2024-09-10 19:23:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
-(6000039, 'conv_000039', 'AI 大模型 · 投资叙事 (#2)', 'general', 100003, '2026-06-14 01:54:45', '2025-07-22 04:33:22', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
-(6000040, 'conv_000040', '低空经济 · 短期主题 or 长期机会 (#2)', 'general', 100004, '2025-10-25 16:31:09', '2026-01-02 16:28:06', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
-(6000041, 'conv_000041', '如何评估比亚迪的经济护城河 (#3)', 'navigation', 100005, '2024-01-18 13:15:59', '2024-02-03 12:56:19', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
-(6000042, 'conv_000042', '港股互联网估值探讨 (#3)', 'navigation', 100006, '2024-09-29 14:06:26', '2025-04-30 05:47:12', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
-(6000043, 'conv_000043', '白酒股 2026 展望 (#3)', 'general', 100007, '2026-01-03 03:18:08', '2025-06-23 08:00:31', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
-(6000044, 'conv_000044', '为客户 A 定制 60/40 组合 (#3)', 'navigation', 100008, '2024-07-23 08:34:01', '2026-05-03 13:29:38', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
-(6000045, 'conv_000045', '为家族办公室 B 制定 20 年配置 (#3)', 'navigation', 100009, '2026-01-04 15:58:47', '2024-01-04 19:32:50', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
-(6000046, 'conv_000046', '段永平最近观点解读 (#3)', 'navigation', 100010, '2025-02-23 01:20:39', '2024-03-10 17:37:29', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
-(6000047, 'conv_000047', '芒格逝世后的思考 (#3)', 'general', 100011, '2025-06-03 17:30:19', '2024-01-02 08:52:01', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
-(6000048, 'conv_000048', '巴菲特 2025 股东信要点 (#3)', 'general', 100012, '2025-06-06 18:40:59', '2026-03-22 13:12:10', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
-(6000049, 'conv_000049', '彼得·林奇六类股票 · 现代版 (#3)', 'navigation', 100001, '2026-01-20 15:51:22', '2025-10-17 18:48:45', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
-(6000050, 'conv_000050', '林园 2026 十大重仓推演 (#3)', 'navigation', 100002, '2024-08-26 13:24:52', '2025-03-14 04:23:51', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
-(6000051, 'conv_000051', '但斌 · 港股腾讯持仓复盘 (#3)', 'navigation', 100003, '2026-04-07 19:48:52', '2024-04-14 03:55:27', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
-(6000052, 'conv_000052', '章盟主龙虎榜 · 短线 vs 长线 (#3)', 'general', 100004, '2024-05-07 00:36:29', '2024-05-01 00:43:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
-(6000053, 'conv_000053', '李录 · 中国 20 年价值机会 (#3)', 'general', 100005, '2025-11-06 23:16:27', '2024-04-10 02:03:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
-(6000054, 'conv_000054', '赵丹阳 · 绝对收益策略拆解 (#3)', 'general', 100006, '2024-02-11 19:14:41', '2025-11-05 16:49:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
-(6000055, 'conv_000055', '新能源赛道 · 3 年内的关键节点 (#3)', 'general', 100007, '2024-09-09 01:42:24', '2025-02-20 21:18:05', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
-(6000056, 'conv_000056', '半导体自主可控 · 国产替代进度 (#3)', 'general', 100008, '2024-03-05 05:47:53', '2026-04-04 11:29:24', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
-(6000057, 'conv_000057', '医药出海 · License-out 明星案例 (#3)', 'general', 100009, '2024-03-25 16:22:57', '2024-01-02 04:21:11', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
-(6000058, 'conv_000058', '小米汽车 · 是否值得建仓 (#3)', 'navigation', 100010, '2025-02-11 07:13:57', '2026-03-17 18:46:14', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
-(6000059, 'conv_000059', 'AI 大模型 · 投资叙事 (#3)', 'navigation', 100011, '2024-05-11 18:11:19', '2024-12-14 01:23:43', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
-(6000060, 'conv_000060', '低空经济 · 短期主题 or 长期机会 (#3)', 'navigation', 100012, '2025-11-04 17:41:34', '2024-01-30 04:06:55', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1);
+(6000001, 'conv_000001', '如何评估比亚迪的经济护城河', 'navigation', 100001, '2025-04-29 17:21:45', '2024-09-15 18:48:32', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
+(6000002, 'conv_000002', '港股互联网估值探讨', 'general', 100002, '2025-08-04 20:07:51', '2024-08-25 21:03:27', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
+(6000003, 'conv_000003', '白酒股 2026 展望', 'general', 100003, '2025-06-05 09:40:06', '2025-05-25 11:56:46', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
+(6000004, 'conv_000004', '为客户 A 定制 60/40 组合', 'navigation', 100004, '2026-05-18 11:02:22', '2025-01-15 15:40:41', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
+(6000005, 'conv_000005', '为家族办公室 B 制定 20 年配置', 'general', 100005, '2026-04-18 23:41:38', '2025-01-15 04:56:22', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
+(6000006, 'conv_000006', '段永平最近观点解读', 'navigation', 100006, '2025-02-05 17:01:55', '2025-01-19 22:06:59', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
+(6000007, 'conv_000007', '芒格逝世后的思考', 'general', 100007, '2025-06-14 09:05:31', '2024-09-12 05:47:22', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
+(6000008, 'conv_000008', '巴菲特 2025 股东信要点', 'general', 100008, '2026-04-18 09:11:50', '2024-10-27 03:56:55', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
+(6000009, 'conv_000009', '彼得·林奇六类股票 · 现代版', 'navigation', 100009, '2024-08-29 05:03:29', '2024-09-02 15:04:11', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
+(6000010, 'conv_000010', '林园 2026 十大重仓推演', 'general', 100010, '2024-05-28 02:48:28', '2025-10-29 19:28:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
+(6000011, 'conv_000011', '但斌 · 港股腾讯持仓复盘', 'navigation', 100011, '2026-04-22 21:14:33', '2025-07-25 00:31:04', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
+(6000012, 'conv_000012', '章盟主龙虎榜 · 短线 vs 长线', 'general', 100012, '2025-08-22 05:56:27', '2025-02-07 00:31:18', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
+(6000013, 'conv_000013', '李录 · 中国 20 年价值机会', 'navigation', 100001, '2024-11-25 17:43:00', '2024-02-10 00:53:35', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
+(6000014, 'conv_000014', '赵丹阳 · 绝对收益策略拆解', 'general', 100002, '2025-07-11 15:23:25', '2026-02-24 22:44:36', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
+(6000015, 'conv_000015', '新能源赛道 · 3 年内的关键节点', 'general', 100003, '2024-01-26 00:17:48', '2026-04-12 00:52:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
+(6000016, 'conv_000016', '半导体自主可控 · 国产替代进度', 'general', 100004, '2026-06-02 22:07:34', '2025-12-06 02:37:50', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
+(6000017, 'conv_000017', '医药出海 · License-out 明星案例', 'navigation', 100005, '2024-12-14 06:02:42', '2024-09-10 19:23:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
+(6000018, 'conv_000018', '小米汽车 · 是否值得建仓', 'general', 100006, '2026-06-14 01:54:45', '2025-07-22 04:33:22', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
+(6000019, 'conv_000019', 'AI 大模型 · 投资叙事', 'general', 100007, '2025-10-25 16:31:09', '2026-01-02 16:28:06', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
+(6000020, 'conv_000020', '低空经济 · 短期主题 or 长期机会', 'navigation', 100008, '2024-01-18 13:15:59', '2024-02-03 12:56:19', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
+(6000021, 'conv_000021', '如何评估比亚迪的经济护城河 (#2)', 'navigation', 100009, '2024-09-29 14:06:26', '2025-04-30 05:47:12', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
+(6000022, 'conv_000022', '港股互联网估值探讨 (#2)', 'general', 100010, '2026-01-03 03:18:08', '2025-06-23 08:00:31', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
+(6000023, 'conv_000023', '白酒股 2026 展望 (#2)', 'navigation', 100011, '2024-07-23 08:34:01', '2026-05-03 13:29:38', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
+(6000024, 'conv_000024', '为客户 A 定制 60/40 组合 (#2)', 'navigation', 100012, '2026-01-04 15:58:47', '2024-01-04 19:32:50', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
+(6000025, 'conv_000025', '为家族办公室 B 制定 20 年配置 (#2)', 'navigation', 100001, '2025-02-23 01:20:39', '2024-03-10 17:37:29', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
+(6000026, 'conv_000026', '段永平最近观点解读 (#2)', 'general', 100002, '2025-06-03 17:30:19', '2024-01-02 08:52:01', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
+(6000027, 'conv_000027', '芒格逝世后的思考 (#2)', 'general', 100003, '2025-06-06 18:40:59', '2026-03-22 13:12:10', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
+(6000028, 'conv_000028', '巴菲特 2025 股东信要点 (#2)', 'navigation', 100004, '2026-01-20 15:51:22', '2025-10-17 18:48:45', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
+(6000029, 'conv_000029', '彼得·林奇六类股票 · 现代版 (#2)', 'navigation', 100005, '2024-08-26 13:24:52', '2025-03-14 04:23:51', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
+(6000030, 'conv_000030', '林园 2026 十大重仓推演 (#2)', 'navigation', 100006, '2026-04-07 19:48:52', '2024-04-14 03:55:27', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
+(6000031, 'conv_000031', '但斌 · 港股腾讯持仓复盘 (#2)', 'general', 100007, '2024-05-07 00:36:29', '2024-05-01 00:43:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
+(6000032, 'conv_000032', '章盟主龙虎榜 · 短线 vs 长线 (#2)', 'general', 100008, '2025-11-06 23:16:27', '2024-04-10 02:03:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
+(6000033, 'conv_000033', '李录 · 中国 20 年价值机会 (#2)', 'general', 100009, '2024-02-11 19:14:41', '2025-11-05 16:49:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
+(6000034, 'conv_000034', '赵丹阳 · 绝对收益策略拆解 (#2)', 'general', 100010, '2024-09-09 01:42:24', '2025-02-20 21:18:05', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
+(6000035, 'conv_000035', '新能源赛道 · 3 年内的关键节点 (#2)', 'general', 100011, '2024-03-05 05:47:53', '2026-04-04 11:29:24', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
+(6000036, 'conv_000036', '半导体自主可控 · 国产替代进度 (#2)', 'general', 100012, '2024-03-25 16:22:57', '2024-01-02 04:21:11', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
+(6000037, 'conv_000037', '医药出海 · License-out 明星案例 (#2)', 'navigation', 100001, '2025-02-11 07:13:57', '2026-03-17 18:46:14', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
+(6000038, 'conv_000038', '小米汽车 · 是否值得建仓 (#2)', 'navigation', 100002, '2024-05-11 18:11:19', '2024-12-14 01:23:43', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
+(6000039, 'conv_000039', 'AI 大模型 · 投资叙事 (#2)', 'navigation', 100003, '2025-11-04 17:41:34', '2024-01-30 04:06:55', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
+(6000040, 'conv_000040', '低空经济 · 短期主题 or 长期机会 (#2)', 'navigation', 100004, '2025-12-15 02:35:26', '2025-08-02 03:34:54', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
+(6000041, 'conv_000041', '如何评估比亚迪的经济护城河 (#3)', 'general', 100005, '2024-04-17 04:17:52', '2024-08-27 21:25:27', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
+(6000042, 'conv_000042', '港股互联网估值探讨 (#3)', 'general', 100006, '2026-03-12 05:13:36', '2025-09-19 01:17:40', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
+(6000043, 'conv_000043', '白酒股 2026 展望 (#3)', 'general', 100007, '2024-11-19 19:10:21', '2025-11-30 10:34:09', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
+(6000044, 'conv_000044', '为客户 A 定制 60/40 组合 (#3)', 'navigation', 100008, '2026-01-15 16:36:28', '2024-08-31 23:09:20', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
+(6000045, 'conv_000045', '为家族办公室 B 制定 20 年配置 (#3)', 'general', 100009, '2026-01-16 17:53:40', '2026-05-28 03:14:16', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
+(6000046, 'conv_000046', '段永平最近观点解读 (#3)', 'navigation', 100010, '2025-01-25 17:52:12', '2024-08-31 12:44:07', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
+(6000047, 'conv_000047', '芒格逝世后的思考 (#3)', 'general', 100011, '2025-04-26 18:37:46', '2025-02-20 11:58:35', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
+(6000048, 'conv_000048', '巴菲特 2025 股东信要点 (#3)', 'general', 100012, '2024-09-13 10:03:29', '2024-02-10 21:11:15', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1),
+(6000049, 'conv_000049', '彼得·林奇六类股票 · 现代版 (#3)', 'navigation', 100001, '2025-03-08 22:04:16', '2024-06-07 23:03:16', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 格雷厄姆 的方法论。', 0.7, 0.9, 10, 2),
+(6000050, 'conv_000050', '林园 2026 十大重仓推演 (#3)', 'navigation', 100002, '2024-07-29 03:27:45', '2025-07-12 12:25:37', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 巴菲特 的方法论。', 0.7, 0.9, 10, 1),
+(6000051, 'conv_000051', '但斌 · 港股腾讯持仓复盘 (#3)', 'general', 100003, '2025-08-06 04:32:54', '2025-02-17 22:34:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 芒格 的方法论。', 0.7, 0.9, 10, 1),
+(6000052, 'conv_000052', '章盟主龙虎榜 · 短线 vs 长线 (#3)', 'general', 100004, '2024-11-27 21:07:18', '2024-04-16 06:45:41', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 彼得·林奇 的方法论。', 0.7, 0.9, 10, 2),
+(6000053, 'conv_000053', '李录 · 中国 20 年价值机会 (#3)', 'general', 100005, '2024-04-26 06:46:04', '2024-05-02 15:15:58', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 费雪 的方法论。', 0.7, 0.9, 10, 1),
+(6000054, 'conv_000054', '赵丹阳 · 绝对收益策略拆解 (#3)', 'general', 100006, '2024-09-19 22:29:01', '2024-10-23 09:33:02', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 邓普顿 的方法论。', 0.7, 0.9, 10, 1),
+(6000055, 'conv_000055', '新能源赛道 · 3 年内的关键节点 (#3)', 'general', 100007, '2025-09-21 12:17:06', '2024-05-29 14:49:40', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 段永平 的方法论。', 0.7, 0.9, 10, 2),
+(6000056, 'conv_000056', '半导体自主可控 · 国产替代进度 (#3)', 'general', 100008, '2024-10-15 18:26:07', '2024-10-14 04:40:16', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 林园 的方法论。', 0.7, 0.9, 10, 1),
+(6000057, 'conv_000057', '医药出海 · License-out 明星案例 (#3)', 'general', 100009, '2025-11-24 19:14:56', '2024-05-27 21:49:38', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 但斌 的方法论。', 0.7, 0.9, 10, 1),
+(6000058, 'conv_000058', '小米汽车 · 是否值得建仓 (#3)', 'navigation', 100010, '2026-04-09 22:16:17', '2024-04-11 22:38:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 章盟主 的方法论。', 0.7, 0.9, 10, 2),
+(6000059, 'conv_000059', 'AI 大模型 · 投资叙事 (#3)', 'navigation', 100011, '2024-02-21 06:52:34', '2024-01-27 05:39:06', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 李录 的方法论。', 0.7, 0.9, 10, 1),
+(6000060, 'conv_000060', '低空经济 · 短期主题 or 长期机会 (#3)', 'navigation', 100012, '2026-05-24 09:02:32', '2026-06-25 20:08:00', 0, 'GLM-5.2-FP8', '你是护城河 SCRM 的 AI 投顾助手，参考 赵丹阳 的方法论。', 0.7, 0.9, 10, 1);
 
 -- ========================================================================
 -- iyque_ai_conversation_message · AI 会话消息
 -- ========================================================================
 INSERT INTO `iyque_ai_conversation_message` (`id`, `conversationId`, `type`, `content`, `timestamp`, `createTime`) VALUES
-(6100001, 'conv_000001', 'user', '如何评估比亚迪的经济护城河？', '00:00', '2025-03-04 04:46:01'),
+(6100001, 'conv_000001', 'user', '如何评估比亚迪的经济护城河？', '00:00', '2025-12-15 14:42:26'),
 (6100002, 'conv_000001', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '02:00', '2025-12-15 02:35:26'),
-(6100003, 'conv_000001', 'user', '段永平最近雪球观点？', '04:00', '2025-08-02 03:34:54'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '02:00', '2025-08-26 14:17:24'),
+(6100003, 'conv_000001', 'user', '段永平最近雪球观点？', '04:00', '2024-09-22 22:20:53'),
 (6100004, 'conv_000001', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '06:00', '2024-03-05 10:09:19'),
-(6100005, 'conv_000002', 'user', '客户 500 万如何配置？', '08:00', '2024-04-17 04:17:52'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '06:00', '2025-08-31 11:04:12'),
+(6100005, 'conv_000002', 'user', '客户 500 万如何配置？', '08:00', '2025-02-14 20:43:56'),
 (6100006, 'conv_000002', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '10:00', '2024-08-27 21:25:27'),
-(6100007, 'conv_000002', 'user', '2026 白酒股展望？', '12:00', '2024-07-26 05:04:07'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '10:00', '2024-01-04 16:35:13'),
+(6100007, 'conv_000002', 'user', '2026 白酒股展望？', '12:00', '2025-05-06 16:10:27'),
 (6100008, 'conv_000002', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '14:00', '2026-03-12 05:13:36'),
-(6100009, 'conv_000003', 'user', '章盟主龙虎榜可以跟吗？', '16:00', '2025-09-19 01:17:40'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '14:00', '2025-04-10 21:26:55'),
+(6100009, 'conv_000003', 'user', '章盟主龙虎榜可以跟吗？', '16:00', '2024-09-04 15:03:01'),
 (6100010, 'conv_000003', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '18:00', '2026-02-19 23:43:08'),
-(6100011, 'conv_000003', 'user', '如何评估比亚迪的经济护城河？', '20:00', '2024-05-24 11:16:02'),
+可以以研究学习角度观察。', '18:00', '2025-02-28 11:24:55'),
+(6100011, 'conv_000003', 'user', '如何评估比亚迪的经济护城河？', '20:00', '2024-12-02 05:12:01'),
 (6100012, 'conv_000003', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '22:00', '2024-11-19 19:10:21'),
-(6100013, 'conv_000004', 'user', '段永平最近雪球观点？', '00:00', '2025-11-30 10:34:09'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '22:00', '2024-06-07 01:54:26'),
+(6100013, 'conv_000004', 'user', '段永平最近雪球观点？', '00:00', '2024-11-09 17:40:46'),
 (6100014, 'conv_000004', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '02:00', '2025-01-29 04:37:34'),
-(6100015, 'conv_000004', 'user', '客户 500 万如何配置？', '04:00', '2026-01-15 16:36:28'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '02:00', '2026-05-05 16:20:56'),
+(6100015, 'conv_000004', 'user', '客户 500 万如何配置？', '04:00', '2024-07-29 11:41:06'),
 (6100016, 'conv_000004', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '06:00', '2024-08-31 23:09:20'),
-(6100017, 'conv_000005', 'user', '2026 白酒股展望？', '08:00', '2024-09-12 06:16:14'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '06:00', '2025-05-15 19:25:45'),
+(6100017, 'conv_000005', 'user', '2026 白酒股展望？', '08:00', '2025-04-04 20:28:44'),
 (6100018, 'conv_000005', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '10:00', '2026-01-16 17:53:40'),
-(6100019, 'conv_000005', 'user', '章盟主龙虎榜可以跟吗？', '12:00', '2026-05-28 03:14:16'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '10:00', '2024-08-01 16:37:08'),
+(6100019, 'conv_000005', 'user', '章盟主龙虎榜可以跟吗？', '12:00', '2026-06-04 03:35:12'),
 (6100020, 'conv_000005', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '14:00', '2025-03-17 03:22:17'),
-(6100021, 'conv_000006', 'user', '如何评估比亚迪的经济护城河？', '16:00', '2025-01-25 17:52:12'),
+可以以研究学习角度观察。', '14:00', '2025-01-13 18:30:54'),
+(6100021, 'conv_000006', 'user', '如何评估比亚迪的经济护城河？', '16:00', '2026-06-03 20:07:57'),
 (6100022, 'conv_000006', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '18:00', '2024-08-31 12:44:07'),
-(6100023, 'conv_000006', 'user', '段永平最近雪球观点？', '20:00', '2024-08-20 18:42:41'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '18:00', '2025-11-09 04:54:17'),
+(6100023, 'conv_000006', 'user', '段永平最近雪球观点？', '20:00', '2024-06-04 11:35:38'),
 (6100024, 'conv_000006', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '22:00', '2025-04-26 18:37:46'),
-(6100025, 'conv_000007', 'user', '客户 500 万如何配置？', '00:00', '2025-02-20 11:58:35'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '22:00', '2026-04-09 15:11:15'),
+(6100025, 'conv_000007', 'user', '客户 500 万如何配置？', '00:00', '2025-04-27 14:28:11'),
 (6100026, 'conv_000007', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '02:00', '2024-08-11 02:44:30'),
-(6100027, 'conv_000007', 'user', '2026 白酒股展望？', '04:00', '2024-09-13 10:03:29'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '02:00', '2026-04-08 08:36:08'),
+(6100027, 'conv_000007', 'user', '2026 白酒股展望？', '04:00', '2025-11-04 16:54:50'),
 (6100028, 'conv_000007', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '06:00', '2024-02-10 21:11:15'),
-(6100029, 'conv_000008', 'user', '章盟主龙虎榜可以跟吗？', '08:00', '2026-06-18 03:42:59'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '06:00', '2025-09-01 10:05:51'),
+(6100029, 'conv_000008', 'user', '章盟主龙虎榜可以跟吗？', '08:00', '2025-10-28 05:45:46'),
 (6100030, 'conv_000008', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '10:00', '2025-11-05 12:29:41'),
-(6100031, 'conv_000008', 'user', '如何评估比亚迪的经济护城河？', '12:00', '2025-03-08 22:04:16'),
+可以以研究学习角度观察。', '10:00', '2025-01-23 15:20:33'),
+(6100031, 'conv_000008', 'user', '如何评估比亚迪的经济护城河？', '12:00', '2026-02-25 02:19:21'),
 (6100032, 'conv_000008', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '14:00', '2024-06-07 23:03:16'),
-(6100033, 'conv_000009', 'user', '段永平最近雪球观点？', '16:00', '2025-04-04 05:00:50'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '14:00', '2025-09-16 22:38:01'),
+(6100033, 'conv_000009', 'user', '段永平最近雪球观点？', '16:00', '2025-12-09 13:55:41'),
 (6100034, 'conv_000009', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '18:00', '2024-07-29 03:27:45'),
-(6100035, 'conv_000009', 'user', '客户 500 万如何配置？', '20:00', '2025-07-12 12:25:37'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '18:00', '2025-05-23 01:35:01'),
+(6100035, 'conv_000009', 'user', '客户 500 万如何配置？', '20:00', '2025-11-23 04:42:23'),
 (6100036, 'conv_000009', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '22:00', '2026-05-11 02:49:44'),
-(6100037, 'conv_000010', 'user', '2026 白酒股展望？', '00:00', '2024-12-16 14:06:04'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '22:00', '2024-12-16 04:33:14'),
+(6100037, 'conv_000010', 'user', '2026 白酒股展望？', '00:00', '2025-01-23 02:55:26'),
 (6100038, 'conv_000010', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '02:00', '2025-08-06 04:32:54'),
-(6100039, 'conv_000010', 'user', '章盟主龙虎榜可以跟吗？', '04:00', '2025-02-17 22:34:00'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '02:00', '2025-12-13 21:30:00'),
+(6100039, 'conv_000010', 'user', '章盟主龙虎榜可以跟吗？', '04:00', '2025-09-20 01:56:38'),
 (6100040, 'conv_000010', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '06:00', '2026-05-05 06:31:22'),
-(6100041, 'conv_000011', 'user', '如何评估比亚迪的经济护城河？', '08:00', '2026-06-25 03:40:16'),
+可以以研究学习角度观察。', '06:00', '2025-07-10 16:10:06'),
+(6100041, 'conv_000011', 'user', '如何评估比亚迪的经济护城河？', '08:00', '2024-03-04 18:44:28'),
 (6100042, 'conv_000011', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '10:00', '2024-11-28 05:13:45'),
-(6100043, 'conv_000011', 'user', '段永平最近雪球观点？', '12:00', '2024-11-27 21:07:18'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '10:00', '2024-05-25 18:29:34'),
+(6100043, 'conv_000011', 'user', '段永平最近雪球观点？', '12:00', '2026-02-15 13:37:16'),
 (6100044, 'conv_000011', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '14:00', '2024-04-16 06:45:41'),
-(6100045, 'conv_000012', 'user', '客户 500 万如何配置？', '16:00', '2024-10-09 20:08:25'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '14:00', '2026-06-17 10:50:06'),
+(6100045, 'conv_000012', 'user', '客户 500 万如何配置？', '16:00', '2024-06-14 05:43:40'),
 (6100046, 'conv_000012', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '18:00', '2024-04-26 06:46:04'),
-(6100047, 'conv_000012', 'user', '2026 白酒股展望？', '20:00', '2024-05-02 15:15:58'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '18:00', '2025-03-30 10:22:23'),
+(6100047, 'conv_000012', 'user', '2026 白酒股展望？', '20:00', '2024-12-10 21:07:46'),
 (6100048, 'conv_000012', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '22:00', '2024-09-03 19:50:36'),
-(6100049, 'conv_000013', 'user', '章盟主龙虎榜可以跟吗？', '00:00', '2024-09-19 22:29:01'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '22:00', '2025-04-18 05:58:21'),
+(6100049, 'conv_000013', 'user', '章盟主龙虎榜可以跟吗？', '00:00', '2024-06-06 07:18:01'),
 (6100050, 'conv_000013', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '02:00', '2024-10-23 09:33:02'),
-(6100051, 'conv_000013', 'user', '如何评估比亚迪的经济护城河？', '04:00', '2024-10-17 12:30:36'),
+可以以研究学习角度观察。', '02:00', '2026-05-19 06:13:38'),
+(6100051, 'conv_000013', 'user', '如何评估比亚迪的经济护城河？', '04:00', '2024-07-25 07:53:13'),
 (6100052, 'conv_000013', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '06:00', '2025-09-21 12:17:06'),
-(6100053, 'conv_000014', 'user', '段永平最近雪球观点？', '08:00', '2024-05-29 14:49:40'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '06:00', '2025-03-13 03:34:54'),
+(6100053, 'conv_000014', 'user', '段永平最近雪球观点？', '08:00', '2025-06-29 13:02:26'),
 (6100054, 'conv_000014', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '10:00', '2024-08-17 09:24:03'),
-(6100055, 'conv_000014', 'user', '客户 500 万如何配置？', '12:00', '2024-10-15 18:26:07'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '10:00', '2026-03-17 01:47:04'),
+(6100055, 'conv_000014', 'user', '客户 500 万如何配置？', '12:00', '2026-05-25 01:09:19'),
 (6100056, 'conv_000014', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '14:00', '2024-10-14 04:40:16'),
-(6100057, 'conv_000015', 'user', '2026 白酒股展望？', '16:00', '2024-05-20 19:34:03'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '14:00', '2025-01-06 15:34:15'),
+(6100057, 'conv_000015', 'user', '2026 白酒股展望？', '16:00', '2024-10-24 23:30:44'),
 (6100058, 'conv_000015', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '18:00', '2025-11-24 19:14:56'),
-(6100059, 'conv_000015', 'user', '章盟主龙虎榜可以跟吗？', '20:00', '2024-05-27 21:49:38'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '18:00', '2025-05-26 22:28:17'),
+(6100059, 'conv_000015', 'user', '章盟主龙虎榜可以跟吗？', '20:00', '2026-01-24 02:50:47'),
 (6100060, 'conv_000015', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '22:00', '2025-10-16 03:22:20'),
-(6100061, 'conv_000016', 'user', '如何评估比亚迪的经济护城河？', '00:00', '2026-04-09 22:16:17'),
+可以以研究学习角度观察。', '22:00', '2026-06-16 00:12:31'),
+(6100061, 'conv_000016', 'user', '如何评估比亚迪的经济护城河？', '00:00', '2024-01-30 06:56:53'),
 (6100062, 'conv_000016', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '02:00', '2024-04-11 22:38:00'),
-(6100063, 'conv_000016', 'user', '段永平最近雪球观点？', '04:00', '2025-04-29 16:22:01'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '02:00', '2025-08-03 16:08:49'),
+(6100063, 'conv_000016', 'user', '段永平最近雪球观点？', '04:00', '2026-06-06 17:58:36'),
 (6100064, 'conv_000016', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '06:00', '2024-02-21 06:52:34'),
-(6100065, 'conv_000017', 'user', '客户 500 万如何配置？', '08:00', '2024-01-27 05:39:06'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '06:00', '2024-09-03 18:37:41'),
+(6100065, 'conv_000017', 'user', '客户 500 万如何配置？', '08:00', '2025-12-05 02:58:40'),
 (6100066, 'conv_000017', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '10:00', '2025-12-26 17:35:14'),
-(6100067, 'conv_000017', 'user', '2026 白酒股展望？', '12:00', '2026-05-24 09:02:32'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '10:00', '2026-01-13 21:21:04'),
+(6100067, 'conv_000017', 'user', '2026 白酒股展望？', '12:00', '2024-05-30 06:09:28'),
 (6100068, 'conv_000017', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '14:00', '2026-06-25 20:08:00'),
-(6100069, 'conv_000018', 'user', '章盟主龙虎榜可以跟吗？', '16:00', '2025-12-15 14:42:26'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '14:00', '2025-01-09 15:06:50'),
+(6100069, 'conv_000018', 'user', '章盟主龙虎榜可以跟吗？', '16:00', '2026-03-05 00:42:29'),
 (6100070, 'conv_000018', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '18:00', '2025-08-26 14:17:24'),
-(6100071, 'conv_000018', 'user', '如何评估比亚迪的经济护城河？', '20:00', '2024-09-22 22:20:53'),
+可以以研究学习角度观察。', '18:00', '2024-05-11 08:03:00'),
+(6100071, 'conv_000018', 'user', '如何评估比亚迪的经济护城河？', '20:00', '2024-02-04 21:30:27'),
 (6100072, 'conv_000018', 'ai', '比亚迪的护城河可以从四个维度评估：
 1. 一体化产业链：从锂矿到整车 100% 自研
 2. 品牌力：新能源龙头 + 出海溢价
 3. 规模效应：全球销量第一
 4. 领导人：王传福长期主义
-参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '22:00', '2025-08-31 11:04:12'),
-(6100073, 'conv_000019', 'user', '段永平最近雪球观点？', '00:00', '2025-02-14 20:43:56'),
+参考巴菲特 2008 建仓 → 2022 减持的完整脉络，芒格评价这是他一生投资过的最惊喜的公司。', '22:00', '2025-11-03 23:22:22'),
+(6100073, 'conv_000019', 'user', '段永平最近雪球观点？', '00:00', '2024-07-25 17:11:58'),
 (6100074, 'conv_000019', 'ai', '段总近期强调：
 - 敢为天下后
 - 本分比聪明重要
 - 长期视角看好苹果与茅台
 - 拼多多是他持仓最大的一只
-建议参考他 2024 年对茅台跌破 1500 元的回复。', '02:00', '2024-01-04 16:35:13'),
-(6100075, 'conv_000019', 'user', '客户 500 万如何配置？', '04:00', '2025-05-06 16:10:27'),
+建议参考他 2024 年对茅台跌破 1500 元的回复。', '02:00', '2024-09-17 13:40:20'),
+(6100075, 'conv_000019', 'user', '客户 500 万如何配置？', '04:00', '2024-01-24 11:14:11'),
 (6100076, 'conv_000019', 'ai', '推荐 60/40 组合：
 - 60% 权益：其中港股 20% + A 股 30% + 美股 10%
 - 40% 固收：城投债 15% + 银行理财 25%
-每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '06:00', '2025-04-10 21:26:55'),
-(6100077, 'conv_000020', 'user', '2026 白酒股展望？', '08:00', '2024-09-04 15:03:01'),
+每年再平衡一次，参考格雷厄姆《聪明的投资者》第 4 章。', '06:00', '2025-07-15 14:43:03'),
+(6100077, 'conv_000020', 'user', '2026 白酒股展望？', '08:00', '2025-03-08 01:58:46'),
 (6100078, 'conv_000020', 'ai', '参考林园老师观点，白酒的长期逻辑没变：
 - 消费升级 + 品牌固化
 - 茅台仍是龙头，五粮液次之
-短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '10:00', '2025-02-28 11:24:55'),
-(6100079, 'conv_000020', 'user', '章盟主龙虎榜可以跟吗？', '12:00', '2024-12-02 05:12:01'),
+短期扰动：地产链下行 + 政商需求下降。建议持仓不超过 20%。', '10:00', '2026-01-29 11:29:56'),
+(6100079, 'conv_000020', 'user', '章盟主龙虎榜可以跟吗？', '12:00', '2024-12-07 17:24:22'),
 (6100080, 'conv_000020', 'ai', '价投视角建议：不跟。原因：
 - 短线仓位成本你不掌握
 - 情绪反转极快
 - 但斌名言「时间的玫瑰只献给坚守的人」
-可以以研究学习角度观察。', '14:00', '2024-06-07 01:54:26');
+可以以研究学习角度观察。', '14:00', '2024-12-13 04:29:43');
 
 -- ========================================================================
 -- iyque_ai_analysis_msg_audit · AI 会话预审
 -- ========================================================================
 INSERT INTO `iyque_ai_analysis_msg_audit` (`id`, `createTime`, `customerId`, `customerName`, `employeeId`, `employeeName`, `endTime`, `msg`, `msgAuditType`, `startTime`, `warning`) VALUES
-(6200001, '2024-11-09 17:40:46', 'wm_bill_gates', '比尔·盖茨', 'MOAT_GRAHAM', '格雷厄姆', '2026-05-05 16:20:56', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-07-29 11:41:06', 1),
-(6200002, '2025-05-15 19:25:45', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 'MOAT_BUFFETT', '巴菲特', '2025-04-04 20:28:44', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-08-01 16:37:08', 1),
-(6200003, '2026-06-04 03:35:12', 'wm_ted_turner', '特德·特纳', 'MOAT_MUNGER', '芒格', '2025-01-13 18:30:54', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2026-06-03 20:07:57', 1),
-(6200004, '2025-11-09 04:54:17', 'wm_ajit_jain', '阿吉特·贾因', 'MOAT_LYNCH', '彼得·林奇', '2024-06-04 11:35:38', '会话内容以投研讨论为主，无违规', 2, '2026-04-09 15:11:15', 0),
-(6200005, '2025-04-27 14:28:11', 'wm_greg_abel', '格雷格·阿贝尔', 'MOAT_FISHER', '费雪', '2026-04-08 08:36:08', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-11-04 16:54:50', 0),
-(6200006, '2025-09-01 10:05:51', 'wm_todd_combs', '托德·库姆斯', 'MOAT_TEMPLETON', '邓普顿', '2025-10-28 05:45:46', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-01-23 15:20:33', 0),
-(6200007, '2026-02-25 02:19:21', 'wm_ted_weschler', '特德·韦施勒', 'MOAT_DUAN', '段永平', '2025-09-16 22:38:01', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-12-09 13:55:41', 1),
-(6200008, '2025-05-23 01:35:01', 'wm_ron_olson', '罗恩·奥尔森', 'MOAT_LINYUAN', '林园', '2025-11-23 04:42:23', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-12-16 04:33:14', 1),
-(6200009, '2025-01-23 02:55:26', 'wm_rick_guerin', '里克·盖林', 'MOAT_DANBIN', '但斌', '2025-12-13 21:30:00', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-09-20 01:56:38', 1),
-(6200010, '2025-07-10 16:10:06', 'wm_walter_schloss', '沃尔特·施洛斯', 'MOAT_ZMZ', '章盟主', '2024-03-04 18:44:28', '会话内容以投研讨论为主，无违规', 2, '2024-05-25 18:29:34', 0),
-(6200011, '2026-02-15 13:37:16', 'wm_seth_klarman', '塞斯·卡拉曼', 'MOAT_LILU', '李录', '2026-06-17 10:50:06', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-06-14 05:43:40', 0),
-(6200012, '2025-03-30 10:22:23', 'wm_howard_marks', '霍华德·马克斯', 'MOAT_ZHAODANYANG', '赵丹阳', '2024-12-10 21:07:46', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-04-18 05:58:21', 0),
-(6200013, '2024-06-06 07:18:01', 'wm_yohei_hosoda', '细田洋平', 'MOAT_GRAHAM', '格雷厄姆', '2026-05-19 06:13:38', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-07-25 07:53:13', 1),
-(6200014, '2025-03-13 03:34:54', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 'MOAT_BUFFETT', '巴菲特', '2025-06-29 13:02:26', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-03-17 01:47:04', 1),
-(6200015, '2026-05-25 01:09:19', 'wm_dinglei', '丁磊', 'MOAT_MUNGER', '芒格', '2025-01-06 15:34:15', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-10-24 23:30:44', 1),
-(6200016, '2025-05-26 22:28:17', 'wm_huangzheng', '黄峥', 'MOAT_LYNCH', '彼得·林奇', '2026-01-24 02:50:47', '会话内容以投研讨论为主，无违规', 2, '2026-06-16 00:12:31', 0),
-(6200017, '2024-01-30 06:56:53', 'wm_chenmingyong', '陈明永', 'MOAT_FISHER', '费雪', '2025-08-03 16:08:49', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2026-06-06 17:58:36', 0),
-(6200018, '2024-09-03 18:37:41', 'wm_shenwei', '沈炜', 'MOAT_TEMPLETON', '邓普顿', '2025-12-05 02:58:40', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2026-01-13 21:21:04', 0),
-(6200019, '2024-05-30 06:09:28', 'wm_fangsanwen', '方三文', 'MOAT_DUAN', '段永平', '2025-01-09 15:06:50', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2026-03-05 00:42:29', 1),
-(6200020, '2024-05-11 08:03:00', 'wm_liuhaoran', '刘昊然（同名）', 'MOAT_LINYUAN', '林园', '2024-02-04 21:30:27', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-11-03 23:22:22', 1),
-(6200021, '2024-07-25 17:11:58', 'wm_zhugeliang', '但斌客户 A（诸葛量）', 'MOAT_DANBIN', '但斌', '2024-09-17 13:40:20', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-01-24 11:14:11', 1),
-(6200022, '2025-07-15 14:43:03', 'wm_maotai_holder', '茅台老股东', 'MOAT_ZMZ', '章盟主', '2025-03-08 01:58:46', '会话内容以投研讨论为主，无违规', 2, '2026-01-29 11:29:56', 0),
-(6200023, '2024-12-07 17:24:22', 'wm_wuliangye_lp', '五粮液 LP', 'MOAT_LILU', '李录', '2024-12-13 04:29:43', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2026-04-22 23:33:39', 0),
-(6200024, '2024-05-05 16:00:56', 'wm_pinganhuang', '平安黄总', 'MOAT_ZHAODANYANG', '赵丹阳', '2024-10-15 05:24:04', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2026-01-15 20:10:24', 0),
-(6200025, '2025-08-16 09:23:40', 'wm_geli_dong', '董明珠', 'MOAT_GRAHAM', '格雷厄姆', '2026-01-28 01:46:29', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2026-04-15 08:59:16', 1),
-(6200026, '2024-09-24 05:26:26', 'wm_meidi_fangh', '方洪波', 'MOAT_BUFFETT', '巴菲特', '2025-03-14 04:52:56', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-06-16 19:57:50', 1),
-(6200027, '2024-08-17 23:41:27', 'wm_byd_wangchuanfu', '王传福', 'MOAT_MUNGER', '芒格', '2026-01-11 05:09:11', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-04-18 13:51:26', 1),
-(6200028, '2025-02-09 01:50:40', 'wm_catl_zeng', '曾毓群', 'MOAT_LYNCH', '彼得·林奇', '2024-05-10 14:47:51', '会话内容以投研讨论为主，无违规', 2, '2025-09-16 20:40:51', 0),
-(6200029, '2024-05-20 20:21:57', 'wm_pony_ma', '马化腾', 'MOAT_FISHER', '费雪', '2025-09-07 08:00:22', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2026-03-30 08:21:33', 0),
-(6200030, '2025-08-23 05:59:59', 'wm_jack_ma', '马云', 'MOAT_TEMPLETON', '邓普顿', '2024-05-20 06:29:36', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-09-17 03:05:06', 0),
-(6200031, '2024-12-24 23:12:19', 'wm_lei_jun', '雷军', 'MOAT_DUAN', '段永平', '2025-03-24 18:20:46', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-04-05 13:45:12', 1),
-(6200032, '2025-12-15 10:07:35', 'wm_zhang_yiming', '张一鸣', 'MOAT_LINYUAN', '林园', '2024-11-15 04:07:57', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-05-16 03:26:15', 1),
-(6200033, '2024-06-06 11:18:30', 'wm_liu_qiangdong', '刘强东', 'MOAT_DANBIN', '但斌', '2025-11-28 07:58:05', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2026-05-11 00:02:07', 1),
-(6200034, '2025-09-08 02:25:37', 'wm_haier_zhang', '张瑞敏', 'MOAT_ZMZ', '章盟主', '2024-08-26 21:24:12', '会话内容以投研讨论为主，无违规', 2, '2025-02-28 04:29:54', 0),
-(6200035, '2025-10-09 21:39:15', 'wm_lenovo_liu', '柳传志', 'MOAT_LILU', '李录', '2025-07-28 07:21:52', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-02-21 02:52:03', 0),
-(6200036, '2024-03-15 18:20:53', 'wm_gree_meng', '孟羽童', 'MOAT_ZHAODANYANG', '赵丹阳', '2024-07-10 22:41:36', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-04-28 23:55:34', 0),
-(6200037, '2024-01-21 14:06:42', 'wm_li_kashing', '李嘉诚', 'MOAT_GRAHAM', '格雷厄姆', '2024-03-14 17:41:14', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-02-14 08:57:13', 1),
-(6200038, '2026-04-16 15:13:16', 'wm_li_zeju', '李泽钜', 'MOAT_BUFFETT', '巴菲特', '2024-11-05 09:37:45', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-12-15 02:32:07', 1),
-(6200039, '2025-10-21 00:22:47', 'wm_terry_gou', '郭台铭', 'MOAT_MUNGER', '芒格', '2026-03-07 08:05:17', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-10-15 16:47:00', 1),
-(6200040, '2024-11-05 10:29:26', 'wm_tsai_ing', '蔡崇信', 'MOAT_LYNCH', '彼得·林奇', '2025-08-10 09:16:33', '会话内容以投研讨论为主，无违规', 2, '2025-11-23 03:26:08', 0),
-(6200041, '2025-10-21 05:59:21', 'wm_youzi_zhao', '游资赵老哥', 'MOAT_FISHER', '费雪', '2024-02-25 16:22:32', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-10-01 23:22:12', 0),
-(6200042, '2024-11-05 02:37:41', 'wm_youzi_qiao', '游资乔帮主', 'MOAT_TEMPLETON', '邓普顿', '2024-08-21 06:08:10', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-02-05 18:10:09', 0),
-(6200043, '2025-05-30 04:43:02', 'wm_youzi_mengniu', '游资孟乃', 'MOAT_DUAN', '段永平', '2025-01-22 00:41:25', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-11-24 13:34:16', 1),
-(6200044, '2025-05-12 06:31:30', 'wm_hangzhou_tuhao', '杭州七哥', 'MOAT_LINYUAN', '林园', '2024-01-06 13:12:29', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-04-21 22:35:12', 1),
-(6200045, '2025-12-02 05:18:00', 'wm_wine_lover_zhang', '张老板', 'MOAT_DANBIN', '但斌', '2024-04-25 22:42:53', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-02-11 09:55:43', 1),
-(6200046, '2024-04-29 01:03:29', 'wm_pharma_wang', '王教授', 'MOAT_ZMZ', '章盟主', '2025-08-18 07:26:38', '会话内容以投研讨论为主，无违规', 2, '2024-12-23 06:33:06', 0),
-(6200047, '2025-03-12 20:00:47', 'wm_yunnanbaiyao_ho', '何女士', 'MOAT_LILU', '李录', '2024-03-30 12:42:03', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-10-11 15:46:49', 0),
-(6200048, '2026-04-20 13:21:05', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 'MOAT_ZHAODANYANG', '赵丹阳', '2025-09-03 06:26:35', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-04-13 17:45:28', 0),
-(6200049, '2024-04-19 05:30:38', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 'MOAT_GRAHAM', '格雷厄姆', '2024-06-17 15:48:45', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-04-09 20:06:25', 1),
-(6200050, '2025-11-03 10:52:10', 'wm_family_office_a', '上海某家族办', 'MOAT_BUFFETT', '巴菲特', '2024-06-25 10:42:26', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-11-16 19:12:41', 1),
-(6200051, '2025-02-18 03:41:40', 'wm_family_office_b', '深圳某家族办', 'MOAT_MUNGER', '芒格', '2025-07-04 18:57:09', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2026-04-17 03:47:22', 1),
-(6200052, '2025-08-08 18:11:49', 'wm_pe_partner_lu', '路总', 'MOAT_LYNCH', '彼得·林奇', '2024-12-12 07:26:30', '会话内容以投研讨论为主，无违规', 2, '2025-03-24 09:44:54', 0),
-(6200053, '2025-05-06 05:34:34', 'wm_hnw_doctor_hu', '胡医生', 'MOAT_FISHER', '费雪', '2024-02-08 07:50:24', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-07-28 12:45:25', 0),
-(6200054, '2026-06-15 19:34:25', 'wm_retail_liu', '刘先生', 'MOAT_TEMPLETON', '邓普顿', '2024-10-07 05:10:01', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-01-06 12:44:32', 0),
-(6200055, '2025-10-06 09:08:56', 'wm_retail_chen', '陈女士', 'MOAT_DUAN', '段永平', '2025-02-20 04:56:13', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-11-11 11:35:31', 1),
-(6200056, '2025-07-21 02:10:34', 'wm_retail_wu', '吴老师', 'MOAT_LINYUAN', '林园', '2025-07-11 08:54:36', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-03-30 05:28:33', 1),
-(6200057, '2024-10-24 05:52:52', 'wm_retail_zhou', '周同学', 'MOAT_DANBIN', '但斌', '2025-03-26 16:42:05', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-09-11 06:56:58', 1),
-(6200058, '2026-02-26 07:08:42', 'wm_retail_han', '韩总', 'MOAT_ZMZ', '章盟主', '2026-05-02 01:59:33', '会话内容以投研讨论为主，无违规', 2, '2026-01-10 15:53:04', 0),
-(6200059, '2025-05-20 04:47:23', 'wm_retail_gao', '高姐', 'MOAT_LILU', '李录', '2024-06-10 16:24:34', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2026-04-02 18:31:18', 0),
-(6200060, '2024-01-29 09:15:54', 'wm_retail_shen', '沈总', 'MOAT_ZHAODANYANG', '赵丹阳', '2025-04-05 00:45:15', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-08-27 16:12:11', 0);
+(6200001, '2026-04-22 23:33:39', 'wm_bill_gates', '比尔·盖茨', 'MOAT_GRAHAM', '格雷厄姆', '2024-05-05 16:00:56', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-10-15 05:24:04', 1),
+(6200002, '2026-01-15 20:10:24', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 'MOAT_BUFFETT', '巴菲特', '2025-08-16 09:23:40', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-01-28 01:46:29', 1),
+(6200003, '2026-04-15 08:59:16', 'wm_ted_turner', '特德·特纳', 'MOAT_MUNGER', '芒格', '2024-09-24 05:26:26', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-03-14 04:52:56', 1),
+(6200004, '2026-06-16 19:57:50', 'wm_ajit_jain', '阿吉特·贾因', 'MOAT_LYNCH', '彼得·林奇', '2024-08-17 23:41:27', '会话内容以投研讨论为主，无违规', 2, '2026-01-11 05:09:11', 0),
+(6200005, '2024-04-18 13:51:26', 'wm_greg_abel', '格雷格·阿贝尔', 'MOAT_FISHER', '费雪', '2025-02-09 01:50:40', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-05-10 14:47:51', 0),
+(6200006, '2025-09-16 20:40:51', 'wm_todd_combs', '托德·库姆斯', 'MOAT_TEMPLETON', '邓普顿', '2024-05-20 20:21:57', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-09-07 08:00:22', 0),
+(6200007, '2026-03-30 08:21:33', 'wm_ted_weschler', '特德·韦施勒', 'MOAT_DUAN', '段永平', '2025-08-23 05:59:59', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-05-20 06:29:36', 1),
+(6200008, '2024-09-17 03:05:06', 'wm_ron_olson', '罗恩·奥尔森', 'MOAT_LINYUAN', '林园', '2024-12-24 23:12:19', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-03-24 18:20:46', 1),
+(6200009, '2025-04-05 13:45:12', 'wm_rick_guerin', '里克·盖林', 'MOAT_DANBIN', '但斌', '2025-12-15 10:07:35', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-11-15 04:07:57', 1),
+(6200010, '2026-05-16 03:26:15', 'wm_walter_schloss', '沃尔特·施洛斯', 'MOAT_ZMZ', '章盟主', '2024-06-06 11:18:30', '会话内容以投研讨论为主，无违规', 2, '2025-11-28 07:58:05', 0),
+(6200011, '2026-05-11 00:02:07', 'wm_seth_klarman', '塞斯·卡拉曼', 'MOAT_LILU', '李录', '2025-09-08 02:25:37', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-08-26 21:24:12', 0),
+(6200012, '2025-02-28 04:29:54', 'wm_howard_marks', '霍华德·马克斯', 'MOAT_ZHAODANYANG', '赵丹阳', '2025-10-09 21:39:15', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-07-28 07:21:52', 0),
+(6200013, '2024-02-21 02:52:03', 'wm_yohei_hosoda', '细田洋平', 'MOAT_GRAHAM', '格雷厄姆', '2024-03-15 18:20:53', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-07-10 22:41:36', 1),
+(6200014, '2024-04-28 23:55:34', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 'MOAT_BUFFETT', '巴菲特', '2024-01-21 14:06:42', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-03-14 17:41:14', 1),
+(6200015, '2025-02-14 08:57:13', 'wm_dinglei', '丁磊', 'MOAT_MUNGER', '芒格', '2026-04-16 15:13:16', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-11-05 09:37:45', 1),
+(6200016, '2025-12-15 02:32:07', 'wm_huangzheng', '黄峥', 'MOAT_LYNCH', '彼得·林奇', '2025-10-21 00:22:47', '会话内容以投研讨论为主，无违规', 2, '2026-03-07 08:05:17', 0),
+(6200017, '2024-10-15 16:47:00', 'wm_chenmingyong', '陈明永', 'MOAT_FISHER', '费雪', '2024-11-05 10:29:26', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-08-10 09:16:33', 0),
+(6200018, '2025-11-23 03:26:08', 'wm_shenwei', '沈炜', 'MOAT_TEMPLETON', '邓普顿', '2025-10-21 05:59:21', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-02-25 16:22:32', 0),
+(6200019, '2024-10-01 23:22:12', 'wm_fangsanwen', '方三文', 'MOAT_DUAN', '段永平', '2024-11-05 02:37:41', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-08-21 06:08:10', 1),
+(6200020, '2025-02-05 18:10:09', 'wm_liuhaoran', '刘昊然（同名）', 'MOAT_LINYUAN', '林园', '2025-05-30 04:43:02', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-01-22 00:41:25', 1),
+(6200021, '2024-11-24 13:34:16', 'wm_zhugeliang', '但斌客户 A（诸葛量）', 'MOAT_DANBIN', '但斌', '2025-05-12 06:31:30', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-01-06 13:12:29', 1),
+(6200022, '2026-04-21 22:35:12', 'wm_maotai_holder', '茅台老股东', 'MOAT_ZMZ', '章盟主', '2025-12-02 05:18:00', '会话内容以投研讨论为主，无违规', 2, '2024-04-25 22:42:53', 0),
+(6200023, '2025-02-11 09:55:43', 'wm_wuliangye_lp', '五粮液 LP', 'MOAT_LILU', '李录', '2024-04-29 01:03:29', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-08-18 07:26:38', 0),
+(6200024, '2024-12-23 06:33:06', 'wm_pinganhuang', '平安黄总', 'MOAT_ZHAODANYANG', '赵丹阳', '2025-03-12 20:00:47', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-03-30 12:42:03', 0),
+(6200025, '2025-10-11 15:46:49', 'wm_geli_dong', '董明珠', 'MOAT_GRAHAM', '格雷厄姆', '2026-04-20 13:21:05', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-09-03 06:26:35', 1),
+(6200026, '2025-04-13 17:45:28', 'wm_meidi_fangh', '方洪波', 'MOAT_BUFFETT', '巴菲特', '2024-04-19 05:30:38', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-06-17 15:48:45', 1),
+(6200027, '2024-04-09 20:06:25', 'wm_byd_wangchuanfu', '王传福', 'MOAT_MUNGER', '芒格', '2025-11-03 10:52:10', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-06-25 10:42:26', 1),
+(6200028, '2024-11-16 19:12:41', 'wm_catl_zeng', '曾毓群', 'MOAT_LYNCH', '彼得·林奇', '2025-02-18 03:41:40', '会话内容以投研讨论为主，无违规', 2, '2025-07-04 18:57:09', 0),
+(6200029, '2026-04-17 03:47:22', 'wm_pony_ma', '马化腾', 'MOAT_FISHER', '费雪', '2025-08-08 18:11:49', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-12-12 07:26:30', 0),
+(6200030, '2025-03-24 09:44:54', 'wm_jack_ma', '马云', 'MOAT_TEMPLETON', '邓普顿', '2025-05-06 05:34:34', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-02-08 07:50:24', 0),
+(6200031, '2025-07-28 12:45:25', 'wm_lei_jun', '雷军', 'MOAT_DUAN', '段永平', '2026-06-15 19:34:25', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2024-10-07 05:10:01', 1),
+(6200032, '2024-01-06 12:44:32', 'wm_zhang_yiming', '张一鸣', 'MOAT_LINYUAN', '林园', '2025-10-06 09:08:56', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-02-20 04:56:13', 1),
+(6200033, '2024-11-11 11:35:31', 'wm_liu_qiangdong', '刘强东', 'MOAT_DANBIN', '但斌', '2025-07-21 02:10:34', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-07-11 08:54:36', 1),
+(6200034, '2024-03-30 05:28:33', 'wm_haier_zhang', '张瑞敏', 'MOAT_ZMZ', '章盟主', '2024-10-24 05:52:52', '会话内容以投研讨论为主，无违规', 2, '2025-03-26 16:42:05', 0),
+(6200035, '2024-09-11 06:56:58', 'wm_lenovo_liu', '柳传志', 'MOAT_LILU', '李录', '2026-02-26 07:08:42', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2026-05-02 01:59:33', 0),
+(6200036, '2026-01-10 15:53:04', 'wm_gree_meng', '孟羽童', 'MOAT_ZHAODANYANG', '赵丹阳', '2025-05-20 04:47:23', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-06-10 16:24:34', 0),
+(6200037, '2026-04-02 18:31:18', 'wm_li_kashing', '李嘉诚', 'MOAT_GRAHAM', '格雷厄姆', '2024-01-29 09:15:54', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-04-05 00:45:15', 1),
+(6200038, '2024-08-27 16:12:11', 'wm_li_zeju', '李泽钜', 'MOAT_BUFFETT', '巴菲特', '2025-04-26 08:28:16', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2025-09-12 00:16:38', 1),
+(6200039, '2025-09-30 14:59:42', 'wm_terry_gou', '郭台铭', 'MOAT_MUNGER', '芒格', '2025-08-06 17:26:30', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2026-05-21 20:57:31', 1),
+(6200040, '2024-09-03 15:11:53', 'wm_tsai_ing', '蔡崇信', 'MOAT_LYNCH', '彼得·林奇', '2025-07-14 18:26:29', '会话内容以投研讨论为主，无违规', 2, '2024-03-18 01:17:57', 0),
+(6200041, '2025-06-18 12:53:05', 'wm_youzi_zhao', '游资赵老哥', 'MOAT_FISHER', '费雪', '2025-02-21 20:11:35', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-05-11 19:04:59', 0),
+(6200042, '2024-03-13 18:36:35', 'wm_youzi_qiao', '游资乔帮主', 'MOAT_TEMPLETON', '邓普顿', '2025-12-30 16:46:36', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2024-01-31 22:44:08', 0),
+(6200043, '2026-04-26 14:53:33', 'wm_youzi_mengniu', '游资孟乃', 'MOAT_DUAN', '段永平', '2026-05-08 10:07:14', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2026-01-25 02:08:14', 1),
+(6200044, '2025-08-29 06:43:17', 'wm_hangzhou_tuhao', '杭州七哥', 'MOAT_LINYUAN', '林园', '2025-08-16 06:55:58', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-06-19 09:28:54', 1),
+(6200045, '2025-03-23 00:07:26', 'wm_wine_lover_zhang', '张老板', 'MOAT_DANBIN', '但斌', '2024-08-30 02:29:51', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2024-07-01 17:16:03', 1),
+(6200046, '2024-08-29 00:24:07', 'wm_pharma_wang', '王教授', 'MOAT_ZMZ', '章盟主', '2025-08-04 09:29:13', '会话内容以投研讨论为主，无违规', 2, '2024-07-23 05:15:21', 0),
+(6200047, '2024-06-24 06:16:04', 'wm_yunnanbaiyao_ho', '何女士', 'MOAT_LILU', '李录', '2026-05-25 14:51:47', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2024-07-06 22:05:12', 0),
+(6200048, '2026-03-30 20:31:12', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 'MOAT_ZHAODANYANG', '赵丹阳', '2024-02-03 22:01:41', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2026-05-13 18:36:41', 0),
+(6200049, '2025-03-06 11:36:36', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 'MOAT_GRAHAM', '格雷厄姆', '2024-03-17 11:36:10', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2026-03-11 02:12:00', 1),
+(6200050, '2025-06-26 03:27:30', 'wm_family_office_a', '上海某家族办', 'MOAT_BUFFETT', '巴菲特', '2026-03-07 09:16:55', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2024-02-19 07:00:58', 1),
+(6200051, '2026-01-14 00:38:45', 'wm_family_office_b', '深圳某家族办', 'MOAT_MUNGER', '芒格', '2024-05-05 03:48:18', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-03-19 05:21:29', 1),
+(6200052, '2026-02-18 01:58:50', 'wm_pe_partner_lu', '路总', 'MOAT_LYNCH', '彼得·林奇', '2024-09-24 13:25:46', '会话内容以投研讨论为主，无违规', 2, '2025-01-12 11:25:59', 0),
+(6200053, '2026-02-22 13:06:16', 'wm_hnw_doctor_hu', '胡医生', 'MOAT_FISHER', '费雪', '2024-03-18 13:47:46', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-02-22 17:55:51', 0),
+(6200054, '2024-06-17 00:14:26', 'wm_retail_liu', '刘先生', 'MOAT_TEMPLETON', '邓普顿', '2025-11-20 17:37:29', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2025-04-12 12:22:57', 0),
+(6200055, '2024-12-23 23:18:14', 'wm_retail_chen', '陈女士', 'MOAT_DUAN', '段永平', '2025-09-20 14:48:35', '员工在会话中提到承诺收益 12%，触发【承诺收益】合规规则', 1, '2025-10-03 05:15:18', 1),
+(6200056, '2025-08-06 23:02:28', 'wm_retail_wu', '吴老师', 'MOAT_LINYUAN', '林园', '2024-10-31 07:58:54', '员工透露客户资产规模至第三方，触发【客户隐私】', 1, '2026-04-23 20:24:09', 1),
+(6200057, '2024-09-29 02:15:02', 'wm_retail_zhou', '周同学', 'MOAT_DANBIN', '但斌', '2024-02-05 18:12:22', '员工向客户提及内幕信息「XX 公司年报未披露业绩」', 1, '2025-01-07 12:10:22', 1),
+(6200058, '2025-06-10 22:02:11', 'wm_retail_han', '韩总', 'MOAT_ZMZ', '章盟主', '2026-03-09 09:07:29', '会话内容以投研讨论为主，无违规', 2, '2025-06-06 10:11:32', 0),
+(6200059, '2025-05-28 07:15:22', 'wm_retail_gao', '高姐', 'MOAT_LILU', '李录', '2026-03-14 13:11:26', '客户主动询问、投顾以官方口径回答，符合规范', 2, '2025-05-18 00:41:25', 0),
+(6200060, '2025-05-31 01:10:32', 'wm_retail_shen', '沈总', 'MOAT_ZHAODANYANG', '赵丹阳', '2024-07-10 14:50:35', '会话涉及巴菲特案例，属于投研学习范畴', 2, '2026-05-23 17:14:46', 0);
 
 -- ========================================================================
 -- iyque_ai_token_record · AI Token 用量
 -- ========================================================================
 INSERT INTO `iyque_ai_token_record` (`id`, `aiResId`, `completionTokens`, `createTime`, `model`, `promptTokens`, `totalTokens`) VALUES
-(6300001, 'ai_res_000001', 1317, '2025-09-12 00:16:38', 'Qwen3-Embedding-8B-Alt', 1469, 2786),
-(6300002, 'ai_res_000002', 1514, '2025-08-06 17:26:30', 'Qwen3-Embedding-8B-Alt', 1883, 3397),
-(6300003, 'ai_res_000003', 1392, '2025-07-14 18:26:29', 'GLM-5.2-FP8', 850, 2242),
-(6300004, 'ai_res_000004', 1758, '2025-02-21 20:11:35', 'GLM-4-Air', 1609, 3367),
-(6300005, 'ai_res_000005', 1062, '2024-01-31 22:44:08', 'Qwen3-Embedding-8B-Alt', 391, 1453),
-(6300006, 'ai_res_000006', 1365, '2026-05-08 10:07:14', 'GLM-4-Air', 2432, 3797),
-(6300007, 'ai_res_000007', 882, '2024-06-19 09:28:54', 'GLM-4-Air', 1798, 2680),
-(6300008, 'ai_res_000008', 1569, '2024-07-01 17:16:03', 'GLM-5.2-FP8', 838, 2407),
-(6300009, 'ai_res_000009', 369, '2024-06-24 06:16:04', 'Qwen3-Embedding-8B-Alt', 1732, 2101),
-(6300010, 'ai_res_000010', 347, '2026-03-30 20:31:12', 'GLM-5.2-FP8', 2508, 2855),
-(6300011, 'ai_res_000011', 667, '2024-03-17 11:36:10', 'Qwen3-Embedding-8B-Alt', 2477, 3144),
-(6300012, 'ai_res_000012', 814, '2026-03-07 09:16:55', 'Qwen3-Embedding-8B-Alt', 2309, 3123),
-(6300013, 'ai_res_000013', 164, '2026-01-14 00:38:45', 'GLM-5.2-FP8', 2678, 2842),
-(6300014, 'ai_res_000014', 1127, '2024-09-24 13:25:46', 'GLM-5.2-FP8', 1368, 2495),
-(6300015, 'ai_res_000015', 202, '2025-02-22 17:55:51', 'GLM-5.2-FP8', 2265, 2467),
-(6300016, 'ai_res_000016', 1009, '2025-04-12 12:22:57', 'GLM-5.2-FP8', 2651, 3660),
-(6300017, 'ai_res_000017', 945, '2025-08-06 23:02:28', 'GLM-5.2-FP8', 1857, 2802),
-(6300018, 'ai_res_000018', 1212, '2024-09-29 02:15:02', 'GLM-5.2-FP8', 2794, 4006),
-(6300019, 'ai_res_000019', 1972, '2025-06-10 22:02:11', 'Qwen3-Embedding-8B-Alt', 1182, 3154),
-(6300020, 'ai_res_000020', 1490, '2025-05-28 07:15:22', 'Qwen3-Embedding-8B-Alt', 1577, 3067),
-(6300021, 'ai_res_000021', 1853, '2025-05-31 01:10:32', 'GLM-5.2-FP8', 1526, 3379),
-(6300022, 'ai_res_000022', 405, '2024-02-03 21:30:36', 'GLM-4-Air', 2503, 2908),
-(6300023, 'ai_res_000023', 1187, '2025-02-24 05:38:10', 'GLM-4-Air', 566, 1753),
-(6300024, 'ai_res_000024', 135, '2024-07-23 14:37:38', 'GLM-4-Air', 472, 607),
-(6300025, 'ai_res_000025', 1643, '2025-01-26 13:05:46', 'Qwen3-Embedding-8B-Alt', 311, 1954),
-(6300026, 'ai_res_000026', 1824, '2025-09-12 10:04:23', 'GLM-4-Air', 1056, 2880),
-(6300027, 'ai_res_000027', 1467, '2024-08-24 01:01:15', 'GLM-5.2-FP8', 1330, 2797),
-(6300028, 'ai_res_000028', 121, '2024-11-20 23:36:41', 'GLM-4-Air', 800, 921),
-(6300029, 'ai_res_000029', 1525, '2025-11-27 05:05:11', 'GLM-5.2-FP8', 2666, 4191),
-(6300030, 'ai_res_000030', 188, '2026-05-22 06:11:09', 'GLM-5.2-FP8', 515, 703),
-(6300031, 'ai_res_000031', 781, '2025-06-24 11:24:39', 'GLM-5.2-FP8', 1120, 1901),
-(6300032, 'ai_res_000032', 996, '2025-02-27 01:13:32', 'GLM-5.2-FP8', 2320, 3316),
-(6300033, 'ai_res_000033', 674, '2025-04-03 16:40:03', 'GLM-4-Air', 2416, 3090),
-(6300034, 'ai_res_000034', 964, '2025-12-08 14:37:58', 'GLM-5.2-FP8', 1995, 2959),
-(6300035, 'ai_res_000035', 423, '2026-03-18 23:46:58', 'Qwen3-Embedding-8B-Alt', 2898, 3321),
-(6300036, 'ai_res_000036', 382, '2025-12-01 04:49:15', 'GLM-5.2-FP8', 2629, 3011),
-(6300037, 'ai_res_000037', 1830, '2026-03-27 15:02:39', 'GLM-5.2-FP8', 1437, 3267),
-(6300038, 'ai_res_000038', 1204, '2026-02-10 09:42:04', 'GLM-5.2-FP8', 2614, 3818),
-(6300039, 'ai_res_000039', 1841, '2026-03-20 22:27:43', 'Qwen3-Embedding-8B-Alt', 1604, 3445),
-(6300040, 'ai_res_000040', 983, '2025-01-31 18:31:22', 'GLM-5.2-FP8', 2677, 3660),
-(6300041, 'ai_res_000041', 851, '2024-10-31 03:12:10', 'GLM-5.2-FP8', 1448, 2299),
-(6300042, 'ai_res_000042', 1526, '2024-06-20 02:51:58', 'GLM-5.2-FP8', 847, 2373),
-(6300043, 'ai_res_000043', 634, '2026-04-20 22:46:33', 'GLM-4-Air', 1046, 1680),
-(6300044, 'ai_res_000044', 731, '2026-05-26 09:28:48', 'GLM-4-Air', 1278, 2009),
-(6300045, 'ai_res_000045', 282, '2024-10-31 01:06:30', 'Qwen3-Embedding-8B-Alt', 2962, 3244),
-(6300046, 'ai_res_000046', 1340, '2025-07-29 06:30:40', 'GLM-5.2-FP8', 568, 1908),
-(6300047, 'ai_res_000047', 1349, '2026-04-27 03:25:17', 'GLM-4-Air', 798, 2147),
-(6300048, 'ai_res_000048', 1174, '2026-06-22 18:21:31', 'GLM-5.2-FP8', 1116, 2290),
-(6300049, 'ai_res_000049', 261, '2025-07-02 06:13:28', 'GLM-5.2-FP8', 2237, 2498),
-(6300050, 'ai_res_000050', 1483, '2026-01-13 11:52:51', 'GLM-4-Air', 1049, 2532),
-(6300051, 'ai_res_000051', 1645, '2026-03-27 19:04:01', 'GLM-5.2-FP8', 1596, 3241),
-(6300052, 'ai_res_000052', 1247, '2024-08-10 18:07:52', 'GLM-5.2-FP8', 2457, 3704),
-(6300053, 'ai_res_000053', 398, '2024-11-18 14:02:33', 'Qwen3-Embedding-8B-Alt', 2997, 3395),
-(6300054, 'ai_res_000054', 119, '2024-10-28 14:31:28', 'GLM-5.2-FP8', 500, 619),
-(6300055, 'ai_res_000055', 369, '2025-11-22 13:39:18', 'Qwen3-Embedding-8B-Alt', 1911, 2280),
-(6300056, 'ai_res_000056', 1232, '2025-05-04 16:35:29', 'GLM-4-Air', 2497, 3729),
-(6300057, 'ai_res_000057', 1331, '2025-02-16 02:08:31', 'GLM-5.2-FP8', 870, 2201),
-(6300058, 'ai_res_000058', 498, '2024-01-14 22:02:17', 'Qwen3-Embedding-8B-Alt', 990, 1488),
-(6300059, 'ai_res_000059', 354, '2024-07-11 01:18:16', 'GLM-5.2-FP8', 1269, 1623),
-(6300060, 'ai_res_000060', 1101, '2024-03-18 12:14:04', 'GLM-4-Air', 2057, 3158);
+(6300001, 'ai_res_000001', 144, '2025-10-03 04:13:23', 'GLM-5.2-FP8', 810, 954),
+(6300002, 'ai_res_000002', 654, '2025-12-07 16:30:32', 'GLM-5.2-FP8', 2374, 3028),
+(6300003, 'ai_res_000003', 1481, '2024-07-23 14:37:38', 'GLM-4-Air', 270, 1751),
+(6300004, 'ai_res_000004', 1643, '2025-01-26 13:05:46', 'Qwen3-Embedding-8B-Alt', 311, 1954),
+(6300005, 'ai_res_000005', 1824, '2025-09-12 10:04:23', 'GLM-4-Air', 1056, 2880),
+(6300006, 'ai_res_000006', 1467, '2024-08-24 01:01:15', 'GLM-5.2-FP8', 1330, 2797),
+(6300007, 'ai_res_000007', 121, '2024-11-20 23:36:41', 'GLM-4-Air', 800, 921),
+(6300008, 'ai_res_000008', 1525, '2025-11-27 05:05:11', 'GLM-5.2-FP8', 2666, 4191),
+(6300009, 'ai_res_000009', 188, '2026-05-22 06:11:09', 'GLM-5.2-FP8', 515, 703),
+(6300010, 'ai_res_000010', 781, '2025-06-24 11:24:39', 'GLM-5.2-FP8', 1120, 1901),
+(6300011, 'ai_res_000011', 996, '2025-02-27 01:13:32', 'GLM-5.2-FP8', 2320, 3316),
+(6300012, 'ai_res_000012', 674, '2025-04-03 16:40:03', 'GLM-4-Air', 2416, 3090),
+(6300013, 'ai_res_000013', 964, '2025-12-08 14:37:58', 'GLM-5.2-FP8', 1995, 2959),
+(6300014, 'ai_res_000014', 423, '2026-03-18 23:46:58', 'Qwen3-Embedding-8B-Alt', 2898, 3321),
+(6300015, 'ai_res_000015', 382, '2025-12-01 04:49:15', 'GLM-5.2-FP8', 2629, 3011),
+(6300016, 'ai_res_000016', 1830, '2026-03-27 15:02:39', 'GLM-5.2-FP8', 1437, 3267),
+(6300017, 'ai_res_000017', 1204, '2026-02-10 09:42:04', 'GLM-5.2-FP8', 2614, 3818),
+(6300018, 'ai_res_000018', 1841, '2026-03-20 22:27:43', 'Qwen3-Embedding-8B-Alt', 1604, 3445),
+(6300019, 'ai_res_000019', 983, '2025-01-31 18:31:22', 'GLM-5.2-FP8', 2677, 3660),
+(6300020, 'ai_res_000020', 851, '2024-10-31 03:12:10', 'GLM-5.2-FP8', 1448, 2299),
+(6300021, 'ai_res_000021', 1526, '2024-06-20 02:51:58', 'GLM-5.2-FP8', 847, 2373),
+(6300022, 'ai_res_000022', 634, '2026-04-20 22:46:33', 'GLM-4-Air', 1046, 1680),
+(6300023, 'ai_res_000023', 731, '2026-05-26 09:28:48', 'GLM-4-Air', 1278, 2009),
+(6300024, 'ai_res_000024', 282, '2024-10-31 01:06:30', 'Qwen3-Embedding-8B-Alt', 2962, 3244),
+(6300025, 'ai_res_000025', 1340, '2025-07-29 06:30:40', 'GLM-5.2-FP8', 568, 1908),
+(6300026, 'ai_res_000026', 1349, '2026-04-27 03:25:17', 'GLM-4-Air', 798, 2147),
+(6300027, 'ai_res_000027', 1174, '2026-06-22 18:21:31', 'GLM-5.2-FP8', 1116, 2290),
+(6300028, 'ai_res_000028', 261, '2025-07-02 06:13:28', 'GLM-5.2-FP8', 2237, 2498),
+(6300029, 'ai_res_000029', 1483, '2026-01-13 11:52:51', 'GLM-4-Air', 1049, 2532),
+(6300030, 'ai_res_000030', 1645, '2026-03-27 19:04:01', 'GLM-5.2-FP8', 1596, 3241),
+(6300031, 'ai_res_000031', 1247, '2024-08-10 18:07:52', 'GLM-5.2-FP8', 2457, 3704),
+(6300032, 'ai_res_000032', 398, '2024-11-18 14:02:33', 'Qwen3-Embedding-8B-Alt', 2997, 3395),
+(6300033, 'ai_res_000033', 119, '2024-10-28 14:31:28', 'GLM-5.2-FP8', 500, 619),
+(6300034, 'ai_res_000034', 369, '2025-11-22 13:39:18', 'Qwen3-Embedding-8B-Alt', 1911, 2280),
+(6300035, 'ai_res_000035', 1232, '2025-05-04 16:35:29', 'GLM-4-Air', 2497, 3729),
+(6300036, 'ai_res_000036', 1331, '2025-02-16 02:08:31', 'GLM-5.2-FP8', 870, 2201),
+(6300037, 'ai_res_000037', 498, '2024-01-14 22:02:17', 'Qwen3-Embedding-8B-Alt', 990, 1488),
+(6300038, 'ai_res_000038', 354, '2024-07-11 01:18:16', 'GLM-5.2-FP8', 1269, 1623),
+(6300039, 'ai_res_000039', 1101, '2024-03-18 12:14:04', 'GLM-4-Air', 2057, 3158),
+(6300040, 'ai_res_000040', 1199, '2024-12-09 05:15:15', 'GLM-4-Air', 2946, 4145),
+(6300041, 'ai_res_000041', 967, '2024-01-12 05:47:00', 'GLM-4-Air', 2139, 3106),
+(6300042, 'ai_res_000042', 393, '2025-10-16 04:55:49', 'Qwen3-Embedding-8B-Alt', 955, 1348),
+(6300043, 'ai_res_000043', 787, '2025-09-19 20:38:39', 'Qwen3-Embedding-8B-Alt', 1372, 2159),
+(6300044, 'ai_res_000044', 1071, '2024-08-26 14:10:06', 'GLM-4-Air', 2068, 3139),
+(6300045, 'ai_res_000045', 881, '2025-11-19 04:54:35', 'GLM-5.2-FP8', 290, 1171),
+(6300046, 'ai_res_000046', 353, '2024-11-19 16:39:54', 'GLM-5.2-FP8', 771, 1124),
+(6300047, 'ai_res_000047', 1005, '2025-06-01 06:44:39', 'GLM-5.2-FP8', 924, 1929),
+(6300048, 'ai_res_000048', 1411, '2025-09-26 18:47:56', 'GLM-4-Air', 451, 1862),
+(6300049, 'ai_res_000049', 1988, '2025-08-11 10:40:15', 'Qwen3-Embedding-8B-Alt', 2269, 4257),
+(6300050, 'ai_res_000050', 1891, '2024-03-23 14:33:06', 'GLM-5.2-FP8', 861, 2752),
+(6300051, 'ai_res_000051', 484, '2026-05-13 10:33:55', 'GLM-5.2-FP8', 752, 1236),
+(6300052, 'ai_res_000052', 1969, '2024-08-15 11:34:43', 'Qwen3-Embedding-8B-Alt', 2393, 4362),
+(6300053, 'ai_res_000053', 934, '2026-03-05 11:19:48', 'GLM-4-Air', 1604, 2538),
+(6300054, 'ai_res_000054', 501, '2025-12-20 10:35:10', 'GLM-4-Air', 701, 1202),
+(6300055, 'ai_res_000055', 428, '2026-03-21 21:16:56', 'GLM-5.2-FP8', 296, 724),
+(6300056, 'ai_res_000056', 882, '2025-04-29 11:39:19', 'GLM-5.2-FP8', 896, 1778),
+(6300057, 'ai_res_000057', 1599, '2024-04-11 22:11:24', 'Qwen3-Embedding-8B-Alt', 2749, 4348),
+(6300058, 'ai_res_000058', 1843, '2024-07-26 07:27:16', 'GLM-5.2-FP8', 2890, 4733),
+(6300059, 'ai_res_000059', 596, '2024-10-20 07:40:56', 'GLM-4-Air', 1246, 1842),
+(6300060, 'ai_res_000060', 364, '2025-08-08 05:28:54', 'Qwen3-Embedding-8B-Alt', 1245, 1609);
 
 -- ========================================================================
 -- iyque_group_msg · 群发任务
 -- ========================================================================
 INSERT INTO `iyque_group_msg` (`id`, `chatType`, `content`, `createTime`, `groupMsgName`, `scopeType`, `sendTime`, `sendType`, `updateTime`) VALUES
-(7000001, '1', '茅台 2026 年报解读 · 群发 1', '2026-02-14 16:42:00', '[茅台 2026 年报解读] 群发任务 1', 2, '2025-10-20 06:19:05', 1, '2025-11-27 20:06:26'),
-(7000002, '1', '巴菲特 2025 股东信要点 · 群发 2', '2024-08-10 11:38:23', '[巴菲特 2025 股东信要点] 群发任务 2', 2, '2026-05-25 14:50:57', 2, '2025-06-05 07:06:11'),
-(7000003, '2', '港股互联网复盘 · 群发 3', '2026-05-06 21:02:10', '[港股互联网复盘] 群发任务 3', 2, '2026-01-07 06:19:08', 1, '2025-05-23 06:39:04'),
-(7000004, '1', '白酒板块调研纪要 · 群发 4', '2025-08-16 03:05:26', '[白酒板块调研纪要] 群发任务 4', 2, '2024-08-18 11:53:26', 1, '2024-07-11 02:15:25'),
-(7000005, '1', '新能源产业链拆解 · 群发 5', '2024-07-07 05:26:40', '[新能源产业链拆解] 群发任务 5', 1, '2025-11-17 16:29:37', 2, '2024-04-11 20:22:22'),
-(7000006, '1', '半导体自主可控 · 群发 6', '2025-09-26 18:47:56', '[半导体自主可控] 群发任务 6', 2, '2026-02-23 23:34:40', 2, '2026-02-16 01:33:23'),
-(7000007, '1', '医药创新出海 · 群发 7', '2024-03-23 14:33:06', '[医药创新出海] 群发任务 7', 1, '2024-07-28 10:46:53', 1, '2026-05-13 10:33:55'),
-(7000008, '1', 'AI 大模型投资叙事 · 群发 8', '2026-04-11 17:22:07', '[AI 大模型投资叙事] 群发任务 8', 1, '2025-06-16 14:17:05', 2, '2026-03-05 11:19:48'),
-(7000009, '2', '客户开年寄语 · 群发 9', '2024-07-09 04:52:42', '[客户开年寄语] 群发任务 9', 1, '2025-12-20 10:35:10', 2, '2024-02-06 17:30:57'),
-(7000010, '1', '春节问候 · 群发 10', '2026-03-21 21:16:56', '[春节问候] 群发任务 10', 1, '2024-09-21 02:44:53', 2, '2025-04-29 11:39:19'),
-(7000011, '1', '中秋祝福 · 群发 11', '2024-04-11 22:11:24', '[中秋祝福] 群发任务 11', 3, '2024-07-26 07:27:16', 1, '2025-01-31 19:42:51'),
-(7000012, '1', '国庆祝福 · 群发 12', '2024-10-20 07:40:56', '[国庆祝福] 群发任务 12', 2, '2025-01-31 14:06:04', 1, '2025-08-08 05:28:54'),
-(7000013, '2', '读书会预告 · 穷查理宝典 · 群发 13', '2026-02-11 16:05:17', '[读书会预告 · 穷查理宝典] 群发任务 13', 1, '2024-05-21 19:34:03', 1, '2025-04-03 12:18:08'),
-(7000014, '2', '读书会预告 · 巴菲特股东信 · 群发 14', '2024-08-03 00:16:21', '[读书会预告 · 巴菲特股东信] 群发任务 14', 2, '2024-05-04 00:59:43', 2, '2025-07-20 06:53:40'),
-(7000015, '2', '月度净值播报 · 群发 15', '2025-04-25 14:02:49', '[月度净值播报] 群发任务 15', 2, '2025-05-10 09:22:49', 1, '2024-12-18 07:23:35'),
-(7000016, '2', '季度报告 · 群发 16', '2025-12-13 12:32:01', '[季度报告] 群发任务 16', 2, '2025-12-07 15:14:19', 1, '2025-06-08 20:51:44'),
-(7000017, '1', '客户回访通知 · 群发 17', '2024-06-23 22:21:58', '[客户回访通知] 群发任务 17', 3, '2024-04-24 08:57:29', 1, '2024-04-13 03:31:07'),
-(7000018, '2', '投顾团队新增 · 群发 18', '2024-04-28 17:21:10', '[投顾团队新增] 群发任务 18', 1, '2025-06-03 02:05:37', 2, '2026-05-22 14:33:16'),
-(7000019, '1', '护城河产品升级 · 群发 19', '2024-11-05 04:49:46', '[护城河产品升级] 群发任务 19', 3, '2026-03-06 03:18:11', 1, '2024-01-24 11:59:41'),
-(7000020, '2', 'AI 助手上线预告 · 群发 20', '2025-03-03 14:22:50', '[AI 助手上线预告] 群发任务 20', 1, '2024-07-08 16:51:15', 1, '2024-11-28 01:53:02'),
-(7000021, '2', '茅台 2026 年报解读 · 群发 21', '2024-10-22 17:22:44', '[茅台 2026 年报解读] 群发任务 21', 2, '2026-04-06 06:17:58', 2, '2026-01-04 17:09:01'),
-(7000022, '2', '巴菲特 2025 股东信要点 · 群发 22', '2026-06-29 13:37:00', '[巴菲特 2025 股东信要点] 群发任务 22', 2, '2025-07-19 13:41:48', 2, '2025-04-25 13:02:43'),
-(7000023, '1', '港股互联网复盘 · 群发 23', '2025-03-23 14:53:16', '[港股互联网复盘] 群发任务 23', 1, '2024-04-25 11:33:01', 1, '2024-05-07 20:43:22'),
-(7000024, '2', '白酒板块调研纪要 · 群发 24', '2024-12-23 09:33:09', '[白酒板块调研纪要] 群发任务 24', 3, '2025-06-14 17:43:51', 1, '2024-10-06 06:53:30'),
-(7000025, '1', '新能源产业链拆解 · 群发 25', '2025-07-23 09:48:18', '[新能源产业链拆解] 群发任务 25', 2, '2025-06-06 19:12:38', 2, '2026-06-17 20:08:24'),
-(7000026, '2', '半导体自主可控 · 群发 26', '2024-07-28 04:10:57', '[半导体自主可控] 群发任务 26', 2, '2024-02-05 05:50:34', 1, '2025-09-28 03:25:22'),
-(7000027, '1', '医药创新出海 · 群发 27', '2024-04-17 09:56:49', '[医药创新出海] 群发任务 27', 2, '2026-06-17 15:15:23', 1, '2025-01-13 09:59:58'),
-(7000028, '1', 'AI 大模型投资叙事 · 群发 28', '2024-01-13 07:15:35', '[AI 大模型投资叙事] 群发任务 28', 1, '2024-05-23 22:49:02', 2, '2025-08-29 19:06:58'),
-(7000029, '1', '客户开年寄语 · 群发 29', '2024-11-11 23:45:55', '[客户开年寄语] 群发任务 29', 2, '2025-03-16 03:52:19', 2, '2025-05-04 22:53:47'),
-(7000030, '2', '春节问候 · 群发 30', '2025-04-17 23:31:49', '[春节问候] 群发任务 30', 2, '2025-04-17 00:17:41', 2, '2025-05-23 01:56:54'),
-(7000031, '1', '中秋祝福 · 群发 31', '2024-04-10 07:00:55', '[中秋祝福] 群发任务 31', 3, '2024-11-23 13:55:57', 2, '2026-01-02 14:22:08'),
-(7000032, '2', '国庆祝福 · 群发 32', '2026-02-12 19:39:01', '[国庆祝福] 群发任务 32', 1, '2025-08-05 14:32:51', 1, '2025-08-10 15:16:31'),
-(7000033, '1', '读书会预告 · 穷查理宝典 · 群发 33', '2024-05-21 00:03:41', '[读书会预告 · 穷查理宝典] 群发任务 33', 2, '2024-06-13 00:11:20', 2, '2025-10-07 00:42:32'),
-(7000034, '1', '读书会预告 · 巴菲特股东信 · 群发 34', '2024-06-10 00:30:35', '[读书会预告 · 巴菲特股东信] 群发任务 34', 2, '2026-04-07 23:44:27', 2, '2026-01-31 08:18:27'),
-(7000035, '1', '月度净值播报 · 群发 35', '2025-01-08 16:09:42', '[月度净值播报] 群发任务 35', 2, '2024-12-03 19:17:02', 2, '2026-02-26 09:05:43'),
-(7000036, '2', '季度报告 · 群发 36', '2025-01-24 13:31:15', '[季度报告] 群发任务 36', 1, '2024-11-10 05:46:33', 1, '2025-02-22 19:24:14'),
-(7000037, '1', '客户回访通知 · 群发 37', '2025-09-14 11:49:51', '[客户回访通知] 群发任务 37', 3, '2025-03-11 12:18:25', 2, '2025-07-31 00:58:56'),
-(7000038, '2', '投顾团队新增 · 群发 38', '2024-03-13 14:50:12', '[投顾团队新增] 群发任务 38', 3, '2024-12-15 07:48:23', 2, '2025-12-28 16:24:46'),
-(7000039, '2', '护城河产品升级 · 群发 39', '2024-03-23 05:40:55', '[护城河产品升级] 群发任务 39', 1, '2025-09-28 12:16:01', 1, '2025-04-14 05:35:52'),
-(7000040, '2', 'AI 助手上线预告 · 群发 40', '2025-04-03 03:52:25', '[AI 助手上线预告] 群发任务 40', 2, '2025-09-18 17:55:46', 1, '2025-07-31 05:37:57'),
-(7000041, '2', '茅台 2026 年报解读 · 群发 41', '2024-09-08 10:32:01', '[茅台 2026 年报解读] 群发任务 41', 3, '2025-11-08 03:17:55', 1, '2024-03-28 10:36:23'),
-(7000042, '1', '巴菲特 2025 股东信要点 · 群发 42', '2024-03-16 20:47:14', '[巴菲特 2025 股东信要点] 群发任务 42', 2, '2024-07-31 07:43:23', 2, '2026-01-11 18:37:19'),
-(7000043, '2', '港股互联网复盘 · 群发 43', '2025-03-04 08:38:02', '[港股互联网复盘] 群发任务 43', 3, '2025-01-05 03:59:16', 2, '2024-12-17 15:36:10'),
-(7000044, '2', '白酒板块调研纪要 · 群发 44', '2024-06-09 18:36:44', '[白酒板块调研纪要] 群发任务 44', 2, '2024-11-03 16:13:11', 2, '2025-01-28 05:01:01'),
-(7000045, '1', '新能源产业链拆解 · 群发 45', '2024-12-24 11:11:13', '[新能源产业链拆解] 群发任务 45', 2, '2025-09-09 22:02:17', 1, '2024-01-14 11:30:15'),
-(7000046, '2', '半导体自主可控 · 群发 46', '2025-11-20 18:36:41', '[半导体自主可控] 群发任务 46', 3, '2024-07-12 16:02:39', 2, '2024-12-25 12:01:14'),
-(7000047, '2', '医药创新出海 · 群发 47', '2025-11-24 02:44:08', '[医药创新出海] 群发任务 47', 3, '2025-08-17 04:48:24', 1, '2025-04-09 03:26:09'),
-(7000048, '2', 'AI 大模型投资叙事 · 群发 48', '2025-12-01 12:08:29', '[AI 大模型投资叙事] 群发任务 48', 3, '2025-02-08 16:33:29', 2, '2024-04-23 11:50:46'),
-(7000049, '1', '客户开年寄语 · 群发 49', '2024-11-02 01:31:22', '[客户开年寄语] 群发任务 49', 1, '2025-01-04 09:16:45', 1, '2025-05-31 02:53:50'),
-(7000050, '1', '春节问候 · 群发 50', '2024-07-17 06:25:44', '[春节问候] 群发任务 50', 3, '2024-11-03 03:05:13', 1, '2024-07-03 22:49:55'),
-(7000051, '2', '中秋祝福 · 群发 51', '2026-02-09 11:38:22', '[中秋祝福] 群发任务 51', 3, '2024-09-12 09:32:44', 1, '2026-04-01 21:26:41'),
-(7000052, '1', '国庆祝福 · 群发 52', '2025-11-10 23:43:39', '[国庆祝福] 群发任务 52', 3, '2025-02-24 23:25:11', 2, '2024-05-03 16:45:03'),
-(7000053, '1', '读书会预告 · 穷查理宝典 · 群发 53', '2025-12-26 22:39:08', '[读书会预告 · 穷查理宝典] 群发任务 53', 2, '2025-09-07 12:03:20', 2, '2025-08-03 11:07:35'),
-(7000054, '1', '读书会预告 · 巴菲特股东信 · 群发 54', '2025-05-28 04:42:23', '[读书会预告 · 巴菲特股东信] 群发任务 54', 1, '2024-05-22 04:38:17', 1, '2025-01-13 03:38:12'),
-(7000055, '2', '月度净值播报 · 群发 55', '2026-06-03 10:34:09', '[月度净值播报] 群发任务 55', 2, '2025-08-02 13:08:02', 2, '2024-05-27 07:43:55'),
-(7000056, '2', '季度报告 · 群发 56', '2025-05-22 13:07:07', '[季度报告] 群发任务 56', 2, '2024-02-26 06:03:24', 1, '2024-02-17 13:10:45'),
-(7000057, '1', '客户回访通知 · 群发 57', '2025-10-20 23:28:40', '[客户回访通知] 群发任务 57', 2, '2026-05-29 01:56:47', 1, '2025-06-03 03:42:16'),
-(7000058, '2', '投顾团队新增 · 群发 58', '2025-12-11 12:27:38', '[投顾团队新增] 群发任务 58', 2, '2025-04-17 03:40:10', 1, '2024-02-06 02:34:34'),
-(7000059, '2', '护城河产品升级 · 群发 59', '2025-10-29 14:10:03', '[护城河产品升级] 群发任务 59', 2, '2026-01-17 01:14:34', 2, '2024-01-21 12:54:15'),
-(7000060, '2', 'AI 助手上线预告 · 群发 60', '2026-03-08 04:36:24', '[AI 助手上线预告] 群发任务 60', 2, '2025-02-10 22:22:37', 2, '2026-04-12 23:04:19');
+(7000001, '2', '茅台 2026 年报解读 · 群发 1', '2026-02-11 16:05:17', '[茅台 2026 年报解读] 群发任务 1', 1, '2024-05-21 19:34:03', 1, '2025-04-03 12:18:08'),
+(7000002, '2', '巴菲特 2025 股东信要点 · 群发 2', '2024-08-03 00:16:21', '[巴菲特 2025 股东信要点] 群发任务 2', 2, '2024-05-04 00:59:43', 2, '2025-07-20 06:53:40'),
+(7000003, '2', '港股互联网复盘 · 群发 3', '2025-04-25 14:02:49', '[港股互联网复盘] 群发任务 3', 2, '2025-05-10 09:22:49', 1, '2024-12-18 07:23:35'),
+(7000004, '2', '白酒板块调研纪要 · 群发 4', '2025-12-13 12:32:01', '[白酒板块调研纪要] 群发任务 4', 2, '2025-12-07 15:14:19', 1, '2025-06-08 20:51:44'),
+(7000005, '1', '新能源产业链拆解 · 群发 5', '2024-06-23 22:21:58', '[新能源产业链拆解] 群发任务 5', 3, '2024-04-24 08:57:29', 1, '2024-04-13 03:31:07'),
+(7000006, '2', '半导体自主可控 · 群发 6', '2024-04-28 17:21:10', '[半导体自主可控] 群发任务 6', 1, '2025-06-03 02:05:37', 2, '2026-05-22 14:33:16'),
+(7000007, '1', '医药创新出海 · 群发 7', '2024-11-05 04:49:46', '[医药创新出海] 群发任务 7', 3, '2026-03-06 03:18:11', 1, '2024-01-24 11:59:41'),
+(7000008, '2', 'AI 大模型投资叙事 · 群发 8', '2025-03-03 14:22:50', '[AI 大模型投资叙事] 群发任务 8', 1, '2024-07-08 16:51:15', 1, '2024-11-28 01:53:02'),
+(7000009, '2', '客户开年寄语 · 群发 9', '2024-10-22 17:22:44', '[客户开年寄语] 群发任务 9', 2, '2026-04-06 06:17:58', 2, '2026-01-04 17:09:01'),
+(7000010, '2', '春节问候 · 群发 10', '2026-06-29 13:37:00', '[春节问候] 群发任务 10', 2, '2025-07-19 13:41:48', 2, '2025-04-25 13:02:43'),
+(7000011, '1', '中秋祝福 · 群发 11', '2025-03-23 14:53:16', '[中秋祝福] 群发任务 11', 1, '2024-04-25 11:33:01', 1, '2024-05-07 20:43:22'),
+(7000012, '2', '国庆祝福 · 群发 12', '2024-12-23 09:33:09', '[国庆祝福] 群发任务 12', 3, '2025-06-14 17:43:51', 1, '2024-10-06 06:53:30'),
+(7000013, '1', '读书会预告 · 穷查理宝典 · 群发 13', '2025-07-23 09:48:18', '[读书会预告 · 穷查理宝典] 群发任务 13', 2, '2025-06-06 19:12:38', 2, '2026-06-17 20:08:24'),
+(7000014, '2', '读书会预告 · 巴菲特股东信 · 群发 14', '2024-07-28 04:10:57', '[读书会预告 · 巴菲特股东信] 群发任务 14', 2, '2024-02-05 05:50:34', 1, '2025-09-28 03:25:22'),
+(7000015, '1', '月度净值播报 · 群发 15', '2024-04-17 09:56:49', '[月度净值播报] 群发任务 15', 2, '2026-06-17 15:15:23', 1, '2025-01-13 09:59:58'),
+(7000016, '1', '季度报告 · 群发 16', '2024-01-13 07:15:35', '[季度报告] 群发任务 16', 1, '2024-05-23 22:49:02', 2, '2025-08-29 19:06:58'),
+(7000017, '1', '客户回访通知 · 群发 17', '2024-11-11 23:45:55', '[客户回访通知] 群发任务 17', 2, '2025-03-16 03:52:19', 2, '2025-05-04 22:53:47'),
+(7000018, '2', '投顾团队新增 · 群发 18', '2025-04-17 23:31:49', '[投顾团队新增] 群发任务 18', 2, '2025-04-17 00:17:41', 2, '2025-05-23 01:56:54'),
+(7000019, '1', '护城河产品升级 · 群发 19', '2024-04-10 07:00:55', '[护城河产品升级] 群发任务 19', 3, '2024-11-23 13:55:57', 2, '2026-01-02 14:22:08'),
+(7000020, '2', 'AI 助手上线预告 · 群发 20', '2026-02-12 19:39:01', '[AI 助手上线预告] 群发任务 20', 1, '2025-08-05 14:32:51', 1, '2025-08-10 15:16:31'),
+(7000021, '1', '茅台 2026 年报解读 · 群发 21', '2024-05-21 00:03:41', '[茅台 2026 年报解读] 群发任务 21', 2, '2024-06-13 00:11:20', 2, '2025-10-07 00:42:32'),
+(7000022, '1', '巴菲特 2025 股东信要点 · 群发 22', '2024-06-10 00:30:35', '[巴菲特 2025 股东信要点] 群发任务 22', 2, '2026-04-07 23:44:27', 2, '2026-01-31 08:18:27'),
+(7000023, '1', '港股互联网复盘 · 群发 23', '2025-01-08 16:09:42', '[港股互联网复盘] 群发任务 23', 2, '2024-12-03 19:17:02', 2, '2026-02-26 09:05:43'),
+(7000024, '2', '白酒板块调研纪要 · 群发 24', '2025-01-24 13:31:15', '[白酒板块调研纪要] 群发任务 24', 1, '2024-11-10 05:46:33', 1, '2025-02-22 19:24:14'),
+(7000025, '1', '新能源产业链拆解 · 群发 25', '2025-09-14 11:49:51', '[新能源产业链拆解] 群发任务 25', 3, '2025-03-11 12:18:25', 2, '2025-07-31 00:58:56'),
+(7000026, '2', '半导体自主可控 · 群发 26', '2024-03-13 14:50:12', '[半导体自主可控] 群发任务 26', 3, '2024-12-15 07:48:23', 2, '2025-12-28 16:24:46'),
+(7000027, '2', '医药创新出海 · 群发 27', '2024-03-23 05:40:55', '[医药创新出海] 群发任务 27', 1, '2025-09-28 12:16:01', 1, '2025-04-14 05:35:52'),
+(7000028, '2', 'AI 大模型投资叙事 · 群发 28', '2025-04-03 03:52:25', '[AI 大模型投资叙事] 群发任务 28', 2, '2025-09-18 17:55:46', 1, '2025-07-31 05:37:57'),
+(7000029, '2', '客户开年寄语 · 群发 29', '2024-09-08 10:32:01', '[客户开年寄语] 群发任务 29', 3, '2025-11-08 03:17:55', 1, '2024-03-28 10:36:23'),
+(7000030, '1', '春节问候 · 群发 30', '2024-03-16 20:47:14', '[春节问候] 群发任务 30', 2, '2024-07-31 07:43:23', 2, '2026-01-11 18:37:19'),
+(7000031, '2', '中秋祝福 · 群发 31', '2025-03-04 08:38:02', '[中秋祝福] 群发任务 31', 3, '2025-01-05 03:59:16', 2, '2024-12-17 15:36:10'),
+(7000032, '2', '国庆祝福 · 群发 32', '2024-06-09 18:36:44', '[国庆祝福] 群发任务 32', 2, '2024-11-03 16:13:11', 2, '2025-01-28 05:01:01'),
+(7000033, '1', '读书会预告 · 穷查理宝典 · 群发 33', '2024-12-24 11:11:13', '[读书会预告 · 穷查理宝典] 群发任务 33', 2, '2025-09-09 22:02:17', 1, '2024-01-14 11:30:15'),
+(7000034, '2', '读书会预告 · 巴菲特股东信 · 群发 34', '2025-11-20 18:36:41', '[读书会预告 · 巴菲特股东信] 群发任务 34', 3, '2024-07-12 16:02:39', 2, '2024-12-25 12:01:14'),
+(7000035, '2', '月度净值播报 · 群发 35', '2025-11-24 02:44:08', '[月度净值播报] 群发任务 35', 3, '2025-08-17 04:48:24', 1, '2025-04-09 03:26:09'),
+(7000036, '2', '季度报告 · 群发 36', '2025-12-01 12:08:29', '[季度报告] 群发任务 36', 3, '2025-02-08 16:33:29', 2, '2024-04-23 11:50:46'),
+(7000037, '1', '客户回访通知 · 群发 37', '2024-11-02 01:31:22', '[客户回访通知] 群发任务 37', 1, '2025-01-04 09:16:45', 1, '2025-05-31 02:53:50'),
+(7000038, '1', '投顾团队新增 · 群发 38', '2024-07-17 06:25:44', '[投顾团队新增] 群发任务 38', 3, '2024-11-03 03:05:13', 1, '2024-07-03 22:49:55'),
+(7000039, '2', '护城河产品升级 · 群发 39', '2026-02-09 11:38:22', '[护城河产品升级] 群发任务 39', 3, '2024-09-12 09:32:44', 1, '2026-04-01 21:26:41'),
+(7000040, '1', 'AI 助手上线预告 · 群发 40', '2025-11-10 23:43:39', '[AI 助手上线预告] 群发任务 40', 3, '2025-02-24 23:25:11', 2, '2024-05-03 16:45:03'),
+(7000041, '1', '茅台 2026 年报解读 · 群发 41', '2025-12-26 22:39:08', '[茅台 2026 年报解读] 群发任务 41', 2, '2025-09-07 12:03:20', 2, '2025-08-03 11:07:35'),
+(7000042, '1', '巴菲特 2025 股东信要点 · 群发 42', '2025-05-28 04:42:23', '[巴菲特 2025 股东信要点] 群发任务 42', 1, '2024-05-22 04:38:17', 1, '2025-01-13 03:38:12'),
+(7000043, '2', '港股互联网复盘 · 群发 43', '2026-06-03 10:34:09', '[港股互联网复盘] 群发任务 43', 2, '2025-08-02 13:08:02', 2, '2024-05-27 07:43:55'),
+(7000044, '2', '白酒板块调研纪要 · 群发 44', '2025-05-22 13:07:07', '[白酒板块调研纪要] 群发任务 44', 2, '2024-02-26 06:03:24', 1, '2024-02-17 13:10:45'),
+(7000045, '1', '新能源产业链拆解 · 群发 45', '2025-10-20 23:28:40', '[新能源产业链拆解] 群发任务 45', 2, '2026-05-29 01:56:47', 1, '2025-06-03 03:42:16'),
+(7000046, '2', '半导体自主可控 · 群发 46', '2025-12-11 12:27:38', '[半导体自主可控] 群发任务 46', 2, '2025-04-17 03:40:10', 1, '2024-02-06 02:34:34'),
+(7000047, '2', '医药创新出海 · 群发 47', '2025-10-29 14:10:03', '[医药创新出海] 群发任务 47', 2, '2026-01-17 01:14:34', 2, '2024-01-21 12:54:15'),
+(7000048, '2', 'AI 大模型投资叙事 · 群发 48', '2026-03-08 04:36:24', '[AI 大模型投资叙事] 群发任务 48', 2, '2025-02-10 22:22:37', 2, '2026-04-12 23:04:19'),
+(7000049, '1', '客户开年寄语 · 群发 49', '2025-07-15 06:40:02', '[客户开年寄语] 群发任务 49', 3, '2024-04-22 19:11:06', 1, '2024-01-07 11:35:28'),
+(7000050, '1', '春节问候 · 群发 50', '2024-04-07 17:36:11', '[春节问候] 群发任务 50', 1, '2025-04-24 03:39:11', 2, '2024-04-25 01:34:23'),
+(7000051, '1', '中秋祝福 · 群发 51', '2026-03-04 16:49:01', '[中秋祝福] 群发任务 51', 1, '2024-10-17 20:32:54', 2, '2026-03-20 09:34:18'),
+(7000052, '2', '国庆祝福 · 群发 52', '2026-01-20 15:18:31', '[国庆祝福] 群发任务 52', 3, '2024-01-01 11:48:42', 2, '2024-12-29 12:27:27'),
+(7000053, '2', '读书会预告 · 穷查理宝典 · 群发 53', '2024-06-05 01:04:33', '[读书会预告 · 穷查理宝典] 群发任务 53', 3, '2024-07-17 15:29:06', 2, '2025-01-12 23:52:09'),
+(7000054, '1', '读书会预告 · 巴菲特股东信 · 群发 54', '2025-06-14 09:42:35', '[读书会预告 · 巴菲特股东信] 群发任务 54', 3, '2025-01-13 18:14:48', 1, '2025-06-25 03:20:27'),
+(7000055, '2', '月度净值播报 · 群发 55', '2024-04-07 23:20:36', '[月度净值播报] 群发任务 55', 1, '2024-12-30 23:08:39', 1, '2024-02-22 00:15:17'),
+(7000056, '2', '季度报告 · 群发 56', '2025-02-01 05:28:00', '[季度报告] 群发任务 56', 2, '2024-11-24 22:03:17', 2, '2025-03-13 15:40:54'),
+(7000057, '2', '客户回访通知 · 群发 57', '2024-09-10 02:17:53', '[客户回访通知] 群发任务 57', 1, '2025-08-19 05:19:17', 2, '2024-02-20 04:21:14'),
+(7000058, '1', '投顾团队新增 · 群发 58', '2024-04-26 04:32:18', '[投顾团队新增] 群发任务 58', 2, '2024-01-03 20:34:44', 2, '2026-01-26 13:32:46'),
+(7000059, '1', '护城河产品升级 · 群发 59', '2025-08-12 18:55:19', '[护城河产品升级] 群发任务 59', 2, '2025-11-17 01:09:41', 1, '2025-05-20 10:06:51'),
+(7000060, '1', 'AI 助手上线预告 · 群发 60', '2024-11-01 14:00:40', '[AI 助手上线预告] 群发任务 60', 2, '2025-01-22 18:02:46', 2, '2026-04-26 12:14:35');
 
 -- ========================================================================
 -- iyque_group_msg_sub · 群发接收明细
 -- ========================================================================
 INSERT INTO `iyque_group_msg_sub` (`id`, `acceptId`, `acceptName`, `acceptType`, `groupMsgId`, `msgId`, `sendTime`, `senderId`, `status`, `statusSub`) VALUES
-(7100001, 'wm_bill_gates', '比尔·盖茨', 1, 7000001, 'gmsg_000001', '2024-05-02 06:18:30', 'MOAT_GRAHAM', 0, 1),
-(7100002, 'wm_kay_graham', '凯瑟琳·格雷厄姆', 1, 7000002, 'gmsg_000002', '2025-07-15 06:40:02', 'MOAT_BUFFETT', 1, 1),
-(7100003, 'wm_ted_turner', '特德·特纳', 1, 7000003, 'gmsg_000003', '2024-04-22 19:11:06', 'MOAT_MUNGER', 1, 1),
-(7100004, 'wm_ajit_jain', '阿吉特·贾因', 1, 7000004, 'gmsg_000004', '2024-03-30 22:34:54', 'MOAT_LYNCH', 1, 1),
-(7100005, 'wm_greg_abel', '格雷格·阿贝尔', 1, 7000005, 'gmsg_000005', '2024-01-07 11:35:28', 'MOAT_FISHER', 1, 1),
-(7100006, 'wm_todd_combs', '托德·库姆斯', 1, 7000006, 'gmsg_000006', '2026-03-27 03:57:15', 'MOAT_TEMPLETON', 0, 1),
-(7100007, 'wm_ted_weschler', '特德·韦施勒', 1, 7000007, 'gmsg_000007', '2026-04-06 03:02:09', 'MOAT_DUAN', 1, 1),
-(7100008, 'wm_ron_olson', '罗恩·奥尔森', 1, 7000008, 'gmsg_000008', '2024-09-08 19:01:35', 'MOAT_LINYUAN', 1, 1),
-(7100009, 'wm_rick_guerin', '里克·盖林', 1, 7000009, 'gmsg_000009', '2024-04-07 17:36:11', 'MOAT_DANBIN', 1, 1),
-(7100010, 'wm_walter_schloss', '沃尔特·施洛斯', 1, 7000010, 'gmsg_000010', '2024-02-27 15:48:13', 'MOAT_ZMZ', 1, 1),
-(7100011, 'wm_seth_klarman', '塞斯·卡拉曼', 1, 7000011, 'gmsg_000011', '2025-04-24 03:39:11', 'MOAT_LILU', 0, 1),
-(7100012, 'wm_howard_marks', '霍华德·马克斯', 1, 7000012, 'gmsg_000012', '2025-03-31 09:59:44', 'MOAT_ZHAODANYANG', 1, 1),
-(7100013, 'wm_yohei_hosoda', '细田洋平', 1, 7000013, 'gmsg_000013', '2024-04-25 01:34:23', 'MOAT_GRAHAM', 1, 1),
-(7100014, 'wm_lynchfund_fan', '麦哲伦基金老持有人', 1, 7000014, 'gmsg_000014', '2024-08-11 10:34:57', 'MOAT_BUFFETT', 1, 1),
-(7100015, 'wm_dinglei', '丁磊', 1, 7000015, 'gmsg_000015', '2026-03-04 16:49:01', 'MOAT_MUNGER', 1, 1),
-(7100016, 'wm_huangzheng', '黄峥', 1, 7000016, 'gmsg_000016', '2024-01-12 06:56:34', 'MOAT_LYNCH', 0, 1),
-(7100017, 'wm_chenmingyong', '陈明永', 1, 7000017, 'gmsg_000017', '2024-10-17 20:32:54', 'MOAT_FISHER', 1, 1),
-(7100018, 'wm_shenwei', '沈炜', 1, 7000018, 'gmsg_000018', '2025-04-02 19:14:00', 'MOAT_TEMPLETON', 1, 1),
-(7100019, 'wm_fangsanwen', '方三文', 1, 7000019, 'gmsg_000019', '2026-03-20 09:34:18', 'MOAT_DUAN', 1, 1),
-(7100020, 'wm_liuhaoran', '刘昊然（同名）', 1, 7000020, 'gmsg_000020', '2025-06-08 07:50:42', 'MOAT_LINYUAN', 1, 1),
-(7100021, 'wm_zhugeliang', '但斌客户 A（诸葛量）', 1, 7000021, 'gmsg_000021', '2026-01-20 15:18:31', 'MOAT_DANBIN', 0, 1),
-(7100022, 'wm_maotai_holder', '茅台老股东', 1, 7000022, 'gmsg_000022', '2024-01-01 11:48:42', 'MOAT_ZMZ', 1, 1),
-(7100023, 'wm_wuliangye_lp', '五粮液 LP', 1, 7000023, 'gmsg_000023', '2025-04-24 00:53:18', 'MOAT_LILU', 1, 1),
-(7100024, 'wm_pinganhuang', '平安黄总', 1, 7000024, 'gmsg_000024', '2024-12-29 12:27:27', 'MOAT_ZHAODANYANG', 1, 1),
-(7100025, 'wm_geli_dong', '董明珠', 1, 7000025, 'gmsg_000025', '2025-05-27 20:54:46', 'MOAT_GRAHAM', 1, 1),
-(7100026, 'wm_meidi_fangh', '方洪波', 1, 7000026, 'gmsg_000026', '2024-06-05 01:04:33', 'MOAT_BUFFETT', 0, 1),
-(7100027, 'wm_byd_wangchuanfu', '王传福', 1, 7000027, 'gmsg_000027', '2024-07-17 15:29:06', 'MOAT_MUNGER', 1, 1),
-(7100028, 'wm_catl_zeng', '曾毓群', 1, 7000028, 'gmsg_000028', '2026-02-27 05:09:30', 'MOAT_LYNCH', 1, 1),
-(7100029, 'wm_pony_ma', '马化腾', 1, 7000029, 'gmsg_000029', '2026-04-27 04:05:21', 'MOAT_FISHER', 1, 1),
-(7100030, 'wm_jack_ma', '马云', 1, 7000030, 'gmsg_000030', '2026-02-17 15:55:39', 'MOAT_TEMPLETON', 1, 1),
-(7100031, 'wm_lei_jun', '雷军', 1, 7000031, 'gmsg_000031', '2025-02-07 06:44:38', 'MOAT_DUAN', 0, 1),
-(7100032, 'wm_zhang_yiming', '张一鸣', 1, 7000032, 'gmsg_000032', '2025-01-12 23:52:09', 'MOAT_LINYUAN', 1, 1),
-(7100033, 'wm_liu_qiangdong', '刘强东', 1, 7000033, 'gmsg_000033', '2024-04-02 21:07:56', 'MOAT_DANBIN', 1, 1),
-(7100034, 'wm_haier_zhang', '张瑞敏', 1, 7000034, 'gmsg_000034', '2025-06-14 09:42:35', 'MOAT_ZMZ', 1, 1),
-(7100035, 'wm_lenovo_liu', '柳传志', 1, 7000035, 'gmsg_000035', '2025-01-13 18:14:48', 'MOAT_LILU', 1, 1),
-(7100036, 'wm_gree_meng', '孟羽童', 1, 7000036, 'gmsg_000036', '2024-08-28 00:38:16', 'MOAT_ZHAODANYANG', 0, 1),
-(7100037, 'wm_li_kashing', '李嘉诚', 1, 7000037, 'gmsg_000037', '2025-06-25 03:20:27', 'MOAT_GRAHAM', 1, 1),
-(7100038, 'wm_li_zeju', '李泽钜', 1, 7000038, 'gmsg_000038', '2025-09-22 10:08:57', 'MOAT_BUFFETT', 1, 1),
-(7100039, 'wm_terry_gou', '郭台铭', 1, 7000039, 'gmsg_000039', '2024-04-07 23:20:36', 'MOAT_MUNGER', 1, 1),
-(7100040, 'wm_tsai_ing', '蔡崇信', 1, 7000040, 'gmsg_000040', '2024-03-08 09:51:01', 'MOAT_LYNCH', 1, 1),
-(7100041, 'wm_youzi_zhao', '游资赵老哥', 1, 7000041, 'gmsg_000041', '2024-12-30 23:08:39', 'MOAT_FISHER', 0, 1),
-(7100042, 'wm_youzi_qiao', '游资乔帮主', 1, 7000042, 'gmsg_000042', '2024-10-01 00:39:00', 'MOAT_TEMPLETON', 1, 1),
-(7100043, 'wm_youzi_mengniu', '游资孟乃', 1, 7000043, 'gmsg_000043', '2024-02-22 00:15:17', 'MOAT_DUAN', 1, 1),
-(7100044, 'wm_hangzhou_tuhao', '杭州七哥', 1, 7000044, 'gmsg_000044', '2025-10-28 06:41:51', 'MOAT_LINYUAN', 1, 1),
-(7100045, 'wm_wine_lover_zhang', '张老板', 1, 7000045, 'gmsg_000045', '2025-02-01 05:28:00', 'MOAT_DANBIN', 1, 1),
-(7100046, 'wm_pharma_wang', '王教授', 1, 7000046, 'gmsg_000046', '2025-09-05 11:34:54', 'MOAT_ZMZ', 0, 1),
-(7100047, 'wm_yunnanbaiyao_ho', '何女士', 1, 7000047, 'gmsg_000047', '2024-11-24 22:03:17', 'MOAT_LILU', 1, 1),
-(7100048, 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 1, 7000048, 'gmsg_000048', '2025-07-23 03:15:26', 'MOAT_ZHAODANYANG', 1, 1),
-(7100049, 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 1, 7000049, 'gmsg_000049', '2025-03-13 15:40:54', 'MOAT_GRAHAM', 1, 1),
-(7100050, 'wm_family_office_a', '上海某家族办', 1, 7000050, 'gmsg_000050', '2026-04-16 09:37:31', 'MOAT_BUFFETT', 1, 1),
-(7100051, 'wm_family_office_b', '深圳某家族办', 1, 7000051, 'gmsg_000051', '2025-10-24 12:29:03', 'MOAT_MUNGER', 0, 1),
-(7100052, 'wm_pe_partner_lu', '路总', 1, 7000052, 'gmsg_000052', '2024-09-10 02:17:53', 'MOAT_LYNCH', 1, 1),
-(7100053, 'wm_hnw_doctor_hu', '胡医生', 1, 7000053, 'gmsg_000053', '2024-07-09 14:58:38', 'MOAT_FISHER', 1, 1),
-(7100054, 'wm_retail_liu', '刘先生', 1, 7000054, 'gmsg_000054', '2025-08-19 05:19:17', 'MOAT_TEMPLETON', 1, 1),
-(7100055, 'wm_retail_chen', '陈女士', 1, 7000055, 'gmsg_000055', '2025-04-14 11:23:56', 'MOAT_DUAN', 1, 1),
-(7100056, 'wm_retail_wu', '吴老师', 1, 7000056, 'gmsg_000056', '2024-02-20 04:21:14', 'MOAT_LINYUAN', 0, 1),
-(7100057, 'wm_retail_zhou', '周同学', 1, 7000057, 'gmsg_000057', '2024-03-10 19:21:51', 'MOAT_DANBIN', 1, 1),
-(7100058, 'wm_retail_han', '韩总', 1, 7000058, 'gmsg_000058', '2024-04-26 04:32:18', 'MOAT_ZMZ', 1, 1),
-(7100059, 'wm_retail_gao', '高姐', 1, 7000059, 'gmsg_000059', '2025-03-05 07:08:00', 'MOAT_LILU', 1, 1),
-(7100060, 'wm_retail_shen', '沈总', 1, 7000060, 'gmsg_000060', '2024-01-03 20:34:44', 'MOAT_ZHAODANYANG', 1, 1),
-(7100061, 'wm_retail_kong', '孔总', 1, 7000001, 'gmsg_000061', '2025-06-25 05:35:30', 'MOAT_GRAHAM', 0, 1),
-(7100062, 'wm_bill_gates', '比尔·盖茨', 1, 7000002, 'gmsg_000062', '2026-01-26 13:32:46', 'MOAT_BUFFETT', 1, 1),
-(7100063, 'wm_kay_graham', '凯瑟琳·格雷厄姆', 1, 7000003, 'gmsg_000063', '2024-02-10 02:26:10', 'MOAT_MUNGER', 1, 1),
-(7100064, 'wm_ted_turner', '特德·特纳', 1, 7000004, 'gmsg_000064', '2025-08-12 18:55:19', 'MOAT_LYNCH', 1, 1),
-(7100065, 'wm_ajit_jain', '阿吉特·贾因', 1, 7000005, 'gmsg_000065', '2025-11-21 02:39:29', 'MOAT_FISHER', 1, 1),
-(7100066, 'wm_greg_abel', '格雷格·阿贝尔', 1, 7000006, 'gmsg_000066', '2025-11-17 01:09:41', 'MOAT_TEMPLETON', 0, 1),
-(7100067, 'wm_todd_combs', '托德·库姆斯', 1, 7000007, 'gmsg_000067', '2024-10-15 11:58:28', 'MOAT_DUAN', 1, 1),
-(7100068, 'wm_ted_weschler', '特德·韦施勒', 1, 7000008, 'gmsg_000068', '2025-05-20 10:06:51', 'MOAT_LINYUAN', 1, 1),
-(7100069, 'wm_ron_olson', '罗恩·奥尔森', 1, 7000009, 'gmsg_000069', '2024-02-03 23:09:56', 'MOAT_DANBIN', 1, 1),
-(7100070, 'wm_rick_guerin', '里克·盖林', 1, 7000010, 'gmsg_000070', '2024-11-01 14:00:40', 'MOAT_ZMZ', 1, 1),
-(7100071, 'wm_walter_schloss', '沃尔特·施洛斯', 1, 7000011, 'gmsg_000071', '2025-09-27 21:42:25', 'MOAT_LILU', 0, 1),
-(7100072, 'wm_seth_klarman', '塞斯·卡拉曼', 1, 7000012, 'gmsg_000072', '2025-01-22 18:02:46', 'MOAT_ZHAODANYANG', 1, 1),
-(7100073, 'wm_howard_marks', '霍华德·马克斯', 1, 7000013, 'gmsg_000073', '2025-05-27 12:11:31', 'MOAT_GRAHAM', 1, 1),
-(7100074, 'wm_yohei_hosoda', '细田洋平', 1, 7000014, 'gmsg_000074', '2026-04-26 12:14:35', 'MOAT_BUFFETT', 1, 1),
-(7100075, 'wm_lynchfund_fan', '麦哲伦基金老持有人', 1, 7000015, 'gmsg_000075', '2026-01-30 06:27:36', 'MOAT_MUNGER', 1, 1),
-(7100076, 'wm_dinglei', '丁磊', 1, 7000016, 'gmsg_000076', '2025-11-25 02:01:51', 'MOAT_LYNCH', 0, 1),
-(7100077, 'wm_huangzheng', '黄峥', 1, 7000017, 'gmsg_000077', '2024-04-06 22:31:08', 'MOAT_FISHER', 1, 1),
-(7100078, 'wm_chenmingyong', '陈明永', 1, 7000018, 'gmsg_000078', '2026-04-25 00:36:55', 'MOAT_TEMPLETON', 1, 1),
-(7100079, 'wm_shenwei', '沈炜', 1, 7000019, 'gmsg_000079', '2025-05-21 04:46:44', 'MOAT_DUAN', 1, 1),
-(7100080, 'wm_fangsanwen', '方三文', 1, 7000020, 'gmsg_000080', '2025-04-04 23:44:16', 'MOAT_LINYUAN', 1, 1);
+(7100001, 'wm_bill_gates', '比尔·盖茨', 1, 7000001, 'gmsg_000001', '2026-01-30 06:27:36', 'MOAT_GRAHAM', 0, 1),
+(7100002, 'wm_kay_graham', '凯瑟琳·格雷厄姆', 1, 7000002, 'gmsg_000002', '2025-11-25 02:01:51', 'MOAT_BUFFETT', 1, 1),
+(7100003, 'wm_ted_turner', '特德·特纳', 1, 7000003, 'gmsg_000003', '2024-04-06 22:31:08', 'MOAT_MUNGER', 1, 1),
+(7100004, 'wm_ajit_jain', '阿吉特·贾因', 1, 7000004, 'gmsg_000004', '2026-04-25 00:36:55', 'MOAT_LYNCH', 1, 1),
+(7100005, 'wm_greg_abel', '格雷格·阿贝尔', 1, 7000005, 'gmsg_000005', '2025-05-21 04:46:44', 'MOAT_FISHER', 1, 1),
+(7100006, 'wm_todd_combs', '托德·库姆斯', 1, 7000006, 'gmsg_000006', '2025-04-04 23:44:16', 'MOAT_TEMPLETON', 0, 1),
+(7100007, 'wm_ted_weschler', '特德·韦施勒', 1, 7000007, 'gmsg_000007', '2025-02-28 06:22:40', 'MOAT_DUAN', 1, 1),
+(7100008, 'wm_ron_olson', '罗恩·奥尔森', 1, 7000008, 'gmsg_000008', '2025-06-30 12:40:46', 'MOAT_LINYUAN', 1, 1),
+(7100009, 'wm_rick_guerin', '里克·盖林', 1, 7000009, 'gmsg_000009', '2026-01-29 07:57:33', 'MOAT_DANBIN', 1, 1),
+(7100010, 'wm_walter_schloss', '沃尔特·施洛斯', 1, 7000010, 'gmsg_000010', '2024-05-04 00:26:27', 'MOAT_ZMZ', 1, 1),
+(7100011, 'wm_seth_klarman', '塞斯·卡拉曼', 1, 7000011, 'gmsg_000011', '2026-03-14 04:56:57', 'MOAT_LILU', 0, 1),
+(7100012, 'wm_howard_marks', '霍华德·马克斯', 1, 7000012, 'gmsg_000012', '2025-08-07 18:56:15', 'MOAT_ZHAODANYANG', 1, 1),
+(7100013, 'wm_yohei_hosoda', '细田洋平', 1, 7000013, 'gmsg_000013', '2025-10-24 21:44:39', 'MOAT_GRAHAM', 1, 1),
+(7100014, 'wm_lynchfund_fan', '麦哲伦基金老持有人', 1, 7000014, 'gmsg_000014', '2025-04-13 00:28:06', 'MOAT_BUFFETT', 1, 1),
+(7100015, 'wm_dinglei', '丁磊', 1, 7000015, 'gmsg_000015', '2024-07-21 13:23:11', 'MOAT_MUNGER', 1, 1),
+(7100016, 'wm_huangzheng', '黄峥', 1, 7000016, 'gmsg_000016', '2025-03-06 03:23:37', 'MOAT_LYNCH', 0, 1),
+(7100017, 'wm_chenmingyong', '陈明永', 1, 7000017, 'gmsg_000017', '2025-03-14 23:33:34', 'MOAT_FISHER', 1, 1),
+(7100018, 'wm_shenwei', '沈炜', 1, 7000018, 'gmsg_000018', '2024-02-20 01:50:40', 'MOAT_TEMPLETON', 1, 1),
+(7100019, 'wm_fangsanwen', '方三文', 1, 7000019, 'gmsg_000019', '2024-07-30 01:58:05', 'MOAT_DUAN', 1, 1),
+(7100020, 'wm_liuhaoran', '刘昊然（同名）', 1, 7000020, 'gmsg_000020', '2024-09-22 18:19:24', 'MOAT_LINYUAN', 1, 1),
+(7100021, 'wm_zhugeliang', '但斌客户 A（诸葛量）', 1, 7000021, 'gmsg_000021', '2026-02-14 18:57:08', 'MOAT_DANBIN', 0, 1),
+(7100022, 'wm_maotai_holder', '茅台老股东', 1, 7000022, 'gmsg_000022', '2024-11-01 06:38:50', 'MOAT_ZMZ', 1, 1),
+(7100023, 'wm_wuliangye_lp', '五粮液 LP', 1, 7000023, 'gmsg_000023', '2025-03-25 05:35:02', 'MOAT_LILU', 1, 1),
+(7100024, 'wm_pinganhuang', '平安黄总', 1, 7000024, 'gmsg_000024', '2026-01-21 22:02:04', 'MOAT_ZHAODANYANG', 1, 1),
+(7100025, 'wm_geli_dong', '董明珠', 1, 7000025, 'gmsg_000025', '2024-01-22 09:47:47', 'MOAT_GRAHAM', 1, 1),
+(7100026, 'wm_meidi_fangh', '方洪波', 1, 7000026, 'gmsg_000026', '2025-01-28 21:07:31', 'MOAT_BUFFETT', 0, 1),
+(7100027, 'wm_byd_wangchuanfu', '王传福', 1, 7000027, 'gmsg_000027', '2024-04-20 07:02:26', 'MOAT_MUNGER', 1, 1),
+(7100028, 'wm_catl_zeng', '曾毓群', 1, 7000028, 'gmsg_000028', '2026-03-02 02:19:28', 'MOAT_LYNCH', 1, 1),
+(7100029, 'wm_pony_ma', '马化腾', 1, 7000029, 'gmsg_000029', '2024-02-05 19:42:47', 'MOAT_FISHER', 1, 1),
+(7100030, 'wm_jack_ma', '马云', 1, 7000030, 'gmsg_000030', '2024-10-25 05:00:32', 'MOAT_TEMPLETON', 1, 1),
+(7100031, 'wm_lei_jun', '雷军', 1, 7000031, 'gmsg_000031', '2026-04-05 06:05:40', 'MOAT_DUAN', 0, 1),
+(7100032, 'wm_zhang_yiming', '张一鸣', 1, 7000032, 'gmsg_000032', '2026-01-05 07:28:49', 'MOAT_LINYUAN', 1, 1),
+(7100033, 'wm_liu_qiangdong', '刘强东', 1, 7000033, 'gmsg_000033', '2024-03-06 08:16:31', 'MOAT_DANBIN', 1, 1),
+(7100034, 'wm_haier_zhang', '张瑞敏', 1, 7000034, 'gmsg_000034', '2025-01-04 01:47:28', 'MOAT_ZMZ', 1, 1),
+(7100035, 'wm_lenovo_liu', '柳传志', 1, 7000035, 'gmsg_000035', '2025-11-17 23:44:32', 'MOAT_LILU', 1, 1),
+(7100036, 'wm_gree_meng', '孟羽童', 1, 7000036, 'gmsg_000036', '2026-05-12 23:37:44', 'MOAT_ZHAODANYANG', 0, 1),
+(7100037, 'wm_li_kashing', '李嘉诚', 1, 7000037, 'gmsg_000037', '2024-02-14 08:42:54', 'MOAT_GRAHAM', 1, 1),
+(7100038, 'wm_li_zeju', '李泽钜', 1, 7000038, 'gmsg_000038', '2025-12-15 19:50:29', 'MOAT_BUFFETT', 1, 1),
+(7100039, 'wm_terry_gou', '郭台铭', 1, 7000039, 'gmsg_000039', '2025-01-10 20:27:40', 'MOAT_MUNGER', 1, 1),
+(7100040, 'wm_tsai_ing', '蔡崇信', 1, 7000040, 'gmsg_000040', '2025-11-21 21:11:30', 'MOAT_LYNCH', 1, 1),
+(7100041, 'wm_youzi_zhao', '游资赵老哥', 1, 7000041, 'gmsg_000041', '2026-02-17 01:04:49', 'MOAT_FISHER', 0, 1),
+(7100042, 'wm_youzi_qiao', '游资乔帮主', 1, 7000042, 'gmsg_000042', '2025-08-12 16:48:55', 'MOAT_TEMPLETON', 1, 1),
+(7100043, 'wm_youzi_mengniu', '游资孟乃', 1, 7000043, 'gmsg_000043', '2026-05-27 03:52:45', 'MOAT_DUAN', 1, 1),
+(7100044, 'wm_hangzhou_tuhao', '杭州七哥', 1, 7000044, 'gmsg_000044', '2024-05-26 17:27:29', 'MOAT_LINYUAN', 1, 1),
+(7100045, 'wm_wine_lover_zhang', '张老板', 1, 7000045, 'gmsg_000045', '2025-11-09 08:33:37', 'MOAT_DANBIN', 1, 1),
+(7100046, 'wm_pharma_wang', '王教授', 1, 7000046, 'gmsg_000046', '2026-03-26 01:02:11', 'MOAT_ZMZ', 0, 1),
+(7100047, 'wm_yunnanbaiyao_ho', '何女士', 1, 7000047, 'gmsg_000047', '2024-09-18 08:54:50', 'MOAT_LILU', 1, 1),
+(7100048, 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 1, 7000048, 'gmsg_000048', '2026-01-11 19:36:22', 'MOAT_ZHAODANYANG', 1, 1),
+(7100049, 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 1, 7000049, 'gmsg_000049', '2026-05-07 17:23:52', 'MOAT_GRAHAM', 1, 1),
+(7100050, 'wm_family_office_a', '上海某家族办', 1, 7000050, 'gmsg_000050', '2024-09-08 16:29:05', 'MOAT_BUFFETT', 1, 1),
+(7100051, 'wm_family_office_b', '深圳某家族办', 1, 7000051, 'gmsg_000051', '2025-01-05 21:13:07', 'MOAT_MUNGER', 0, 1),
+(7100052, 'wm_pe_partner_lu', '路总', 1, 7000052, 'gmsg_000052', '2026-02-11 15:23:57', 'MOAT_LYNCH', 1, 1),
+(7100053, 'wm_hnw_doctor_hu', '胡医生', 1, 7000053, 'gmsg_000053', '2024-05-22 19:55:48', 'MOAT_FISHER', 1, 1),
+(7100054, 'wm_retail_liu', '刘先生', 1, 7000054, 'gmsg_000054', '2025-10-20 20:10:04', 'MOAT_TEMPLETON', 1, 1),
+(7100055, 'wm_retail_chen', '陈女士', 1, 7000055, 'gmsg_000055', '2025-10-07 14:22:23', 'MOAT_DUAN', 1, 1),
+(7100056, 'wm_retail_wu', '吴老师', 1, 7000056, 'gmsg_000056', '2024-01-02 15:39:38', 'MOAT_LINYUAN', 0, 1),
+(7100057, 'wm_retail_zhou', '周同学', 1, 7000057, 'gmsg_000057', '2026-04-06 06:06:55', 'MOAT_DANBIN', 1, 1),
+(7100058, 'wm_retail_han', '韩总', 1, 7000058, 'gmsg_000058', '2025-10-21 05:56:19', 'MOAT_ZMZ', 1, 1),
+(7100059, 'wm_retail_gao', '高姐', 1, 7000059, 'gmsg_000059', '2024-12-25 07:44:57', 'MOAT_LILU', 1, 1),
+(7100060, 'wm_retail_shen', '沈总', 1, 7000060, 'gmsg_000060', '2024-08-26 02:33:10', 'MOAT_ZHAODANYANG', 1, 1),
+(7100061, 'wm_retail_kong', '孔总', 1, 7000001, 'gmsg_000061', '2024-07-23 06:12:13', 'MOAT_GRAHAM', 0, 1),
+(7100062, 'wm_bill_gates', '比尔·盖茨', 1, 7000002, 'gmsg_000062', '2024-06-20 06:50:42', 'MOAT_BUFFETT', 1, 1),
+(7100063, 'wm_kay_graham', '凯瑟琳·格雷厄姆', 1, 7000003, 'gmsg_000063', '2024-09-17 14:03:37', 'MOAT_MUNGER', 1, 1),
+(7100064, 'wm_ted_turner', '特德·特纳', 1, 7000004, 'gmsg_000064', '2026-06-01 12:21:40', 'MOAT_LYNCH', 1, 1),
+(7100065, 'wm_ajit_jain', '阿吉特·贾因', 1, 7000005, 'gmsg_000065', '2026-02-16 03:57:20', 'MOAT_FISHER', 1, 1),
+(7100066, 'wm_greg_abel', '格雷格·阿贝尔', 1, 7000006, 'gmsg_000066', '2024-01-29 03:52:47', 'MOAT_TEMPLETON', 0, 1),
+(7100067, 'wm_todd_combs', '托德·库姆斯', 1, 7000007, 'gmsg_000067', '2024-06-23 06:32:22', 'MOAT_DUAN', 1, 1),
+(7100068, 'wm_ted_weschler', '特德·韦施勒', 1, 7000008, 'gmsg_000068', '2025-04-09 04:41:03', 'MOAT_LINYUAN', 1, 1),
+(7100069, 'wm_ron_olson', '罗恩·奥尔森', 1, 7000009, 'gmsg_000069', '2024-11-16 07:41:06', 'MOAT_DANBIN', 1, 1),
+(7100070, 'wm_rick_guerin', '里克·盖林', 1, 7000010, 'gmsg_000070', '2026-06-07 13:24:06', 'MOAT_ZMZ', 1, 1),
+(7100071, 'wm_walter_schloss', '沃尔特·施洛斯', 1, 7000011, 'gmsg_000071', '2025-05-27 19:23:44', 'MOAT_LILU', 0, 1),
+(7100072, 'wm_seth_klarman', '塞斯·卡拉曼', 1, 7000012, 'gmsg_000072', '2025-03-15 05:59:23', 'MOAT_ZHAODANYANG', 1, 1),
+(7100073, 'wm_howard_marks', '霍华德·马克斯', 1, 7000013, 'gmsg_000073', '2024-12-15 06:54:51', 'MOAT_GRAHAM', 1, 1),
+(7100074, 'wm_yohei_hosoda', '细田洋平', 1, 7000014, 'gmsg_000074', '2025-09-16 07:29:55', 'MOAT_BUFFETT', 1, 1),
+(7100075, 'wm_lynchfund_fan', '麦哲伦基金老持有人', 1, 7000015, 'gmsg_000075', '2025-06-26 08:36:03', 'MOAT_MUNGER', 1, 1),
+(7100076, 'wm_dinglei', '丁磊', 1, 7000016, 'gmsg_000076', '2024-01-10 19:16:46', 'MOAT_LYNCH', 0, 1),
+(7100077, 'wm_huangzheng', '黄峥', 1, 7000017, 'gmsg_000077', '2024-02-10 02:58:06', 'MOAT_FISHER', 1, 1),
+(7100078, 'wm_chenmingyong', '陈明永', 1, 7000018, 'gmsg_000078', '2024-01-22 11:55:20', 'MOAT_TEMPLETON', 1, 1),
+(7100079, 'wm_shenwei', '沈炜', 1, 7000019, 'gmsg_000079', '2025-06-15 16:13:32', 'MOAT_DUAN', 1, 1),
+(7100080, 'wm_fangsanwen', '方三文', 1, 7000020, 'gmsg_000080', '2024-09-25 17:43:40', 'MOAT_LINYUAN', 1, 1);
 
 -- ========================================================================
 -- iyque_friend_circle · 朋友圈素材
@@ -2294,904 +2481,1166 @@ INSERT INTO `iyque_friend_circle` (`id`, `name`, `content`, `jobId`, `momentId`,
 (7200001, '每日大师语录 · #1', '「价格是你付出的，价值才是你得到的。」
 —— 格雷厄姆
 
-#护城河SCRM #价值投资 #格雷厄姆', 'job_000001', 'moment_000001', '2025-02-28 06:22:40', '2025-06-30 12:40:46', 0),
+#护城河SCRM #价值投资 #格雷厄姆', 'job_000001', 'moment_000001', '2024-08-07 10:36:20', '2025-05-17 22:36:17', 0),
 (7200002, '每日大师语录 · #2', '「投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000002', 'moment_000002', '2026-01-29 07:57:33', '2024-05-04 00:26:27', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000002', 'moment_000002', '2024-01-27 11:05:26', '2025-07-20 21:33:27', 0),
 (7200003, '每日大师语录 · #3', '「买股票就是买公司。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000003', 'moment_000003', '2026-03-14 04:56:57', '2025-08-07 18:56:15', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000003', 'moment_000003', '2025-10-16 03:18:31', '2024-12-06 22:37:34', 0),
 (7200004, '每日大师语录 · #4', '「我们喜欢简单的生意，不喜欢有太多变量的生意。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000004', 'moment_000004', '2025-10-24 21:44:39', '2025-04-13 00:28:06', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000004', 'moment_000004', '2025-09-18 12:28:22', '2024-11-14 02:47:44', 0),
 (7200005, '每日大师语录 · #5', '「反过来想，总是反过来想。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000005', 'moment_000005', '2024-07-21 13:23:11', '2025-03-06 03:23:37', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000005', 'moment_000005', '2024-06-02 14:10:04', '2025-11-14 09:11:53', 0),
 (7200006, '每日大师语录 · #6', '「宏观是我们必须承受的，微观才是我们能有所作为的。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000006', 'moment_000006', '2025-03-14 23:33:34', '2024-02-20 01:50:40', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000006', 'moment_000006', '2024-11-25 00:14:55', '2026-04-18 00:10:20', 0),
 (7200007, '每日大师语录 · #7', '「得到你想要的东西的最保险办法，就是让自己配得上它。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000007', 'moment_000007', '2024-07-30 01:58:05', '2024-09-22 18:19:24', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000007', 'moment_000007', '2026-06-16 09:33:12', '2024-02-06 06:15:26', 0),
 (7200008, '每日大师语录 · #8', '「买你熟悉的股票，避开你不熟悉的。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000008', 'moment_000008', '2026-02-14 18:57:08', '2024-11-01 06:38:50', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000008', 'moment_000008', '2024-10-29 20:55:42', '2024-01-26 10:25:05', 0),
 (7200009, '每日大师语录 · #9', '「如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000009', 'moment_000009', '2025-03-25 05:35:02', '2026-01-21 22:02:04', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000009', 'moment_000009', '2024-05-06 05:40:58', '2026-03-11 02:25:21', 0),
 (7200010, '每日大师语录 · #10', '「投资的最好时机是找到伟大企业时。」
 —— 费雪
 
-#护城河SCRM #价值投资 #费雪', 'job_000010', 'moment_000010', '2024-01-22 09:47:47', '2025-01-28 21:07:31', 0),
+#护城河SCRM #价值投资 #费雪', 'job_000010', 'moment_000010', '2025-03-22 03:31:55', '2026-05-22 15:48:04', 0),
 (7200011, '每日大师语录 · #11', '「在极度悲观的时候买入，在极度乐观的时候卖出。」
 —— 邓普顿
 
-#护城河SCRM #价值投资 #邓普顿', 'job_000011', 'moment_000011', '2024-04-20 07:02:26', '2026-03-02 02:19:28', 0),
+#护城河SCRM #价值投资 #邓普顿', 'job_000011', 'moment_000011', '2025-06-16 01:55:01', '2024-05-02 03:58:38', 0),
 (7200012, '每日大师语录 · #12', '「做对的事情，把事情做对。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000012', 'moment_000012', '2024-02-05 19:42:47', '2024-10-25 05:00:32', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000012', 'moment_000012', '2026-03-03 03:18:55', '2026-01-05 10:32:04', 0),
 (7200013, '每日大师语录 · #13', '「本分比聪明重要。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000013', 'moment_000013', '2026-04-05 06:05:40', '2026-01-05 07:28:49', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000013', 'moment_000013', '2024-11-23 12:58:58', '2024-12-26 13:26:44', 0),
 (7200014, '每日大师语录 · #14', '「长期视角看，好生意最终会给股东回报。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000014', 'moment_000014', '2024-03-06 08:16:31', '2025-01-04 01:47:28', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000014', 'moment_000014', '2025-09-13 04:41:44', '2025-05-25 13:19:17', 0),
 (7200015, '每日大师语录 · #15', '「看得见摸得着的消费股，才是能陪你一辈子的股票。」
 —— 林园
 
-#护城河SCRM #价值投资 #林园', 'job_000015', 'moment_000015', '2025-11-17 23:44:32', '2026-05-12 23:37:44', 0),
+#护城河SCRM #价值投资 #林园', 'job_000015', 'moment_000015', '2025-08-07 21:36:17', '2025-11-26 10:02:14', 0),
 (7200016, '每日大师语录 · #16', '「时间的玫瑰只献给坚守的人。」
 —— 但斌
 
-#护城河SCRM #价值投资 #但斌', 'job_000016', 'moment_000016', '2024-02-14 08:42:54', '2025-12-15 19:50:29', 0),
+#护城河SCRM #价值投资 #但斌', 'job_000016', 'moment_000016', '2026-03-18 08:23:57', '2025-12-20 12:51:47', 0),
 (7200017, '每日大师语录 · #17', '「情绪是短线的燃料，但价值是长线的锚。」
 —— 章盟主
 
-#护城河SCRM #价值投资 #章盟主', 'job_000017', 'moment_000017', '2025-01-10 20:27:40', '2025-11-21 21:11:30', 0),
+#护城河SCRM #价值投资 #章盟主', 'job_000017', 'moment_000017', '2025-01-21 06:55:40', '2025-07-18 02:02:17', 0),
 (7200018, '每日大师语录 · #18', '「在中国做价值投资，需要更长的时间维度。」
 —— 李录
 
-#护城河SCRM #价值投资 #李录', 'job_000018', 'moment_000018', '2026-02-17 01:04:49', '2025-08-12 16:48:55', 0),
+#护城河SCRM #价值投资 #李录', 'job_000018', 'moment_000018', '2025-04-04 13:44:32', '2024-03-15 08:31:15', 0),
 (7200019, '每日大师语录 · #19', '「绝对收益是价值投资者的自我修养。」
 —— 赵丹阳
 
-#护城河SCRM #价值投资 #赵丹阳', 'job_000019', 'moment_000019', '2026-05-27 03:52:45', '2024-05-26 17:27:29', 0),
+#护城河SCRM #价值投资 #赵丹阳', 'job_000019', 'moment_000019', '2024-04-11 15:44:56', '2026-06-28 09:17:34', 0),
 (7200020, '每日大师语录 · #20', '「价格是你付出的，价值才是你得到的。」
 —— 格雷厄姆
 
-#护城河SCRM #价值投资 #格雷厄姆', 'job_000020', 'moment_000020', '2025-11-09 08:33:37', '2026-03-26 01:02:11', 0),
+#护城河SCRM #价值投资 #格雷厄姆', 'job_000020', 'moment_000020', '2026-01-05 07:26:57', '2026-02-07 09:47:22', 0),
 (7200021, '每日大师语录 · #21', '「投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000021', 'moment_000021', '2024-09-18 08:54:50', '2026-01-11 19:36:22', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000021', 'moment_000021', '2024-03-29 03:28:51', '2026-02-28 16:07:59', 0),
 (7200022, '每日大师语录 · #22', '「买股票就是买公司。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000022', 'moment_000022', '2026-05-07 17:23:52', '2024-09-08 16:29:05', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000022', 'moment_000022', '2025-09-23 07:57:10', '2024-02-09 19:05:10', 0),
 (7200023, '每日大师语录 · #23', '「我们喜欢简单的生意，不喜欢有太多变量的生意。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000023', 'moment_000023', '2025-01-05 21:13:07', '2026-02-11 15:23:57', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000023', 'moment_000023', '2024-07-31 02:06:07', '2025-03-25 12:05:49', 0),
 (7200024, '每日大师语录 · #24', '「反过来想，总是反过来想。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000024', 'moment_000024', '2024-05-22 19:55:48', '2025-10-20 20:10:04', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000024', 'moment_000024', '2026-05-16 13:41:47', '2024-11-05 19:11:32', 0),
 (7200025, '每日大师语录 · #25', '「宏观是我们必须承受的，微观才是我们能有所作为的。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000025', 'moment_000025', '2025-10-07 14:22:23', '2024-01-02 15:39:38', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000025', 'moment_000025', '2024-05-02 13:08:37', '2024-06-03 01:10:33', 0),
 (7200026, '每日大师语录 · #26', '「得到你想要的东西的最保险办法，就是让自己配得上它。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000026', 'moment_000026', '2026-04-06 06:06:55', '2025-10-21 05:56:19', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000026', 'moment_000026', '2024-01-09 08:21:19', '2026-02-12 09:03:10', 0),
 (7200027, '每日大师语录 · #27', '「买你熟悉的股票，避开你不熟悉的。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000027', 'moment_000027', '2024-12-25 07:44:57', '2024-08-26 02:33:10', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000027', 'moment_000027', '2025-03-14 02:31:07', '2026-05-30 10:28:40', 0),
 (7200028, '每日大师语录 · #28', '「如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000028', 'moment_000028', '2024-07-23 06:12:13', '2024-06-20 06:50:42', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000028', 'moment_000028', '2025-12-02 03:23:37', '2025-03-13 06:54:07', 0),
 (7200029, '每日大师语录 · #29', '「投资的最好时机是找到伟大企业时。」
 —— 费雪
 
-#护城河SCRM #价值投资 #费雪', 'job_000029', 'moment_000029', '2024-09-17 14:03:37', '2026-06-01 12:21:40', 0),
+#护城河SCRM #价值投资 #费雪', 'job_000029', 'moment_000029', '2024-08-02 17:17:44', '2025-06-09 19:38:46', 0),
 (7200030, '每日大师语录 · #30', '「在极度悲观的时候买入，在极度乐观的时候卖出。」
 —— 邓普顿
 
-#护城河SCRM #价值投资 #邓普顿', 'job_000030', 'moment_000030', '2026-02-16 03:57:20', '2024-01-29 03:52:47', 0),
+#护城河SCRM #价值投资 #邓普顿', 'job_000030', 'moment_000030', '2024-11-13 21:55:58', '2025-05-16 01:51:16', 0),
 (7200031, '每日大师语录 · #31', '「做对的事情，把事情做对。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000031', 'moment_000031', '2024-06-23 06:32:22', '2025-04-09 04:41:03', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000031', 'moment_000031', '2025-08-05 03:34:14', '2024-08-10 23:28:55', 0),
 (7200032, '每日大师语录 · #32', '「本分比聪明重要。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000032', 'moment_000032', '2024-11-16 07:41:06', '2026-06-07 13:24:06', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000032', 'moment_000032', '2024-07-14 10:48:46', '2024-01-07 17:02:54', 0),
 (7200033, '每日大师语录 · #33', '「长期视角看，好生意最终会给股东回报。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000033', 'moment_000033', '2025-05-27 19:23:44', '2025-03-15 05:59:23', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000033', 'moment_000033', '2024-04-26 21:55:19', '2025-11-29 02:14:44', 0),
 (7200034, '每日大师语录 · #34', '「看得见摸得着的消费股，才是能陪你一辈子的股票。」
 —— 林园
 
-#护城河SCRM #价值投资 #林园', 'job_000034', 'moment_000034', '2024-12-15 06:54:51', '2025-09-16 07:29:55', 0),
+#护城河SCRM #价值投资 #林园', 'job_000034', 'moment_000034', '2024-02-10 12:41:55', '2024-02-18 11:31:24', 0),
 (7200035, '每日大师语录 · #35', '「时间的玫瑰只献给坚守的人。」
 —— 但斌
 
-#护城河SCRM #价值投资 #但斌', 'job_000035', 'moment_000035', '2025-06-26 08:36:03', '2024-01-10 19:16:46', 0),
+#护城河SCRM #价值投资 #但斌', 'job_000035', 'moment_000035', '2026-03-02 01:17:15', '2025-11-25 17:10:03', 0),
 (7200036, '每日大师语录 · #36', '「情绪是短线的燃料，但价值是长线的锚。」
 —— 章盟主
 
-#护城河SCRM #价值投资 #章盟主', 'job_000036', 'moment_000036', '2024-02-10 02:58:06', '2024-01-22 11:55:20', 0),
+#护城河SCRM #价值投资 #章盟主', 'job_000036', 'moment_000036', '2025-02-17 16:12:13', '2026-04-18 09:57:02', 0),
 (7200037, '每日大师语录 · #37', '「在中国做价值投资，需要更长的时间维度。」
 —— 李录
 
-#护城河SCRM #价值投资 #李录', 'job_000037', 'moment_000037', '2025-06-15 16:13:32', '2024-09-25 17:43:40', 0),
+#护城河SCRM #价值投资 #李录', 'job_000037', 'moment_000037', '2024-12-05 13:18:59', '2025-04-29 22:40:36', 0),
 (7200038, '每日大师语录 · #38', '「绝对收益是价值投资者的自我修养。」
 —— 赵丹阳
 
-#护城河SCRM #价值投资 #赵丹阳', 'job_000038', 'moment_000038', '2024-08-07 10:36:20', '2025-05-17 22:36:17', 0),
+#护城河SCRM #价值投资 #赵丹阳', 'job_000038', 'moment_000038', '2025-01-10 03:28:00', '2025-05-03 17:46:52', 0),
 (7200039, '每日大师语录 · #39', '「价格是你付出的，价值才是你得到的。」
 —— 格雷厄姆
 
-#护城河SCRM #价值投资 #格雷厄姆', 'job_000039', 'moment_000039', '2024-01-27 11:05:26', '2025-07-20 21:33:27', 0),
+#护城河SCRM #价值投资 #格雷厄姆', 'job_000039', 'moment_000039', '2024-10-22 20:45:03', '2024-04-29 03:49:44', 0),
 (7200040, '每日大师语录 · #40', '「投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000040', 'moment_000040', '2025-10-16 03:18:31', '2024-12-06 22:37:34', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000040', 'moment_000040', '2024-03-19 10:45:15', '2025-07-09 05:25:16', 0),
 (7200041, '每日大师语录 · #41', '「买股票就是买公司。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000041', 'moment_000041', '2025-09-18 12:28:22', '2024-11-14 02:47:44', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000041', 'moment_000041', '2026-03-12 11:23:42', '2024-06-12 21:35:26', 0),
 (7200042, '每日大师语录 · #42', '「我们喜欢简单的生意，不喜欢有太多变量的生意。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000042', 'moment_000042', '2024-06-02 14:10:04', '2025-11-14 09:11:53', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000042', 'moment_000042', '2025-10-16 11:18:05', '2024-03-02 12:25:34', 0),
 (7200043, '每日大师语录 · #43', '「反过来想，总是反过来想。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000043', 'moment_000043', '2024-11-25 00:14:55', '2026-04-18 00:10:20', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000043', 'moment_000043', '2024-11-07 03:05:30', '2026-04-19 17:16:07', 0),
 (7200044, '每日大师语录 · #44', '「宏观是我们必须承受的，微观才是我们能有所作为的。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000044', 'moment_000044', '2026-06-16 09:33:12', '2024-02-06 06:15:26', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000044', 'moment_000044', '2025-12-21 19:34:36', '2025-10-11 04:51:38', 0),
 (7200045, '每日大师语录 · #45', '「得到你想要的东西的最保险办法，就是让自己配得上它。」
 —— 芒格
 
-#护城河SCRM #价值投资 #芒格', 'job_000045', 'moment_000045', '2024-10-29 20:55:42', '2024-01-26 10:25:05', 0),
+#护城河SCRM #价值投资 #芒格', 'job_000045', 'moment_000045', '2024-05-13 14:28:55', '2025-09-01 01:07:07', 0),
 (7200046, '每日大师语录 · #46', '「买你熟悉的股票，避开你不熟悉的。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000046', 'moment_000046', '2024-05-06 05:40:58', '2026-03-11 02:25:21', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000046', 'moment_000046', '2026-02-11 15:35:15', '2026-04-24 08:19:56', 0),
 (7200047, '每日大师语录 · #47', '「如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。」
 —— 彼得·林奇
 
-#护城河SCRM #价值投资 #彼得·林奇', 'job_000047', 'moment_000047', '2025-03-22 03:31:55', '2026-05-22 15:48:04', 0),
+#护城河SCRM #价值投资 #彼得·林奇', 'job_000047', 'moment_000047', '2025-12-14 19:14:57', '2024-08-04 05:04:59', 0),
 (7200048, '每日大师语录 · #48', '「投资的最好时机是找到伟大企业时。」
 —— 费雪
 
-#护城河SCRM #价值投资 #费雪', 'job_000048', 'moment_000048', '2025-06-16 01:55:01', '2024-05-02 03:58:38', 0),
+#护城河SCRM #价值投资 #费雪', 'job_000048', 'moment_000048', '2025-02-15 03:42:42', '2024-03-15 19:19:06', 0),
 (7200049, '每日大师语录 · #49', '「在极度悲观的时候买入，在极度乐观的时候卖出。」
 —— 邓普顿
 
-#护城河SCRM #价值投资 #邓普顿', 'job_000049', 'moment_000049', '2026-03-03 03:18:55', '2026-01-05 10:32:04', 0),
+#护城河SCRM #价值投资 #邓普顿', 'job_000049', 'moment_000049', '2024-11-11 09:50:51', '2024-05-08 01:32:39', 0),
 (7200050, '每日大师语录 · #50', '「做对的事情，把事情做对。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000050', 'moment_000050', '2024-11-23 12:58:58', '2024-12-26 13:26:44', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000050', 'moment_000050', '2025-11-20 23:49:19', '2025-07-13 21:58:22', 0),
 (7200051, '每日大师语录 · #51', '「本分比聪明重要。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000051', 'moment_000051', '2025-09-13 04:41:44', '2025-05-25 13:19:17', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000051', 'moment_000051', '2026-04-22 23:49:52', '2026-03-14 00:57:44', 0),
 (7200052, '每日大师语录 · #52', '「长期视角看，好生意最终会给股东回报。」
 —— 段永平
 
-#护城河SCRM #价值投资 #段永平', 'job_000052', 'moment_000052', '2025-08-07 21:36:17', '2025-11-26 10:02:14', 0),
+#护城河SCRM #价值投资 #段永平', 'job_000052', 'moment_000052', '2025-03-24 01:27:43', '2024-05-24 10:50:50', 0),
 (7200053, '每日大师语录 · #53', '「看得见摸得着的消费股，才是能陪你一辈子的股票。」
 —— 林园
 
-#护城河SCRM #价值投资 #林园', 'job_000053', 'moment_000053', '2026-03-18 08:23:57', '2025-12-20 12:51:47', 0),
+#护城河SCRM #价值投资 #林园', 'job_000053', 'moment_000053', '2024-01-22 11:56:21', '2026-05-27 19:48:13', 0),
 (7200054, '每日大师语录 · #54', '「时间的玫瑰只献给坚守的人。」
 —— 但斌
 
-#护城河SCRM #价值投资 #但斌', 'job_000054', 'moment_000054', '2025-01-21 06:55:40', '2025-07-18 02:02:17', 0),
+#护城河SCRM #价值投资 #但斌', 'job_000054', 'moment_000054', '2025-04-08 01:51:27', '2026-06-22 11:07:15', 0),
 (7200055, '每日大师语录 · #55', '「情绪是短线的燃料，但价值是长线的锚。」
 —— 章盟主
 
-#护城河SCRM #价值投资 #章盟主', 'job_000055', 'moment_000055', '2025-04-04 13:44:32', '2024-03-15 08:31:15', 0),
+#护城河SCRM #价值投资 #章盟主', 'job_000055', 'moment_000055', '2024-01-29 15:52:48', '2024-03-22 05:28:13', 0),
 (7200056, '每日大师语录 · #56', '「在中国做价值投资，需要更长的时间维度。」
 —— 李录
 
-#护城河SCRM #价值投资 #李录', 'job_000056', 'moment_000056', '2024-04-11 15:44:56', '2026-06-28 09:17:34', 0),
+#护城河SCRM #价值投资 #李录', 'job_000056', 'moment_000056', '2025-05-18 04:25:15', '2024-06-02 01:22:24', 0),
 (7200057, '每日大师语录 · #57', '「绝对收益是价值投资者的自我修养。」
 —— 赵丹阳
 
-#护城河SCRM #价值投资 #赵丹阳', 'job_000057', 'moment_000057', '2026-01-05 07:26:57', '2026-02-07 09:47:22', 0),
+#护城河SCRM #价值投资 #赵丹阳', 'job_000057', 'moment_000057', '2024-01-02 06:18:54', '2025-01-07 15:30:54', 0),
 (7200058, '每日大师语录 · #58', '「价格是你付出的，价值才是你得到的。」
 —— 格雷厄姆
 
-#护城河SCRM #价值投资 #格雷厄姆', 'job_000058', 'moment_000058', '2024-03-29 03:28:51', '2026-02-28 16:07:59', 0),
+#护城河SCRM #价值投资 #格雷厄姆', 'job_000058', 'moment_000058', '2025-10-17 07:33:25', '2025-12-04 13:47:30', 0),
 (7200059, '每日大师语录 · #59', '「投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000059', 'moment_000059', '2025-09-23 07:57:10', '2024-02-09 19:05:10', 0),
+#护城河SCRM #价值投资 #巴菲特', 'job_000059', 'moment_000059', '2026-05-10 11:06:54', '2025-01-28 22:45:51', 0),
 (7200060, '每日大师语录 · #60', '「买股票就是买公司。」
 —— 巴菲特
 
-#护城河SCRM #价值投资 #巴菲特', 'job_000060', 'moment_000060', '2024-07-31 02:06:07', '2025-03-25 12:05:49', 0);
+#护城河SCRM #价值投资 #巴菲特', 'job_000060', 'moment_000060', '2024-10-24 14:08:26', '2024-08-04 23:26:42', 0);
 
 -- ========================================================================
 -- iyque_h5_market · H5 营销落地页
 -- ========================================================================
 INSERT INTO `iyque_h5_market` (`id`, `backgroundUrl`, `controlSubType`, `controlType`, `controlUrl`, `createBy`, `createTime`, `delFlag`, `guideTip`, `h5QrUrl`, `h5Url`, `name`, `title`, `titleSub`, `type`, `updateTime`) VALUES
-(7300001, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=1', '格雷厄姆', '2024-11-05 19:11:32', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/e067022e7100018027526645cbf42559/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=1', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 1, '2024-06-03 01:10:33'),
-(7300002, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=2', '巴菲特', '2026-02-12 09:03:10', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b68283d020fa44440224e0224014300e/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=2', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 2, '2026-05-30 10:28:40'),
-(7300003, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=3', '芒格', '2024-08-02 17:17:44', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/1dca1ff60653c8f3f2a0870bc86d47dc/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=3', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 2, '2024-11-13 21:55:58'),
-(7300004, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=4', '彼得·林奇', '2024-08-10 23:28:55', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/3dc917cb5760432bd18b5c18173606fa/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=4', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 1, '2024-01-07 17:02:54'),
-(7300005, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=5', '费雪', '2024-02-10 12:41:55', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/772cb82a6d6f852dffcc1df4a326c7ed/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=5', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 1, '2026-03-02 01:17:15'),
-(7300006, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=6', '邓普顿', '2025-02-17 16:12:13', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/846cd3ac9283d40eb0877d3915a9a076/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=6', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 3, '2024-12-05 13:18:59'),
-(7300007, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=7', '段永平', '2025-05-03 17:46:52', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/43d26567c3e2dbb6eb9bb481a62d7ea9/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=7', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 1, '2024-04-29 03:49:44'),
-(7300008, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=8', '林园', '2025-07-09 05:25:16', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/9c26c368a529dea3bbcc5d8afe0ab2df/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=8', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 3, '2024-06-12 21:35:26'),
-(7300009, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=9', '但斌', '2024-11-07 03:05:30', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/00b9cb82b51f901738598e465d02fd86/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=9', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 3, '2025-12-21 19:34:36'),
-(7300010, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=10', '章盟主', '2025-09-01 01:07:07', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/3eaaaa493576c26d4a331285c25daceb/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=10', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 2, '2026-04-24 08:19:56'),
-(7300011, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=11', '李录', '2025-02-15 03:42:42', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/143b45030c3d316afcfeb67cb704c6f5/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=11', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 3, '2024-03-15 19:19:06'),
-(7300012, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=12', '赵丹阳', '2025-11-20 23:49:19', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/5e84e7cd0e98bcfd7c045ccbec45c5ff/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=12', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 2, '2026-04-22 23:49:52'),
-(7300013, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=13', '格雷厄姆', '2024-05-24 10:50:50', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/7b6aa00e419fee50f60159327ca88157/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=13', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 1, '2026-05-27 19:48:13'),
-(7300014, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=14', '巴菲特', '2026-06-22 11:07:15', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/82e1a4b840d9d4addf02530fc56b8b22/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=14', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 1, '2024-03-22 05:28:13'),
-(7300015, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=15', '芒格', '2024-06-02 01:22:24', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/a1caa33af1a4b0dbf2e91edb310c3d8f/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=15', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 1, '2025-01-07 15:30:54'),
-(7300016, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=16', '彼得·林奇', '2026-05-10 11:06:54', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/58ef9504f500cac7b36f9e6fa3ee14ae/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=16', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 2, '2024-10-24 14:08:26'),
-(7300017, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=17', '费雪', '2024-10-20 09:10:58', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/71de5b97d128b9a3e4741336b2d83170/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=17', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 2, '2025-08-02 03:29:09'),
-(7300018, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=18', '邓普顿', '2024-06-16 23:18:42', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/7cb59964af4ffb8e31c2194fd0c28b88/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=18', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 2, '2026-04-02 14:14:29'),
-(7300019, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=19', '段永平', '2025-07-19 13:50:11', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/1b45597266b1ff1a95e61b65a975b83e/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=19', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 1, '2026-02-14 07:35:56'),
-(7300020, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=20', '林园', '2024-10-20 14:15:19', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/3b11ecd9bd696accc1fe61c2f99ec879/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=20', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 1, '2026-03-17 08:32:16'),
-(7300021, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=21', '但斌', '2024-01-07 20:06:58', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/602fc5a271e54f2da7ca2af59f440ab2/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=21', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 3, '2024-05-23 12:51:00'),
-(7300022, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=22', '章盟主', '2026-04-13 04:07:57', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/aad1611091120a9ead9b24804b6d5c92/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=22', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 1, '2025-07-14 12:49:55'),
-(7300023, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=23', '李录', '2026-06-05 12:06:26', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b999bd76e9293613ea9584378dfbe28a/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=23', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 3, '2025-04-03 19:55:12'),
-(7300024, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=24', '赵丹阳', '2026-02-16 11:30:38', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b40a6d97324d0565e312b6fe704c2cb3/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=24', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 3, '2024-09-01 11:42:57'),
-(7300025, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=25', '格雷厄姆', '2024-09-04 10:04:47', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/efbf149bd58ba5108f4f114079cf52d0/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=25', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 1, '2026-02-14 21:24:51'),
-(7300026, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=26', '巴菲特', '2025-09-21 00:55:03', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/c92a35f0d0db577fae8b5a9b189148d1/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=26', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 2, '2025-02-24 14:37:14'),
-(7300027, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=27', '芒格', '2024-06-27 09:57:15', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/7edf0d39da92746d44e5f7f7ca25d775/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=27', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 3, '2026-06-27 08:56:16'),
-(7300028, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=28', '彼得·林奇', '2024-02-12 06:25:09', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/4a833123afb7a9872b6ea33f88c5781c/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=28', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 2, '2024-06-29 14:50:43'),
-(7300029, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=29', '费雪', '2025-08-22 01:44:42', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/e0e2a77c056519eb2148540190e0bd48/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=29', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 1, '2024-01-25 10:23:34'),
-(7300030, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=30', '邓普顿', '2026-04-08 00:01:21', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/98fac24e0225ba8123f43d6a084f3ef7/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=30', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 2, '2025-02-20 23:25:43'),
-(7300031, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=31', '段永平', '2024-11-15 19:37:15', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/2f8c155a48e09ad35ca65e1ee250f8e1/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=31', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 3, '2024-11-12 18:54:29'),
-(7300032, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=32', '林园', '2025-12-05 02:50:45', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b682320aa2998d1aa92be50a203bbc7e/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=32', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 1, '2025-03-09 19:37:25'),
-(7300033, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=33', '但斌', '2024-04-14 15:00:39', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/1570f082e11e2e324026212a6abf0d10/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=33', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 2, '2024-11-27 04:42:19'),
-(7300034, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=34', '章盟主', '2024-06-28 08:50:55', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/a4055b70128e40709862d622b974f27f/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=34', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 1, '2025-10-29 17:04:55'),
-(7300035, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=35', '李录', '2025-03-06 19:15:59', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/654e1d09c7086003ff59886384100157/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=35', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 2, '2025-01-06 12:45:21'),
-(7300036, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=36', '赵丹阳', '2024-10-06 13:09:00', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/953d4ced0aa7a8c87883f989f99b70dc/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=36', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 1, '2024-12-08 16:40:41'),
-(7300037, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=37', '格雷厄姆', '2026-06-05 02:29:56', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/7c6fe97b04472b1ee99135dca8061c2a/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=37', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 1, '2025-07-21 18:31:01'),
-(7300038, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=38', '巴菲特', '2026-03-13 16:45:36', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/761392ce7511d6c648fda7b29ecdb792/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=38', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 2, '2024-02-17 09:17:59'),
-(7300039, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=39', '芒格', '2025-04-02 20:25:41', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/fd160e87fdf20052d43c666e729c0903/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=39', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 3, '2024-11-14 22:48:27'),
-(7300040, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=40', '彼得·林奇', '2026-04-10 08:14:16', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b206a889396ec67346290302c6f20fde/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=40', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 1, '2026-05-04 09:44:49'),
-(7300041, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=41', '费雪', '2025-11-27 19:38:53', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/346aac074111bfec6595e06626ad2b77/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=41', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 2, '2025-04-08 19:24:41'),
-(7300042, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=42', '邓普顿', '2024-09-04 02:07:34', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/236af4d84c3acbc96f44529f79ad8440/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=42', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 1, '2026-04-06 21:33:09'),
-(7300043, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=43', '段永平', '2025-03-29 19:15:34', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/145b889a65591fc68a35043196a3b1ce/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=43', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 2, '2026-01-02 23:08:52'),
-(7300044, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=44', '林园', '2024-09-21 10:50:14', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/f9dfb668ad4992868a17f2f79c355213/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=44', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 1, '2025-11-23 09:49:42'),
-(7300045, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=45', '但斌', '2025-04-28 00:06:56', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/3237471fbc67fc06525317b98a4bd0ad/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=45', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 2, '2025-02-02 03:41:57'),
-(7300046, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=46', '章盟主', '2026-05-29 10:21:14', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/e4d08356fb47823ab629e3f52ed45ecc/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=46', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 2, '2025-06-15 09:33:16'),
-(7300047, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=47', '李录', '2026-06-30 00:16:16', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/884669d5e624d580e1304d836dfcfa93/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=47', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 2, '2024-09-09 23:52:04'),
-(7300048, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=48', '赵丹阳', '2025-02-15 20:21:55', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/558f8976e87782789155d536e600a7ab/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=48', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 3, '2024-03-23 14:25:57'),
-(7300049, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=49', '格雷厄姆', '2026-01-25 13:02:54', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/7529230ce569aaef5626fbc4b9b69e80/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=49', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 3, '2025-01-10 16:13:49'),
-(7300050, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=50', '巴菲特', '2025-07-11 16:32:23', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/6c1d2819138daf4d2a0a1851e792cf20/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=50', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 1, '2025-05-27 04:37:42'),
-(7300051, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=51', '芒格', '2024-07-23 08:23:38', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b76cd56b220ceea9b6890dfd8b53860c/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=51', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 2, '2025-10-26 05:10:16'),
-(7300052, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=52', '彼得·林奇', '2024-08-14 20:57:00', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/d94d64b11e8f0a52e0d48bfc6ac83faa/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=52', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 3, '2025-11-18 03:13:19'),
-(7300053, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=53', '费雪', '2026-05-05 15:13:53', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/152e66fbadb36a623445d88871e02cdc/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=53', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 1, '2024-07-18 05:15:26'),
-(7300054, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=54', '邓普顿', '2024-04-06 07:09:08', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/f53951a5960f12096405599cab3a088f/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=54', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 1, '2024-11-14 00:22:12'),
-(7300055, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=55', '段永平', '2026-06-22 22:06:04', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/b39bddbbc78ec4fbfb8456cbeaa0037f/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=55', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 3, '2024-01-04 09:02:59'),
-(7300056, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=56', '林园', '2024-04-03 18:24:36', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/5a80b9c34e712b52c76cbf4b3dc42f96/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=56', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 2, '2026-05-28 13:48:24'),
-(7300057, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=57', '但斌', '2026-06-28 11:13:50', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/2d0720b3cab10adba386db004f274557/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=57', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 3, '2024-05-25 17:42:15'),
-(7300058, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=58', '章盟主', '2026-04-05 22:40:35', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/640999a9b1c594ed05fb8f69277fc7fe/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=58', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 3, '2024-03-14 02:51:37'),
-(7300059, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=59', '李录', '2025-04-20 03:06:12', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/660269ef255f29efbe08d247e87f2836/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=59', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 1, '2025-03-17 21:34:21'),
-(7300060, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=60', '赵丹阳', '2024-09-22 18:49:10', 0, '长按识别二维码添加投顾', 'https://wework.qpic.cn/wwpic3az/c0a41d0f89f7958e52fcc666e737c77f/h5_qr/0', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=60', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 3, '2025-04-29 06:37:23');
+(7300001, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=1', '格雷厄姆', '2025-10-23 00:51:33', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=1', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 2, '2024-03-15 14:30:04'),
+(7300002, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=2', '巴菲特', '2025-08-23 03:11:20', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=2', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 3, '2026-06-21 12:26:50'),
+(7300003, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=3', '芒格', '2025-07-19 13:50:11', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=3', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 1, '2026-02-14 07:35:56'),
+(7300004, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=4', '彼得·林奇', '2024-10-20 14:15:19', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=4', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 1, '2026-03-17 08:32:16'),
+(7300005, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=5', '费雪', '2024-01-07 20:06:58', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=5', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 3, '2024-05-23 12:51:00'),
+(7300006, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=6', '邓普顿', '2026-04-13 04:07:57', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=6', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 1, '2025-07-14 12:49:55'),
+(7300007, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=7', '段永平', '2026-06-05 12:06:26', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=7', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 3, '2025-04-03 19:55:12'),
+(7300008, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=8', '林园', '2026-02-16 11:30:38', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=8', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 3, '2024-09-01 11:42:57'),
+(7300009, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=9', '但斌', '2024-09-04 10:04:47', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=9', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 1, '2026-02-14 21:24:51'),
+(7300010, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=10', '章盟主', '2025-09-21 00:55:03', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=10', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 2, '2025-02-24 14:37:14'),
+(7300011, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=11', '李录', '2024-06-27 09:57:15', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=11', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 3, '2026-06-27 08:56:16'),
+(7300012, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=12', '赵丹阳', '2024-02-12 06:25:09', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=12', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 2, '2024-06-29 14:50:43'),
+(7300013, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=13', '格雷厄姆', '2025-08-22 01:44:42', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=13', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 1, '2024-01-25 10:23:34'),
+(7300014, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=14', '巴菲特', '2026-04-08 00:01:21', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=14', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 2, '2025-02-20 23:25:43'),
+(7300015, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=15', '芒格', '2024-11-15 19:37:15', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=15', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 3, '2024-11-12 18:54:29'),
+(7300016, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=16', '彼得·林奇', '2025-12-05 02:50:45', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=16', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 1, '2025-03-09 19:37:25'),
+(7300017, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=17', '费雪', '2024-04-14 15:00:39', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=17', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 2, '2024-11-27 04:42:19'),
+(7300018, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=18', '邓普顿', '2024-06-28 08:50:55', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=18', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 1, '2025-10-29 17:04:55'),
+(7300019, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=19', '段永平', '2025-03-06 19:15:59', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=19', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 2, '2025-01-06 12:45:21'),
+(7300020, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=20', '林园', '2024-10-06 13:09:00', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=20', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 1, '2024-12-08 16:40:41'),
+(7300021, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=21', '但斌', '2026-06-05 02:29:56', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=21', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 1, '2025-07-21 18:31:01'),
+(7300022, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=22', '章盟主', '2026-03-13 16:45:36', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=22', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 2, '2024-02-17 09:17:59'),
+(7300023, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=23', '李录', '2025-04-02 20:25:41', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=23', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 3, '2024-11-14 22:48:27'),
+(7300024, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=24', '赵丹阳', '2026-04-10 08:14:16', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=24', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 1, '2026-05-04 09:44:49'),
+(7300025, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=25', '格雷厄姆', '2025-11-27 19:38:53', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=25', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 2, '2025-04-08 19:24:41'),
+(7300026, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=26', '巴菲特', '2024-09-04 02:07:34', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=26', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 1, '2026-04-06 21:33:09'),
+(7300027, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=27', '芒格', '2025-03-29 19:15:34', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=27', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 2, '2026-01-02 23:08:52'),
+(7300028, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=28', '彼得·林奇', '2024-09-21 10:50:14', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=28', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 1, '2025-11-23 09:49:42'),
+(7300029, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=29', '费雪', '2025-04-28 00:06:56', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=29', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 2, '2025-02-02 03:41:57'),
+(7300030, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=30', '邓普顿', '2026-05-29 10:21:14', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=30', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 2, '2025-06-15 09:33:16'),
+(7300031, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=31', '段永平', '2026-06-30 00:16:16', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=31', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 2, '2024-09-09 23:52:04'),
+(7300032, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=32', '林园', '2025-02-15 20:21:55', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=32', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 3, '2024-03-23 14:25:57'),
+(7300033, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=33', '但斌', '2026-01-25 13:02:54', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=33', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 3, '2025-01-10 16:13:49'),
+(7300034, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=34', '章盟主', '2025-07-11 16:32:23', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=34', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 1, '2025-05-27 04:37:42'),
+(7300035, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=35', '李录', '2024-07-23 08:23:38', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=35', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 2, '2025-10-26 05:10:16'),
+(7300036, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=36', '赵丹阳', '2024-08-14 20:57:00', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=36', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 3, '2025-11-18 03:13:19'),
+(7300037, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=37', '格雷厄姆', '2026-05-05 15:13:53', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=37', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 1, '2024-07-18 05:15:26'),
+(7300038, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=38', '巴菲特', '2024-04-06 07:09:08', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=38', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 1, '2024-11-14 00:22:12'),
+(7300039, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=39', '芒格', '2026-06-22 22:06:04', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=39', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 3, '2024-01-04 09:02:59'),
+(7300040, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=40', '彼得·林奇', '2024-04-03 18:24:36', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=40', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 2, '2026-05-28 13:48:24'),
+(7300041, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=41', '费雪', '2026-06-28 11:13:50', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=41', 'H5 · 巴菲特 2025 股东大会直播', '巴菲特 2025 股东大会直播', '免费围观', 3, '2024-05-25 17:42:15'),
+(7300042, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=42', '邓普顿', '2026-04-05 22:40:35', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=42', 'H5 · 段永平 · 网易大学演讲', '段永平 · 网易大学演讲', '报名参加', 3, '2024-03-14 02:51:37'),
+(7300043, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=43', '段永平', '2025-04-20 03:06:12', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=43', 'H5 · 茅台价值投资读书会', '茅台价值投资读书会', '线下沙龙', 1, '2025-03-17 21:34:21'),
+(7300044, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=44', '林园', '2024-09-22 18:49:10', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=44', 'H5 · 腾讯长期持有者聚会', '腾讯长期持有者聚会', '上海站', 3, '2025-04-29 06:37:23'),
+(7300045, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=45', '但斌', '2025-05-13 01:31:44', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=45', 'H5 · 护城河 · 家族办公室峰会', '护城河 · 家族办公室峰会', '深圳站', 3, '2024-03-29 00:02:57'),
+(7300046, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=46', '章盟主', '2025-08-23 06:06:53', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=46', 'H5 · AI 大模型与投资 · 线上直播', 'AI 大模型与投资 · 线上直播', '免费观看', 2, '2026-02-10 06:12:47'),
+(7300047, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=47', '李录', '2025-07-07 05:46:09', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=47', 'H5 · 新能源产业链复盘', '新能源产业链复盘', '报名参会', 1, '2025-05-20 12:49:42'),
+(7300048, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=48', '赵丹阳', '2025-08-28 19:55:54', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=48', 'H5 · 半导体自主可控闭门会', '半导体自主可控闭门会', '邀请制', 3, '2024-12-05 23:36:01'),
+(7300049, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=49', '格雷厄姆', '2026-01-27 02:30:21', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=49', 'H5 · 医药创新出海研讨会', '医药创新出海研讨会', '上海站', 1, '2025-12-20 14:48:30'),
+(7300050, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=50', '巴菲特', '2024-08-09 19:53:29', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=50', 'H5 · 《证券分析》共读营', '《证券分析》共读营', '8 周精读', 3, '2025-03-09 20:31:08'),
+(7300051, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 1, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=51', '芒格', '2024-12-24 15:00:35', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=51', 'H5 · 《穷查理宝典》共读', '《穷查理宝典》共读', '12 周精读', 1, '2025-02-25 05:20:10'),
+(7300052, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=52', '彼得·林奇', '2025-02-19 12:07:43', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=52', 'H5 · 彼得·林奇选股实操', '彼得·林奇选股实操', '免费公开课', 2, '2026-06-16 18:03:37'),
+(7300053, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 1, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=53', '费雪', '2024-08-11 03:14:46', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_05.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=53', 'H5 · 段永平雪球问答精讲', '段永平雪球问答精讲', '季度专题', 1, '2024-05-28 02:31:56'),
+(7300054, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=54', '邓普顿', '2025-04-13 16:14:50', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_06.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=54', 'H5 · 林园消费股专题', '林园消费股专题', '季度专题', 1, '2026-01-28 18:57:38'),
+(7300055, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=55', '段永平', '2025-03-15 04:14:53', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_07.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=55', 'H5 · 但斌东方港湾开放日', '但斌东方港湾开放日', '深圳站', 3, '2025-09-11 04:24:46'),
+(7300056, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 3, 3, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=56', '林园', '2024-08-30 07:34:06', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_08.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=56', 'H5 · 章盟主龙虎榜研究方法', '章盟主龙虎榜研究方法', '对照组视角', 2, '2024-02-27 04:29:42'),
+(7300057, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 1, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=57', '但斌', '2024-05-04 14:39:48', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_01.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=57', 'H5 · 李录 · 中国 20 年价值机会', '李录 · 中国 20 年价值机会', '免费直播', 3, '2024-04-12 18:10:45'),
+(7300058, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 2, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=58', '章盟主', '2025-07-06 00:36:56', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_02.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=58', 'H5 · 赵丹阳 · 绝对收益策略', '赵丹阳 · 绝对收益策略', '闭门分享', 3, '2025-04-14 08:55:58'),
+(7300059, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 2, 1, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=59', '李录', '2025-05-02 08:24:43', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_03.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=59', 'H5 · 护城河 · 大师读书会年费', '护城河 · 大师读书会年费', '12 期精读', 3, '2026-01-26 09:33:58'),
+(7300060, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 3, 2, 'http://10.210.156.69:8081/openmobile/H5Marketing?id=60', '赵丹阳', '2024-01-30 02:49:27', 0, '长按识别二维码添加投顾', 'http://10.210.156.69:8081/iyque/file/fileView/qr_h5_04.png', 'http://10.210.156.69:8081/openmobile/H5Marketing?id=60', 'H5 · 护城河 · 新客户福利包', '护城河 · 新客户福利包', '免费投研报告', 3, '2025-12-26 23:57:49');
 
 -- ========================================================================
 -- iyque_h5_market_record · H5 浏览记录
 -- ========================================================================
 INSERT INTO `iyque_h5_market_record` (`id`, `createTime`, `delFlag`, `h5MarketId`, `viewIp`) VALUES
-(7400001, '2024-05-23 20:15:16', 0, 7300001, '10.42.209.217'),
-(7400002, '2024-03-29 00:02:57', 0, 7300002, '10.83.157.245'),
-(7400003, '2025-08-23 06:06:53', 0, 7300003, '10.238.78.191'),
-(7400004, '2024-09-20 08:18:38', 0, 7300004, '10.227.106.128'),
-(7400005, '2025-05-20 12:49:42', 0, 7300005, '10.7.92.5'),
-(7400006, '2025-08-28 19:55:54', 0, 7300006, '10.12.86.254'),
-(7400007, '2025-12-11 05:42:25', 0, 7300007, '10.254.146.57'),
-(7400008, '2025-12-20 14:48:30', 0, 7300008, '10.168.125.4'),
-(7400009, '2025-03-09 20:31:08', 0, 7300009, '10.78.16.37'),
-(7400010, '2026-04-25 12:42:45', 0, 7300010, '10.232.2.235'),
-(7400011, '2025-02-25 05:20:10', 0, 7300011, '10.220.60.5'),
-(7400012, '2025-02-19 12:07:43', 0, 7300012, '10.253.137.173'),
-(7400013, '2024-07-23 00:57:28', 0, 7300013, '10.78.230.148'),
-(7400014, '2024-09-01 16:10:03', 0, 7300014, '10.61.154.37'),
-(7400015, '2025-04-13 16:14:50', 0, 7300015, '10.25.111.8'),
-(7400016, '2025-10-04 15:12:41', 0, 7300016, '10.60.126.92'),
-(7400017, '2026-06-22 06:53:04', 0, 7300017, '10.183.73.234'),
-(7400018, '2024-08-30 07:34:06', 0, 7300018, '10.103.151.190'),
-(7400019, '2024-09-03 14:00:00', 0, 7300019, '10.248.67.10'),
-(7400020, '2026-05-15 05:04:51', 0, 7300020, '10.254.71.21'),
-(7400021, '2025-05-29 02:15:47', 0, 7300021, '10.253.17.228'),
-(7400022, '2026-05-04 20:00:09', 0, 7300022, '10.80.91.211'),
-(7400023, '2025-05-02 08:24:43', 0, 7300023, '10.78.70.14'),
-(7400024, '2026-01-26 09:33:58', 0, 7300024, '10.237.228.245'),
-(7400025, '2024-01-30 02:49:27', 0, 7300025, '10.149.72.189'),
-(7400026, '2024-07-05 16:37:41', 0, 7300026, '10.185.219.120'),
-(7400027, '2026-04-19 16:14:37', 0, 7300027, '10.71.37.208'),
-(7400028, '2025-08-13 01:02:41', 0, 7300028, '10.139.188.145'),
-(7400029, '2025-10-23 14:16:46', 0, 7300029, '10.89.200.230'),
-(7400030, '2024-07-24 02:51:37', 0, 7300030, '10.222.42.144'),
-(7400031, '2025-09-01 14:19:43', 0, 7300031, '10.30.104.210'),
-(7400032, '2025-08-09 15:34:34', 0, 7300032, '10.225.55.206'),
-(7400033, '2024-04-24 19:11:23', 0, 7300033, '10.135.65.126'),
-(7400034, '2025-01-25 05:40:38', 0, 7300034, '10.151.113.211'),
-(7400035, '2026-02-19 06:33:55', 0, 7300035, '10.233.109.175'),
-(7400036, '2024-11-05 06:39:42', 0, 7300036, '10.224.138.162'),
-(7400037, '2024-05-26 11:46:57', 0, 7300037, '10.204.111.130'),
-(7400038, '2024-05-06 02:15:18', 0, 7300038, '10.170.88.165'),
-(7400039, '2024-02-04 09:15:34', 0, 7300039, '10.134.250.234'),
-(7400040, '2025-02-21 20:05:56', 0, 7300040, '10.11.195.93'),
-(7400041, '2024-01-02 20:43:29', 0, 7300041, '10.117.109.25'),
-(7400042, '2025-10-29 16:07:20', 0, 7300042, '10.233.246.186'),
-(7400043, '2024-11-17 23:11:51', 0, 7300043, '10.183.248.252'),
-(7400044, '2026-02-25 15:32:06', 0, 7300044, '10.219.163.227'),
-(7400045, '2026-06-24 03:51:41', 0, 7300045, '10.236.243.230'),
-(7400046, '2026-06-05 19:35:17', 0, 7300046, '10.96.133.185'),
-(7400047, '2026-05-15 01:26:16', 0, 7300047, '10.74.178.194'),
-(7400048, '2026-03-14 21:46:34', 0, 7300048, '10.245.235.36'),
-(7400049, '2024-12-01 03:58:08', 0, 7300049, '10.195.48.98'),
-(7400050, '2025-05-05 18:47:22', 0, 7300050, '10.33.94.81'),
-(7400051, '2024-03-30 03:28:24', 0, 7300051, '10.97.144.124'),
-(7400052, '2024-09-24 00:57:50', 0, 7300052, '10.205.84.105'),
-(7400053, '2024-10-16 17:46:42', 0, 7300053, '10.249.136.3'),
-(7400054, '2026-06-04 01:45:20', 0, 7300054, '10.152.195.218'),
-(7400055, '2025-12-24 21:17:02', 0, 7300055, '10.133.121.134'),
-(7400056, '2024-08-12 09:51:41', 0, 7300056, '10.171.19.67'),
-(7400057, '2024-01-04 22:34:51', 0, 7300057, '10.238.2.242'),
-(7400058, '2026-04-07 12:35:26', 0, 7300058, '10.240.96.98'),
-(7400059, '2024-06-17 13:11:07', 0, 7300059, '10.221.213.201'),
-(7400060, '2024-10-09 04:09:08', 0, 7300060, '10.50.245.75');
+(7400001, '2026-04-19 16:14:37', 0, 7300001, '10.31.71.37'),
+(7400002, '2025-08-13 01:02:41', 0, 7300002, '10.139.188.145'),
+(7400003, '2025-10-23 14:16:46', 0, 7300003, '10.89.200.230'),
+(7400004, '2024-07-24 02:51:37', 0, 7300004, '10.222.42.144'),
+(7400005, '2025-09-01 14:19:43', 0, 7300005, '10.30.104.210'),
+(7400006, '2025-08-09 15:34:34', 0, 7300006, '10.225.55.206'),
+(7400007, '2024-04-24 19:11:23', 0, 7300007, '10.135.65.126'),
+(7400008, '2025-01-25 05:40:38', 0, 7300008, '10.151.113.211'),
+(7400009, '2026-02-19 06:33:55', 0, 7300009, '10.233.109.175'),
+(7400010, '2024-11-05 06:39:42', 0, 7300010, '10.224.138.162'),
+(7400011, '2024-05-26 11:46:57', 0, 7300011, '10.204.111.130'),
+(7400012, '2024-05-06 02:15:18', 0, 7300012, '10.170.88.165'),
+(7400013, '2024-02-04 09:15:34', 0, 7300013, '10.134.250.234'),
+(7400014, '2025-02-21 20:05:56', 0, 7300014, '10.11.195.93'),
+(7400015, '2024-01-02 20:43:29', 0, 7300015, '10.117.109.25'),
+(7400016, '2025-10-29 16:07:20', 0, 7300016, '10.233.246.186'),
+(7400017, '2024-11-17 23:11:51', 0, 7300017, '10.183.248.252'),
+(7400018, '2026-02-25 15:32:06', 0, 7300018, '10.219.163.227'),
+(7400019, '2026-06-24 03:51:41', 0, 7300019, '10.236.243.230'),
+(7400020, '2026-06-05 19:35:17', 0, 7300020, '10.96.133.185'),
+(7400021, '2026-05-15 01:26:16', 0, 7300021, '10.74.178.194'),
+(7400022, '2026-03-14 21:46:34', 0, 7300022, '10.245.235.36'),
+(7400023, '2024-12-01 03:58:08', 0, 7300023, '10.195.48.98'),
+(7400024, '2025-05-05 18:47:22', 0, 7300024, '10.33.94.81'),
+(7400025, '2024-03-30 03:28:24', 0, 7300025, '10.97.144.124'),
+(7400026, '2024-09-24 00:57:50', 0, 7300026, '10.205.84.105'),
+(7400027, '2024-10-16 17:46:42', 0, 7300027, '10.249.136.3'),
+(7400028, '2026-06-04 01:45:20', 0, 7300028, '10.152.195.218'),
+(7400029, '2025-12-24 21:17:02', 0, 7300029, '10.133.121.134'),
+(7400030, '2024-08-12 09:51:41', 0, 7300030, '10.171.19.67'),
+(7400031, '2024-01-04 22:34:51', 0, 7300031, '10.238.2.242'),
+(7400032, '2026-04-07 12:35:26', 0, 7300032, '10.240.96.98'),
+(7400033, '2024-06-17 13:11:07', 0, 7300033, '10.221.213.201'),
+(7400034, '2024-10-09 04:09:08', 0, 7300034, '10.50.245.75'),
+(7400035, '2025-03-19 19:39:28', 0, 7300035, '10.37.176.187'),
+(7400036, '2024-02-26 01:55:02', 0, 7300036, '10.72.18.161'),
+(7400037, '2025-01-07 17:17:08', 0, 7300037, '10.245.104.226'),
+(7400038, '2025-03-18 19:17:43', 0, 7300038, '10.17.155.60'),
+(7400039, '2026-03-18 19:14:36', 0, 7300039, '10.147.198.198'),
+(7400040, '2026-04-16 07:14:16', 0, 7300040, '10.9.138.54'),
+(7400041, '2025-04-14 08:22:11', 0, 7300041, '10.67.144.159'),
+(7400042, '2024-08-11 04:04:29', 0, 7300042, '10.125.48.150'),
+(7400043, '2024-11-28 01:08:32', 0, 7300043, '10.170.158.99'),
+(7400044, '2025-07-05 21:08:01', 0, 7300044, '10.42.123.186'),
+(7400045, '2025-10-24 09:48:24', 0, 7300045, '10.87.181.142'),
+(7400046, '2025-04-13 09:56:50', 0, 7300046, '10.9.161.106'),
+(7400047, '2024-01-21 12:35:32', 0, 7300047, '10.59.240.211'),
+(7400048, '2025-07-20 03:28:49', 0, 7300048, '10.78.167.125'),
+(7400049, '2025-11-07 22:22:42', 0, 7300049, '10.233.221.102'),
+(7400050, '2024-08-30 05:04:16', 0, 7300050, '10.180.144.165'),
+(7400051, '2025-11-09 11:18:49', 0, 7300051, '10.120.20.87'),
+(7400052, '2025-08-04 17:42:46', 0, 7300052, '10.97.179.58'),
+(7400053, '2024-09-23 20:40:10', 0, 7300053, '10.252.82.251'),
+(7400054, '2025-04-27 14:28:21', 0, 7300054, '10.121.158.219'),
+(7400055, '2025-01-29 05:55:10', 0, 7300055, '10.207.126.78'),
+(7400056, '2024-10-30 02:24:33', 0, 7300056, '10.72.46.231'),
+(7400057, '2025-04-08 19:41:56', 0, 7300057, '10.217.165.79'),
+(7400058, '2025-11-02 13:02:46', 0, 7300058, '10.171.248.160'),
+(7400059, '2025-01-01 23:58:49', 0, 7300059, '10.250.63.51'),
+(7400060, '2026-01-10 10:15:12', 0, 7300060, '10.57.69.79');
 
 -- ========================================================================
 -- iyque_robot · 群机器人
 -- ========================================================================
 INSERT INTO `iyque_robot` (`id`, `createTime`, `delFlag`, `title`, `updateBy`, `updateTime`, `webHookUrl`) VALUES
-(7500001, '2024-08-08 11:22:56', 0, '茅台长期持有者机器人 · #1', '格雷厄姆', '2025-03-19 19:39:28', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0001'),
-(7500002, '2025-03-09 09:11:52', 0, '腾讯长期持有者机器人 · #2', '巴菲特', '2024-04-17 20:27:17', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0002'),
-(7500003, '2024-02-26 01:55:02', 0, '白酒护城河机器人 · #3', '芒格', '2025-09-19 11:13:45', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0003'),
-(7500004, '2025-01-07 17:17:08', 0, '港股互联网机器人 · #4', '彼得·林奇', '2024-04-10 03:13:45', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0004'),
-(7500005, '2024-12-28 00:45:49', 0, '新能源机器人 · #5', '费雪', '2025-03-18 19:17:43', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0005'),
-(7500006, '2026-06-08 14:18:43', 0, '半导体机器人 · #6', '邓普顿', '2026-03-18 19:14:36', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0006'),
-(7500007, '2024-02-23 23:01:13', 0, '医药创新机器人 · #7', '段永平', '2026-04-14 00:10:38', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0007'),
-(7500008, '2024-11-22 02:40:45', 0, '家族办公室机器人 · #8', '林园', '2026-04-16 07:14:16', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0008'),
-(7500009, '2025-02-07 23:47:24', 0, '段永平粉丝团机器人 · #9', '但斌', '2026-05-19 18:11:13', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0009'),
-(7500010, '2025-04-14 08:22:11', 0, '巴菲特股东会机器人 · #10', '章盟主', '2026-01-24 19:02:58', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0010'),
-(7500011, '2024-10-13 13:10:04', 0, 'AI 投资叙事机器人 · #11', '李录', '2026-06-27 14:58:53', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0011'),
-(7500012, '2024-08-11 04:04:29', 0, '读书会机器人 · #12', '赵丹阳', '2025-08-18 10:28:48', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0012'),
-(7500013, '2024-11-28 01:08:32', 0, '月度净值机器人 · #13', '格雷厄姆', '2024-09-07 03:28:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0013'),
-(7500014, '2026-01-11 11:48:48', 0, '季度报告机器人 · #14', '巴菲特', '2025-07-05 21:08:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0014'),
-(7500015, '2025-06-08 07:58:56', 0, '客户回访机器人 · #15', '芒格', '2026-05-05 18:58:14', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0015'),
-(7500016, '2025-10-24 09:48:24', 0, '茅台长期持有者机器人 · #16', '彼得·林奇', '2024-02-22 07:16:41', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0016'),
-(7500017, '2025-09-30 22:02:34', 0, '腾讯长期持有者机器人 · #17', '费雪', '2025-04-13 09:56:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0017'),
-(7500018, '2024-12-20 17:15:13', 0, '白酒护城河机器人 · #18', '邓普顿', '2024-01-21 12:35:32', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0018'),
-(7500019, '2025-04-14 05:55:15', 0, '港股互联网机器人 · #19', '段永平', '2026-01-25 20:44:16', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0019'),
-(7500020, '2025-07-20 03:28:49', 0, '新能源机器人 · #20', '林园', '2025-09-10 13:15:28', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0020'),
-(7500021, '2025-11-07 22:22:42', 0, '半导体机器人 · #21', '但斌', '2026-05-22 15:20:43', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0021'),
-(7500022, '2024-08-30 05:04:16', 0, '医药创新机器人 · #22', '章盟主', '2025-12-24 10:00:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0022'),
-(7500023, '2024-04-30 17:11:43', 0, '家族办公室机器人 · #23', '李录', '2025-06-11 16:09:43', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0023'),
-(7500024, '2025-11-09 11:18:49', 0, '段永平粉丝团机器人 · #24', '赵丹阳', '2025-08-07 18:42:04', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0024'),
-(7500025, '2024-12-13 11:51:52', 0, '巴菲特股东会机器人 · #25', '格雷厄姆', '2025-08-04 17:42:46', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0025'),
-(7500026, '2025-05-11 17:27:32', 0, 'AI 投资叙事机器人 · #26', '巴菲特', '2024-09-23 20:40:10', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0026'),
-(7500027, '2025-12-31 10:49:45', 0, '读书会机器人 · #27', '芒格', '2025-04-27 14:28:21', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0027'),
-(7500028, '2026-01-30 04:30:45', 0, '月度净值机器人 · #28', '彼得·林奇', '2025-04-16 17:52:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0028'),
-(7500029, '2025-01-29 05:55:10', 0, '季度报告机器人 · #29', '费雪', '2025-03-10 05:02:40', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0029'),
-(7500030, '2024-10-05 08:55:45', 0, '客户回访机器人 · #30', '邓普顿', '2024-10-30 02:24:33', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0030'),
-(7500031, '2025-04-21 14:01:43', 0, '茅台长期持有者机器人 · #31', '段永平', '2025-04-08 19:41:56', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0031'),
-(7500032, '2025-11-02 13:02:46', 0, '腾讯长期持有者机器人 · #32', '林园', '2025-01-15 19:39:44', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0032'),
-(7500033, '2024-11-01 23:43:04', 0, '白酒护城河机器人 · #33', '但斌', '2025-01-01 23:58:49', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0033'),
-(7500034, '2024-12-08 18:50:16', 0, '港股互联网机器人 · #34', '章盟主', '2025-02-20 04:36:13', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0034'),
-(7500035, '2025-04-22 02:49:14', 0, '新能源机器人 · #35', '李录', '2026-01-10 10:15:12', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0035'),
-(7500036, '2024-05-02 13:33:17', 0, '半导体机器人 · #36', '赵丹阳', '2026-05-12 00:12:38', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0036'),
-(7500037, '2024-12-08 17:00:28', 0, '医药创新机器人 · #37', '格雷厄姆', '2026-03-05 02:28:39', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0037'),
-(7500038, '2025-03-19 00:52:04', 0, '家族办公室机器人 · #38', '巴菲特', '2024-12-06 16:26:37', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0038'),
-(7500039, '2026-03-01 02:33:39', 0, '段永平粉丝团机器人 · #39', '芒格', '2026-05-16 12:09:39', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0039'),
-(7500040, '2024-06-04 07:30:51', 0, '巴菲特股东会机器人 · #40', '彼得·林奇', '2024-08-09 22:39:29', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0040'),
-(7500041, '2025-10-02 22:30:14', 0, 'AI 投资叙事机器人 · #41', '费雪', '2024-08-12 12:59:12', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0041'),
-(7500042, '2025-10-22 13:48:03', 0, '读书会机器人 · #42', '邓普顿', '2025-02-03 05:59:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0042'),
-(7500043, '2026-06-01 08:29:14', 0, '月度净值机器人 · #43', '段永平', '2024-01-21 00:30:53', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0043'),
-(7500044, '2026-02-01 12:17:38', 0, '季度报告机器人 · #44', '林园', '2024-06-25 12:12:47', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0044'),
-(7500045, '2024-07-31 06:01:12', 0, '客户回访机器人 · #45', '但斌', '2024-01-22 22:00:57', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0045'),
-(7500046, '2024-05-14 12:13:05', 0, '茅台长期持有者机器人 · #46', '章盟主', '2024-01-15 03:17:42', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0046'),
-(7500047, '2025-04-25 15:22:34', 0, '腾讯长期持有者机器人 · #47', '李录', '2025-04-06 07:28:40', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0047'),
-(7500048, '2025-05-14 12:10:37', 0, '白酒护城河机器人 · #48', '赵丹阳', '2025-04-27 00:52:07', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0048'),
-(7500049, '2024-01-10 13:22:04', 0, '港股互联网机器人 · #49', '格雷厄姆', '2025-10-10 23:56:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0049'),
-(7500050, '2024-01-25 17:18:51', 0, '新能源机器人 · #50', '巴菲特', '2026-04-13 19:40:34', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0050'),
-(7500051, '2025-11-29 08:14:15', 0, '半导体机器人 · #51', '芒格', '2024-03-29 20:50:55', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0051'),
-(7500052, '2025-09-24 22:40:28', 0, '医药创新机器人 · #52', '彼得·林奇', '2025-01-05 17:54:04', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0052'),
-(7500053, '2024-12-01 01:21:36', 0, '家族办公室机器人 · #53', '费雪', '2024-05-26 22:12:18', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0053'),
-(7500054, '2024-07-25 09:53:23', 0, '段永平粉丝团机器人 · #54', '邓普顿', '2024-11-26 03:36:33', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0054'),
-(7500055, '2025-12-25 22:40:28', 0, '巴菲特股东会机器人 · #55', '段永平', '2024-07-05 15:07:37', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0055'),
-(7500056, '2024-03-04 02:42:22', 0, 'AI 投资叙事机器人 · #56', '林园', '2024-05-06 00:09:49', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0056'),
-(7500057, '2024-03-09 11:15:48', 0, '读书会机器人 · #57', '但斌', '2025-06-05 08:20:25', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0057'),
-(7500058, '2025-11-27 01:27:35', 0, '月度净值机器人 · #58', '章盟主', '2024-03-07 02:09:32', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0058'),
-(7500059, '2026-04-01 07:24:29', 0, '季度报告机器人 · #59', '李录', '2024-11-27 01:56:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0059'),
-(7500060, '2025-04-25 13:30:29', 0, '客户回访机器人 · #60', '赵丹阳', '2026-01-05 06:31:05', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0060');
+(7500001, '2024-05-02 13:33:17', 0, '茅台长期持有者机器人 · #1', '格雷厄姆', '2026-05-12 00:12:38', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0001'),
+(7500002, '2024-12-08 17:00:28', 0, '腾讯长期持有者机器人 · #2', '巴菲特', '2026-03-05 02:28:39', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0002'),
+(7500003, '2025-03-19 00:52:04', 0, '白酒护城河机器人 · #3', '芒格', '2024-12-06 16:26:37', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0003'),
+(7500004, '2026-03-01 02:33:39', 0, '港股互联网机器人 · #4', '彼得·林奇', '2026-05-16 12:09:39', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0004'),
+(7500005, '2024-06-04 07:30:51', 0, '新能源机器人 · #5', '费雪', '2024-08-09 22:39:29', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0005'),
+(7500006, '2025-10-02 22:30:14', 0, '半导体机器人 · #6', '邓普顿', '2024-08-12 12:59:12', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0006'),
+(7500007, '2025-10-22 13:48:03', 0, '医药创新机器人 · #7', '段永平', '2025-02-03 05:59:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0007'),
+(7500008, '2026-06-01 08:29:14', 0, '家族办公室机器人 · #8', '林园', '2024-01-21 00:30:53', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0008'),
+(7500009, '2026-02-01 12:17:38', 0, '段永平粉丝团机器人 · #9', '但斌', '2024-06-25 12:12:47', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0009'),
+(7500010, '2024-07-31 06:01:12', 0, '巴菲特股东会机器人 · #10', '章盟主', '2024-01-22 22:00:57', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0010'),
+(7500011, '2024-05-14 12:13:05', 0, 'AI 投资叙事机器人 · #11', '李录', '2024-01-15 03:17:42', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0011'),
+(7500012, '2025-04-25 15:22:34', 0, '读书会机器人 · #12', '赵丹阳', '2025-04-06 07:28:40', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0012'),
+(7500013, '2025-05-14 12:10:37', 0, '月度净值机器人 · #13', '格雷厄姆', '2025-04-27 00:52:07', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0013'),
+(7500014, '2024-01-10 13:22:04', 0, '季度报告机器人 · #14', '巴菲特', '2025-10-10 23:56:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0014'),
+(7500015, '2024-01-25 17:18:51', 0, '客户回访机器人 · #15', '芒格', '2026-04-13 19:40:34', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0015'),
+(7500016, '2025-11-29 08:14:15', 0, '茅台长期持有者机器人 · #16', '彼得·林奇', '2024-03-29 20:50:55', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0016'),
+(7500017, '2025-09-24 22:40:28', 0, '腾讯长期持有者机器人 · #17', '费雪', '2025-01-05 17:54:04', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0017'),
+(7500018, '2024-12-01 01:21:36', 0, '白酒护城河机器人 · #18', '邓普顿', '2024-05-26 22:12:18', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0018'),
+(7500019, '2024-07-25 09:53:23', 0, '港股互联网机器人 · #19', '段永平', '2024-11-26 03:36:33', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0019'),
+(7500020, '2025-12-25 22:40:28', 0, '新能源机器人 · #20', '林园', '2024-07-05 15:07:37', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0020'),
+(7500021, '2024-03-04 02:42:22', 0, '半导体机器人 · #21', '但斌', '2024-05-06 00:09:49', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0021'),
+(7500022, '2024-03-09 11:15:48', 0, '医药创新机器人 · #22', '章盟主', '2025-06-05 08:20:25', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0022'),
+(7500023, '2025-11-27 01:27:35', 0, '家族办公室机器人 · #23', '李录', '2024-03-07 02:09:32', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0023'),
+(7500024, '2026-04-01 07:24:29', 0, '段永平粉丝团机器人 · #24', '赵丹阳', '2024-11-27 01:56:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0024'),
+(7500025, '2025-04-25 13:30:29', 0, '巴菲特股东会机器人 · #25', '格雷厄姆', '2026-01-05 06:31:05', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0025'),
+(7500026, '2024-11-30 09:51:58', 0, 'AI 投资叙事机器人 · #26', '巴菲特', '2025-09-16 20:15:27', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0026'),
+(7500027, '2025-06-03 00:34:41', 0, '读书会机器人 · #27', '芒格', '2024-03-29 02:30:29', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0027'),
+(7500028, '2025-12-03 05:20:12', 0, '月度净值机器人 · #28', '彼得·林奇', '2025-04-15 22:33:37', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0028'),
+(7500029, '2024-08-31 12:18:34', 0, '季度报告机器人 · #29', '费雪', '2025-01-18 22:01:16', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0029'),
+(7500030, '2025-01-20 05:45:47', 0, '客户回访机器人 · #30', '邓普顿', '2024-03-01 20:03:18', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0030'),
+(7500031, '2024-02-21 19:53:13', 0, '茅台长期持有者机器人 · #31', '段永平', '2026-05-21 06:27:56', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0031'),
+(7500032, '2025-05-13 23:24:16', 0, '腾讯长期持有者机器人 · #32', '林园', '2025-11-08 22:39:21', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0032'),
+(7500033, '2025-05-07 00:18:33', 0, '白酒护城河机器人 · #33', '但斌', '2024-05-05 02:44:41', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0033'),
+(7500034, '2025-07-10 14:06:19', 0, '港股互联网机器人 · #34', '章盟主', '2024-06-10 08:16:24', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0034'),
+(7500035, '2025-03-16 00:13:15', 0, '新能源机器人 · #35', '李录', '2025-04-24 18:30:32', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0035'),
+(7500036, '2026-06-25 08:26:00', 0, '半导体机器人 · #36', '赵丹阳', '2025-04-14 12:53:16', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0036'),
+(7500037, '2024-02-05 17:46:33', 0, '医药创新机器人 · #37', '格雷厄姆', '2024-01-02 14:27:17', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0037'),
+(7500038, '2024-02-26 16:09:10', 0, '家族办公室机器人 · #38', '巴菲特', '2026-04-26 14:35:07', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0038'),
+(7500039, '2026-05-10 05:54:57', 0, '段永平粉丝团机器人 · #39', '芒格', '2025-10-12 07:24:10', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0039'),
+(7500040, '2024-03-05 06:43:49', 0, '巴菲特股东会机器人 · #40', '彼得·林奇', '2025-01-22 08:59:11', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0040'),
+(7500041, '2024-01-07 04:20:39', 0, 'AI 投资叙事机器人 · #41', '费雪', '2024-04-05 14:26:59', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0041'),
+(7500042, '2025-11-11 16:38:52', 0, '读书会机器人 · #42', '邓普顿', '2025-09-27 05:56:46', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0042'),
+(7500043, '2024-06-22 18:36:13', 0, '月度净值机器人 · #43', '段永平', '2026-05-19 13:30:21', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0043'),
+(7500044, '2026-05-14 13:46:22', 0, '季度报告机器人 · #44', '林园', '2024-10-01 06:54:01', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0044'),
+(7500045, '2026-05-01 18:01:17', 0, '客户回访机器人 · #45', '但斌', '2024-11-12 18:32:59', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0045'),
+(7500046, '2025-06-06 19:11:20', 0, '茅台长期持有者机器人 · #46', '章盟主', '2024-01-27 20:01:21', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0046'),
+(7500047, '2024-10-22 17:57:29', 0, '腾讯长期持有者机器人 · #47', '李录', '2026-05-29 12:28:22', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0047'),
+(7500048, '2025-11-06 01:41:12', 0, '白酒护城河机器人 · #48', '赵丹阳', '2024-07-22 22:18:03', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0048'),
+(7500049, '2025-09-13 09:33:02', 0, '港股互联网机器人 · #49', '格雷厄姆', '2026-02-25 20:59:14', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0049'),
+(7500050, '2025-06-27 21:25:53', 0, '新能源机器人 · #50', '巴菲特', '2025-08-13 15:57:58', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0050'),
+(7500051, '2025-11-13 08:07:52', 0, '半导体机器人 · #51', '芒格', '2024-11-23 20:15:52', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0051'),
+(7500052, '2025-08-25 12:23:20', 0, '医药创新机器人 · #52', '彼得·林奇', '2025-05-10 14:11:58', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0052'),
+(7500053, '2024-05-05 20:55:01', 0, '家族办公室机器人 · #53', '费雪', '2024-11-14 20:34:00', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0053'),
+(7500054, '2026-06-23 03:05:34', 0, '段永平粉丝团机器人 · #54', '邓普顿', '2024-03-08 05:57:58', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0054'),
+(7500055, '2024-08-05 11:38:19', 0, '巴菲特股东会机器人 · #55', '段永平', '2025-08-02 15:15:50', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0055'),
+(7500056, '2025-06-27 15:08:21', 0, 'AI 投资叙事机器人 · #56', '林园', '2026-03-21 11:43:13', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0056'),
+(7500057, '2024-06-03 06:40:13', 0, '读书会机器人 · #57', '但斌', '2024-09-24 12:17:28', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0057'),
+(7500058, '2024-11-08 10:36:48', 0, '月度净值机器人 · #58', '章盟主', '2025-07-01 14:22:08', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0058'),
+(7500059, '2025-06-06 23:33:13', 0, '季度报告机器人 · #59', '李录', '2026-02-28 00:59:36', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0059'),
+(7500060, '2025-11-01 22:53:00', 0, '客户回访机器人 · #60', '赵丹阳', '2024-03-28 00:34:52', 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=demo_key_0060');
 
 -- ========================================================================
 -- iyque_robot_sub · 机器人推送任务
 -- ========================================================================
 INSERT INTO `iyque_robot_sub` (`id`, `annexContent`, `delFlag`, `msgTitle`, `msgType`, `robotId`, `sendTime`) VALUES
-(7600001, '[每日语录] 格雷厄姆：价格是你付出的，价值才是你得到的。', 0, '每日语录推送 1', 'text', 7500001, '2024-11-30 09:51:58'),
-(7600002, '[每日语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, '每日语录推送 2', 'text', 7500002, '2025-09-16 20:15:27'),
-(7600003, '[每日语录] 巴菲特：买股票就是买公司。', 0, '每日语录推送 3', 'text', 7500003, '2025-06-03 00:34:41'),
-(7600004, '[每日语录] 巴菲特：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, '每日语录推送 4', 'text', 7500004, '2024-03-29 02:30:29'),
-(7600005, '[每日语录] 芒格：反过来想，总是反过来想。', 0, '每日语录推送 5', 'text', 7500005, '2025-12-03 05:20:12'),
-(7600006, '[每日语录] 芒格：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, '每日语录推送 6', 'text', 7500006, '2025-04-15 22:33:37'),
-(7600007, '[每日语录] 芒格：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, '每日语录推送 7', 'text', 7500007, '2024-08-31 12:18:34'),
-(7600008, '[每日语录] 彼得·林奇：买你熟悉的股票，避开你不熟悉的。', 0, '每日语录推送 8', 'text', 7500008, '2025-01-18 22:01:16'),
-(7600009, '[每日语录] 彼得·林奇：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, '每日语录推送 9', 'text', 7500009, '2025-01-20 05:45:47'),
-(7600010, '[每日语录] 费雪：投资的最好时机是找到伟大企业时。', 0, '每日语录推送 10', 'text', 7500010, '2024-03-01 20:03:18'),
-(7600011, '[每日语录] 邓普顿：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, '每日语录推送 11', 'text', 7500011, '2024-02-21 19:53:13'),
-(7600012, '[每日语录] 段永平：做对的事情，把事情做对。', 0, '每日语录推送 12', 'text', 7500012, '2026-05-21 06:27:56'),
-(7600013, '[每日语录] 段永平：本分比聪明重要。', 0, '每日语录推送 13', 'text', 7500013, '2025-05-13 23:24:16'),
-(7600014, '[每日语录] 段永平：长期视角看，好生意最终会给股东回报。', 0, '每日语录推送 14', 'text', 7500014, '2025-11-08 22:39:21'),
-(7600015, '[每日语录] 林园：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, '每日语录推送 15', 'text', 7500015, '2025-05-07 00:18:33'),
-(7600016, '[每日语录] 但斌：时间的玫瑰只献给坚守的人。', 0, '每日语录推送 16', 'text', 7500016, '2024-05-05 02:44:41'),
-(7600017, '[每日语录] 章盟主：情绪是短线的燃料，但价值是长线的锚。', 0, '每日语录推送 17', 'text', 7500017, '2025-07-10 14:06:19'),
-(7600018, '[每日语录] 李录：在中国做价值投资，需要更长的时间维度。', 0, '每日语录推送 18', 'text', 7500018, '2024-06-10 08:16:24'),
-(7600019, '[每日语录] 赵丹阳：绝对收益是价值投资者的自我修养。', 0, '每日语录推送 19', 'text', 7500019, '2025-03-16 00:13:15'),
-(7600020, '[每日语录] 格雷厄姆：价格是你付出的，价值才是你得到的。', 0, '每日语录推送 20', 'text', 7500020, '2025-04-24 18:30:32'),
-(7600021, '[每日语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, '每日语录推送 21', 'text', 7500021, '2026-06-25 08:26:00'),
-(7600022, '[每日语录] 巴菲特：买股票就是买公司。', 0, '每日语录推送 22', 'text', 7500022, '2025-04-14 12:53:16'),
-(7600023, '[每日语录] 巴菲特：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, '每日语录推送 23', 'text', 7500023, '2024-02-05 17:46:33'),
-(7600024, '[每日语录] 芒格：反过来想，总是反过来想。', 0, '每日语录推送 24', 'text', 7500024, '2024-01-02 14:27:17'),
-(7600025, '[每日语录] 芒格：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, '每日语录推送 25', 'text', 7500025, '2024-02-26 16:09:10'),
-(7600026, '[每日语录] 芒格：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, '每日语录推送 26', 'text', 7500026, '2026-04-26 14:35:07'),
-(7600027, '[每日语录] 彼得·林奇：买你熟悉的股票，避开你不熟悉的。', 0, '每日语录推送 27', 'text', 7500027, '2026-05-10 05:54:57'),
-(7600028, '[每日语录] 彼得·林奇：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, '每日语录推送 28', 'text', 7500028, '2025-10-12 07:24:10'),
-(7600029, '[每日语录] 费雪：投资的最好时机是找到伟大企业时。', 0, '每日语录推送 29', 'text', 7500029, '2024-03-05 06:43:49'),
-(7600030, '[每日语录] 邓普顿：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, '每日语录推送 30', 'text', 7500030, '2025-01-22 08:59:11'),
-(7600031, '[每日语录] 段永平：做对的事情，把事情做对。', 0, '每日语录推送 31', 'text', 7500031, '2024-01-07 04:20:39'),
-(7600032, '[每日语录] 段永平：本分比聪明重要。', 0, '每日语录推送 32', 'text', 7500032, '2024-04-05 14:26:59'),
-(7600033, '[每日语录] 段永平：长期视角看，好生意最终会给股东回报。', 0, '每日语录推送 33', 'text', 7500033, '2025-11-11 16:38:52'),
-(7600034, '[每日语录] 林园：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, '每日语录推送 34', 'text', 7500034, '2025-09-27 05:56:46'),
-(7600035, '[每日语录] 但斌：时间的玫瑰只献给坚守的人。', 0, '每日语录推送 35', 'text', 7500035, '2024-06-22 18:36:13'),
-(7600036, '[每日语录] 章盟主：情绪是短线的燃料，但价值是长线的锚。', 0, '每日语录推送 36', 'text', 7500036, '2026-05-19 13:30:21'),
-(7600037, '[每日语录] 李录：在中国做价值投资，需要更长的时间维度。', 0, '每日语录推送 37', 'text', 7500037, '2026-05-14 13:46:22'),
-(7600038, '[每日语录] 赵丹阳：绝对收益是价值投资者的自我修养。', 0, '每日语录推送 38', 'text', 7500038, '2024-10-01 06:54:01'),
-(7600039, '[每日语录] 格雷厄姆：价格是你付出的，价值才是你得到的。', 0, '每日语录推送 39', 'text', 7500039, '2026-05-01 18:01:17'),
-(7600040, '[每日语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, '每日语录推送 40', 'text', 7500040, '2024-11-12 18:32:59'),
-(7600041, '[每日语录] 巴菲特：买股票就是买公司。', 0, '每日语录推送 41', 'text', 7500041, '2025-06-06 19:11:20'),
-(7600042, '[每日语录] 巴菲特：我们喜欢简单的生意，不喜欢有太多变量的生意。', 0, '每日语录推送 42', 'text', 7500042, '2024-01-27 20:01:21'),
-(7600043, '[每日语录] 芒格：反过来想，总是反过来想。', 0, '每日语录推送 43', 'text', 7500043, '2024-10-22 17:57:29'),
-(7600044, '[每日语录] 芒格：宏观是我们必须承受的，微观才是我们能有所作为的。', 0, '每日语录推送 44', 'text', 7500044, '2026-05-29 12:28:22'),
-(7600045, '[每日语录] 芒格：得到你想要的东西的最保险办法，就是让自己配得上它。', 0, '每日语录推送 45', 'text', 7500045, '2025-11-06 01:41:12'),
-(7600046, '[每日语录] 彼得·林奇：买你熟悉的股票，避开你不熟悉的。', 0, '每日语录推送 46', 'text', 7500046, '2024-07-22 22:18:03'),
-(7600047, '[每日语录] 彼得·林奇：如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。', 0, '每日语录推送 47', 'text', 7500047, '2025-09-13 09:33:02'),
-(7600048, '[每日语录] 费雪：投资的最好时机是找到伟大企业时。', 0, '每日语录推送 48', 'text', 7500048, '2026-02-25 20:59:14'),
-(7600049, '[每日语录] 邓普顿：在极度悲观的时候买入，在极度乐观的时候卖出。', 0, '每日语录推送 49', 'text', 7500049, '2025-06-27 21:25:53'),
-(7600050, '[每日语录] 段永平：做对的事情，把事情做对。', 0, '每日语录推送 50', 'text', 7500050, '2025-08-13 15:57:58'),
-(7600051, '[每日语录] 段永平：本分比聪明重要。', 0, '每日语录推送 51', 'text', 7500051, '2025-11-13 08:07:52'),
-(7600052, '[每日语录] 段永平：长期视角看，好生意最终会给股东回报。', 0, '每日语录推送 52', 'text', 7500052, '2024-11-23 20:15:52'),
-(7600053, '[每日语录] 林园：看得见摸得着的消费股，才是能陪你一辈子的股票。', 0, '每日语录推送 53', 'text', 7500053, '2025-08-25 12:23:20'),
-(7600054, '[每日语录] 但斌：时间的玫瑰只献给坚守的人。', 0, '每日语录推送 54', 'text', 7500054, '2025-05-10 14:11:58'),
-(7600055, '[每日语录] 章盟主：情绪是短线的燃料，但价值是长线的锚。', 0, '每日语录推送 55', 'text', 7500055, '2024-05-05 20:55:01'),
-(7600056, '[每日语录] 李录：在中国做价值投资，需要更长的时间维度。', 0, '每日语录推送 56', 'text', 7500056, '2024-11-14 20:34:00'),
-(7600057, '[每日语录] 赵丹阳：绝对收益是价值投资者的自我修养。', 0, '每日语录推送 57', 'text', 7500057, '2026-06-23 03:05:34'),
-(7600058, '[每日语录] 格雷厄姆：价格是你付出的，价值才是你得到的。', 0, '每日语录推送 58', 'text', 7500058, '2024-03-08 05:57:58'),
-(7600059, '[每日语录] 巴菲特：投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。', 0, '每日语录推送 59', 'text', 7500059, '2024-08-05 11:38:19'),
-(7600060, '[每日语录] 巴菲特：买股票就是买公司。', 0, '每日语录推送 60', 'text', 7500060, '2025-08-02 15:15:50');
+(7600001, '{"content": "【每日语录 · 格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, '每日语录推送 1', 'text', 7500001, '2026-02-19 07:19:21'),
+(7600002, '{"content": "【每日语录 · 巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, '每日语录推送 2', 'text', 7500002, '2025-01-17 03:32:42'),
+(7600003, '{"content": "【每日语录 · 巴菲特】买股票就是买公司。"}', 0, '每日语录推送 3', 'text', 7500003, '2025-01-16 02:43:54'),
+(7600004, '{"content": "【每日语录 · 巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, '每日语录推送 4', 'text', 7500004, '2025-05-22 21:14:42'),
+(7600005, '{"content": "【每日语录 · 芒格】反过来想，总是反过来想。"}', 0, '每日语录推送 5', 'text', 7500005, '2025-03-27 16:00:43'),
+(7600006, '{"content": "【每日语录 · 芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, '每日语录推送 6', 'text', 7500006, '2025-12-26 13:52:24'),
+(7600007, '{"content": "【每日语录 · 芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, '每日语录推送 7', 'text', 7500007, '2024-08-31 06:17:04'),
+(7600008, '{"content": "【每日语录 · 彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, '每日语录推送 8', 'text', 7500008, '2025-07-20 08:43:03'),
+(7600009, '{"content": "【每日语录 · 彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, '每日语录推送 9', 'text', 7500009, '2024-10-25 12:18:44'),
+(7600010, '{"content": "【每日语录 · 费雪】投资的最好时机是找到伟大企业时。"}', 0, '每日语录推送 10', 'text', 7500010, '2025-01-29 18:51:01'),
+(7600011, '{"content": "【每日语录 · 邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, '每日语录推送 11', 'text', 7500011, '2026-03-22 04:30:03'),
+(7600012, '{"content": "【每日语录 · 段永平】做对的事情，把事情做对。"}', 0, '每日语录推送 12', 'text', 7500012, '2025-01-25 17:55:53'),
+(7600013, '{"content": "【每日语录 · 段永平】本分比聪明重要。"}', 0, '每日语录推送 13', 'text', 7500013, '2025-06-12 03:57:25'),
+(7600014, '{"content": "【每日语录 · 段永平】长期视角看，好生意最终会给股东回报。"}', 0, '每日语录推送 14', 'text', 7500014, '2026-06-16 16:23:42'),
+(7600015, '{"content": "【每日语录 · 林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, '每日语录推送 15', 'text', 7500015, '2024-10-24 23:13:20'),
+(7600016, '{"content": "【每日语录 · 但斌】时间的玫瑰只献给坚守的人。"}', 0, '每日语录推送 16', 'text', 7500016, '2024-06-05 14:42:14'),
+(7600017, '{"content": "【每日语录 · 章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, '每日语录推送 17', 'text', 7500017, '2024-03-16 11:04:39'),
+(7600018, '{"content": "【每日语录 · 李录】在中国做价值投资，需要更长的时间维度。"}', 0, '每日语录推送 18', 'text', 7500018, '2024-01-20 02:14:47'),
+(7600019, '{"content": "【每日语录 · 赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, '每日语录推送 19', 'text', 7500019, '2025-01-20 10:52:41'),
+(7600020, '{"content": "【每日语录 · 格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, '每日语录推送 20', 'text', 7500020, '2026-05-14 13:33:55'),
+(7600021, '{"content": "【每日语录 · 巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, '每日语录推送 21', 'text', 7500021, '2025-02-25 02:08:33'),
+(7600022, '{"content": "【每日语录 · 巴菲特】买股票就是买公司。"}', 0, '每日语录推送 22', 'text', 7500022, '2025-04-01 01:03:01'),
+(7600023, '{"content": "【每日语录 · 巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, '每日语录推送 23', 'text', 7500023, '2026-02-05 13:54:22'),
+(7600024, '{"content": "【每日语录 · 芒格】反过来想，总是反过来想。"}', 0, '每日语录推送 24', 'text', 7500024, '2024-11-24 17:26:38'),
+(7600025, '{"content": "【每日语录 · 芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, '每日语录推送 25', 'text', 7500025, '2025-11-27 19:40:36'),
+(7600026, '{"content": "【每日语录 · 芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, '每日语录推送 26', 'text', 7500026, '2026-05-20 05:34:18'),
+(7600027, '{"content": "【每日语录 · 彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, '每日语录推送 27', 'text', 7500027, '2025-03-23 02:15:24'),
+(7600028, '{"content": "【每日语录 · 彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, '每日语录推送 28', 'text', 7500028, '2025-12-07 06:46:54'),
+(7600029, '{"content": "【每日语录 · 费雪】投资的最好时机是找到伟大企业时。"}', 0, '每日语录推送 29', 'text', 7500029, '2024-11-25 08:34:13'),
+(7600030, '{"content": "【每日语录 · 邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, '每日语录推送 30', 'text', 7500030, '2024-01-28 14:09:14'),
+(7600031, '{"content": "【每日语录 · 段永平】做对的事情，把事情做对。"}', 0, '每日语录推送 31', 'text', 7500031, '2024-05-21 12:04:35'),
+(7600032, '{"content": "【每日语录 · 段永平】本分比聪明重要。"}', 0, '每日语录推送 32', 'text', 7500032, '2026-02-06 08:06:42'),
+(7600033, '{"content": "【每日语录 · 段永平】长期视角看，好生意最终会给股东回报。"}', 0, '每日语录推送 33', 'text', 7500033, '2025-05-06 16:02:03'),
+(7600034, '{"content": "【每日语录 · 林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, '每日语录推送 34', 'text', 7500034, '2025-03-25 22:14:53'),
+(7600035, '{"content": "【每日语录 · 但斌】时间的玫瑰只献给坚守的人。"}', 0, '每日语录推送 35', 'text', 7500035, '2024-06-05 16:09:23'),
+(7600036, '{"content": "【每日语录 · 章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, '每日语录推送 36', 'text', 7500036, '2024-03-06 19:06:29'),
+(7600037, '{"content": "【每日语录 · 李录】在中国做价值投资，需要更长的时间维度。"}', 0, '每日语录推送 37', 'text', 7500037, '2024-08-11 09:46:02'),
+(7600038, '{"content": "【每日语录 · 赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, '每日语录推送 38', 'text', 7500038, '2025-10-29 04:43:10'),
+(7600039, '{"content": "【每日语录 · 格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, '每日语录推送 39', 'text', 7500039, '2025-11-15 04:49:10'),
+(7600040, '{"content": "【每日语录 · 巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, '每日语录推送 40', 'text', 7500040, '2026-05-20 19:44:03'),
+(7600041, '{"content": "【每日语录 · 巴菲特】买股票就是买公司。"}', 0, '每日语录推送 41', 'text', 7500041, '2024-11-25 12:47:41'),
+(7600042, '{"content": "【每日语录 · 巴菲特】我们喜欢简单的生意，不喜欢有太多变量的生意。"}', 0, '每日语录推送 42', 'text', 7500042, '2024-04-29 02:38:47'),
+(7600043, '{"content": "【每日语录 · 芒格】反过来想，总是反过来想。"}', 0, '每日语录推送 43', 'text', 7500043, '2024-09-05 10:42:27'),
+(7600044, '{"content": "【每日语录 · 芒格】宏观是我们必须承受的，微观才是我们能有所作为的。"}', 0, '每日语录推送 44', 'text', 7500044, '2024-12-20 17:59:58'),
+(7600045, '{"content": "【每日语录 · 芒格】得到你想要的东西的最保险办法，就是让自己配得上它。"}', 0, '每日语录推送 45', 'text', 7500045, '2025-09-07 13:16:27'),
+(7600046, '{"content": "【每日语录 · 彼得·林奇】买你熟悉的股票，避开你不熟悉的。"}', 0, '每日语录推送 46', 'text', 7500046, '2026-02-21 20:49:01'),
+(7600047, '{"content": "【每日语录 · 彼得·林奇】如果连一家公司的业务你都无法用一支蜡笔说清楚，那就别买。"}', 0, '每日语录推送 47', 'text', 7500047, '2024-12-15 02:05:26'),
+(7600048, '{"content": "【每日语录 · 费雪】投资的最好时机是找到伟大企业时。"}', 0, '每日语录推送 48', 'text', 7500048, '2025-01-29 12:05:39'),
+(7600049, '{"content": "【每日语录 · 邓普顿】在极度悲观的时候买入，在极度乐观的时候卖出。"}', 0, '每日语录推送 49', 'text', 7500049, '2026-04-21 03:28:11'),
+(7600050, '{"content": "【每日语录 · 段永平】做对的事情，把事情做对。"}', 0, '每日语录推送 50', 'text', 7500050, '2025-06-11 15:17:45'),
+(7600051, '{"content": "【每日语录 · 段永平】本分比聪明重要。"}', 0, '每日语录推送 51', 'text', 7500051, '2025-03-24 02:38:11'),
+(7600052, '{"content": "【每日语录 · 段永平】长期视角看，好生意最终会给股东回报。"}', 0, '每日语录推送 52', 'text', 7500052, '2024-10-31 19:05:22'),
+(7600053, '{"content": "【每日语录 · 林园】看得见摸得着的消费股，才是能陪你一辈子的股票。"}', 0, '每日语录推送 53', 'text', 7500053, '2024-12-23 07:59:47'),
+(7600054, '{"content": "【每日语录 · 但斌】时间的玫瑰只献给坚守的人。"}', 0, '每日语录推送 54', 'text', 7500054, '2026-02-13 10:36:50'),
+(7600055, '{"content": "【每日语录 · 章盟主】情绪是短线的燃料，但价值是长线的锚。"}', 0, '每日语录推送 55', 'text', 7500055, '2024-11-10 11:07:41'),
+(7600056, '{"content": "【每日语录 · 李录】在中国做价值投资，需要更长的时间维度。"}', 0, '每日语录推送 56', 'text', 7500056, '2024-12-23 23:18:45'),
+(7600057, '{"content": "【每日语录 · 赵丹阳】绝对收益是价值投资者的自我修养。"}', 0, '每日语录推送 57', 'text', 7500057, '2026-06-25 20:25:06'),
+(7600058, '{"content": "【每日语录 · 格雷厄姆】价格是你付出的，价值才是你得到的。"}', 0, '每日语录推送 58', 'text', 7500058, '2026-01-20 20:16:33'),
+(7600059, '{"content": "【每日语录 · 巴菲特】投资的第一条原则是永远不要亏损；第二条原则是永远不要忘记第一条。"}', 0, '每日语录推送 59', 'text', 7500059, '2026-01-21 20:18:28'),
+(7600060, '{"content": "【每日语录 · 巴菲特】买股票就是买公司。"}', 0, '每日语录推送 60', 'text', 7500060, '2025-01-06 06:19:50');
 
 -- ========================================================================
 -- iyque_agent · 应用（消息）
 -- ========================================================================
 INSERT INTO `iyque_agent` (`id`, `agentId`, `allowPartyName`, `allowUserinfoName`, `createTime`, `delFlag`, `logoUrl`, `name`, `secret`, `updateBy`, `updateTime`) VALUES
-(7700001, 1000000, '全部部门', '全体投顾', '2025-06-27 15:08:21', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 1', 'agent_secret_demo_0001', '格雷厄姆', '2026-03-21 11:43:13'),
-(7700002, 1000001, '全部部门', '全体投顾', '2024-06-03 06:40:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 2', 'agent_secret_demo_0002', '巴菲特', '2024-09-24 12:17:28'),
-(7700003, 1000002, '全部部门', '全体投顾', '2024-11-08 10:36:48', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 3', 'agent_secret_demo_0003', '芒格', '2025-07-01 14:22:08'),
-(7700004, 1000003, '全部部门', '全体投顾', '2025-06-06 23:33:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 4', 'agent_secret_demo_0004', '彼得·林奇', '2026-02-28 00:59:36'),
-(7700005, 1000004, '全部部门', '全体投顾', '2025-11-01 22:53:00', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 5', 'agent_secret_demo_0005', '费雪', '2024-03-28 00:34:52'),
-(7700006, 1000005, '全部部门', '全体投顾', '2026-02-19 07:19:21', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 6', 'agent_secret_demo_0006', '邓普顿', '2025-01-17 03:32:42'),
-(7700007, 1000006, '全部部门', '全体投顾', '2025-01-16 02:43:54', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 7', 'agent_secret_demo_0007', '段永平', '2025-05-22 21:14:42'),
-(7700008, 1000007, '全部部门', '全体投顾', '2025-03-27 16:00:43', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 8', 'agent_secret_demo_0008', '林园', '2025-12-26 13:52:24'),
-(7700009, 1000008, '全部部门', '全体投顾', '2024-08-31 06:17:04', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 9', 'agent_secret_demo_0009', '但斌', '2025-07-20 08:43:03'),
-(7700010, 1000009, '全部部门', '全体投顾', '2024-10-25 12:18:44', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 10', 'agent_secret_demo_0010', '章盟主', '2025-01-29 18:51:01'),
-(7700011, 1000010, '全部部门', '全体投顾', '2026-03-22 04:30:03', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 11', 'agent_secret_demo_0011', '李录', '2025-01-25 17:55:53'),
-(7700012, 1000011, '全部部门', '全体投顾', '2025-06-12 03:57:25', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 12', 'agent_secret_demo_0012', '赵丹阳', '2026-06-16 16:23:42'),
-(7700013, 1000012, '全部部门', '全体投顾', '2024-10-24 23:13:20', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 13', 'agent_secret_demo_0013', '格雷厄姆', '2024-06-05 14:42:14'),
-(7700014, 1000013, '全部部门', '全体投顾', '2024-03-16 11:04:39', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 14', 'agent_secret_demo_0014', '巴菲特', '2024-01-20 02:14:47'),
-(7700015, 1000014, '全部部门', '全体投顾', '2025-01-20 10:52:41', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 15', 'agent_secret_demo_0015', '芒格', '2026-05-14 13:33:55'),
-(7700016, 1000015, '全部部门', '全体投顾', '2025-02-25 02:08:33', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 16', 'agent_secret_demo_0016', '彼得·林奇', '2025-04-01 01:03:01'),
-(7700017, 1000016, '全部部门', '全体投顾', '2026-02-05 13:54:22', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 17', 'agent_secret_demo_0017', '费雪', '2024-11-24 17:26:38'),
-(7700018, 1000017, '全部部门', '全体投顾', '2025-11-27 19:40:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 18', 'agent_secret_demo_0018', '邓普顿', '2026-05-20 05:34:18'),
-(7700019, 1000018, '全部部门', '全体投顾', '2025-03-23 02:15:24', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 19', 'agent_secret_demo_0019', '段永平', '2025-12-07 06:46:54'),
-(7700020, 1000019, '全部部门', '全体投顾', '2024-11-25 08:34:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 20', 'agent_secret_demo_0020', '林园', '2024-01-28 14:09:14'),
-(7700021, 1000020, '全部部门', '全体投顾', '2024-05-21 12:04:35', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 21', 'agent_secret_demo_0021', '但斌', '2026-02-06 08:06:42'),
-(7700022, 1000021, '全部部门', '全体投顾', '2025-05-06 16:02:03', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 22', 'agent_secret_demo_0022', '章盟主', '2025-03-25 22:14:53'),
-(7700023, 1000022, '全部部门', '全体投顾', '2024-06-05 16:09:23', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 23', 'agent_secret_demo_0023', '李录', '2024-03-06 19:06:29'),
-(7700024, 1000023, '全部部门', '全体投顾', '2024-08-11 09:46:02', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 24', 'agent_secret_demo_0024', '赵丹阳', '2025-10-29 04:43:10'),
-(7700025, 1000024, '全部部门', '全体投顾', '2025-11-15 04:49:10', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 25', 'agent_secret_demo_0025', '格雷厄姆', '2026-05-20 19:44:03'),
-(7700026, 1000025, '全部部门', '全体投顾', '2024-11-25 12:47:41', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 26', 'agent_secret_demo_0026', '巴菲特', '2024-04-29 02:38:47'),
-(7700027, 1000026, '全部部门', '全体投顾', '2024-09-05 10:42:27', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 27', 'agent_secret_demo_0027', '芒格', '2024-12-20 17:59:58'),
-(7700028, 1000027, '全部部门', '全体投顾', '2025-09-07 13:16:27', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 28', 'agent_secret_demo_0028', '彼得·林奇', '2026-02-21 20:49:01'),
-(7700029, 1000028, '全部部门', '全体投顾', '2024-12-15 02:05:26', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 29', 'agent_secret_demo_0029', '费雪', '2025-01-29 12:05:39'),
-(7700030, 1000029, '全部部门', '全体投顾', '2026-04-21 03:28:11', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 30', 'agent_secret_demo_0030', '邓普顿', '2025-06-11 15:17:45'),
-(7700031, 1000030, '全部部门', '全体投顾', '2025-03-24 02:38:11', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 31', 'agent_secret_demo_0031', '段永平', '2024-10-31 19:05:22'),
-(7700032, 1000031, '全部部门', '全体投顾', '2024-12-23 07:59:47', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 32', 'agent_secret_demo_0032', '林园', '2026-02-13 10:36:50'),
-(7700033, 1000032, '全部部门', '全体投顾', '2024-11-10 11:07:41', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 33', 'agent_secret_demo_0033', '但斌', '2024-12-23 23:18:45'),
-(7700034, 1000033, '全部部门', '全体投顾', '2026-06-25 20:25:06', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 34', 'agent_secret_demo_0034', '章盟主', '2026-01-20 20:16:33'),
-(7700035, 1000034, '全部部门', '全体投顾', '2026-01-21 20:18:28', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 35', 'agent_secret_demo_0035', '李录', '2025-01-06 06:19:50'),
-(7700036, 1000035, '全部部门', '全体投顾', '2026-04-08 18:03:54', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 36', 'agent_secret_demo_0036', '赵丹阳', '2026-01-15 19:22:42'),
-(7700037, 1000036, '全部部门', '全体投顾', '2024-07-28 13:36:23', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 37', 'agent_secret_demo_0037', '格雷厄姆', '2024-07-07 13:30:04'),
-(7700038, 1000037, '全部部门', '全体投顾', '2025-06-19 17:57:40', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 38', 'agent_secret_demo_0038', '巴菲特', '2025-02-24 13:43:09'),
-(7700039, 1000038, '全部部门', '全体投顾', '2024-02-07 07:12:10', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 39', 'agent_secret_demo_0039', '芒格', '2025-12-07 22:19:38'),
-(7700040, 1000039, '全部部门', '全体投顾', '2024-03-13 15:23:47', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 40', 'agent_secret_demo_0040', '彼得·林奇', '2024-08-06 19:32:22'),
-(7700041, 1000040, '全部部门', '全体投顾', '2026-03-01 02:20:38', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 41', 'agent_secret_demo_0041', '费雪', '2024-10-04 05:05:53'),
-(7700042, 1000041, '全部部门', '全体投顾', '2024-12-07 09:13:22', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 42', 'agent_secret_demo_0042', '邓普顿', '2026-03-07 14:27:01'),
-(7700043, 1000042, '全部部门', '全体投顾', '2025-02-11 15:34:05', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 43', 'agent_secret_demo_0043', '段永平', '2025-03-17 20:48:28'),
-(7700044, 1000043, '全部部门', '全体投顾', '2025-05-22 08:35:49', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 44', 'agent_secret_demo_0044', '林园', '2026-03-05 03:29:06'),
-(7700045, 1000044, '全部部门', '全体投顾', '2024-12-10 22:49:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 45', 'agent_secret_demo_0045', '但斌', '2026-05-03 01:10:18'),
-(7700046, 1000045, '全部部门', '全体投顾', '2025-04-03 18:25:21', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 46', 'agent_secret_demo_0046', '章盟主', '2025-05-22 17:01:59'),
-(7700047, 1000046, '全部部门', '全体投顾', '2024-12-19 02:23:39', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 47', 'agent_secret_demo_0047', '李录', '2024-05-14 17:42:38'),
-(7700048, 1000047, '全部部门', '全体投顾', '2024-07-28 10:34:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 48', 'agent_secret_demo_0048', '赵丹阳', '2024-05-10 00:41:07'),
-(7700049, 1000048, '全部部门', '全体投顾', '2025-10-24 17:04:33', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 49', 'agent_secret_demo_0049', '格雷厄姆', '2024-10-17 23:23:58'),
-(7700050, 1000049, '全部部门', '全体投顾', '2026-04-17 04:25:03', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 50', 'agent_secret_demo_0050', '巴菲特', '2026-06-05 01:36:02'),
-(7700051, 1000050, '全部部门', '全体投顾', '2024-05-02 09:07:31', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 51', 'agent_secret_demo_0051', '芒格', '2026-03-20 23:03:28'),
-(7700052, 1000051, '全部部门', '全体投顾', '2024-05-21 21:51:30', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 52', 'agent_secret_demo_0052', '彼得·林奇', '2024-05-03 20:57:03'),
-(7700053, 1000052, '全部部门', '全体投顾', '2024-09-10 00:16:39', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 53', 'agent_secret_demo_0053', '费雪', '2025-08-28 21:09:12'),
-(7700054, 1000053, '全部部门', '全体投顾', '2025-03-13 05:26:15', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 54', 'agent_secret_demo_0054', '邓普顿', '2024-10-06 08:21:49'),
-(7700055, 1000054, '全部部门', '全体投顾', '2025-04-13 04:23:22', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 55', 'agent_secret_demo_0055', '段永平', '2024-09-16 10:42:49'),
-(7700056, 1000055, '全部部门', '全体投顾', '2024-06-16 19:54:18', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 56', 'agent_secret_demo_0056', '林园', '2025-09-13 16:47:34'),
-(7700057, 1000056, '全部部门', '全体投顾', '2024-08-22 13:33:17', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 57', 'agent_secret_demo_0057', '但斌', '2025-08-11 09:02:16'),
-(7700058, 1000057, '全部部门', '全体投顾', '2025-08-27 08:23:52', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 58', 'agent_secret_demo_0058', '章盟主', '2025-05-16 06:41:27'),
-(7700059, 1000058, '全部部门', '全体投顾', '2026-04-03 07:21:56', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 59', 'agent_secret_demo_0059', '李录', '2026-06-10 03:08:37'),
-(7700060, 1000059, '全部部门', '全体投顾', '2025-11-27 06:54:46', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 60', 'agent_secret_demo_0060', '赵丹阳', '2026-02-08 15:23:41');
+(7700001, 1000000, '全部部门', '全体投顾', '2026-04-08 18:03:54', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 1', 'agent_secret_demo_0001', '格雷厄姆', '2026-01-15 19:22:42'),
+(7700002, 1000001, '全部部门', '全体投顾', '2024-07-28 13:36:23', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 2', 'agent_secret_demo_0002', '巴菲特', '2024-07-07 13:30:04'),
+(7700003, 1000002, '全部部门', '全体投顾', '2025-06-19 17:57:40', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 3', 'agent_secret_demo_0003', '芒格', '2025-02-24 13:43:09'),
+(7700004, 1000003, '全部部门', '全体投顾', '2024-02-07 07:12:10', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 4', 'agent_secret_demo_0004', '彼得·林奇', '2025-12-07 22:19:38'),
+(7700005, 1000004, '全部部门', '全体投顾', '2024-03-13 15:23:47', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 5', 'agent_secret_demo_0005', '费雪', '2024-08-06 19:32:22'),
+(7700006, 1000005, '全部部门', '全体投顾', '2026-03-01 02:20:38', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 6', 'agent_secret_demo_0006', '邓普顿', '2024-10-04 05:05:53'),
+(7700007, 1000006, '全部部门', '全体投顾', '2024-12-07 09:13:22', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 7', 'agent_secret_demo_0007', '段永平', '2026-03-07 14:27:01'),
+(7700008, 1000007, '全部部门', '全体投顾', '2025-02-11 15:34:05', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 8', 'agent_secret_demo_0008', '林园', '2025-03-17 20:48:28'),
+(7700009, 1000008, '全部部门', '全体投顾', '2025-05-22 08:35:49', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 9', 'agent_secret_demo_0009', '但斌', '2026-03-05 03:29:06'),
+(7700010, 1000009, '全部部门', '全体投顾', '2024-12-10 22:49:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 10', 'agent_secret_demo_0010', '章盟主', '2026-05-03 01:10:18'),
+(7700011, 1000010, '全部部门', '全体投顾', '2025-04-03 18:25:21', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 11', 'agent_secret_demo_0011', '李录', '2025-05-22 17:01:59'),
+(7700012, 1000011, '全部部门', '全体投顾', '2024-12-19 02:23:39', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 12', 'agent_secret_demo_0012', '赵丹阳', '2024-05-14 17:42:38'),
+(7700013, 1000012, '全部部门', '全体投顾', '2024-07-28 10:34:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 13', 'agent_secret_demo_0013', '格雷厄姆', '2024-05-10 00:41:07'),
+(7700014, 1000013, '全部部门', '全体投顾', '2025-10-24 17:04:33', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 14', 'agent_secret_demo_0014', '巴菲特', '2024-10-17 23:23:58'),
+(7700015, 1000014, '全部部门', '全体投顾', '2026-04-17 04:25:03', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 15', 'agent_secret_demo_0015', '芒格', '2026-06-05 01:36:02'),
+(7700016, 1000015, '全部部门', '全体投顾', '2024-05-02 09:07:31', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 16', 'agent_secret_demo_0016', '彼得·林奇', '2026-03-20 23:03:28'),
+(7700017, 1000016, '全部部门', '全体投顾', '2024-05-21 21:51:30', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 17', 'agent_secret_demo_0017', '费雪', '2024-05-03 20:57:03'),
+(7700018, 1000017, '全部部门', '全体投顾', '2024-09-10 00:16:39', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 18', 'agent_secret_demo_0018', '邓普顿', '2025-08-28 21:09:12'),
+(7700019, 1000018, '全部部门', '全体投顾', '2025-03-13 05:26:15', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 19', 'agent_secret_demo_0019', '段永平', '2024-10-06 08:21:49'),
+(7700020, 1000019, '全部部门', '全体投顾', '2025-04-13 04:23:22', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 20', 'agent_secret_demo_0020', '林园', '2024-09-16 10:42:49'),
+(7700021, 1000020, '全部部门', '全体投顾', '2024-06-16 19:54:18', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 21', 'agent_secret_demo_0021', '但斌', '2025-09-13 16:47:34'),
+(7700022, 1000021, '全部部门', '全体投顾', '2024-08-22 13:33:17', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 22', 'agent_secret_demo_0022', '章盟主', '2025-08-11 09:02:16'),
+(7700023, 1000022, '全部部门', '全体投顾', '2025-08-27 08:23:52', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 23', 'agent_secret_demo_0023', '李录', '2025-05-16 06:41:27'),
+(7700024, 1000023, '全部部门', '全体投顾', '2026-04-03 07:21:56', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 24', 'agent_secret_demo_0024', '赵丹阳', '2026-06-10 03:08:37'),
+(7700025, 1000024, '全部部门', '全体投顾', '2025-11-27 06:54:46', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 25', 'agent_secret_demo_0025', '格雷厄姆', '2026-02-08 15:23:41'),
+(7700026, 1000025, '全部部门', '全体投顾', '2025-02-16 03:23:47', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 26', 'agent_secret_demo_0026', '巴菲特', '2025-01-29 04:47:26'),
+(7700027, 1000026, '全部部门', '全体投顾', '2025-02-06 00:34:51', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 27', 'agent_secret_demo_0027', '芒格', '2024-05-28 21:56:33'),
+(7700028, 1000027, '全部部门', '全体投顾', '2024-10-12 16:26:58', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 28', 'agent_secret_demo_0028', '彼得·林奇', '2024-12-16 10:57:05'),
+(7700029, 1000028, '全部部门', '全体投顾', '2025-08-13 00:22:08', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 29', 'agent_secret_demo_0029', '费雪', '2024-11-21 04:48:53'),
+(7700030, 1000029, '全部部门', '全体投顾', '2025-03-13 03:20:16', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 30', 'agent_secret_demo_0030', '邓普顿', '2025-11-09 21:55:04'),
+(7700031, 1000030, '全部部门', '全体投顾', '2026-04-30 13:08:11', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 31', 'agent_secret_demo_0031', '段永平', '2025-02-27 09:30:37'),
+(7700032, 1000031, '全部部门', '全体投顾', '2024-05-01 20:42:57', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 32', 'agent_secret_demo_0032', '林园', '2025-01-22 04:36:15'),
+(7700033, 1000032, '全部部门', '全体投顾', '2026-05-17 00:31:07', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 33', 'agent_secret_demo_0033', '但斌', '2025-02-17 11:57:14'),
+(7700034, 1000033, '全部部门', '全体投顾', '2025-02-16 17:04:32', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 34', 'agent_secret_demo_0034', '章盟主', '2024-01-13 16:34:25'),
+(7700035, 1000034, '全部部门', '全体投顾', '2025-09-17 22:21:28', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 35', 'agent_secret_demo_0035', '李录', '2025-06-20 04:39:14'),
+(7700036, 1000035, '全部部门', '全体投顾', '2025-04-25 02:49:31', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 36', 'agent_secret_demo_0036', '赵丹阳', '2026-04-03 10:22:43'),
+(7700037, 1000036, '全部部门', '全体投顾', '2025-08-30 14:35:15', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 37', 'agent_secret_demo_0037', '格雷厄姆', '2024-12-26 05:18:17'),
+(7700038, 1000037, '全部部门', '全体投顾', '2024-07-25 09:08:54', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 38', 'agent_secret_demo_0038', '巴菲特', '2024-02-10 06:12:37'),
+(7700039, 1000038, '全部部门', '全体投顾', '2026-05-20 14:53:50', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 39', 'agent_secret_demo_0039', '芒格', '2025-10-22 21:46:07'),
+(7700040, 1000039, '全部部门', '全体投顾', '2025-07-07 13:53:29', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 40', 'agent_secret_demo_0040', '彼得·林奇', '2024-05-01 13:38:39'),
+(7700041, 1000040, '全部部门', '全体投顾', '2024-06-01 00:36:02', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 41', 'agent_secret_demo_0041', '费雪', '2025-04-17 06:10:06'),
+(7700042, 1000041, '全部部门', '全体投顾', '2026-02-02 05:16:19', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 42', 'agent_secret_demo_0042', '邓普顿', '2024-05-13 18:50:32'),
+(7700043, 1000042, '全部部门', '全体投顾', '2025-11-29 22:45:02', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 43', 'agent_secret_demo_0043', '段永平', '2026-02-02 05:44:36'),
+(7700044, 1000043, '全部部门', '全体投顾', '2025-12-05 03:58:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 44', 'agent_secret_demo_0044', '林园', '2024-10-05 16:46:30'),
+(7700045, 1000044, '全部部门', '全体投顾', '2024-08-30 18:30:05', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 45', 'agent_secret_demo_0045', '但斌', '2024-12-14 13:23:40'),
+(7700046, 1000045, '全部部门', '全体投顾', '2025-12-21 03:56:24', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 46', 'agent_secret_demo_0046', '章盟主', '2024-07-31 02:54:13'),
+(7700047, 1000046, '全部部门', '全体投顾', '2024-09-30 20:14:21', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 47', 'agent_secret_demo_0047', '李录', '2024-08-27 20:15:10'),
+(7700048, 1000047, '全部部门', '全体投顾', '2025-05-16 09:53:54', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 48', 'agent_secret_demo_0048', '赵丹阳', '2025-05-03 00:57:41'),
+(7700049, 1000048, '全部部门', '全体投顾', '2024-04-19 09:47:40', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 49', 'agent_secret_demo_0049', '格雷厄姆', '2025-11-10 18:39:33'),
+(7700050, 1000049, '全部部门', '全体投顾', '2024-04-23 21:02:10', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 50', 'agent_secret_demo_0050', '巴菲特', '2025-03-15 20:02:33'),
+(7700051, 1000050, '全部部门', '全体投顾', '2024-09-21 07:49:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 51', 'agent_secret_demo_0051', '芒格', '2026-03-29 07:33:00'),
+(7700052, 1000051, '全部部门', '全体投顾', '2025-10-11 02:22:37', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 52', 'agent_secret_demo_0052', '彼得·林奇', '2025-03-10 01:08:53'),
+(7700053, 1000052, '全部部门', '全体投顾', '2024-12-22 20:49:19', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 53', 'agent_secret_demo_0053', '费雪', '2025-04-27 13:33:55'),
+(7700054, 1000053, '全部部门', '全体投顾', '2024-01-14 21:14:13', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 54', 'agent_secret_demo_0054', '邓普顿', '2026-05-16 18:48:56'),
+(7700055, 1000054, '全部部门', '全体投顾', '2026-06-21 20:31:04', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 55', 'agent_secret_demo_0055', '段永平', '2024-02-05 10:41:36'),
+(7700056, 1000055, '全部部门', '全体投顾', '2025-11-26 02:34:36', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 月报 助手 56', 'agent_secret_demo_0056', '林园', '2025-06-01 04:16:39'),
+(7700057, 1000056, '全部部门', '全体投顾', '2025-07-15 12:26:38', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 早报 助手 57', 'agent_secret_demo_0057', '但斌', '2025-01-17 02:41:35'),
+(7700058, 1000057, '全部部门', '全体投顾', '2026-02-01 13:38:01', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 投研 助手 58', 'agent_secret_demo_0058', '章盟主', '2025-12-29 20:14:19'),
+(7700059, 1000058, '全部部门', '全体投顾', '2026-01-14 16:50:43', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 合规 助手 59', 'agent_secret_demo_0059', '李录', '2025-09-23 22:36:02'),
+(7700060, 1000059, '全部部门', '全体投顾', '2024-09-04 00:17:10', 0, 'http://10.210.156.69:8081/iyque/file/fileView/logo_moat.png', '应用 · 护城河 运营 助手 60', 'agent_secret_demo_0060', '赵丹阳', '2024-03-31 10:45:06');
 
 -- ========================================================================
 -- iyque_agent_sub · 应用消息记录
 -- ========================================================================
 INSERT INTO `iyque_agent_sub` (`id`, `agentId`, `annexContent`, `delFlag`, `msgId`, `msgTitle`, `msgType`, `scopeType`, `sendTime`, `status`, `toUserIds`) VALUES
-(7800001, 7700001, '[应用推送] 巴菲特建仓可口可乐 摘要 PDF', 0, 'agentmsg_000001', '消息 · 巴菲特建仓可口可乐', 'image', 1, '2025-01-29 04:47:26', 1, 'MOAT_GRAHAM'),
-(7800002, 7700002, '[应用推送] See\'s Candies 收购 摘要 PDF', 0, 'agentmsg_000002', '消息 · See\'s Candies 收购', 'image', 1, '2024-05-28 21:56:33', 1, 'MOAT_BUFFETT'),
-(7800003, 7700003, '[应用推送] 高盛优先股 摘要 PDF', 0, 'agentmsg_000003', '消息 · 高盛优先股', 'text', 1, '2024-12-16 10:57:05', 1, 'MOAT_MUNGER'),
-(7800004, 7700004, '[应用推送] 巴菲特买苹果 摘要 PDF', 0, 'agentmsg_000004', '消息 · 巴菲特买苹果', 'image', 1, '2024-11-21 04:48:53', 1, 'MOAT_LYNCH'),
-(7800005, 7700005, '[应用推送] 日本五大商社 摘要 PDF', 0, 'agentmsg_000005', '消息 · 日本五大商社', 'file', 1, '2025-03-13 03:20:16', 1, 'MOAT_FISHER'),
-(7800006, 7700006, '[应用推送] 网易 1 美元抄底 摘要 PDF', 0, 'agentmsg_000006', '消息 · 网易 1 美元抄底', 'image', 1, '2026-04-30 13:08:11', 1, 'MOAT_TEMPLETON'),
-(7800007, 7700007, '[应用推送] 拼多多种子期 摘要 PDF', 0, 'agentmsg_000007', '消息 · 拼多多种子期', 'image', 1, '2024-05-01 20:42:57', 1, 'MOAT_DUAN'),
-(7800008, 7700008, '[应用推送] 林园持有茅台 摘要 PDF', 0, 'agentmsg_000008', '消息 · 林园持有茅台', 'text', 1, '2026-05-17 00:31:07', 1, 'MOAT_LINYUAN'),
-(7800009, 7700009, '[应用推送] 但斌抄底腾讯 摘要 PDF', 0, 'agentmsg_000009', '消息 · 但斌抄底腾讯', 'file', 1, '2025-02-17 11:57:14', 1, 'MOAT_DANBIN'),
-(7800010, 7700010, '[应用推送] 海天味业上市 摘要 PDF', 0, 'agentmsg_000010', '消息 · 海天味业上市', 'file', 1, '2025-02-16 17:04:32', 1, 'MOAT_ZMZ'),
-(7800011, 7700011, '[应用推送] 美团千亿再造 摘要 PDF', 0, 'agentmsg_000011', '消息 · 美团千亿再造', 'text', 1, '2025-09-17 22:21:28', 1, 'MOAT_LILU'),
-(7800012, 7700012, '[应用推送] 华盛顿邮报 摘要 PDF', 0, 'agentmsg_000012', '消息 · 华盛顿邮报', 'image', 1, '2025-04-25 02:49:31', 1, 'MOAT_ZHAODANYANG'),
-(7800013, 7700013, '[应用推送] 巴菲特减持比亚迪 摘要 PDF', 0, 'agentmsg_000013', '消息 · 巴菲特减持比亚迪', 'file', 1, '2025-08-30 14:35:15', 1, 'MOAT_GRAHAM'),
-(7800014, 7700014, '[应用推送] 巴菲特建仓中石油 摘要 PDF', 0, 'agentmsg_000014', '消息 · 巴菲特建仓中石油', 'text', 1, '2024-07-25 09:08:54', 1, 'MOAT_BUFFETT'),
-(7800015, 7700015, '[应用推送] 美国运通色拉油危机 摘要 PDF', 0, 'agentmsg_000015', '消息 · 美国运通色拉油危机', 'file', 1, '2024-02-10 06:12:37', 1, 'MOAT_MUNGER'),
-(7800016, 7700016, '[应用推送] 茅台十年 60 倍 摘要 PDF', 0, 'agentmsg_000016', '消息 · 茅台十年 60 倍', 'file', 1, '2025-10-22 21:46:07', 1, 'MOAT_LYNCH'),
-(7800017, 7700017, '[应用推送] 港股互联网监管危机 摘要 PDF', 0, 'agentmsg_000017', '消息 · 港股互联网监管危机', 'file', 1, '2025-07-07 13:53:29', 1, 'MOAT_FISHER'),
-(7800018, 7700018, '[应用推送] 麦哲伦基金 29% CAGR 摘要 PDF', 0, 'agentmsg_000018', '消息 · 麦哲伦基金 29% CAGR', 'text', 1, '2024-06-01 00:36:02', 1, 'MOAT_TEMPLETON'),
-(7800019, 7700019, '[应用推送] 白酒塑化剂危机 摘要 PDF', 0, 'agentmsg_000019', '消息 · 白酒塑化剂危机', 'image', 1, '2026-02-02 05:16:19', 1, 'MOAT_DUAN'),
-(7800020, 7700020, '[应用推送] 宁德时代千亿 摘要 PDF', 0, 'agentmsg_000020', '消息 · 宁德时代千亿', 'text', 1, '2025-11-29 22:45:02', 1, 'MOAT_LINYUAN'),
-(7800021, 7700021, '[应用推送] 巴菲特建仓可口可乐 摘要 PDF', 0, 'agentmsg_000021', '消息 · 巴菲特建仓可口可乐', 'file', 1, '2026-02-02 05:44:36', 1, 'MOAT_DANBIN'),
-(7800022, 7700022, '[应用推送] See\'s Candies 收购 摘要 PDF', 0, 'agentmsg_000022', '消息 · See\'s Candies 收购', 'file', 1, '2025-12-05 03:58:36', 1, 'MOAT_ZMZ'),
-(7800023, 7700023, '[应用推送] 高盛优先股 摘要 PDF', 0, 'agentmsg_000023', '消息 · 高盛优先股', 'file', 1, '2024-10-05 16:46:30', 1, 'MOAT_LILU'),
-(7800024, 7700024, '[应用推送] 巴菲特买苹果 摘要 PDF', 0, 'agentmsg_000024', '消息 · 巴菲特买苹果', 'file', 1, '2024-08-30 18:30:05', 1, 'MOAT_ZHAODANYANG'),
-(7800025, 7700025, '[应用推送] 日本五大商社 摘要 PDF', 0, 'agentmsg_000025', '消息 · 日本五大商社', 'text', 1, '2025-12-21 03:56:24', 1, 'MOAT_GRAHAM'),
-(7800026, 7700026, '[应用推送] 网易 1 美元抄底 摘要 PDF', 0, 'agentmsg_000026', '消息 · 网易 1 美元抄底', 'text', 1, '2024-09-30 20:14:21', 1, 'MOAT_BUFFETT'),
-(7800027, 7700027, '[应用推送] 拼多多种子期 摘要 PDF', 0, 'agentmsg_000027', '消息 · 拼多多种子期', 'file', 1, '2024-08-27 20:15:10', 1, 'MOAT_MUNGER'),
-(7800028, 7700028, '[应用推送] 林园持有茅台 摘要 PDF', 0, 'agentmsg_000028', '消息 · 林园持有茅台', 'file', 1, '2025-05-16 09:53:54', 1, 'MOAT_LYNCH'),
-(7800029, 7700029, '[应用推送] 但斌抄底腾讯 摘要 PDF', 0, 'agentmsg_000029', '消息 · 但斌抄底腾讯', 'image', 1, '2024-04-19 09:47:40', 1, 'MOAT_FISHER'),
-(7800030, 7700030, '[应用推送] 海天味业上市 摘要 PDF', 0, 'agentmsg_000030', '消息 · 海天味业上市', 'image', 1, '2024-04-23 21:02:10', 1, 'MOAT_TEMPLETON'),
-(7800031, 7700031, '[应用推送] 美团千亿再造 摘要 PDF', 0, 'agentmsg_000031', '消息 · 美团千亿再造', 'image', 1, '2024-09-21 07:49:36', 1, 'MOAT_DUAN'),
-(7800032, 7700032, '[应用推送] 华盛顿邮报 摘要 PDF', 0, 'agentmsg_000032', '消息 · 华盛顿邮报', 'file', 1, '2025-10-11 02:22:37', 1, 'MOAT_LINYUAN'),
-(7800033, 7700033, '[应用推送] 巴菲特减持比亚迪 摘要 PDF', 0, 'agentmsg_000033', '消息 · 巴菲特减持比亚迪', 'image', 1, '2024-12-22 20:49:19', 1, 'MOAT_DANBIN'),
-(7800034, 7700034, '[应用推送] 巴菲特建仓中石油 摘要 PDF', 0, 'agentmsg_000034', '消息 · 巴菲特建仓中石油', 'file', 1, '2025-04-27 13:33:55', 1, 'MOAT_ZMZ'),
-(7800035, 7700035, '[应用推送] 美国运通色拉油危机 摘要 PDF', 0, 'agentmsg_000035', '消息 · 美国运通色拉油危机', 'text', 1, '2026-05-16 18:48:56', 1, 'MOAT_LILU'),
-(7800036, 7700036, '[应用推送] 茅台十年 60 倍 摘要 PDF', 0, 'agentmsg_000036', '消息 · 茅台十年 60 倍', 'file', 1, '2024-02-05 10:41:36', 1, 'MOAT_ZHAODANYANG'),
-(7800037, 7700037, '[应用推送] 港股互联网监管危机 摘要 PDF', 0, 'agentmsg_000037', '消息 · 港股互联网监管危机', 'image', 1, '2025-06-01 04:16:39', 1, 'MOAT_GRAHAM'),
-(7800038, 7700038, '[应用推送] 麦哲伦基金 29% CAGR 摘要 PDF', 0, 'agentmsg_000038', '消息 · 麦哲伦基金 29% CAGR', 'image', 1, '2025-01-17 02:41:35', 1, 'MOAT_BUFFETT'),
-(7800039, 7700039, '[应用推送] 白酒塑化剂危机 摘要 PDF', 0, 'agentmsg_000039', '消息 · 白酒塑化剂危机', 'image', 1, '2025-12-29 20:14:19', 1, 'MOAT_MUNGER'),
-(7800040, 7700040, '[应用推送] 宁德时代千亿 摘要 PDF', 0, 'agentmsg_000040', '消息 · 宁德时代千亿', 'image', 1, '2025-09-23 22:36:02', 1, 'MOAT_LYNCH'),
-(7800041, 7700041, '[应用推送] 巴菲特建仓可口可乐 摘要 PDF', 0, 'agentmsg_000041', '消息 · 巴菲特建仓可口可乐', 'text', 1, '2024-03-31 10:45:06', 1, 'MOAT_FISHER'),
-(7800042, 7700042, '[应用推送] See\'s Candies 收购 摘要 PDF', 0, 'agentmsg_000042', '消息 · See\'s Candies 收购', 'image', 1, '2024-02-08 12:00:30', 1, 'MOAT_TEMPLETON'),
-(7800043, 7700043, '[应用推送] 高盛优先股 摘要 PDF', 0, 'agentmsg_000043', '消息 · 高盛优先股', 'text', 1, '2025-12-18 08:15:19', 1, 'MOAT_DUAN'),
-(7800044, 7700044, '[应用推送] 巴菲特买苹果 摘要 PDF', 0, 'agentmsg_000044', '消息 · 巴菲特买苹果', 'file', 1, '2024-05-12 02:51:40', 1, 'MOAT_LINYUAN'),
-(7800045, 7700045, '[应用推送] 日本五大商社 摘要 PDF', 0, 'agentmsg_000045', '消息 · 日本五大商社', 'text', 1, '2026-06-14 13:08:34', 1, 'MOAT_DANBIN'),
-(7800046, 7700046, '[应用推送] 网易 1 美元抄底 摘要 PDF', 0, 'agentmsg_000046', '消息 · 网易 1 美元抄底', 'file', 1, '2025-02-14 09:33:14', 1, 'MOAT_ZMZ'),
-(7800047, 7700047, '[应用推送] 拼多多种子期 摘要 PDF', 0, 'agentmsg_000047', '消息 · 拼多多种子期', 'text', 1, '2024-02-17 10:57:29', 1, 'MOAT_LILU'),
-(7800048, 7700048, '[应用推送] 林园持有茅台 摘要 PDF', 0, 'agentmsg_000048', '消息 · 林园持有茅台', 'image', 1, '2025-07-26 18:57:52', 1, 'MOAT_ZHAODANYANG'),
-(7800049, 7700049, '[应用推送] 但斌抄底腾讯 摘要 PDF', 0, 'agentmsg_000049', '消息 · 但斌抄底腾讯', 'image', 1, '2024-09-17 00:26:52', 1, 'MOAT_GRAHAM'),
-(7800050, 7700050, '[应用推送] 海天味业上市 摘要 PDF', 0, 'agentmsg_000050', '消息 · 海天味业上市', 'file', 1, '2024-06-25 10:02:49', 1, 'MOAT_BUFFETT'),
-(7800051, 7700051, '[应用推送] 美团千亿再造 摘要 PDF', 0, 'agentmsg_000051', '消息 · 美团千亿再造', 'file', 1, '2024-11-22 11:25:17', 1, 'MOAT_MUNGER'),
-(7800052, 7700052, '[应用推送] 华盛顿邮报 摘要 PDF', 0, 'agentmsg_000052', '消息 · 华盛顿邮报', 'text', 1, '2024-03-11 08:41:25', 1, 'MOAT_LYNCH'),
-(7800053, 7700053, '[应用推送] 巴菲特减持比亚迪 摘要 PDF', 0, 'agentmsg_000053', '消息 · 巴菲特减持比亚迪', 'image', 1, '2025-06-15 10:59:11', 1, 'MOAT_FISHER'),
-(7800054, 7700054, '[应用推送] 巴菲特建仓中石油 摘要 PDF', 0, 'agentmsg_000054', '消息 · 巴菲特建仓中石油', 'image', 1, '2026-05-07 17:23:27', 1, 'MOAT_TEMPLETON'),
-(7800055, 7700055, '[应用推送] 美国运通色拉油危机 摘要 PDF', 0, 'agentmsg_000055', '消息 · 美国运通色拉油危机', 'text', 1, '2025-01-09 20:24:16', 1, 'MOAT_DUAN'),
-(7800056, 7700056, '[应用推送] 茅台十年 60 倍 摘要 PDF', 0, 'agentmsg_000056', '消息 · 茅台十年 60 倍', 'file', 1, '2026-01-30 07:45:23', 1, 'MOAT_LINYUAN'),
-(7800057, 7700057, '[应用推送] 港股互联网监管危机 摘要 PDF', 0, 'agentmsg_000057', '消息 · 港股互联网监管危机', 'file', 1, '2024-10-24 21:28:08', 1, 'MOAT_DANBIN'),
-(7800058, 7700058, '[应用推送] 麦哲伦基金 29% CAGR 摘要 PDF', 0, 'agentmsg_000058', '消息 · 麦哲伦基金 29% CAGR', 'text', 1, '2025-06-21 04:19:17', 1, 'MOAT_ZMZ'),
-(7800059, 7700059, '[应用推送] 白酒塑化剂危机 摘要 PDF', 0, 'agentmsg_000059', '消息 · 白酒塑化剂危机', 'file', 1, '2025-05-24 07:50:30', 1, 'MOAT_LILU'),
-(7800060, 7700060, '[应用推送] 宁德时代千亿 摘要 PDF', 0, 'agentmsg_000060', '消息 · 宁德时代千亿', 'image', 1, '2024-09-15 02:52:25', 1, 'MOAT_ZHAODANYANG');
+(7800001, 7700001, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png"}', 0, 'agentmsg_000001', '消息 · 巴菲特建仓可口可乐', 'image', 1, '2024-02-08 12:00:30', 1, 'MOAT_GRAHAM'),
+(7800002, 7700002, '{"content": "[应用推送] See\'s Candies 收购：1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例"}', 0, 'agentmsg_000002', '消息 · See\'s Candies 收购', 'text', 1, '2025-12-18 08:15:19', 1, 'MOAT_BUFFETT'),
+(7800003, 7700003, '{"title": "高盛优先股", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png", "desc": "2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=3"}', 0, 'agentmsg_000003', '消息 · 高盛优先股', 'link', 1, '2024-05-12 02:51:40', 1, 'MOAT_MUNGER'),
+(7800004, 7700004, '{"content": "[应用推送] 巴菲特买苹果：2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股"}', 0, 'agentmsg_000004', '消息 · 巴菲特买苹果', 'text', 1, '2026-06-14 13:08:34', 1, 'MOAT_LYNCH'),
+(7800005, 7700005, '{"title": "日本五大商社", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png", "desc": "2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=5"}', 0, 'agentmsg_000005', '消息 · 日本五大商社', 'link', 1, '2025-02-14 09:33:14', 1, 'MOAT_FISHER'),
+(7800006, 7700006, '{"content": "[应用推送] 网易 1 美元抄底：2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍"}', 0, 'agentmsg_000006', '消息 · 网易 1 美元抄底', 'text', 1, '2024-02-17 10:57:29', 1, 'MOAT_TEMPLETON'),
+(7800007, 7700007, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', 0, 'agentmsg_000007', '消息 · 拼多多种子期', 'image', 1, '2025-07-26 18:57:52', 1, 'MOAT_DUAN'),
+(7800008, 7700008, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', 0, 'agentmsg_000008', '消息 · 林园持有茅台', 'image', 1, '2024-09-17 00:26:52', 1, 'MOAT_LINYUAN'),
+(7800009, 7700009, '{"title": "但斌抄底腾讯", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png", "desc": "2015 年腾讯 100 港币 但斌大举建仓，年化 25%+", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=1"}', 0, 'agentmsg_000009', '消息 · 但斌抄底腾讯', 'link', 1, '2024-06-25 10:02:49', 1, 'MOAT_DANBIN'),
+(7800010, 7700010, '{"title": "海天味业上市", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png", "desc": "价值投资者围观刚上市的海天味业，验证消费护城河", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=2"}', 0, 'agentmsg_000010', '消息 · 海天味业上市', 'link', 1, '2024-11-22 11:25:17', 1, 'MOAT_ZMZ'),
+(7800011, 7700011, '{"content": "[应用推送] 美团千亿再造：2019 年美团触底反弹，多家价投基金抄底"}', 0, 'agentmsg_000011', '消息 · 美团千亿再造', 'text', 1, '2024-03-11 08:41:25', 1, 'MOAT_LILU'),
+(7800012, 7700012, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', 0, 'agentmsg_000012', '消息 · 华盛顿邮报', 'image', 1, '2025-06-15 10:59:11', 1, 'MOAT_ZHAODANYANG'),
+(7800013, 7700013, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', 0, 'agentmsg_000013', '消息 · 巴菲特减持比亚迪', 'image', 1, '2026-05-07 17:23:27', 1, 'MOAT_GRAHAM'),
+(7800014, 7700014, '{"content": "[应用推送] 巴菲特建仓中石油：2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出"}', 0, 'agentmsg_000014', '消息 · 巴菲特建仓中石油', 'text', 1, '2025-01-09 20:24:16', 1, 'MOAT_BUFFETT'),
+(7800015, 7700015, '{"title": "美国运通色拉油危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "1963 年沙拉油诈骗案，巴菲特逆势建仓运通", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 0, 'agentmsg_000015', '消息 · 美国运通色拉油危机', 'link', 1, '2026-01-30 07:45:23', 1, 'MOAT_MUNGER'),
+(7800016, 7700016, '{"title": "茅台十年 60 倍", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png", "desc": "2003→2020 白酒龙头长牛", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=8"}', 0, 'agentmsg_000016', '消息 · 茅台十年 60 倍', 'link', 1, '2024-10-24 21:28:08', 1, 'MOAT_LYNCH'),
+(7800017, 7700017, '{"content": "[应用推送] 港股互联网监管危机：2021 年腾讯/美团腰斩，是否价值机会"}', 0, 'agentmsg_000017', '消息 · 港股互联网监管危机', 'text', 1, '2025-06-21 04:19:17', 1, 'MOAT_FISHER'),
+(7800018, 7700018, '{"title": "麦哲伦基金 29% CAGR", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png", "desc": "彼得·林奇 1977~1990 传奇业绩", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=2"}', 0, 'agentmsg_000018', '消息 · 麦哲伦基金 29% CAGR', 'link', 1, '2025-05-24 07:50:30', 1, 'MOAT_TEMPLETON'),
+(7800019, 7700019, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png"}', 0, 'agentmsg_000019', '消息 · 白酒塑化剂危机', 'image', 1, '2024-09-15 02:52:25', 1, 'MOAT_DUAN'),
+(7800020, 7700020, '{"title": "宁德时代千亿", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "2020 后新能源龙头崛起，价投的科技例外", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', 0, 'agentmsg_000020', '消息 · 宁德时代千亿', 'link', 1, '2024-08-12 09:25:36', 1, 'MOAT_LINYUAN'),
+(7800021, 7700021, '{"title": "巴菲特建仓可口可乐", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png", "desc": "1988 年巴菲特以 12.45 美元均价大举建仓可口可乐", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=5"}', 0, 'agentmsg_000021', '消息 · 巴菲特建仓可口可乐', 'link', 1, '2025-10-04 06:52:41', 1, 'MOAT_DANBIN'),
+(7800022, 7700022, '{"content": "[应用推送] See\'s Candies 收购：1972 年巴菲特收购喜诗糖果，年年提价 vs 品牌护城河经典案例"}', 0, 'agentmsg_000022', '消息 · See\'s Candies 收购', 'text', 1, '2026-05-25 05:09:42', 1, 'MOAT_ZMZ'),
+(7800023, 7700023, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png"}', 0, 'agentmsg_000023', '消息 · 高盛优先股', 'image', 1, '2026-02-09 12:22:24', 1, 'MOAT_LILU'),
+(7800024, 7700024, '{"content": "[应用推送] 巴菲特买苹果：2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股"}', 0, 'agentmsg_000024', '消息 · 巴菲特买苹果', 'text', 1, '2024-05-13 07:37:09', 1, 'MOAT_ZHAODANYANG'),
+(7800025, 7700025, '{"content": "[应用推送] 日本五大商社：2020 年伯克希尔重仓日本五大商社，套利日元借贷 + 长期分红"}', 0, 'agentmsg_000025', '消息 · 日本五大商社', 'text', 1, '2024-05-29 17:56:49', 1, 'MOAT_GRAHAM'),
+(7800026, 7700026, '{"title": "网易 1 美元抄底", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png", "desc": "2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=2"}', 0, 'agentmsg_000026', '消息 · 网易 1 美元抄底', 'link', 1, '2025-02-19 07:28:58', 1, 'MOAT_BUFFETT'),
+(7800027, 7700027, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png"}', 0, 'agentmsg_000027', '消息 · 拼多多种子期', 'image', 1, '2026-01-24 04:37:15', 1, 'MOAT_MUNGER'),
+(7800028, 7700028, '{"content": "[应用推送] 林园持有茅台：林园 2003 年 30 元起持有茅台至千元时代"}', 0, 'agentmsg_000028', '消息 · 林园持有茅台', 'text', 1, '2026-04-26 05:08:26', 1, 'MOAT_LYNCH'),
+(7800029, 7700029, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', 0, 'agentmsg_000029', '消息 · 但斌抄底腾讯', 'image', 1, '2025-01-22 09:55:14', 1, 'MOAT_FISHER'),
+(7800030, 7700030, '{"content": "[应用推送] 海天味业上市：价值投资者围观刚上市的海天味业，验证消费护城河"}', 0, 'agentmsg_000030', '消息 · 海天味业上市', 'text', 1, '2026-03-11 12:57:13', 1, 'MOAT_TEMPLETON'),
+(7800031, 7700031, '{"title": "美团千亿再造", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "2019 年美团触底反弹，多家价投基金抄底", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 0, 'agentmsg_000031', '消息 · 美团千亿再造', 'link', 1, '2024-02-06 13:23:01', 1, 'MOAT_DUAN'),
+(7800032, 7700032, '{"title": "华盛顿邮报", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png", "desc": "巴菲特 1973 年建仓华盛顿邮报，凯·格雷厄姆挚友", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=8"}', 0, 'agentmsg_000032', '消息 · 华盛顿邮报', 'link', 1, '2026-02-18 07:51:49', 1, 'MOAT_LINYUAN'),
+(7800033, 7700033, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png"}', 0, 'agentmsg_000033', '消息 · 巴菲特减持比亚迪', 'image', 1, '2026-03-07 04:20:15', 1, 'MOAT_DANBIN'),
+(7800034, 7700034, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 0, 'agentmsg_000034', '消息 · 巴菲特建仓中石油', 'image', 1, '2026-06-14 11:10:57', 1, 'MOAT_ZMZ'),
+(7800035, 7700035, '{"content": "[应用推送] 美国运通色拉油危机：1963 年沙拉油诈骗案，巴菲特逆势建仓运通"}', 0, 'agentmsg_000035', '消息 · 美国运通色拉油危机', 'text', 1, '2025-07-30 17:57:48', 1, 'MOAT_LILU'),
+(7800036, 7700036, '{"title": "茅台十年 60 倍", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "2003→2020 白酒龙头长牛", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', 0, 'agentmsg_000036', '消息 · 茅台十年 60 倍', 'link', 1, '2026-05-18 17:48:59', 1, 'MOAT_ZHAODANYANG'),
+(7800037, 7700037, '{"title": "港股互联网监管危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png", "desc": "2021 年腾讯/美团腰斩，是否价值机会", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=5"}', 0, 'agentmsg_000037', '消息 · 港股互联网监管危机', 'link', 1, '2024-10-12 00:54:22', 1, 'MOAT_GRAHAM'),
+(7800038, 7700038, '{"title": "麦哲伦基金 29% CAGR", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "彼得·林奇 1977~1990 传奇业绩", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', 0, 'agentmsg_000038', '消息 · 麦哲伦基金 29% CAGR', 'link', 1, '2025-11-05 03:58:06', 1, 'MOAT_BUFFETT'),
+(7800039, 7700039, '{"title": "白酒塑化剂危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "2012 塑化剂事件短期扰动 vs 长期护城河", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 0, 'agentmsg_000039', '消息 · 白酒塑化剂危机', 'link', 1, '2025-10-21 02:04:07', 1, 'MOAT_MUNGER'),
+(7800040, 7700040, '{"title": "宁德时代千亿", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png", "desc": "2020 后新能源龙头崛起，价投的科技例外", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=8"}', 0, 'agentmsg_000040', '消息 · 宁德时代千亿', 'link', 1, '2025-12-13 14:44:45', 1, 'MOAT_LYNCH'),
+(7800041, 7700041, '{"content": "[应用推送] 巴菲特建仓可口可乐：1988 年巴菲特以 12.45 美元均价大举建仓可口可乐"}', 0, 'agentmsg_000041', '消息 · 巴菲特建仓可口可乐', 'text', 1, '2025-03-20 13:30:55', 1, 'MOAT_FISHER'),
+(7800042, 7700042, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 0, 'agentmsg_000042', '消息 · See\'s Candies 收购', 'image', 1, '2025-06-29 01:11:18', 1, 'MOAT_TEMPLETON'),
+(7800043, 7700043, '{"content": "[应用推送] 高盛优先股：2008 金融危机巴菲特 50 亿美元买入高盛优先股，年息 10%"}', 0, 'agentmsg_000043', '消息 · 高盛优先股', 'text', 1, '2025-05-30 20:11:13', 1, 'MOAT_DUAN'),
+(7800044, 7700044, '{"title": "巴菲特买苹果", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png", "desc": "2016 年伯克希尔开始建仓苹果，芒格首次点头认可科技股", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=4"}', 0, 'agentmsg_000044', '消息 · 巴菲特买苹果', 'link', 1, '2026-01-10 12:16:53', 1, 'MOAT_LINYUAN'),
+(7800045, 7700045, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', 0, 'agentmsg_000045', '消息 · 日本五大商社', 'image', 1, '2024-01-23 21:36:28', 1, 'MOAT_DANBIN'),
+(7800046, 7700046, '{"title": "网易 1 美元抄底", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2001 年网易跌至 1 美元，段永平劝丁磊抄底自家股票，回报 100 倍", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', 0, 'agentmsg_000046', '消息 · 网易 1 美元抄底', 'link', 1, '2025-08-10 20:10:13', 1, 'MOAT_ZMZ'),
+(7800047, 7700047, '{"content": "[应用推送] 拼多多种子期：黄峥创业拼多多，段永平以老友身份提供思想 + 资金"}', 0, 'agentmsg_000047', '消息 · 拼多多种子期', 'text', 1, '2025-11-04 00:28:07', 1, 'MOAT_LILU'),
+(7800048, 7700048, '{"title": "林园持有茅台", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png", "desc": "林园 2003 年 30 元起持有茅台至千元时代", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=8"}', 0, 'agentmsg_000048', '消息 · 林园持有茅台', 'link', 1, '2026-06-02 17:30:39', 1, 'MOAT_ZHAODANYANG'),
+(7800049, 7700049, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png"}', 0, 'agentmsg_000049', '消息 · 但斌抄底腾讯', 'image', 1, '2025-02-17 08:37:58', 1, 'MOAT_GRAHAM'),
+(7800050, 7700050, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 0, 'agentmsg_000050', '消息 · 海天味业上市', 'image', 1, '2025-12-29 23:47:12', 1, 'MOAT_BUFFETT'),
+(7800051, 7700051, '{"content": "[应用推送] 美团千亿再造：2019 年美团触底反弹，多家价投基金抄底"}', 0, 'agentmsg_000051', '消息 · 美团千亿再造', 'text', 1, '2026-01-28 16:39:25', 1, 'MOAT_MUNGER'),
+(7800052, 7700052, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', 0, 'agentmsg_000052', '消息 · 华盛顿邮报', 'image', 1, '2025-12-06 03:48:27', 1, 'MOAT_LYNCH'),
+(7800053, 7700053, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png"}', 0, 'agentmsg_000053', '消息 · 巴菲特减持比亚迪', 'image', 1, '2024-08-09 23:18:45', 1, 'MOAT_FISHER'),
+(7800054, 7700054, '{"title": "巴菲特建仓中石油", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png", "desc": "2003 年 H 股中石油 1.6 港币建仓，2007 年 12+ 卖出", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=6"}', 0, 'agentmsg_000054', '消息 · 巴菲特建仓中石油', 'link', 1, '2025-07-22 14:35:29', 1, 'MOAT_TEMPLETON'),
+(7800055, 7700055, '{"title": "美国运通色拉油危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png", "desc": "1963 年沙拉油诈骗案，巴菲特逆势建仓运通", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=7"}', 0, 'agentmsg_000055', '消息 · 美国运通色拉油危机', 'link', 1, '2024-12-24 23:48:36', 1, 'MOAT_DUAN'),
+(7800056, 7700056, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png"}', 0, 'agentmsg_000056', '消息 · 茅台十年 60 倍', 'image', 1, '2026-04-18 13:40:25', 1, 'MOAT_LINYUAN'),
+(7800057, 7700057, '{"title": "港股互联网监管危机", "picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png", "desc": "2021 年腾讯/美团腰斩，是否价值机会", "url": "http://10.210.156.69:8081/openmobile/H5Marketing?id=1"}', 0, 'agentmsg_000057', '消息 · 港股互联网监管危机', 'link', 1, '2024-05-07 20:56:05', 1, 'MOAT_DANBIN'),
+(7800058, 7700058, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png"}', 0, 'agentmsg_000058', '消息 · 麦哲伦基金 29% CAGR', 'image', 1, '2024-12-22 03:09:47', 1, 'MOAT_ZMZ'),
+(7800059, 7700059, '{"content": "[应用推送] 白酒塑化剂危机：2012 塑化剂事件短期扰动 vs 长期护城河"}', 0, 'agentmsg_000059', '消息 · 白酒塑化剂危机', 'text', 1, '2025-10-15 21:21:20', 1, 'MOAT_LILU'),
+(7800060, 7700060, '{"picUrl": "http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png"}', 0, 'agentmsg_000060', '消息 · 宁德时代千亿', 'image', 1, '2026-02-21 03:25:50', 1, 'MOAT_ZHAODANYANG');
 
 -- ========================================================================
 -- iyque_hot_word · 热词（关联热词分类）
 -- ========================================================================
 INSERT INTO `iyque_hot_word` (`id`, `categoryId`, `createTime`, `delFlag`, `hotWord`, `nearHotWord`, `updateBy`, `updateTime`) VALUES
-(8000001, 1200024, '2024-08-12 09:25:36', 0, '茅台', '格雷厄姆、医美、腾讯', '巴菲特', '2026-05-25 05:09:42'),
-(8000002, 1200024, '2026-01-07 17:00:33', 0, '五粮液', '段永平、护城河、美团', '芒格', '2025-01-02 08:54:21'),
-(8000003, 1200025, '2024-05-29 17:56:49', 0, '腾讯', '章盟主、回撤、算力', '彼得·林奇', '2026-01-24 04:37:15'),
-(8000004, 1200025, '2024-12-27 11:18:04', 0, '阿里', '格雷厄姆、止损、A 股', '费雪', '2025-01-22 09:55:14'),
-(8000005, 1200025, '2024-06-26 09:33:07', 0, '拼多多', '赵丹阳、抄底、回购', '邓普顿', '2026-03-11 12:57:13'),
-(8000006, 1200025, '2024-02-06 13:23:01', 0, '美团', '芒格、股东会、创新药', '段永平', '2026-03-07 04:20:15'),
-(8000007, 1200025, '2025-08-18 11:02:52', 0, '网易', '但斌、宁德时代、止盈', '林园', '2025-07-30 17:57:48'),
-(8000008, 1200026, '2026-05-18 17:48:59', 0, '比亚迪', '芒格、谷歌、止盈', '但斌', '2025-11-05 03:58:06'),
-(8000009, 1200026, '2025-10-21 02:04:07', 0, '宁德时代', '定投、REITS、苹果', '章盟主', '2025-03-20 13:30:55'),
-(8000010, 1200027, '2025-07-12 10:08:02', 0, '苹果', '算力、比亚迪、大模型', '李录', '2026-01-10 12:16:53'),
-(8000011, 1200027, '2025-11-06 07:01:47', 0, '微软', '茅台、格雷厄姆、创新药', '赵丹阳', '2024-05-25 12:58:28'),
-(8000012, 1200027, '2025-11-04 00:28:07', 0, '谷歌', '抄底、章盟主、但斌', '格雷厄姆', '2025-05-12 18:11:45'),
-(8000013, 1200035, '2025-02-17 08:37:58', 0, '护城河', 'REITS、巴菲特、阿里', '巴菲特', '2026-01-28 16:39:25'),
-(8000014, 1200035, '2025-02-09 17:27:27', 0, '安全边际', 'REITS、回撤、苹果', '芒格', '2025-07-22 14:35:29'),
-(8000015, 1200035, '2024-12-24 23:48:36', 0, '价值投资', '集采、格雷厄姆、林园', '彼得·林奇', '2024-05-07 20:56:05'),
-(8000016, 1200035, '2025-09-03 16:47:34', 0, '长期持有', '价值投资、腾讯、医美', '费雪', '2026-01-11 10:59:09'),
-(8000017, 1200042, '2026-02-21 03:25:50', 0, '分红', '巴菲特、彼得林奇、加仓', '邓普顿', '2025-03-19 20:07:38'),
-(8000018, 1200042, '2024-12-25 00:03:05', 0, '回撤', '医美、茅台、微软', '段永平', '2026-06-27 19:00:22'),
-(8000019, 1200041, '2025-11-20 00:51:16', 0, '加仓', '网易、股东信、分红', '林园', '2025-06-20 20:12:50'),
-(8000020, 1200041, '2025-12-26 16:47:45', 0, '止损', '回购、赵丹阳、林园', '但斌', '2025-07-21 00:25:25'),
-(8000021, 1200032, '2025-01-27 04:40:15', 0, 'AI', '股东信、安全边际、并购', '章盟主', '2024-10-09 00:31:48'),
-(8000022, 1200032, '2024-10-17 00:47:00', 0, '大模型', '格雷厄姆、宁德时代、并购', '李录', '2024-10-06 04:06:39'),
-(8000023, 1200032, '2025-06-29 04:55:31', 0, '算力', 'A 股、五粮液、回购', '赵丹阳', '2025-03-12 03:24:42'),
-(8000024, 1200032, '2025-10-19 13:58:56', 0, '光模块', '网易、回撤、AI', '格雷厄姆', '2024-06-03 08:23:18'),
-(8000025, 1200028, '2026-05-12 21:17:32', 0, '创新药', '价值投资、REITS、苹果', '巴菲特', '2025-12-31 04:49:25'),
-(8000026, 1200028, '2026-01-23 20:57:06', 0, '集采', '护城河、回撤、止损', '芒格', '2026-01-04 01:08:10'),
-(8000027, 1200028, '2024-08-19 16:27:25', 0, '医美', '定投、腾讯、集采', '彼得·林奇', '2024-04-02 19:07:12'),
-(8000028, 1200031, '2024-02-17 15:02:35', 0, '地产', '港股、芒格、回购', '费雪', '2025-03-14 11:30:30'),
-(8000029, 1200031, '2024-03-11 04:16:50', 0, '城投债', '茅台、腾讯、长期持有', '邓普顿', '2026-06-13 11:31:42'),
-(8000030, 1200031, '2024-04-12 00:42:12', 0, 'REITS', '城投债、定投、网易', '段永平', '2025-04-01 01:51:25'),
-(8000031, 1200035, '2025-11-30 05:36:34', 0, '巴菲特', '拼多多、格雷厄姆、价值投资', '林园', '2025-09-20 06:23:11'),
-(8000032, 1200037, '2024-09-20 21:25:52', 0, '段永平', '段永平、腾讯、但斌', '但斌', '2024-02-09 19:27:28'),
-(8000033, 1200036, '2026-02-11 01:10:36', 0, '芒格', '医美、AI、格雷厄姆', '章盟主', '2024-04-24 20:29:02'),
-(8000034, 1200035, '2025-03-02 18:03:40', 0, '彼得林奇', '比亚迪、安全边际、阿里', '李录', '2024-09-20 22:00:51'),
-(8000035, 1200035, '2026-02-12 19:17:21', 0, '格雷厄姆', '医美、宁德时代、章盟主', '赵丹阳', '2024-06-25 20:29:11'),
-(8000036, 1200038, '2024-09-12 11:16:15', 0, '林园', '五粮液、美股、地产', '格雷厄姆', '2024-03-24 16:12:53'),
-(8000037, 1200039, '2026-03-05 15:39:43', 0, '但斌', '大模型、赵丹阳、阿里', '巴菲特', '2025-01-03 12:06:24'),
-(8000038, 1200040, '2025-02-21 15:07:56', 0, '章盟主', '医美、阿里、茅台', '芒格', '2025-12-09 07:14:51'),
-(8000039, 1200036, '2025-11-14 11:06:31', 0, '李录', '止损、医美、茅台', '彼得·林奇', '2025-02-06 11:16:04'),
-(8000040, 1200035, '2026-01-20 14:17:02', 0, '赵丹阳', '但斌、微软、段永平', '费雪', '2026-04-20 01:08:09'),
-(8000041, 1200042, '2024-04-07 22:23:50', 0, '股东信', '但斌、止盈、章盟主', '邓普顿', '2024-01-27 16:03:31'),
-(8000042, 1200042, '2026-05-28 09:38:48', 0, '股东会', '微软、但斌、段永平', '段永平', '2025-04-28 11:38:41'),
-(8000043, 1200042, '2025-10-29 14:08:36', 0, '回购', '加仓、微软、美团', '林园', '2025-02-26 09:51:18'),
-(8000044, 1200042, '2025-03-02 01:44:32', 0, '并购', '集采、网易、格雷厄姆', '但斌', '2025-10-12 00:18:01'),
-(8000045, 1200034, '2025-10-11 01:01:13', 0, '定投', '回撤、但斌、五粮液', '章盟主', '2026-04-21 06:13:58'),
-(8000046, 1200033, '2024-09-18 00:24:33', 0, '抄底', '但斌、林园、股东会', '李录', '2026-03-31 08:18:14'),
-(8000047, 1200034, '2025-07-05 14:10:58', 0, '止盈', '回撤、医美、但斌', '赵丹阳', '2025-11-15 02:33:15'),
-(8000048, 1200034, '2026-01-18 15:27:48', 0, '复利', '大模型、港股、止损', '格雷厄姆', '2024-07-15 13:53:48'),
-(8000049, 1200025, '2026-01-07 22:28:16', 0, '港股', '宁德时代、李录、AI', '巴菲特', '2024-06-20 05:10:14'),
-(8000050, 1200027, '2025-05-18 14:39:08', 0, '美股', '芒格、微软、集采', '芒格', '2025-05-25 17:45:53'),
-(8000051, 1200042, '2024-04-17 02:03:51', 0, 'A 股', '算力、复利、林园', '彼得·林奇', '2025-07-11 18:02:09');
+(8000001, 1200024, '2026-01-11 11:17:39', 0, '茅台', '彼得林奇、加仓、赵丹阳', '巴菲特', '2024-12-25 00:03:05'),
+(8000002, 1200024, '2025-10-05 03:53:48', 0, '五粮液', '茅台、微软、章盟主', '芒格', '2025-11-20 00:51:16'),
+(8000003, 1200025, '2024-06-05 06:20:46', 0, '腾讯', '股东信、分红、算力', '彼得·林奇', '2025-12-26 16:47:45'),
+(8000004, 1200025, '2026-05-04 18:08:19', 0, '阿里', '光模块、分红、股东信', '费雪', '2024-11-13 05:23:39'),
+(8000005, 1200025, '2024-10-09 00:31:48', 0, '拼多多', '谷歌、格雷厄姆、宁德时代', '邓普顿', '2024-10-06 04:06:39'),
+(8000006, 1200025, '2025-06-29 04:55:31', 0, '美团', 'A 股、五粮液、回购', '段永平', '2025-03-12 03:24:42'),
+(8000007, 1200025, '2025-10-19 13:58:56', 0, '网易', '网易、回撤、AI', '林园', '2024-06-03 08:23:18'),
+(8000008, 1200026, '2026-05-12 21:17:32', 0, '比亚迪', '价值投资、REITS、苹果', '但斌', '2025-12-31 04:49:25'),
+(8000009, 1200026, '2026-01-23 20:57:06', 0, '宁德时代', '护城河、回撤、止损', '章盟主', '2026-01-04 01:08:10'),
+(8000010, 1200027, '2024-08-19 16:27:25', 0, '苹果', '定投、腾讯、集采', '李录', '2024-04-02 19:07:12'),
+(8000011, 1200027, '2024-02-17 15:02:35', 0, '微软', '港股、芒格、回购', '赵丹阳', '2025-03-14 11:30:30'),
+(8000012, 1200027, '2024-03-11 04:16:50', 0, '谷歌', '茅台、腾讯、长期持有', '格雷厄姆', '2026-06-13 11:31:42'),
+(8000013, 1200035, '2024-04-12 00:42:12', 0, '护城河', '城投债、定投、网易', '巴菲特', '2025-04-01 01:51:25'),
+(8000014, 1200035, '2025-11-30 05:36:34', 0, '安全边际', '拼多多、格雷厄姆、价值投资', '芒格', '2025-09-20 06:23:11'),
+(8000015, 1200035, '2024-09-20 21:25:52', 0, '价值投资', '段永平、腾讯、但斌', '彼得·林奇', '2024-02-09 19:27:28'),
+(8000016, 1200035, '2026-02-11 01:10:36', 0, '长期持有', '医美、AI、格雷厄姆', '费雪', '2024-04-24 20:29:02'),
+(8000017, 1200042, '2025-03-02 18:03:40', 0, '分红', '比亚迪、安全边际、阿里', '邓普顿', '2024-09-20 22:00:51'),
+(8000018, 1200042, '2026-02-12 19:17:21', 0, '回撤', '医美、宁德时代、章盟主', '段永平', '2024-06-25 20:29:11'),
+(8000019, 1200041, '2024-09-12 11:16:15', 0, '加仓', '五粮液、美股、地产', '林园', '2024-03-24 16:12:53'),
+(8000020, 1200041, '2026-03-05 15:39:43', 0, '止损', '大模型、赵丹阳、阿里', '但斌', '2025-01-03 12:06:24'),
+(8000021, 1200032, '2025-02-21 15:07:56', 0, 'AI', '医美、阿里、茅台', '章盟主', '2025-12-09 07:14:51'),
+(8000022, 1200032, '2025-11-14 11:06:31', 0, '大模型', '止损、医美、茅台', '李录', '2025-02-06 11:16:04'),
+(8000023, 1200032, '2026-01-20 14:17:02', 0, '算力', '但斌、微软、段永平', '赵丹阳', '2026-04-20 01:08:09'),
+(8000024, 1200032, '2024-04-07 22:23:50', 0, '光模块', '但斌、止盈、章盟主', '格雷厄姆', '2024-01-27 16:03:31'),
+(8000025, 1200028, '2026-05-28 09:38:48', 0, '创新药', '微软、但斌、段永平', '巴菲特', '2025-04-28 11:38:41'),
+(8000026, 1200028, '2025-10-29 14:08:36', 0, '集采', '加仓、微软、美团', '芒格', '2025-02-26 09:51:18'),
+(8000027, 1200028, '2025-03-02 01:44:32', 0, '医美', '集采、网易、格雷厄姆', '彼得·林奇', '2025-10-12 00:18:01'),
+(8000028, 1200031, '2025-10-11 01:01:13', 0, '地产', '回撤、但斌、五粮液', '费雪', '2026-04-21 06:13:58'),
+(8000029, 1200031, '2024-09-18 00:24:33', 0, '城投债', '但斌、林园、股东会', '邓普顿', '2026-03-31 08:18:14'),
+(8000030, 1200031, '2025-07-05 14:10:58', 0, 'REITS', '回撤、医美、但斌', '段永平', '2025-11-15 02:33:15'),
+(8000031, 1200035, '2026-01-18 15:27:48', 0, '巴菲特', '大模型、港股、止损', '林园', '2024-07-15 13:53:48'),
+(8000032, 1200037, '2026-01-07 22:28:16', 0, '段永平', '宁德时代、李录、AI', '但斌', '2024-06-20 05:10:14'),
+(8000033, 1200036, '2025-05-18 14:39:08', 0, '芒格', '芒格、微软、集采', '章盟主', '2025-05-25 17:45:53'),
+(8000034, 1200035, '2024-04-17 02:03:51', 0, '彼得林奇', '算力、复利、林园', '李录', '2025-07-11 18:02:09'),
+(8000035, 1200035, '2024-10-21 17:44:42', 0, '格雷厄姆', '巴菲特、李录、腾讯', '赵丹阳', '2024-10-07 23:23:57'),
+(8000036, 1200038, '2025-08-25 22:35:21', 0, '林园', '分红、城投债、抄底', '格雷厄姆', '2024-06-19 09:52:44'),
+(8000037, 1200039, '2026-05-19 10:33:30', 0, '但斌', '定投、安全边际、A 股', '巴菲特', '2025-08-07 01:28:30'),
+(8000038, 1200040, '2024-05-15 16:32:33', 0, '章盟主', '止盈、并购、章盟主', '芒格', '2025-04-18 00:20:01'),
+(8000039, 1200036, '2026-05-19 15:08:55', 0, '李录', '阿里、股东会、茅台', '彼得·林奇', '2025-01-09 06:51:16'),
+(8000040, 1200035, '2026-01-29 11:30:10', 0, '赵丹阳', '但斌、彼得林奇、苹果', '费雪', '2024-04-01 09:25:32'),
+(8000041, 1200042, '2024-04-10 07:07:18', 0, '股东信', '腾讯、地产、茅台', '邓普顿', '2024-10-23 09:20:31'),
+(8000042, 1200042, '2024-10-06 10:22:21', 0, '股东会', '算力、抄底、林园', '段永平', '2024-06-17 13:25:41'),
+(8000043, 1200042, '2026-03-14 15:00:18', 0, '回购', '回撤、长期持有、格雷厄姆', '林园', '2025-02-21 06:51:13'),
+(8000044, 1200042, '2025-11-26 12:46:29', 0, '并购', '比亚迪、价值投资、巴菲特', '但斌', '2024-11-18 05:32:34'),
+(8000045, 1200034, '2025-03-15 16:25:44', 0, '定投', '美股、美团、地产', '章盟主', '2024-07-22 13:47:11'),
+(8000046, 1200033, '2024-12-04 08:01:19', 0, '抄底', '苹果、长期持有、茅台', '李录', '2025-10-17 13:53:29'),
+(8000047, 1200034, '2024-06-14 17:47:15', 0, '止盈', '网易、芒格、章盟主', '赵丹阳', '2025-10-08 02:23:04'),
+(8000048, 1200034, '2025-07-07 17:40:23', 0, '复利', '回购、李录、医美', '格雷厄姆', '2025-02-13 01:19:56'),
+(8000049, 1200025, '2026-06-09 19:23:09', 0, '港股', '并购、算力、复利', '巴菲特', '2026-02-10 05:09:29'),
+(8000050, 1200027, '2024-10-20 16:56:25', 0, '美股', '格雷厄姆、AI、美团', '芒格', '2025-06-24 02:49:02'),
+(8000051, 1200042, '2024-12-01 13:40:35', 0, 'A 股', '加仓、林园、分红', '彼得·林奇', '2025-08-18 20:48:25');
 
 -- ========================================================================
--- iyque_analysis_hot_word · 热词命中
+-- iyque_analysis_hot_word · 热词命中（多轮对话）
 -- ========================================================================
 INSERT INTO `iyque_analysis_hot_word` (`id`, `acceptId`, `acceptName`, `acceptType`, `analysisTime`, `categoryId`, `categoryName`, `content`, `fromId`, `fromName`, `hotWordId`, `hotWordName`, `msgId`, `msgTime`) VALUES
-(8100001, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-10-21 17:44:42', 1200021, '客户异议关键词', '老师你好，最近茅台这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_bill_gates', '比尔·盖茨', 8000001, '茅台', 'msg_audit_000001', '2026-01-01 01:21:39'),
-(8100002, 'MOAT_BUFFETT', '巴菲特', 1, '2024-02-29 14:26:26', 1200022, '投诉预警词', '刚看到 五粮液 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 8000002, '五粮液', 'msg_audit_000002', '2024-10-07 23:23:57'),
-(8100003, 'MOAT_MUNGER', '芒格', 1, '2025-08-25 22:35:21', 1200023, '合规敏感词', '老师，腾讯 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_ted_turner', '特德·特纳', 8000003, '腾讯', 'msg_audit_000003', '2025-01-29 10:55:55'),
-(8100004, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-11-25 16:57:18', 1200024, '白酒板块热词', '看了你之前推送的 阿里 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_ajit_jain', '阿吉特·贾因', 8000004, '阿里', 'msg_audit_000004', '2024-06-19 09:52:44'),
-(8100005, 'MOAT_FISHER', '费雪', 1, '2026-05-19 10:33:30', 1200025, '港股互联网热词', '拼多多 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_greg_abel', '格雷格·阿贝尔', 8000005, '拼多多', 'msg_audit_000005', '2024-11-16 00:26:39'),
-(8100006, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-08-07 01:28:30', 1200026, '新能源板块热词', '老师帮我看下 美团 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_todd_combs', '托德·库姆斯', 8000006, '美团', 'msg_audit_000006', '2024-05-15 16:32:33'),
-(8100007, 'MOAT_DUAN', '段永平', 1, '2025-04-18 00:20:01', 1200027, '半导体热词', '网易 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_ted_weschler', '特德·韦施勒', 8000007, '网易', 'msg_audit_000007', '2026-05-19 15:08:55'),
-(8100008, 'MOAT_LINYUAN', '林园', 1, '2024-03-16 07:40:30', 1200028, '医药板块热词', '关于 比亚迪 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_ron_olson', '罗恩·奥尔森', 8000008, '比亚迪', 'msg_audit_000008', '2024-01-14 05:59:34'),
-(8100009, 'MOAT_DANBIN', '但斌', 1, '2025-01-09 06:51:16', 1200029, '家电龙头热词', '老师你好，最近宁德时代这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_rick_guerin', '里克·盖林', 8000009, '宁德时代', 'msg_audit_000009', '2026-01-29 11:30:10'),
-(8100010, 'MOAT_ZMZ', '章盟主', 1, '2026-06-06 19:57:14', 1200030, '金融板块热词', '刚看到 苹果 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_walter_schloss', '沃尔特·施洛斯', 8000010, '苹果', 'msg_audit_000010', '2026-03-18 05:14:54'),
-(8100011, 'MOAT_LILU', '李录', 1, '2024-08-17 04:15:08', 1200031, '地产链热词', '老师，微软 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_seth_klarman', '塞斯·卡拉曼', 8000011, '微软', 'msg_audit_000011', '2024-04-01 09:25:32'),
-(8100012, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-04-10 07:07:18', 1200032, 'AI 大模型热词', '看了你之前推送的 谷歌 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_howard_marks', '霍华德·马克斯', 8000012, '谷歌', 'msg_audit_000012', '2024-03-04 23:46:26'),
-(8100013, 'MOAT_GRAHAM', '格雷厄姆', 1, '2025-11-04 18:47:18', 1200033, '投资情绪 · 恐慌', '护城河 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_yohei_hosoda', '细田洋平', 8000013, '护城河', 'msg_audit_000013', '2024-01-22 05:20:46'),
-(8100014, 'MOAT_BUFFETT', '巴菲特', 1, '2024-10-23 09:20:31', 1200034, '投资情绪 · 贪婪', '老师帮我看下 安全边际 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 8000014, '安全边际', 'msg_audit_000014', '2024-10-06 10:22:21'),
-(8100015, 'MOAT_MUNGER', '芒格', 1, '2025-07-08 07:46:53', 1200035, '大师方法论 · 巴菲特', '价值投资 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_dinglei', '丁磊', 8000015, '价值投资', 'msg_audit_000015', '2026-05-09 01:59:33'),
-(8100016, 'MOAT_LYNCH', '彼得·林奇', 1, '2024-06-17 13:25:41', 1200036, '大师方法论 · 芒格', '关于 长期持有 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_huangzheng', '黄峥', 8000016, '长期持有', 'msg_audit_000016', '2026-03-14 15:00:18'),
-(8100017, 'MOAT_FISHER', '费雪', 1, '2025-03-04 08:39:56', 1200037, '大师方法论 · 段永平', '老师你好，最近分红这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_chenmingyong', '陈明永', 8000017, '分红', 'msg_audit_000017', '2025-01-09 16:24:30'),
-(8100018, 'MOAT_TEMPLETON', '邓普顿', 1, '2026-04-11 10:15:43', 1200038, '大师方法论 · 林园', '刚看到 回撤 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_shenwei', '沈炜', 8000018, '回撤', 'msg_audit_000018', '2025-02-21 06:51:13'),
-(8100019, 'MOAT_DUAN', '段永平', 1, '2025-11-26 12:46:29', 1200039, '大师方法论 · 但斌', '老师，加仓 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_fangsanwen', '方三文', 8000019, '加仓', 'msg_audit_000019', '2024-07-09 01:18:39'),
-(8100020, 'MOAT_LINYUAN', '林园', 1, '2024-12-28 04:07:39', 1200040, '大师方法论 · 章盟主', '看了你之前推送的 止损 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_liuhaoran', '刘昊然（同名）', 8000020, '止损', 'msg_audit_000020', '2026-01-04 10:08:26'),
-(8100021, 'MOAT_DANBIN', '但斌', 1, '2024-11-18 05:32:34', 1200041, '客户关心的持仓', 'AI 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_zhugeliang', '但斌客户 A（诸葛量）', 8000021, 'AI', 'msg_audit_000021', '2025-03-15 16:25:44'),
-(8100022, 'MOAT_ZMZ', '章盟主', 1, '2024-05-23 09:14:48', 1200042, '客户关心的行情', '老师帮我看下 大模型 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_maotai_holder', '茅台老股东', 8000022, '大模型', 'msg_audit_000022', '2025-10-23 23:47:32'),
-(8100023, 'MOAT_LILU', '李录', 1, '2024-07-22 13:47:11', 1200043, '客户咨询意向 · 高', '算力 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_wuliangye_lp', '五粮液 LP', 8000023, '算力', 'msg_audit_000023', '2024-12-04 08:01:19'),
-(8100024, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-08-14 02:01:04', 1200044, '客户咨询意向 · 中', '关于 光模块 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_pinganhuang', '平安黄总', 8000024, '光模块', 'msg_audit_000024', '2025-01-13 19:13:02'),
-(8100025, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-01-08 13:47:24', 1200045, '客户咨询意向 · 低', '老师你好，最近创新药这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_geli_dong', '董明珠', 8000025, '创新药', 'msg_audit_000025', '2025-10-17 13:53:29'),
-(8100026, 'MOAT_BUFFETT', '巴菲特', 1, '2024-06-14 17:47:15', 1200021, '客户异议关键词', '刚看到 集采 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_meidi_fangh', '方洪波', 8000026, '集采', 'msg_audit_000026', '2024-06-07 00:32:50'),
-(8100027, 'MOAT_MUNGER', '芒格', 1, '2026-02-28 10:41:31', 1200022, '投诉预警词', '老师，医美 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_byd_wangchuanfu', '王传福', 8000027, '医美', 'msg_audit_000027', '2025-10-08 02:23:04'),
-(8100028, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-07-07 17:40:23', 1200023, '合规敏感词', '看了你之前推送的 地产 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_catl_zeng', '曾毓群', 8000028, '地产', 'msg_audit_000028', '2025-10-06 19:15:39'),
-(8100029, 'MOAT_FISHER', '费雪', 1, '2025-02-13 01:19:56', 1200024, '白酒板块热词', '城投债 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_pony_ma', '马化腾', 8000029, '城投债', 'msg_audit_000029', '2026-06-09 19:23:09'),
-(8100030, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-06-22 18:21:28', 1200025, '港股互联网热词', '老师帮我看下 REITS 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_jack_ma', '马云', 8000030, 'REITS', 'msg_audit_000030', '2026-02-10 05:09:29'),
-(8100031, 'MOAT_DUAN', '段永平', 1, '2024-10-20 16:56:25', 1200026, '新能源板块热词', '巴菲特 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_lei_jun', '雷军', 8000031, '巴菲特', 'msg_audit_000031', '2026-04-24 02:43:11'),
-(8100032, 'MOAT_LINYUAN', '林园', 1, '2025-05-09 04:31:39', 1200027, '半导体热词', '关于 段永平 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_zhang_yiming', '张一鸣', 8000032, '段永平', 'msg_audit_000032', '2024-05-15 02:11:17'),
-(8100033, 'MOAT_DANBIN', '但斌', 1, '2025-06-24 02:49:02', 1200028, '医药板块热词', '老师你好，最近芒格这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_liu_qiangdong', '刘强东', 8000033, '芒格', 'msg_audit_000033', '2024-12-01 13:40:35'),
-(8100034, 'MOAT_ZMZ', '章盟主', 1, '2025-03-20 20:29:27', 1200029, '家电龙头热词', '刚看到 彼得林奇 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_haier_zhang', '张瑞敏', 8000034, '彼得林奇', 'msg_audit_000034', '2026-05-22 11:05:08'),
-(8100035, 'MOAT_LILU', '李录', 1, '2025-02-13 01:32:44', 1200030, '金融板块热词', '老师，格雷厄姆 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_lenovo_liu', '柳传志', 8000035, '格雷厄姆', 'msg_audit_000035', '2025-08-18 20:48:25'),
-(8100036, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2026-03-15 12:46:30', 1200031, '地产链热词', '看了你之前推送的 林园 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_gree_meng', '孟羽童', 8000036, '林园', 'msg_audit_000036', '2024-06-22 23:59:47'),
-(8100037, 'MOAT_GRAHAM', '格雷厄姆', 1, '2025-06-13 21:07:10', 1200032, 'AI 大模型热词', '但斌 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_li_kashing', '李嘉诚', 8000037, '但斌', 'msg_audit_000037', '2026-03-03 02:26:57'),
-(8100038, 'MOAT_BUFFETT', '巴菲特', 1, '2024-02-27 16:15:28', 1200033, '投资情绪 · 恐慌', '老师帮我看下 章盟主 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_li_zeju', '李泽钜', 8000038, '章盟主', 'msg_audit_000038', '2025-12-02 23:16:10'),
-(8100039, 'MOAT_MUNGER', '芒格', 1, '2025-07-31 08:25:30', 1200034, '投资情绪 · 贪婪', '李录 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_terry_gou', '郭台铭', 8000039, '李录', 'msg_audit_000039', '2024-05-20 16:18:34'),
-(8100040, 'MOAT_LYNCH', '彼得·林奇', 1, '2026-04-11 17:38:03', 1200035, '大师方法论 · 巴菲特', '关于 赵丹阳 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_tsai_ing', '蔡崇信', 8000040, '赵丹阳', 'msg_audit_000040', '2025-08-14 16:05:14'),
-(8100041, 'MOAT_FISHER', '费雪', 1, '2025-10-21 09:26:55', 1200036, '大师方法论 · 芒格', '老师你好，最近股东信这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_youzi_zhao', '游资赵老哥', 8000041, '股东信', 'msg_audit_000041', '2026-06-16 11:17:47'),
-(8100042, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-09-07 12:49:59', 1200037, '大师方法论 · 段永平', '刚看到 股东会 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_youzi_qiao', '游资乔帮主', 8000042, '股东会', 'msg_audit_000042', '2025-02-02 17:51:54'),
-(8100043, 'MOAT_DUAN', '段永平', 1, '2024-05-09 22:51:12', 1200038, '大师方法论 · 林园', '老师，回购 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_youzi_mengniu', '游资孟乃', 8000043, '回购', 'msg_audit_000043', '2025-12-12 15:58:31'),
-(8100044, 'MOAT_LINYUAN', '林园', 1, '2024-08-03 11:52:32', 1200039, '大师方法论 · 但斌', '看了你之前推送的 并购 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_hangzhou_tuhao', '杭州七哥', 8000044, '并购', 'msg_audit_000044', '2026-03-24 15:54:45'),
-(8100045, 'MOAT_DANBIN', '但斌', 1, '2024-08-19 16:32:48', 1200040, '大师方法论 · 章盟主', '定投 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_wine_lover_zhang', '张老板', 8000045, '定投', 'msg_audit_000045', '2024-11-22 13:03:05'),
-(8100046, 'MOAT_ZMZ', '章盟主', 1, '2026-03-02 03:55:23', 1200041, '客户关心的持仓', '老师帮我看下 抄底 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_pharma_wang', '王教授', 8000046, '抄底', 'msg_audit_000046', '2024-06-06 06:16:50'),
-(8100047, 'MOAT_LILU', '李录', 1, '2024-09-27 18:14:20', 1200042, '客户关心的行情', '止盈 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_yunnanbaiyao_ho', '何女士', 8000047, '止盈', 'msg_audit_000047', '2026-02-21 01:16:45'),
-(8100048, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-06-23 12:41:55', 1200043, '客户咨询意向 · 高', '关于 复利 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 8000048, '复利', 'msg_audit_000048', '2026-02-02 00:32:52'),
-(8100049, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-04-25 08:42:49', 1200044, '客户咨询意向 · 中', '老师你好，最近港股这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 8000049, '港股', 'msg_audit_000049', '2025-11-03 23:15:24'),
-(8100050, 'MOAT_BUFFETT', '巴菲特', 1, '2024-01-12 22:38:23', 1200045, '客户咨询意向 · 低', '刚看到 美股 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_family_office_a', '上海某家族办', 8000050, '美股', 'msg_audit_000050', '2025-11-18 13:05:03'),
-(8100051, 'MOAT_MUNGER', '芒格', 1, '2025-04-25 23:17:44', 1200021, '客户异议关键词', '老师，A 股 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_family_office_b', '深圳某家族办', 8000001, 'A 股', 'msg_audit_000051', '2025-11-02 00:38:55'),
-(8100052, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-10-22 03:14:54', 1200022, '投诉预警词', '看了你之前推送的 茅台 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_pe_partner_lu', '路总', 8000002, '茅台', 'msg_audit_000052', '2024-07-09 01:47:03'),
-(8100053, 'MOAT_FISHER', '费雪', 1, '2026-04-16 11:33:52', 1200023, '合规敏感词', '五粮液 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_hnw_doctor_hu', '胡医生', 8000003, '五粮液', 'msg_audit_000053', '2025-12-30 16:53:33'),
-(8100054, 'MOAT_TEMPLETON', '邓普顿', 1, '2024-12-05 20:02:19', 1200024, '白酒板块热词', '老师帮我看下 腾讯 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_retail_liu', '刘先生', 8000004, '腾讯', 'msg_audit_000054', '2025-05-08 05:06:09'),
-(8100055, 'MOAT_DUAN', '段永平', 1, '2024-03-08 15:26:46', 1200025, '港股互联网热词', '阿里 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_retail_chen', '陈女士', 8000005, '阿里', 'msg_audit_000055', '2024-07-25 11:40:27'),
-(8100056, 'MOAT_LINYUAN', '林园', 1, '2026-03-12 16:17:49', 1200026, '新能源板块热词', '关于 拼多多 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_retail_wu', '吴老师', 8000006, '拼多多', 'msg_audit_000056', '2026-02-24 12:18:59'),
-(8100057, 'MOAT_DANBIN', '但斌', 1, '2024-05-17 20:21:32', 1200027, '半导体热词', '老师你好，最近美团这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_retail_zhou', '周同学', 8000007, '美团', 'msg_audit_000057', '2025-11-12 05:16:46'),
-(8100058, 'MOAT_ZMZ', '章盟主', 1, '2024-04-13 13:24:59', 1200028, '医药板块热词', '刚看到 网易 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_retail_han', '韩总', 8000008, '网易', 'msg_audit_000058', '2026-05-06 17:01:06'),
-(8100059, 'MOAT_LILU', '李录', 1, '2025-12-06 22:47:14', 1200029, '家电龙头热词', '老师，比亚迪 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_retail_gao', '高姐', 8000009, '比亚迪', 'msg_audit_000059', '2025-01-14 20:17:17'),
-(8100060, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2025-05-03 03:16:46', 1200030, '金融板块热词', '看了你之前推送的 宁德时代 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_retail_shen', '沈总', 8000010, '宁德时代', 'msg_audit_000060', '2025-04-23 00:46:50'),
-(8100061, 'MOAT_GRAHAM', '格雷厄姆', 1, '2026-03-16 18:49:02', 1200031, '地产链热词', '苹果 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_retail_kong', '孔总', 8000011, '苹果', 'msg_audit_000061', '2025-04-07 07:22:56'),
-(8100062, 'MOAT_BUFFETT', '巴菲特', 1, '2024-10-02 17:54:36', 1200032, 'AI 大模型热词', '老师帮我看下 微软 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_bill_gates', '比尔·盖茨', 8000012, '微软', 'msg_audit_000062', '2025-07-16 21:08:07'),
-(8100063, 'MOAT_MUNGER', '芒格', 1, '2025-10-21 10:51:09', 1200033, '投资情绪 · 恐慌', '谷歌 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 8000013, '谷歌', 'msg_audit_000063', '2024-07-15 00:00:19'),
-(8100064, 'MOAT_LYNCH', '彼得·林奇', 1, '2026-06-28 01:56:25', 1200034, '投资情绪 · 贪婪', '关于 护城河 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_ted_turner', '特德·特纳', 8000014, '护城河', 'msg_audit_000064', '2025-08-03 23:02:47'),
-(8100065, 'MOAT_FISHER', '费雪', 1, '2026-06-13 15:55:42', 1200035, '大师方法论 · 巴菲特', '老师你好，最近安全边际这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_ajit_jain', '阿吉特·贾因', 8000015, '安全边际', 'msg_audit_000065', '2024-12-09 16:57:39'),
-(8100066, 'MOAT_TEMPLETON', '邓普顿', 1, '2026-02-04 14:29:24', 1200036, '大师方法论 · 芒格', '刚看到 价值投资 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_greg_abel', '格雷格·阿贝尔', 8000016, '价值投资', 'msg_audit_000066', '2024-02-13 07:58:35'),
-(8100067, 'MOAT_DUAN', '段永平', 1, '2024-07-25 05:41:14', 1200037, '大师方法论 · 段永平', '老师，长期持有 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_todd_combs', '托德·库姆斯', 8000017, '长期持有', 'msg_audit_000067', '2026-03-24 20:14:30'),
-(8100068, 'MOAT_LINYUAN', '林园', 1, '2024-11-08 15:12:24', 1200038, '大师方法论 · 林园', '看了你之前推送的 分红 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_ted_weschler', '特德·韦施勒', 8000018, '分红', 'msg_audit_000068', '2024-01-13 05:02:19'),
-(8100069, 'MOAT_DANBIN', '但斌', 1, '2026-06-29 14:35:46', 1200039, '大师方法论 · 但斌', '回撤 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_ron_olson', '罗恩·奥尔森', 8000019, '回撤', 'msg_audit_000069', '2024-07-20 15:18:02'),
-(8100070, 'MOAT_ZMZ', '章盟主', 1, '2024-12-17 23:02:04', 1200040, '大师方法论 · 章盟主', '老师帮我看下 加仓 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_rick_guerin', '里克·盖林', 8000020, '加仓', 'msg_audit_000070', '2024-11-01 03:13:04'),
-(8100071, 'MOAT_LILU', '李录', 1, '2024-03-04 05:49:31', 1200041, '客户关心的持仓', '止损 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_walter_schloss', '沃尔特·施洛斯', 8000021, '止损', 'msg_audit_000071', '2025-03-26 11:07:12'),
-(8100072, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-04-07 09:54:32', 1200042, '客户关心的行情', '关于 AI 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_seth_klarman', '塞斯·卡拉曼', 8000022, 'AI', 'msg_audit_000072', '2024-02-18 07:05:51'),
-(8100073, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-01-01 03:24:24', 1200043, '客户咨询意向 · 高', '老师你好，最近大模型这波我一直在盯，感觉估值已经跑得比较靠前了。你怎么看它未来 2-3 年的空间？现在这个价位适合加仓吗？我目前仓位大概在 30%，纠结要不要止盈一部分。', 'wm_howard_marks', '霍华德·马克斯', 8000023, '大模型', 'msg_audit_000073', '2024-02-15 01:30:12'),
-(8100074, 'MOAT_BUFFETT', '巴菲特', 1, '2025-05-07 05:44:23', 1200044, '客户咨询意向 · 中', '刚看到 算力 的新闻，市场情绪很兴奋。你觉得这个属于短期噪音还是趋势级别的机会？我担心又是「利好出尽」之后的追涨。', 'wm_yohei_hosoda', '细田洋平', 8000024, '算力', 'msg_audit_000074', '2025-06-12 23:07:09'),
-(8100075, 'MOAT_MUNGER', '芒格', 1, '2025-11-10 23:07:02', 1200045, '客户咨询意向 · 低', '老师，光模块 昨天跌了 5%，我持仓大概占了组合 15%。要不要止损？说实话有点慌，一晚上没睡好，希望你给点建议。', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 8000025, '光模块', 'msg_audit_000075', '2024-09-12 12:28:02'),
-(8100076, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-01-17 22:21:48', 1200021, '客户异议关键词', '看了你之前推送的 创新药 深度报告,里面提到护城河的三个维度。我想再问一下:如果核心管理层变动,这几个维度是不是要重新评估?', 'wm_dinglei', '丁磊', 8000026, '创新药', 'msg_audit_000076', '2025-06-07 03:27:17'),
-(8100077, 'MOAT_FISHER', '费雪', 1, '2026-05-10 21:33:39', 1200022, '投诉预警词', '集采 的分红率一直挺稳定,你觉得未来三年会不会调整分红政策?我这笔资金以配置为主,比较在意持续现金流。', 'wm_huangzheng', '黄峥', 8000027, '集采', 'msg_audit_000077', '2024-03-17 15:40:32'),
-(8100078, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-01-01 10:16:30', 1200023, '合规敏感词', '老师帮我看下 医美 目前的估值分位。我按你之前教的方法,PE-Band 大概在历史 30% 分位,但是市场情绪比较悲观,是不是可以逐步定投?', 'wm_chenmingyong', '陈明永', 8000028, '医美', 'msg_audit_000078', '2024-01-07 00:30:53'),
-(8100079, 'MOAT_DUAN', '段永平', 1, '2024-08-26 18:42:49', 1200024, '白酒板块热词', '地产 我持有已经三年了,期间经历了两次超过 30% 的回撤。这次要不要减仓一部分锁定收益?还是继续按长期持有的原则拿住?', 'wm_shenwei', '沈炜', 8000029, '地产', 'msg_audit_000079', '2025-05-19 16:50:12'),
-(8100080, 'MOAT_LINYUAN', '林园', 1, '2026-06-14 01:08:36', 1200025, '港股互联网热词', '关于 城投债 最新一季的财报,我看营收增速放缓了。但你上次强调的 ROE 依然维持在 20% 以上,这个数据算不算基本面的核心?', 'wm_fangsanwen', '方三文', 8000030, '城投债', 'msg_audit_000080', '2024-01-04 07:08:05');
+(8100001, 'MOAT_GRAHAM', '格雷厄姆', 1, '2025-12-02 23:16:10', 1200021, '客户异议关键词', '[12:46] 比尔·盖茨：老师你好，最近茅台这波我一直在盯，你怎么看它现在的估值？
+[12:47] 格雷厄姆：比尔·盖茨 你好。关于茅台，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[12:53] 比尔·盖茨：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[12:58] 格雷厄姆：比尔·盖茨，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。
+[13:01] 比尔·盖茨：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_bill_gates', '比尔·盖茨', 8000001, '茅台', 'msg_audit_000001', '2025-07-31 08:25:30'),
+(8100002, 'MOAT_BUFFETT', '巴菲特', 1, '2026-06-16 11:17:47', 1200022, '投诉预警词', '[16:18] 凯瑟琳·格雷厄姆：老师，看到五粮液最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[16:23] 巴菲特：凯瑟琳·格雷厄姆，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。五粮液短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[16:30] 凯瑟琳·格雷厄姆：老师，那如果五粮液继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[16:34] 巴菲特：凯瑟琳·格雷厄姆，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 8000002, '五粮液', 'msg_audit_000002', '2025-09-07 12:49:59'),
+(8100003, 'MOAT_MUNGER', '芒格', 1, '2024-08-19 16:32:48', 1200023, '合规敏感词', '[17:51] 特德·特纳：老师，腾讯最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[17:52] 芒格：特德·特纳，段永平的本分理念可以用在腾讯上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[18:00] 特德·特纳：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[18:02] 芒格：特德·特纳，我把腾讯的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_ted_turner', '特德·特纳', 8000003, '腾讯', 'msg_audit_000003', '2024-11-22 13:03:05'),
+(8100004, 'MOAT_LYNCH', '彼得·林奇', 1, '2026-02-02 00:32:52', 1200024, '白酒板块热词', '[03:55] 阿吉特·贾因：老师，我在雪球上看到有人说阿里护城河变窄了，你怎么看？
+[03:56] 彼得·林奇：阿吉特·贾因，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。阿里的基本面没有恶化，浮亏不是永久性损失。
+[03:59] 阿吉特·贾因：老师，那我要不要把阿里换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[04:04] 彼得·林奇：阿吉特·贾因，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_ajit_jain', '阿吉特·贾因', 8000004, '阿里', 'msg_audit_000004', '2024-04-25 08:42:49'),
+(8100005, 'MOAT_FISHER', '费雪', 1, '2025-10-22 03:14:54', 1200025, '港股互联网热词', '[23:15] 格雷格·阿贝尔：老师，帮我分析下拼多多的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[23:16] 费雪：格雷格·阿贝尔，格雷厄姆的安全边际概念——当前拼多多的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[23:24] 格雷格·阿贝尔：明白了。请问拼多多的下一次财报是什么时候？届时我们再复盘一次好吗？
+[23:27] 费雪：格雷格·阿贝尔，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_greg_abel', '格雷格·阿贝尔', 8000005, '拼多多', 'msg_audit_000005', '2024-07-09 01:47:03'),
+(8100006, 'MOAT_TEMPLETON', '邓普顿', 1, '2024-07-25 11:40:27', 1200026, '新能源板块热词', '[11:33] 托德·库姆斯：老师，美团昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[11:37] 邓普顿：托德·库姆斯 你好。关于美团，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[11:41] 托德·库姆斯：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[11:44] 邓普顿：托德·库姆斯，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_todd_combs', '托德·库姆斯', 8000006, '美团', 'msg_audit_000006', '2026-03-12 16:17:49'),
+(8100007, 'MOAT_DUAN', '段永平', 1, '2025-01-14 20:17:17', 1200027, '半导体热词', '[12:18] 特德·韦施勒：老师，我看你之前推送过网易的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[12:19] 段永平：特德·韦施勒，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。网易短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[12:27] 特德·韦施勒：老师，那如果网易继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[12:28] 段永平：特德·韦施勒，我把网易的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_ted_weschler', '特德·韦施勒', 8000007, '网易', 'msg_audit_000007', '2025-05-03 03:16:46'),
+(8100008, 'MOAT_LINYUAN', '林园', 1, '2025-10-21 10:51:09', 1200028, '医药板块热词', '[00:46] 罗恩·奥尔森：老师，比亚迪我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[00:51] 林园：罗恩·奥尔森，段永平的本分理念可以用在比亚迪上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[00:56] 罗恩·奥尔森：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[00:58] 林园：罗恩·奥尔森，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_ron_olson', '罗恩·奥尔森', 8000008, '比亚迪', 'msg_audit_000008', '2024-07-15 00:00:19'),
+(8100009, 'MOAT_DANBIN', '但斌', 1, '2024-07-25 05:41:14', 1200029, '家电龙头热词', '[01:56] 里克·盖林：老师你好，最近宁德时代这波我一直在盯，你怎么看它现在的估值？
+[01:59] 但斌：里克·盖林，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。宁德时代的基本面没有恶化，浮亏不是永久性损失。
+[02:03] 里克·盖林：老师，那我要不要把宁德时代换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[02:07] 但斌：里克·盖林，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_rick_guerin', '里克·盖林', 8000009, '宁德时代', 'msg_audit_000009', '2026-03-24 20:14:30'),
+(8100010, 'MOAT_ZMZ', '章盟主', 1, '2025-03-26 11:07:12', 1200030, '金融板块热词', '[15:12] 沃尔特·施洛斯：老师，看到苹果最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[15:13] 章盟主：沃尔特·施洛斯，格雷厄姆的安全边际概念——当前苹果的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[15:16] 沃尔特·施洛斯：明白了。请问苹果的下一次财报是什么时候？届时我们再复盘一次好吗？
+[15:18] 章盟主：沃尔特·施洛斯，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。
+[15:21] 沃尔特·施洛斯：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_walter_schloss', '沃尔特·施洛斯', 8000010, '苹果', 'msg_audit_000010', '2024-04-07 09:54:32'),
+(8100011, 'MOAT_LILU', '李录', 1, '2024-09-12 12:28:02', 1200031, '地产链热词', '[07:05] 塞斯·卡拉曼：老师，微软最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[07:06] 李录：塞斯·卡拉曼 你好。关于微软，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[07:07] 塞斯·卡拉曼：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[07:10] 李录：塞斯·卡拉曼，我把微软的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_seth_klarman', '塞斯·卡拉曼', 8000011, '微软', 'msg_audit_000011', '2025-01-17 22:21:48'),
+(8100012, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-08-26 18:42:49', 1200032, 'AI 大模型热词', '[03:27] 霍华德·马克斯：老师，我在雪球上看到有人说谷歌护城河变窄了，你怎么看？
+[03:32] 赵丹阳：霍华德·马克斯，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。谷歌短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[03:33] 霍华德·马克斯：老师，那如果谷歌继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[03:35] 赵丹阳：霍华德·马克斯，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[03:38] 霍华德·马克斯：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_howard_marks', '霍华德·马克斯', 8000012, '谷歌', 'msg_audit_000012', '2025-05-19 16:50:12'),
+(8100013, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-07-12 05:14:41', 1200033, '投资情绪 · 恐慌', '[01:08] 细田洋平：老师，帮我分析下护城河的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[01:09] 格雷厄姆：细田洋平，段永平的本分理念可以用在护城河上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[01:16] 细田洋平：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[01:21] 格雷厄姆：细田洋平，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。
+[01:24] 细田洋平：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_yohei_hosoda', '细田洋平', 8000013, '护城河', 'msg_audit_000013', '2026-01-08 15:04:53'),
+(8100014, 'MOAT_BUFFETT', '巴菲特', 1, '2024-05-26 01:21:38', 1200034, '投资情绪 · 贪婪', '[03:11] 麦哲伦基金老持有人：老师，安全边际昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[03:14] 巴菲特：麦哲伦基金老持有人，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。安全边际的基本面没有恶化，浮亏不是永久性损失。
+[03:19] 麦哲伦基金老持有人：老师，那我要不要把安全边际换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[03:20] 巴菲特：麦哲伦基金老持有人，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 8000014, '安全边际', 'msg_audit_000014', '2025-03-11 17:26:54'),
+(8100015, 'MOAT_MUNGER', '芒格', 1, '2025-11-13 19:03:25', 1200035, '大师方法论 · 巴菲特', '[18:31] 丁磊：老师，我看你之前推送过价值投资的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[18:32] 芒格：丁磊，格雷厄姆的安全边际概念——当前价值投资的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[18:39] 丁磊：明白了。请问价值投资的下一次财报是什么时候？届时我们再复盘一次好吗？
+[18:44] 芒格：丁磊，我把价值投资的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_dinglei', '丁磊', 8000015, '价值投资', 'msg_audit_000015', '2025-01-25 21:29:37'),
+(8100016, 'MOAT_LYNCH', '彼得·林奇', 1, '2024-11-02 14:53:18', 1200036, '大师方法论 · 芒格', '[22:01] 黄峥：老师，长期持有我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[22:04] 彼得·林奇：黄峥 你好。关于长期持有，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[22:07] 黄峥：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[22:12] 彼得·林奇：黄峥，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_huangzheng', '黄峥', 8000016, '长期持有', 'msg_audit_000016', '2026-04-27 05:15:02'),
+(8100017, 'MOAT_FISHER', '费雪', 1, '2024-05-29 01:56:13', 1200037, '大师方法论 · 段永平', '[15:02] 陈明永：老师你好，最近分红这波我一直在盯，你怎么看它现在的估值？
+[15:04] 费雪：陈明永，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。分红短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[15:08] 陈明永：老师，那如果分红继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[15:13] 费雪：陈明永，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_chenmingyong', '陈明永', 8000017, '分红', 'msg_audit_000017', '2026-06-22 18:47:22'),
+(8100018, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-12-30 18:23:40', 1200038, '大师方法论 · 林园', '[11:39] 沈炜：老师，看到回撤最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[11:42] 邓普顿：沈炜，段永平的本分理念可以用在回撤上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[11:46] 沈炜：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[11:48] 邓普顿：沈炜，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。
+[11:51] 沈炜：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_shenwei', '沈炜', 8000018, '回撤', 'msg_audit_000018', '2025-08-29 20:05:32'),
+(8100019, 'MOAT_DUAN', '段永平', 1, '2024-08-05 05:20:34', 1200039, '大师方法论 · 但斌', '[19:33] 方三文：老师，加仓最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[19:38] 段永平：方三文，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。加仓的基本面没有恶化，浮亏不是永久性损失。
+[19:40] 方三文：老师，那我要不要把加仓换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[19:42] 段永平：方三文，我把加仓的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[19:43] 方三文：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_fangsanwen', '方三文', 8000019, '加仓', 'msg_audit_000019', '2025-02-01 04:08:11'),
+(8100020, 'MOAT_LINYUAN', '林园', 1, '2026-01-20 00:20:55', 1200040, '大师方法论 · 章盟主', '[10:13] 刘昊然（同名）：老师，我在雪球上看到有人说止损护城河变窄了，你怎么看？
+[10:14] 林园：刘昊然（同名），格雷厄姆的安全边际概念——当前止损的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[10:20] 刘昊然（同名）：明白了。请问止损的下一次财报是什么时候？届时我们再复盘一次好吗？
+[10:22] 林园：刘昊然（同名），好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[10:25] 刘昊然（同名）：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_liuhaoran', '刘昊然（同名）', 8000020, '止损', 'msg_audit_000020', '2026-05-01 06:55:34'),
+(8100021, 'MOAT_DANBIN', '但斌', 1, '2026-05-19 18:38:49', 1200041, '客户关心的持仓', '[23:06] 但斌客户 A（诸葛量）：老师，帮我分析下AI的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[23:09] 但斌：但斌客户 A（诸葛量） 你好。关于AI，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[23:11] 但斌客户 A（诸葛量）：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[23:14] 但斌：但斌客户 A（诸葛量），可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_zhugeliang', '但斌客户 A（诸葛量）', 8000021, 'AI', 'msg_audit_000021', '2024-12-20 20:39:51'),
+(8100022, 'MOAT_ZMZ', '章盟主', 1, '2025-01-11 15:46:11', 1200042, '客户关心的行情', '[07:34] 茅台老股东：老师，大模型昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[07:37] 章盟主：茅台老股东，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。大模型短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[07:42] 茅台老股东：老师，那如果大模型继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[07:44] 章盟主：茅台老股东，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。
+[07:47] 茅台老股东：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_maotai_holder', '茅台老股东', 8000022, '大模型', 'msg_audit_000022', '2026-02-19 20:57:28'),
+(8100023, 'MOAT_LILU', '李录', 1, '2024-11-18 20:40:48', 1200043, '客户咨询意向 · 高', '[12:58] 五粮液 LP：老师，我看你之前推送过算力的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[12:59] 李录：五粮液 LP，段永平的本分理念可以用在算力上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[13:01] 五粮液 LP：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[13:06] 李录：五粮液 LP，我把算力的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_wuliangye_lp', '五粮液 LP', 8000023, '算力', 'msg_audit_000023', '2025-09-02 19:19:28'),
+(8100024, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-06-21 19:32:02', 1200044, '客户咨询意向 · 中', '[06:49] 平安黄总：老师，光模块我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[06:54] 赵丹阳：平安黄总，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。光模块的基本面没有恶化，浮亏不是永久性损失。
+[06:57] 平安黄总：老师，那我要不要把光模块换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[06:59] 赵丹阳：平安黄总，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_pinganhuang', '平安黄总', 8000024, '光模块', 'msg_audit_000024', '2025-07-16 17:29:56'),
+(8100025, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-09-04 18:29:39', 1200045, '客户咨询意向 · 低', '[10:42] 董明珠：老师你好，最近创新药这波我一直在盯，你怎么看它现在的估值？
+[10:43] 格雷厄姆：董明珠，格雷厄姆的安全边际概念——当前创新药的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[10:46] 董明珠：明白了。请问创新药的下一次财报是什么时候？届时我们再复盘一次好吗？
+[10:48] 格雷厄姆：董明珠，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_geli_dong', '董明珠', 8000025, '创新药', 'msg_audit_000025', '2024-07-14 11:37:59'),
+(8100026, 'MOAT_BUFFETT', '巴菲特', 1, '2025-12-06 07:17:38', 1200021, '客户异议关键词', '[13:02] 方洪波：老师，看到集采最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[13:03] 巴菲特：方洪波 你好。关于集采，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[13:05] 方洪波：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[13:10] 巴菲特：方洪波，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_meidi_fangh', '方洪波', 8000026, '集采', 'msg_audit_000026', '2025-03-18 11:35:52'),
+(8100027, 'MOAT_MUNGER', '芒格', 1, '2025-06-02 04:01:28', 1200022, '投诉预警词', '[05:07] 王传福：老师，医美最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[05:12] 芒格：王传福，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。医美短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[05:15] 王传福：老师，那如果医美继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[05:18] 芒格：王传福，我把医美的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_byd_wangchuanfu', '王传福', 8000027, '医美', 'msg_audit_000027', '2026-03-17 10:59:33'),
+(8100028, 'MOAT_LYNCH', '彼得·林奇', 1, '2026-06-14 19:40:50', 1200023, '合规敏感词', '[23:12] 曾毓群：老师，我在雪球上看到有人说地产护城河变窄了，你怎么看？
+[23:15] 彼得·林奇：曾毓群，段永平的本分理念可以用在地产上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[23:20] 曾毓群：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[23:23] 彼得·林奇：曾毓群，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_catl_zeng', '曾毓群', 8000028, '地产', 'msg_audit_000028', '2026-04-03 03:28:50'),
+(8100029, 'MOAT_FISHER', '费雪', 1, '2024-02-11 10:23:49', 1200024, '白酒板块热词', '[14:16] 马化腾：老师，帮我分析下城投债的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[14:18] 费雪：马化腾，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。城投债的基本面没有恶化，浮亏不是永久性损失。
+[14:19] 马化腾：老师，那我要不要把城投债换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[14:20] 费雪：马化腾，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。
+[14:22] 马化腾：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_pony_ma', '马化腾', 8000029, '城投债', 'msg_audit_000029', '2024-03-05 14:30:06'),
+(8100030, 'MOAT_TEMPLETON', '邓普顿', 1, '2024-05-01 04:56:01', 1200025, '港股互联网热词', '[00:59] 马云：老师，REITS昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[01:00] 邓普顿：马云，格雷厄姆的安全边际概念——当前REITS的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[01:06] 马云：明白了。请问REITS的下一次财报是什么时候？届时我们再复盘一次好吗？
+[01:10] 邓普顿：马云，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_jack_ma', '马云', 8000030, 'REITS', 'msg_audit_000030', '2024-08-04 16:42:51'),
+(8100031, 'MOAT_DUAN', '段永平', 1, '2026-01-05 19:34:32', 1200026, '新能源板块热词', '[03:44] 雷军：老师，我看你之前推送过巴菲特的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[03:46] 段永平：雷军 你好。关于巴菲特，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[03:53] 雷军：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[03:54] 段永平：雷军，我把巴菲特的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[03:57] 雷军：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_lei_jun', '雷军', 8000031, '巴菲特', 'msg_audit_000031', '2024-11-30 20:39:31'),
+(8100032, 'MOAT_LINYUAN', '林园', 1, '2024-12-07 06:47:55', 1200027, '半导体热词', '[10:43] 张一鸣：老师，段永平我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[10:44] 林园：张一鸣，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。段永平短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[10:49] 张一鸣：老师，那如果段永平继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[10:54] 林园：张一鸣，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_zhang_yiming', '张一鸣', 8000032, '段永平', 'msg_audit_000032', '2024-04-03 03:35:15'),
+(8100033, 'MOAT_DANBIN', '但斌', 1, '2024-01-09 09:04:53', 1200028, '医药板块热词', '[22:29] 刘强东：老师你好，最近芒格这波我一直在盯，你怎么看它现在的估值？
+[22:33] 但斌：刘强东，段永平的本分理念可以用在芒格上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[22:41] 刘强东：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[22:44] 但斌：刘强东，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_liu_qiangdong', '刘强东', 8000033, '芒格', 'msg_audit_000033', '2025-03-02 06:54:26'),
+(8100034, 'MOAT_ZMZ', '章盟主', 1, '2026-06-07 23:17:59', 1200029, '家电龙头热词', '[08:21] 张瑞敏：老师，看到彼得林奇最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[08:22] 章盟主：张瑞敏，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。彼得林奇的基本面没有恶化，浮亏不是永久性损失。
+[08:23] 张瑞敏：老师，那我要不要把彼得林奇换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[08:27] 章盟主：张瑞敏，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_haier_zhang', '张瑞敏', 8000034, '彼得林奇', 'msg_audit_000034', '2024-08-21 02:17:44'),
+(8100035, 'MOAT_LILU', '李录', 1, '2024-11-09 11:08:47', 1200030, '金融板块热词', '[07:31] 柳传志：老师，格雷厄姆最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[07:32] 李录：柳传志，格雷厄姆的安全边际概念——当前格雷厄姆的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[07:37] 柳传志：明白了。请问格雷厄姆的下一次财报是什么时候？届时我们再复盘一次好吗？
+[07:39] 李录：柳传志，我把格雷厄姆的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_lenovo_liu', '柳传志', 8000035, '格雷厄姆', 'msg_audit_000035', '2024-10-23 22:44:03'),
+(8100036, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2026-05-25 13:53:05', 1200031, '地产链热词', '[14:07] 孟羽童：老师，我在雪球上看到有人说林园护城河变窄了，你怎么看？
+[14:08] 赵丹阳：孟羽童 你好。关于林园，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[14:10] 孟羽童：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[14:11] 赵丹阳：孟羽童，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[14:12] 孟羽童：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_gree_meng', '孟羽童', 8000036, '林园', 'msg_audit_000036', '2024-07-28 13:52:59'),
+(8100037, 'MOAT_GRAHAM', '格雷厄姆', 1, '2025-03-29 01:23:00', 1200032, 'AI 大模型热词', '[04:45] 李嘉诚：老师，帮我分析下但斌的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[04:46] 格雷厄姆：李嘉诚，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。但斌短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[04:47] 李嘉诚：老师，那如果但斌继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[04:48] 格雷厄姆：李嘉诚，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_li_kashing', '李嘉诚', 8000037, '但斌', 'msg_audit_000037', '2024-04-26 05:18:26'),
+(8100038, 'MOAT_BUFFETT', '巴菲特', 1, '2025-07-18 19:40:24', 1200033, '投资情绪 · 恐慌', '[02:51] 李泽钜：老师，章盟主昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[02:56] 巴菲特：李泽钜，段永平的本分理念可以用在章盟主上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[02:57] 李泽钜：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[03:01] 巴菲特：李泽钜，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_li_zeju', '李泽钜', 8000038, '章盟主', 'msg_audit_000038', '2024-05-04 11:03:50'),
+(8100039, 'MOAT_MUNGER', '芒格', 1, '2025-10-19 05:33:25', 1200034, '投资情绪 · 贪婪', '[23:50] 郭台铭：老师，我看你之前推送过李录的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[23:53] 芒格：郭台铭，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。李录的基本面没有恶化，浮亏不是永久性损失。
+[23:54] 郭台铭：老师，那我要不要把李录换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[23:55] 芒格：郭台铭，我把李录的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_terry_gou', '郭台铭', 8000039, '李录', 'msg_audit_000039', '2025-11-10 03:18:20'),
+(8100040, 'MOAT_LYNCH', '彼得·林奇', 1, '2026-06-05 17:05:22', 1200035, '大师方法论 · 巴菲特', '[10:08] 蔡崇信：老师，赵丹阳我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[10:10] 彼得·林奇：蔡崇信，格雷厄姆的安全边际概念——当前赵丹阳的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[10:18] 蔡崇信：明白了。请问赵丹阳的下一次财报是什么时候？届时我们再复盘一次好吗？
+[10:19] 彼得·林奇：蔡崇信，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_tsai_ing', '蔡崇信', 8000040, '赵丹阳', 'msg_audit_000040', '2025-03-03 18:48:15'),
+(8100041, 'MOAT_FISHER', '费雪', 1, '2024-03-14 06:26:06', 1200036, '大师方法论 · 芒格', '[23:37] 游资赵老哥：老师你好，最近股东信这波我一直在盯，你怎么看它现在的估值？
+[23:42] 费雪：游资赵老哥 你好。关于股东信，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[23:50] 游资赵老哥：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[23:53] 费雪：游资赵老哥，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_youzi_zhao', '游资赵老哥', 8000041, '股东信', 'msg_audit_000041', '2025-07-20 15:31:31'),
+(8100042, 'MOAT_TEMPLETON', '邓普顿', 1, '2025-09-03 15:22:50', 1200037, '大师方法论 · 段永平', '[19:22] 游资乔帮主：老师，看到股东会最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[19:25] 邓普顿：游资乔帮主，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。股东会短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[19:26] 游资乔帮主：老师，那如果股东会继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[19:30] 邓普顿：游资乔帮主，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_youzi_qiao', '游资乔帮主', 8000042, '股东会', 'msg_audit_000042', '2026-04-18 13:35:38'),
+(8100043, 'MOAT_DUAN', '段永平', 1, '2026-05-01 22:35:56', 1200038, '大师方法论 · 林园', '[09:04] 游资孟乃：老师，回购最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[09:05] 段永平：游资孟乃，段永平的本分理念可以用在回购上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[09:06] 游资孟乃：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[09:09] 段永平：游资孟乃，我把回购的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[09:12] 游资孟乃：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_youzi_mengniu', '游资孟乃', 8000043, '回购', 'msg_audit_000043', '2024-11-21 10:40:37'),
+(8100044, 'MOAT_LINYUAN', '林园', 1, '2024-11-06 06:20:22', 1200039, '大师方法论 · 但斌', '[18:16] 杭州七哥：老师，我在雪球上看到有人说并购护城河变窄了，你怎么看？
+[18:20] 林园：杭州七哥，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。并购的基本面没有恶化，浮亏不是永久性损失。
+[18:25] 杭州七哥：老师，那我要不要把并购换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[18:30] 林园：杭州七哥，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_hangzhou_tuhao', '杭州七哥', 8000044, '并购', 'msg_audit_000044', '2024-06-08 20:51:12'),
+(8100045, 'MOAT_DANBIN', '但斌', 1, '2024-06-16 19:24:55', 1200040, '大师方法论 · 章盟主', '[20:39] 张老板：老师，帮我分析下定投的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[20:42] 但斌：张老板，格雷厄姆的安全边际概念——当前定投的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[20:43] 张老板：明白了。请问定投的下一次财报是什么时候？届时我们再复盘一次好吗？
+[20:47] 但斌：张老板，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_wine_lover_zhang', '张老板', 8000045, '定投', 'msg_audit_000045', '2026-03-08 21:33:38'),
+(8100046, 'MOAT_ZMZ', '章盟主', 1, '2026-02-14 23:36:48', 1200041, '客户关心的持仓', '[13:45] 王教授：老师，抄底昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[13:47] 章盟主：王教授 你好。关于抄底，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[13:53] 王教授：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[13:54] 章盟主：王教授，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_pharma_wang', '王教授', 8000046, '抄底', 'msg_audit_000046', '2026-03-22 21:34:09'),
+(8100047, 'MOAT_LILU', '李录', 1, '2026-06-22 23:22:43', 1200042, '客户关心的行情', '[06:49] 何女士：老师，我看你之前推送过止盈的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[06:52] 李录：何女士，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。止盈短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[06:57] 何女士：老师，那如果止盈继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[07:00] 李录：何女士，我把止盈的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_yunnanbaiyao_ho', '何女士', 8000047, '止盈', 'msg_audit_000047', '2025-08-26 17:17:34'),
+(8100048, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2024-12-10 11:56:21', 1200043, '客户咨询意向 · 高', '[18:59] 但斌客户 B（腾讯持有人）：老师，复利我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[19:03] 赵丹阳：但斌客户 B（腾讯持有人），段永平的本分理念可以用在复利上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[19:04] 但斌客户 B（腾讯持有人）：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[19:09] 赵丹阳：但斌客户 B（腾讯持有人），好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_tencent_dbc', '但斌客户 B（腾讯持有人）', 8000048, '复利', 'msg_audit_000048', '2026-04-17 10:57:28'),
+(8100049, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-12-27 17:06:57', 1200044, '客户咨询意向 · 中', '[01:12] 但斌客户 C（茅台持有人）：老师你好，最近港股这波我一直在盯，你怎么看它现在的估值？
+[01:17] 格雷厄姆：但斌客户 C（茅台持有人），我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。港股的基本面没有恶化，浮亏不是永久性损失。
+[01:22] 但斌客户 C（茅台持有人）：老师，那我要不要把港股换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[01:25] 格雷厄姆：但斌客户 C（茅台持有人），可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_kweichowmoutai_dbc', '但斌客户 C（茅台持有人）', 8000049, '港股', 'msg_audit_000049', '2024-07-09 00:17:10'),
+(8100050, 'MOAT_BUFFETT', '巴菲特', 1, '2025-11-26 05:47:44', 1200045, '客户咨询意向 · 低', '[09:41] 上海某家族办：老师，看到美股最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[09:43] 巴菲特：上海某家族办，格雷厄姆的安全边际概念——当前美股的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[09:44] 上海某家族办：明白了。请问美股的下一次财报是什么时候？届时我们再复盘一次好吗？
+[09:48] 巴菲特：上海某家族办，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_family_office_a', '上海某家族办', 8000050, '美股', 'msg_audit_000050', '2026-04-29 11:40:59'),
+(8100051, 'MOAT_MUNGER', '芒格', 1, '2026-01-04 01:54:52', 1200021, '客户异议关键词', '[05:58] 深圳某家族办：老师，A 股最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[06:03] 芒格：深圳某家族办 你好。关于A 股，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[06:05] 深圳某家族办：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[06:10] 芒格：深圳某家族办，我把A 股的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_family_office_b', '深圳某家族办', 8000001, 'A 股', 'msg_audit_000051', '2025-02-19 09:53:17'),
+(8100052, 'MOAT_LYNCH', '彼得·林奇', 1, '2024-03-17 15:08:47', 1200022, '投诉预警词', '[12:29] 路总：老师，我在雪球上看到有人说茅台护城河变窄了，你怎么看？
+[12:32] 彼得·林奇：路总，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。茅台短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[12:38] 路总：老师，那如果茅台继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[12:41] 彼得·林奇：路总，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_pe_partner_lu', '路总', 8000002, '茅台', 'msg_audit_000052', '2025-10-08 07:56:48'),
+(8100053, 'MOAT_FISHER', '费雪', 1, '2025-05-13 10:52:22', 1200023, '合规敏感词', '[06:37] 胡医生：老师，帮我分析下五粮液的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[06:40] 费雪：胡医生，段永平的本分理念可以用在五粮液上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[06:45] 胡医生：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[06:46] 费雪：胡医生，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。
+[06:48] 胡医生：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_hnw_doctor_hu', '胡医生', 8000003, '五粮液', 'msg_audit_000053', '2026-06-25 01:25:25'),
+(8100054, 'MOAT_TEMPLETON', '邓普顿', 1, '2026-03-24 11:48:50', 1200024, '白酒板块热词', '[22:58] 刘先生：老师，腾讯昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[22:59] 邓普顿：刘先生，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。腾讯的基本面没有恶化，浮亏不是永久性损失。
+[23:03] 刘先生：老师，那我要不要把腾讯换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[23:04] 邓普顿：刘先生，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。
+[23:06] 刘先生：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_retail_liu', '刘先生', 8000004, '腾讯', 'msg_audit_000054', '2025-12-01 07:59:55'),
+(8100055, 'MOAT_DUAN', '段永平', 1, '2024-08-14 11:03:59', 1200025, '港股互联网热词', '[02:43] 陈女士：老师，我看你之前推送过阿里的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[02:44] 段永平：陈女士，格雷厄姆的安全边际概念——当前阿里的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[02:45] 陈女士：明白了。请问阿里的下一次财报是什么时候？届时我们再复盘一次好吗？
+[02:46] 段永平：陈女士，我把阿里的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[02:49] 陈女士：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_retail_chen', '陈女士', 8000005, '阿里', 'msg_audit_000055', '2024-08-31 21:58:20'),
+(8100056, 'MOAT_LINYUAN', '林园', 1, '2024-01-02 14:14:24', 1200026, '新能源板块热词', '[23:22] 吴老师：老师，拼多多我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[23:27] 林园：吴老师 你好。关于拼多多，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[23:33] 吴老师：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[23:35] 林园：吴老师，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[23:37] 吴老师：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_retail_wu', '吴老师', 8000006, '拼多多', 'msg_audit_000056', '2024-02-25 02:23:54'),
+(8100057, 'MOAT_DANBIN', '但斌', 1, '2026-03-27 15:13:16', 1200027, '半导体热词', '[11:57] 周同学：老师你好，最近美团这波我一直在盯，你怎么看它现在的估值？
+[11:58] 但斌：周同学，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。美团短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[12:02] 周同学：老师，那如果美团继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[12:06] 但斌：周同学，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_retail_zhou', '周同学', 8000007, '美团', 'msg_audit_000057', '2026-03-18 17:33:04'),
+(8100058, 'MOAT_ZMZ', '章盟主', 1, '2024-09-16 05:40:25', 1200028, '医药板块热词', '[11:11] 韩总：老师，看到网易最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[11:14] 章盟主：韩总，段永平的本分理念可以用在网易上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[11:21] 韩总：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[11:22] 章盟主：韩总，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_retail_han', '韩总', 8000008, '网易', 'msg_audit_000058', '2024-04-21 12:13:43'),
+(8100059, 'MOAT_LILU', '李录', 1, '2024-12-31 22:42:22', 1200029, '家电龙头热词', '[08:34] 高姐：老师，比亚迪最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[08:37] 李录：高姐，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。比亚迪的基本面没有恶化，浮亏不是永久性损失。
+[08:43] 高姐：老师，那我要不要把比亚迪换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[08:44] 李录：高姐，我把比亚迪的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_retail_gao', '高姐', 8000009, '比亚迪', 'msg_audit_000059', '2025-11-09 02:36:05'),
+(8100060, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2025-08-16 20:40:38', 1200030, '金融板块热词', '[06:53] 沈总：老师，我在雪球上看到有人说宁德时代护城河变窄了，你怎么看？
+[06:55] 赵丹阳：沈总，格雷厄姆的安全边际概念——当前宁德时代的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[06:59] 沈总：明白了。请问宁德时代的下一次财报是什么时候？届时我们再复盘一次好吗？
+[07:04] 赵丹阳：沈总，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[07:07] 沈总：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_retail_shen', '沈总', 8000010, '宁德时代', 'msg_audit_000060', '2025-02-20 20:23:21'),
+(8100061, 'MOAT_GRAHAM', '格雷厄姆', 1, '2024-02-27 15:46:04', 1200031, '地产链热词', '[23:31] 孔总：老师，帮我分析下苹果的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[23:36] 格雷厄姆：孔总 你好。关于苹果，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[23:42] 孔总：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[23:47] 格雷厄姆：孔总，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_retail_kong', '孔总', 8000011, '苹果', 'msg_audit_000061', '2025-10-27 12:02:32'),
+(8100062, 'MOAT_BUFFETT', '巴菲特', 1, '2025-06-04 17:43:05', 1200032, 'AI 大模型热词', '[03:30] 比尔·盖茨：老师，微软昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[03:32] 巴菲特：比尔·盖茨，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。微软短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[03:39] 比尔·盖茨：老师，那如果微软继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[03:43] 巴菲特：比尔·盖茨，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_bill_gates', '比尔·盖茨', 8000012, '微软', 'msg_audit_000062', '2026-02-10 21:54:52'),
+(8100063, 'MOAT_MUNGER', '芒格', 1, '2025-11-27 12:24:22', 1200033, '投资情绪 · 恐慌', '[23:33] 凯瑟琳·格雷厄姆：老师，我看你之前推送过谷歌的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[23:35] 芒格：凯瑟琳·格雷厄姆，段永平的本分理念可以用在谷歌上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[23:36] 凯瑟琳·格雷厄姆：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[23:38] 芒格：凯瑟琳·格雷厄姆，我把谷歌的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[23:39] 凯瑟琳·格雷厄姆：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_kay_graham', '凯瑟琳·格雷厄姆', 8000013, '谷歌', 'msg_audit_000063', '2025-11-17 21:29:16'),
+(8100064, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-08-08 12:20:34', 1200034, '投资情绪 · 贪婪', '[23:16] 特德·特纳：老师，护城河我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[23:18] 彼得·林奇：特德·特纳，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。护城河的基本面没有恶化，浮亏不是永久性损失。
+[23:20] 特德·特纳：老师，那我要不要把护城河换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[23:23] 彼得·林奇：特德·特纳，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_ted_turner', '特德·特纳', 8000014, '护城河', 'msg_audit_000064', '2025-04-28 04:18:08'),
+(8100065, 'MOAT_FISHER', '费雪', 1, '2024-12-18 12:59:19', 1200035, '大师方法论 · 巴菲特', '[10:31] 阿吉特·贾因：老师你好，最近安全边际这波我一直在盯，你怎么看它现在的估值？
+[10:33] 费雪：阿吉特·贾因，格雷厄姆的安全边际概念——当前安全边际的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[10:36] 阿吉特·贾因：明白了。请问安全边际的下一次财报是什么时候？届时我们再复盘一次好吗？
+[10:38] 费雪：阿吉特·贾因，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_ajit_jain', '阿吉特·贾因', 8000015, '安全边际', 'msg_audit_000065', '2024-07-25 12:03:53'),
+(8100066, 'MOAT_TEMPLETON', '邓普顿', 1, '2024-07-27 23:49:47', 1200036, '大师方法论 · 芒格', '[06:33] 格雷格·阿贝尔：老师，看到价值投资最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[06:37] 邓普顿：格雷格·阿贝尔 你好。关于价值投资，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[06:40] 格雷格·阿贝尔：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[06:43] 邓普顿：格雷格·阿贝尔，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_greg_abel', '格雷格·阿贝尔', 8000016, '价值投资', 'msg_audit_000066', '2024-06-26 15:51:12'),
+(8100067, 'MOAT_DUAN', '段永平', 1, '2026-04-06 09:55:49', 1200037, '大师方法论 · 段永平', '[12:35] 托德·库姆斯：老师，长期持有最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[12:37] 段永平：托德·库姆斯，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。长期持有短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[12:41] 托德·库姆斯：老师，那如果长期持有继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[12:43] 段永平：托德·库姆斯，我把长期持有的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。
+[12:46] 托德·库姆斯：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_todd_combs', '托德·库姆斯', 8000017, '长期持有', 'msg_audit_000067', '2025-09-30 05:52:48'),
+(8100068, 'MOAT_LINYUAN', '林园', 1, '2024-01-30 17:21:19', 1200038, '大师方法论 · 林园', '[02:31] 特德·韦施勒：老师，我在雪球上看到有人说分红护城河变窄了，你怎么看？
+[02:34] 林园：特德·韦施勒，段永平的本分理念可以用在分红上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[02:40] 特德·韦施勒：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[02:44] 林园：特德·韦施勒，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_ted_weschler', '特德·韦施勒', 8000018, '分红', 'msg_audit_000068', '2025-08-22 21:36:08'),
+(8100069, 'MOAT_DANBIN', '但斌', 1, '2024-12-11 22:28:12', 1200039, '大师方法论 · 但斌', '[12:37] 罗恩·奥尔森：老师，帮我分析下回撤的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[12:39] 但斌：罗恩·奥尔森，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。回撤的基本面没有恶化，浮亏不是永久性损失。
+[12:46] 罗恩·奥尔森：老师，那我要不要把回撤换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[12:48] 但斌：罗恩·奥尔森，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_ron_olson', '罗恩·奥尔森', 8000019, '回撤', 'msg_audit_000069', '2025-06-15 10:25:21'),
+(8100070, 'MOAT_ZMZ', '章盟主', 1, '2025-05-06 15:38:58', 1200040, '大师方法论 · 章盟主', '[08:40] 里克·盖林：老师，加仓昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[08:44] 章盟主：里克·盖林，格雷厄姆的安全边际概念——当前加仓的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[08:48] 里克·盖林：明白了。请问加仓的下一次财报是什么时候？届时我们再复盘一次好吗？
+[08:52] 章盟主：里克·盖林，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_rick_guerin', '里克·盖林', 8000020, '加仓', 'msg_audit_000070', '2024-12-28 14:01:36'),
+(8100071, 'MOAT_LILU', '李录', 1, '2024-01-19 12:06:35', 1200041, '客户关心的持仓', '[06:07] 沃尔特·施洛斯：老师，我看你之前推送过止损的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[06:10] 李录：沃尔特·施洛斯 你好。关于止损，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[06:18] 沃尔特·施洛斯：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[06:21] 李录：沃尔特·施洛斯，我把止损的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_walter_schloss', '沃尔特·施洛斯', 8000021, '止损', 'msg_audit_000071', '2024-09-22 00:40:35'),
+(8100072, 'MOAT_ZHAODANYANG', '赵丹阳', 1, '2025-05-21 17:42:29', 1200042, '客户关心的行情', '[03:01] 塞斯·卡拉曼：老师，AI我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[03:03] 赵丹阳：塞斯·卡拉曼，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。AI短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[03:04] 塞斯·卡拉曼：老师，那如果AI继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[03:06] 赵丹阳：塞斯·卡拉曼，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_seth_klarman', '塞斯·卡拉曼', 8000022, 'AI', 'msg_audit_000072', '2024-09-13 01:15:24'),
+(8100073, 'MOAT_GRAHAM', '格雷厄姆', 1, '2026-02-15 00:47:24', 1200043, '客户咨询意向 · 高', '[23:08] 霍华德·马克斯：老师你好，最近大模型这波我一直在盯，你怎么看它现在的估值？
+[23:12] 格雷厄姆：霍华德·马克斯，段永平的本分理念可以用在大模型上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[23:13] 霍华德·马克斯：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[23:17] 格雷厄姆：霍华德·马克斯，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。
+[23:19] 霍华德·马克斯：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_howard_marks', '霍华德·马克斯', 8000023, '大模型', 'msg_audit_000073', '2025-08-22 11:07:59'),
+(8100074, 'MOAT_BUFFETT', '巴菲特', 1, '2025-04-12 10:34:57', 1200044, '客户咨询意向 · 中', '[06:47] 细田洋平：老师，看到算力最近走得挺猛，我要不要加仓？现在这个价位追进去合适吗？
+[06:48] 巴菲特：细田洋平，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。算力的基本面没有恶化，浮亏不是永久性损失。
+[06:51] 细田洋平：老师，那我要不要把算力换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[06:52] 巴菲特：细田洋平，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。', 'wm_yohei_hosoda', '细田洋平', 8000024, '算力', 'msg_audit_000074', '2025-09-11 02:41:35'),
+(8100075, 'MOAT_MUNGER', '芒格', 1, '2026-05-13 11:50:13', 1200045, '客户咨询意向 · 低', '[08:04] 麦哲伦基金老持有人：老师，光模块最新的季报出来了，营收增速放缓了，我持仓大概 15%，要不要减一部分？
+[08:05] 芒格：麦哲伦基金老持有人，格雷厄姆的安全边际概念——当前光模块的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[08:11] 麦哲伦基金老持有人：明白了。请问光模块的下一次财报是什么时候？届时我们再复盘一次好吗？
+[08:14] 芒格：麦哲伦基金老持有人，我把光模块的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_lynchfund_fan', '麦哲伦基金老持有人', 8000025, '光模块', 'msg_audit_000075', '2025-03-20 05:14:51'),
+(8100076, 'MOAT_LYNCH', '彼得·林奇', 1, '2025-01-16 22:41:01', 1200021, '客户异议关键词', '[15:30] 丁磊：老师，我在雪球上看到有人说创新药护城河变窄了，你怎么看？
+[15:31] 彼得·林奇：丁磊 你好。关于创新药，我们先看三点：1) 商业模式有没有变化；2) 管理层有没有变化；3) 估值是否已经透支未来 3-5 年的增长。目前看，商业模式和管理层都稳定，估值处于历史 40% 分位，可以继续持有。
+[15:34] 丁磊：明白，那我先按你说的分批加仓策略操作。请问加仓节奏怎么安排？每周一次还是每月一次？
+[15:35] 彼得·林奇：丁磊，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。
+[15:37] 丁磊：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_dinglei', '丁磊', 8000026, '创新药', 'msg_audit_000076', '2024-08-16 01:39:10'),
+(8100077, 'MOAT_FISHER', '费雪', 1, '2026-02-02 05:10:47', 1200022, '投诉预警词', '[18:44] 黄峥：老师，帮我分析下集采的自由现金流和分红政策吧，我这笔资金主要以配置为主。
+[18:45] 费雪：黄峥，芒格说过——「宏观是我们必须承受的，微观才是我们能有所作为的」。集采短期波动更多是市场情绪，回到公司基本面：护城河没被侵蚀，我建议不要因为一天的波动做决策。
+[18:46] 黄峥：老师，那如果集采继续下跌 10%，我该继续加还是暂停？有没有明确的止损/止加规则？
+[18:48] 费雪：黄峥，可以按月定投，每次不超过总仓位 5%。设置一个提醒：当股价跌破前低 -15% 时暂停，等基本面确认再继续。这样既能控制风险又能利用波动。', 'wm_huangzheng', '黄峥', 8000027, '集采', 'msg_audit_000077', '2024-12-11 23:57:50'),
+(8100078, 'MOAT_TEMPLETON', '邓普顿', 1, '2024-03-04 12:38:14', 1200023, '合规敏感词', '[16:26] 陈明永：老师，医美昨天跌了 5%，我有点慌，一晚上没睡好，你能给点建议吗？
+[16:28] 邓普顿：陈明永，段永平的本分理念可以用在医美上：这家公司在为客户创造真价值吗？管理层有没有把股东当合伙人？如果两个答案都是「是」，那就长期拿住。
+[16:31] 陈明永：谢谢老师！那关于仓位管理，我另外这几只股票（互联网/新能源/白酒）之间怎么配置？
+[16:33] 邓普顿：陈明永，长期看，龙头效应会持续。同赛道多只股票分散反而降低收益、增加跟踪难度。建议聚焦龙头，让复利在时间里发挥作用。
+[16:34] 陈明永：好的老师，谢谢！那我先整理下持仓明细发你。', 'wm_chenmingyong', '陈明永', 8000028, '医美', 'msg_audit_000078', '2025-07-27 06:09:52'),
+(8100079, 'MOAT_DUAN', '段永平', 1, '2024-08-13 16:01:16', 1200024, '白酒板块热词', '[06:51] 沈炜：老师，我看你之前推送过地产的深度报告，里面提到 ROE 长期 20%+ 的观点，这个数据是不是选股核心？
+[06:53] 段永平：沈炜，我理解你的焦虑。但巴菲特讲——「投资的第一条原则是永远不要亏损，第二条原则是永远不要忘记第一条」。这里「亏损」指的是永久性损失，不是账面浮亏。地产的基本面没有恶化，浮亏不是永久性损失。
+[06:55] 沈炜：老师，那我要不要把地产换成同赛道的其他股票，比如龙二龙三？还是就守着这只龙头？
+[06:56] 段永平：沈炜，我把地产的深度报告和大师方法论精选发给你，你先看下。有任何问题随时联系。价值投资是慢功夫，坚持下去 3-5 年，一定能看到回报。', 'wm_shenwei', '沈炜', 8000029, '地产', 'msg_audit_000079', '2024-10-05 21:20:22'),
+(8100080, 'MOAT_LINYUAN', '林园', 1, '2024-07-11 08:44:14', 1200025, '港股互联网热词', '[06:32] 方三文：老师，城投债我持有已经三年，期间经历过两次 30%+ 的回撤，是不是该止盈落袋？
+[06:35] 林园：方三文，格雷厄姆的安全边际概念——当前城投债的市值/内在价值比大约在 0.75，还有 25% 的安全垫。可以分批加仓，仓位控制在总资产 20% 以内。
+[06:36] 方三文：明白了。请问城投债的下一次财报是什么时候？届时我们再复盘一次好吗？
+[06:41] 林园：方三文，好的，下一次财报后我们视频复盘一次，届时会给出更完整的建仓/减仓路径图。也请你把持仓明细整理一下发给我。', 'wm_fangsanwen', '方三文', 8000030, '城投债', 'msg_audit_000080', '2025-03-15 05:22:29');
 
 -- ========================================================================
 -- iyque_complain · 投诉
 -- ========================================================================
 INSERT INTO `iyque_complain` (`id`, `complainTime`, `complainType`, `complainUserContent`, `complainUserPhone`, `handleContent`, `handleState`, `handleTime`, `handleWeUserId`) VALUES
-(9000001, '2025-09-22 20:03:03', 3, '投顾电话过于频繁', '13673459119', '', 0, NULL, 'MOAT_GRAHAM'),
-(9000002, '2024-07-12 05:14:41', 3, '希望增加港股 A 类持仓建议', '15042159796', '', 1, NULL, 'MOAT_BUFFETT'),
-(9000003, '2025-05-31 03:01:31', 2, '月度净值披露不够及时', '13190337485', '已推送本月净值播报模板', 2, '2024-05-26 01:21:38', 'MOAT_MUNGER'),
-(9000004, '2025-03-11 17:26:54', 1, '希望有专属投研群', '13062248826', '', 0, NULL, 'MOAT_LYNCH'),
-(9000005, '2026-04-18 23:02:52', 2, 'APP 登录经常掉线', '19287623415', '', 1, NULL, 'MOAT_FISHER'),
-(9000006, '2025-11-13 19:03:25', 3, '希望增加日本市场覆盖', '14080748085', '已开通日本市场跟踪', 2, '2025-07-13 21:11:39', 'MOAT_TEMPLETON'),
-(9000007, '2024-07-17 12:12:46', 3, '投顾解释晦涩，希望更通俗', '18965323959', '', 0, NULL, 'MOAT_DUAN'),
-(9000008, '2024-11-02 14:53:18', 3, '对报告审美有建议', '15116805052', '', 1, NULL, 'MOAT_LINYUAN'),
-(9000009, '2025-01-01 16:33:01', 3, '对短线频繁调仓不满', '19963926107', '调仓策略已备注理由', 2, '2024-05-29 01:56:13', 'MOAT_DANBIN'),
-(9000010, '2026-06-22 18:47:22', 3, '希望有大师直播回放', '19439031039', '', 0, NULL, 'MOAT_ZMZ'),
-(9000011, '2025-03-19 02:09:41', 3, '投顾电话过于频繁', '14051989101', '', 1, NULL, 'MOAT_LILU'),
-(9000012, '2024-02-07 16:01:29', 2, '希望增加港股 A 类持仓建议', '15897672752', '已拉入港股专属研究群', 2, '2025-08-29 20:05:32', 'MOAT_ZHAODANYANG'),
-(9000013, '2025-07-13 19:33:44', 3, '月度净值披露不够及时', '17695907157', '', 0, NULL, 'MOAT_GRAHAM'),
-(9000014, '2024-12-05 10:09:06', 1, '希望有专属投研群', '14335963416', '', 1, NULL, 'MOAT_BUFFETT'),
-(9000015, '2024-08-05 05:20:34', 2, 'APP 登录经常掉线', '13453792051', 'APP 网络已优化，请重试', 2, '2024-12-18 10:07:56', 'MOAT_MUNGER'),
-(9000016, '2024-06-25 00:05:18', 1, '希望增加日本市场覆盖', '15276971384', '', 0, NULL, 'MOAT_LYNCH'),
-(9000017, '2026-05-01 06:55:34', 2, '投顾解释晦涩，希望更通俗', '16251010144', '', 1, NULL, 'MOAT_FISHER'),
-(9000018, '2024-06-13 12:40:19', 3, '对报告审美有建议', '16682261173', '已升级报告视觉设计', 2, '2026-05-19 18:38:49', 'MOAT_TEMPLETON'),
-(9000019, '2024-12-20 20:39:51', 1, '对短线频繁调仓不满', '14365904753', '', 0, NULL, 'MOAT_DUAN'),
-(9000020, '2024-08-16 13:39:48', 1, '希望有大师直播回放', '18381180065', '', 1, NULL, 'MOAT_LINYUAN'),
-(9000021, '2026-02-17 07:58:17', 3, '投顾电话过于频繁', '18336348781', '已调整回访节奏，感谢反馈', 2, '2026-02-19 20:57:28', 'MOAT_DANBIN'),
-(9000022, '2026-05-27 12:58:19', 1, '希望增加港股 A 类持仓建议', '17070182398', '', 0, NULL, 'MOAT_ZMZ'),
-(9000023, '2026-06-12 03:41:01', 3, '月度净值披露不够及时', '16258972311', '', 1, NULL, 'MOAT_LILU'),
-(9000024, '2025-09-02 19:19:28', 1, '希望有专属投研群', '17866962092', '已开通专属研究群', 2, '2024-08-07 08:32:31', 'MOAT_ZHAODANYANG'),
-(9000025, '2024-01-23 03:52:18', 1, 'APP 登录经常掉线', '14555833497', '', 0, NULL, 'MOAT_GRAHAM'),
-(9000026, '2024-04-23 08:53:54', 3, '希望增加日本市场覆盖', '13551097734', '', 1, NULL, 'MOAT_BUFFETT'),
-(9000027, '2024-05-06 01:32:25', 1, '投顾解释晦涩，希望更通俗', '17835443427', '已改用大白话版本报告', 2, '2026-01-19 13:02:28', 'MOAT_MUNGER'),
-(9000028, '2024-01-27 22:46:12', 1, '对报告审美有建议', '15414245623', '', 0, NULL, 'MOAT_LYNCH'),
-(9000029, '2025-12-06 07:17:38', 3, '对短线频繁调仓不满', '18518344988', '', 1, NULL, 'MOAT_FISHER'),
-(9000030, '2024-05-08 05:07:54', 3, '希望有大师直播回放', '19526354783', '回放已在护城河 APP 上线', 2, '2024-08-21 03:52:14', 'MOAT_TEMPLETON'),
-(9000031, '2025-07-17 07:39:25', 1, '投顾电话过于频繁', '18727597332', '', 0, NULL, 'MOAT_DUAN'),
-(9000032, '2024-07-05 23:12:17', 3, '希望增加港股 A 类持仓建议', '16986897955', '', 1, NULL, 'MOAT_LINYUAN'),
-(9000033, '2025-04-06 09:44:27', 2, '月度净值披露不够及时', '15179375755', '已推送本月净值播报模板', 2, '2026-06-14 19:40:50', 'MOAT_DANBIN'),
-(9000034, '2026-04-03 03:28:50', 2, '希望有专属投研群', '18152976485', '', 0, NULL, 'MOAT_ZMZ'),
-(9000035, '2024-01-11 02:37:59', 1, 'APP 登录经常掉线', '17318886292', '', 1, NULL, 'MOAT_LILU'),
-(9000036, '2025-08-15 17:08:56', 3, '希望增加日本市场覆盖', '16623292976', '已开通日本市场跟踪', 2, '2024-03-05 14:30:06', 'MOAT_ZHAODANYANG'),
-(9000037, '2025-04-30 00:59:45', 1, '投顾解释晦涩，希望更通俗', '14376596345', '', 0, NULL, 'MOAT_GRAHAM'),
-(9000038, '2024-05-01 04:56:01', 3, '对报告审美有建议', '17069195686', '', 1, NULL, 'MOAT_BUFFETT'),
-(9000039, '2024-07-09 03:44:23', 1, '对短线频繁调仓不满', '19104800701', '调仓策略已备注理由', 2, '2024-06-18 02:36:52', 'MOAT_MUNGER'),
-(9000040, '2024-06-09 11:43:05', 3, '希望有大师直播回放', '15034383118', '', 0, NULL, 'MOAT_LYNCH'),
-(9000041, '2026-06-30 10:43:16', 1, '投顾电话过于频繁', '15521466024', '', 1, NULL, 'MOAT_FISHER'),
-(9000042, '2024-12-07 06:47:55', 1, '希望增加港股 A 类持仓建议', '19055971719', '已拉入港股专属研究群', 2, '2026-01-09 11:14:56', 'MOAT_TEMPLETON'),
-(9000043, '2026-01-26 02:37:12', 3, '月度净值披露不够及时', '18796509033', '', 0, NULL, 'MOAT_DUAN'),
-(9000044, '2024-01-09 09:04:53', 2, '希望有专属投研群', '15010971596', '', 1, NULL, 'MOAT_LINYUAN'),
-(9000045, '2026-02-21 14:51:57', 1, 'APP 登录经常掉线', '19198105031', 'APP 网络已优化，请重试', 2, '2024-04-12 04:17:31', 'MOAT_DANBIN'),
-(9000046, '2026-06-07 23:17:59', 3, '希望增加日本市场覆盖', '13644462874', '', 0, NULL, 'MOAT_ZMZ'),
-(9000047, '2024-05-29 10:28:54', 2, '投顾解释晦涩，希望更通俗', '13690470097', '', 1, NULL, 'MOAT_LILU'),
-(9000048, '2025-07-01 01:30:27', 1, '对报告审美有建议', '16042474662', '已升级报告视觉设计', 2, '2024-08-27 14:07:20', 'MOAT_ZHAODANYANG'),
-(9000049, '2024-04-01 02:33:56', 3, '对短线频繁调仓不满', '13441300590', '', 0, NULL, 'MOAT_GRAHAM'),
-(9000050, '2025-01-14 05:29:02', 1, '希望有大师直播回放', '15420799547', '', 1, NULL, 'MOAT_BUFFETT'),
-(9000051, '2024-10-30 04:45:58', 1, '投顾电话过于频繁', '15369253738', '已调整回访节奏，感谢反馈', 2, '2024-02-23 23:55:59', 'MOAT_MUNGER'),
-(9000052, '2025-11-20 05:44:25', 3, '希望增加港股 A 类持仓建议', '14252613786', '', 0, NULL, 'MOAT_LYNCH'),
-(9000053, '2026-02-23 02:51:03', 3, '月度净值披露不够及时', '15756425939', '', 1, NULL, 'MOAT_FISHER'),
-(9000054, '2026-01-17 19:53:19', 2, '希望有专属投研群', '17936177060', '已开通专属研究群', 2, '2025-07-18 19:40:24', 'MOAT_TEMPLETON'),
-(9000055, '2024-05-04 11:03:50', 1, 'APP 登录经常掉线', '18624679376', '', 0, NULL, 'MOAT_DUAN'),
-(9000056, '2024-03-03 03:36:38', 1, '希望增加日本市场覆盖', '18872743670', '', 1, NULL, 'MOAT_LINYUAN'),
-(9000057, '2025-10-19 05:33:25', 2, '投顾解释晦涩，希望更通俗', '17589204529', '已改用大白话版本报告', 2, '2024-10-02 01:42:30', 'MOAT_DANBIN'),
-(9000058, '2026-02-04 14:38:49', 1, '对报告审美有建议', '16074150503', '', 0, NULL, 'MOAT_ZMZ'),
-(9000059, '2026-06-05 17:05:22', 2, '对短线频繁调仓不满', '17720703989', '', 1, NULL, 'MOAT_LILU'),
-(9000060, '2026-06-23 03:40:05', 2, '希望有大师直播回放', '18775210270', '回放已在护城河 APP 上线', 2, '2025-08-08 22:28:43', 'MOAT_ZHAODANYANG');
+(9000001, '2024-07-01 07:23:12', 3, '投顾电话过于频繁', '14159845062', '', 0, NULL, 'MOAT_GRAHAM'),
+(9000002, '2026-05-25 16:55:13', 1, '希望增加港股 A 类持仓建议', '17497375943', '', 1, NULL, 'MOAT_BUFFETT'),
+(9000003, '2024-08-02 05:30:33', 3, '月度净值披露不够及时', '16613783488', '已推送本月净值播报模板', 2, '2025-09-24 06:02:35', 'MOAT_MUNGER'),
+(9000004, '2024-09-30 00:10:40', 3, '希望有专属投研群', '13582386753', '', 0, NULL, 'MOAT_LYNCH'),
+(9000005, '2026-04-17 04:44:07', 2, 'APP 登录经常掉线', '18682393294', '', 1, NULL, 'MOAT_FISHER'),
+(9000006, '2025-07-20 13:59:07', 3, '希望增加日本市场覆盖', '13063490059', '已开通日本市场跟踪', 2, '2026-04-15 15:56:45', 'MOAT_TEMPLETON'),
+(9000007, '2026-02-25 04:14:03', 1, '投顾解释晦涩，希望更通俗', '19359795908', '', 0, NULL, 'MOAT_DUAN'),
+(9000008, '2025-07-21 23:07:40', 1, '对报告审美有建议', '14382998908', '', 1, NULL, 'MOAT_LINYUAN'),
+(9000009, '2026-04-20 23:15:20', 1, '对短线频繁调仓不满', '14198894926', '调仓策略已备注理由', 2, '2024-09-02 06:22:16', 'MOAT_DANBIN'),
+(9000010, '2026-05-24 05:16:47', 1, '希望有大师直播回放', '17304704223', '', 0, NULL, 'MOAT_ZMZ'),
+(9000011, '2026-01-10 23:26:00', 3, '投顾电话过于频繁', '19233797674', '', 1, NULL, 'MOAT_LILU'),
+(9000012, '2025-09-26 02:31:06', 1, '希望增加港股 A 类持仓建议', '19450046993', '已拉入港股专属研究群', 2, '2024-04-04 06:55:46', 'MOAT_ZHAODANYANG'),
+(9000013, '2024-06-26 20:48:29', 2, '月度净值披露不够及时', '13416921568', '', 0, NULL, 'MOAT_GRAHAM'),
+(9000014, '2025-03-23 18:24:18', 3, '希望有专属投研群', '15473548361', '', 1, NULL, 'MOAT_BUFFETT'),
+(9000015, '2026-06-07 16:59:52', 1, 'APP 登录经常掉线', '13176054389', 'APP 网络已优化，请重试', 2, '2024-03-24 12:25:50', 'MOAT_MUNGER'),
+(9000016, '2025-09-13 05:28:21', 3, '希望增加日本市场覆盖', '19042518549', '', 0, NULL, 'MOAT_LYNCH'),
+(9000017, '2024-06-19 22:32:09', 3, '投顾解释晦涩，希望更通俗', '17181233383', '', 1, NULL, 'MOAT_FISHER'),
+(9000018, '2024-06-05 00:24:00', 2, '对报告审美有建议', '14900442499', '已升级报告视觉设计', 2, '2026-03-11 20:57:23', 'MOAT_TEMPLETON'),
+(9000019, '2024-11-18 00:13:13', 2, '对短线频繁调仓不满', '16667676552', '', 0, NULL, 'MOAT_DUAN'),
+(9000020, '2024-11-04 20:22:04', 2, '希望有大师直播回放', '13089986375', '', 1, NULL, 'MOAT_LINYUAN'),
+(9000021, '2025-04-18 00:27:55', 1, '投顾电话过于频繁', '17949461420', '已调整回访节奏，感谢反馈', 2, '2026-02-19 09:22:13', 'MOAT_DANBIN'),
+(9000022, '2025-09-05 18:41:57', 1, '希望增加港股 A 类持仓建议', '15823460903', '', 0, NULL, 'MOAT_ZMZ'),
+(9000023, '2025-05-14 22:59:38', 1, '月度净值披露不够及时', '19530535307', '', 1, NULL, 'MOAT_LILU'),
+(9000024, '2025-01-10 18:14:56', 2, '希望有专属投研群', '19949926761', '已开通专属研究群', 2, '2025-04-21 14:23:54', 'MOAT_ZHAODANYANG'),
+(9000025, '2025-03-15 23:54:31', 2, 'APP 登录经常掉线', '18832236130', '', 0, NULL, 'MOAT_GRAHAM'),
+(9000026, '2025-07-16 12:11:46', 3, '希望增加日本市场覆盖', '13870805780', '', 1, NULL, 'MOAT_BUFFETT'),
+(9000027, '2025-03-09 03:23:33', 3, '投顾解释晦涩，希望更通俗', '18408587425', '已改用大白话版本报告', 2, '2026-01-29 12:16:31', 'MOAT_MUNGER'),
+(9000028, '2025-08-31 07:28:48', 2, '对报告审美有建议', '15870894963', '', 0, NULL, 'MOAT_LYNCH'),
+(9000029, '2026-04-01 06:29:33', 3, '对短线频繁调仓不满', '16438217742', '', 1, NULL, 'MOAT_FISHER'),
+(9000030, '2025-04-13 05:21:26', 2, '希望有大师直播回放', '19216852892', '回放已在护城河 APP 上线', 2, '2025-02-20 09:51:01', 'MOAT_TEMPLETON'),
+(9000031, '2025-10-15 17:25:08', 3, '投顾电话过于频繁', '18053773619', '', 0, NULL, 'MOAT_DUAN'),
+(9000032, '2024-12-30 08:38:18', 2, '希望增加港股 A 类持仓建议', '13037573439', '', 1, NULL, 'MOAT_LINYUAN'),
+(9000033, '2026-03-11 16:21:55', 1, '月度净值披露不够及时', '17466678820', '已推送本月净值播报模板', 2, '2024-02-04 08:45:06', 'MOAT_DANBIN'),
+(9000034, '2024-06-11 03:11:57', 3, '希望有专属投研群', '19325013886', '', 0, NULL, 'MOAT_ZMZ'),
+(9000035, '2026-05-12 18:55:34', 1, 'APP 登录经常掉线', '17279668467', '', 1, NULL, 'MOAT_LILU'),
+(9000036, '2025-01-24 23:27:18', 1, '希望增加日本市场覆盖', '16281873858', '已开通日本市场跟踪', 2, '2026-01-06 20:57:21', 'MOAT_ZHAODANYANG'),
+(9000037, '2026-01-06 03:07:15', 2, '投顾解释晦涩，希望更通俗', '15797222256', '', 0, NULL, 'MOAT_GRAHAM'),
+(9000038, '2024-05-21 06:55:50', 1, '对报告审美有建议', '14628147060', '', 1, NULL, 'MOAT_BUFFETT'),
+(9000039, '2025-09-05 06:14:59', 2, '对短线频繁调仓不满', '19327541943', '调仓策略已备注理由', 2, '2025-01-02 09:03:01', 'MOAT_MUNGER'),
+(9000040, '2024-07-21 19:59:29', 1, '希望有大师直播回放', '18412750355', '', 0, NULL, 'MOAT_LYNCH'),
+(9000041, '2025-08-27 17:43:20', 2, '投顾电话过于频繁', '18118180800', '', 1, NULL, 'MOAT_FISHER'),
+(9000042, '2026-02-27 08:26:08', 3, '希望增加港股 A 类持仓建议', '19075166167', '已拉入港股专属研究群', 2, '2025-06-27 15:51:46', 'MOAT_TEMPLETON'),
+(9000043, '2025-03-02 05:58:22', 2, '月度净值披露不够及时', '19934432233', '', 0, NULL, 'MOAT_DUAN'),
+(9000044, '2024-10-26 22:56:53', 1, '希望有专属投研群', '14914908673', '', 1, NULL, 'MOAT_LINYUAN'),
+(9000045, '2025-05-03 09:28:19', 3, 'APP 登录经常掉线', '18705151504', 'APP 网络已优化，请重试', 2, '2026-03-31 06:49:27', 'MOAT_DANBIN'),
+(9000046, '2025-11-14 04:34:45', 3, '希望增加日本市场覆盖', '19104406824', '', 0, NULL, 'MOAT_ZMZ'),
+(9000047, '2025-07-30 15:05:09', 3, '投顾解释晦涩，希望更通俗', '18572250316', '', 1, NULL, 'MOAT_LILU'),
+(9000048, '2024-04-11 19:16:59', 2, '对报告审美有建议', '14867915206', '已升级报告视觉设计', 2, '2025-03-12 17:52:18', 'MOAT_ZHAODANYANG'),
+(9000049, '2025-02-09 17:41:35', 2, '对短线频繁调仓不满', '17416309655', '', 0, NULL, 'MOAT_GRAHAM'),
+(9000050, '2025-10-12 22:43:46', 2, '希望有大师直播回放', '19784880823', '', 1, NULL, 'MOAT_BUFFETT'),
+(9000051, '2025-08-21 22:27:34', 2, '投顾电话过于频繁', '19245912651', '已调整回访节奏，感谢反馈', 2, '2026-01-11 14:25:25', 'MOAT_MUNGER'),
+(9000052, '2025-06-29 03:41:58', 1, '希望增加港股 A 类持仓建议', '14696511420', '', 0, NULL, 'MOAT_LYNCH'),
+(9000053, '2024-05-27 17:28:28', 3, '月度净值披露不够及时', '15072797381', '', 1, NULL, 'MOAT_FISHER'),
+(9000054, '2025-04-15 12:30:35', 3, '希望有专属投研群', '16256426846', '已开通专属研究群', 2, '2024-09-30 02:41:29', 'MOAT_TEMPLETON'),
+(9000055, '2024-09-19 19:13:46', 3, 'APP 登录经常掉线', '16949329389', '', 0, NULL, 'MOAT_DUAN'),
+(9000056, '2024-04-30 04:51:38', 3, '希望增加日本市场覆盖', '17308407127', '', 1, NULL, 'MOAT_LINYUAN'),
+(9000057, '2025-04-06 02:37:44', 2, '投顾解释晦涩，希望更通俗', '13792484971', '已改用大白话版本报告', 2, '2024-11-25 20:51:32', 'MOAT_DANBIN'),
+(9000058, '2025-11-13 04:42:47', 1, '对报告审美有建议', '14542606616', '', 0, NULL, 'MOAT_ZMZ'),
+(9000059, '2024-11-21 20:19:31', 1, '对短线频繁调仓不满', '18083961358', '', 1, NULL, 'MOAT_LILU'),
+(9000060, '2024-11-09 02:12:31', 1, '希望有大师直播回放', '14722196444', '回放已在护城河 APP 上线', 2, '2024-08-13 04:54:49', 'MOAT_ZHAODANYANG');
 
 -- ========================================================================
 -- iyque_complain_annex · 投诉附件
 -- ========================================================================
 INSERT INTO `iyque_complain_annex` (`id`, `annexType`, `annexUrl`, `complainId`) VALUES
-(9100001, 1, 'https://wework.qpic.cn/wwpic3az/55d972a13217baf39c608bdff58544b9/attach/0', 9000001),
-(9100002, 3, 'https://wework.qpic.cn/wwpic3az/ee25d874bc7e5da095e017011fb32492/attach/0', 9000002),
-(9100003, 2, 'https://wework.qpic.cn/wwpic3az/0d2de9f0c1a3ad52e7765417b96f3ea3/attach/0', 9000003),
-(9100004, 2, 'https://wework.qpic.cn/wwpic3az/533bf446e28f6c9b27683803b16990b8/attach/0', 9000004),
-(9100005, 2, 'https://wework.qpic.cn/wwpic3az/727ec8420c51b553792941d36ce0c956/attach/0', 9000005),
-(9100006, 1, 'https://wework.qpic.cn/wwpic3az/18da1025a3c294acfb3d3041a2e96d36/attach/0', 9000006),
-(9100007, 2, 'https://wework.qpic.cn/wwpic3az/cc4449f9a083370c90eaa638452be1c0/attach/0', 9000007),
-(9100008, 2, 'https://wework.qpic.cn/wwpic3az/8823de5b189860133cd225b7345c0ada/attach/0', 9000008),
-(9100009, 1, 'https://wework.qpic.cn/wwpic3az/4b378f70f7a3ebf443d7f80d80c221b6/attach/0', 9000009),
-(9100010, 2, 'https://wework.qpic.cn/wwpic3az/a37e5998925db2f18cac13dcc8d086f8/attach/0', 9000010),
-(9100011, 3, 'https://wework.qpic.cn/wwpic3az/f5af5ec500273d444b93c5d87ce992e0/attach/0', 9000011),
-(9100012, 3, 'https://wework.qpic.cn/wwpic3az/c54bef26e702308fdb8833df25c8b841/attach/0', 9000012),
-(9100013, 2, 'https://wework.qpic.cn/wwpic3az/108e204224990716a597d3bd0ba4da7c/attach/0', 9000013),
-(9100014, 1, 'https://wework.qpic.cn/wwpic3az/442c60643b4265eff4490ab59289ed0a/attach/0', 9000014),
-(9100015, 1, 'https://wework.qpic.cn/wwpic3az/ab1472b51178dac00496a1a06f599a88/attach/0', 9000015),
-(9100016, 2, 'https://wework.qpic.cn/wwpic3az/dd41ca55e4422f72bc464ab75f1e667d/attach/0', 9000016),
-(9100017, 1, 'https://wework.qpic.cn/wwpic3az/0390c97e5cb5fbc042c819290e709d03/attach/0', 9000017),
-(9100018, 3, 'https://wework.qpic.cn/wwpic3az/30a3080949180802dff6d85b34dc8f36/attach/0', 9000018),
-(9100019, 3, 'https://wework.qpic.cn/wwpic3az/dc69f133d1f46bb6c524c30d3ea12bef/attach/0', 9000019),
-(9100020, 3, 'https://wework.qpic.cn/wwpic3az/adfed6cfe7335cd7d1bd94779e1db178/attach/0', 9000020),
-(9100021, 1, 'https://wework.qpic.cn/wwpic3az/61a7c422cc4bfcb645bae909d0a20485/attach/0', 9000021),
-(9100022, 3, 'https://wework.qpic.cn/wwpic3az/0f38abacff9df17d288eb09e9cf5f51b/attach/0', 9000022),
-(9100023, 3, 'https://wework.qpic.cn/wwpic3az/d5cea200db189e44d4ca97c42247ed1b/attach/0', 9000023),
-(9100024, 2, 'https://wework.qpic.cn/wwpic3az/a2e159ca23c0361942fef5a3c66b00f7/attach/0', 9000024),
-(9100025, 2, 'https://wework.qpic.cn/wwpic3az/03d14fccb84c0bb91b95feaf2ee6c440/attach/0', 9000025),
-(9100026, 3, 'https://wework.qpic.cn/wwpic3az/14f3630feecbfac65b774621f0ee0626/attach/0', 9000026),
-(9100027, 3, 'https://wework.qpic.cn/wwpic3az/427facdc9de944cfa6185039d9f26577/attach/0', 9000027),
-(9100028, 2, 'https://wework.qpic.cn/wwpic3az/d86b95505ab17504a7518d367e3cdb94/attach/0', 9000028),
-(9100029, 1, 'https://wework.qpic.cn/wwpic3az/f8d4ee06460aa64e5d74e1eb3ef21698/attach/0', 9000029),
-(9100030, 1, 'https://wework.qpic.cn/wwpic3az/b4d69745fb0563baff28b5fb09e2684a/attach/0', 9000030),
-(9100031, 3, 'https://wework.qpic.cn/wwpic3az/c59c79e5e70513fb3ac2e5015558bd42/attach/0', 9000031),
-(9100032, 3, 'https://wework.qpic.cn/wwpic3az/8b0eed2b89fdaf083a8edb935264b0c6/attach/0', 9000032),
-(9100033, 2, 'https://wework.qpic.cn/wwpic3az/23d2e55d0f86dff4e9c25a032f274884/attach/0', 9000033),
-(9100034, 2, 'https://wework.qpic.cn/wwpic3az/8334a030bb35561df54246eaa7020695/attach/0', 9000034),
-(9100035, 1, 'https://wework.qpic.cn/wwpic3az/2c15100b56415309ae18146479046d2e/attach/0', 9000035),
-(9100036, 2, 'https://wework.qpic.cn/wwpic3az/8c33e56b1b9c4515bafcea1097573d96/attach/0', 9000036),
-(9100037, 2, 'https://wework.qpic.cn/wwpic3az/77c14d7de019f2d340089e191db4a6d6/attach/0', 9000037),
-(9100038, 2, 'https://wework.qpic.cn/wwpic3az/2c28adb633b6f074c514294e05fb0ec2/attach/0', 9000038),
-(9100039, 1, 'https://wework.qpic.cn/wwpic3az/78ce4df4fb25ef6e6c8eb812359af05e/attach/0', 9000039),
-(9100040, 3, 'https://wework.qpic.cn/wwpic3az/0262af91315e9d9bd56d8a70d0e1f7c1/attach/0', 9000040),
-(9100041, 3, 'https://wework.qpic.cn/wwpic3az/d89af982fa5c019bf867b581bd3a2473/attach/0', 9000041),
-(9100042, 3, 'https://wework.qpic.cn/wwpic3az/81f32183ce62c0161bd305ab26b7e2fa/attach/0', 9000042),
-(9100043, 1, 'https://wework.qpic.cn/wwpic3az/c71d5e5b6fb35a40bd13383c87259ba7/attach/0', 9000043),
-(9100044, 2, 'https://wework.qpic.cn/wwpic3az/da8a58e3e6beacfb50d79edc181058e2/attach/0', 9000044),
-(9100045, 1, 'https://wework.qpic.cn/wwpic3az/289743fb80675a36d5f45390c0689c7d/attach/0', 9000045),
-(9100046, 3, 'https://wework.qpic.cn/wwpic3az/435c2b9e5a230a69ead716bb4316aa5e/attach/0', 9000046),
-(9100047, 2, 'https://wework.qpic.cn/wwpic3az/1fbd4c0688ef0f4fef464974fb683175/attach/0', 9000047),
-(9100048, 2, 'https://wework.qpic.cn/wwpic3az/070eb65b369bc942bdfb8a2e7e30e81f/attach/0', 9000048),
-(9100049, 3, 'https://wework.qpic.cn/wwpic3az/f0478858ca14e84edbc304ba5ca3a4c2/attach/0', 9000049),
-(9100050, 2, 'https://wework.qpic.cn/wwpic3az/140010dc6d4fe12efb2b1492a90c037d/attach/0', 9000050),
-(9100051, 2, 'https://wework.qpic.cn/wwpic3az/1ceef421801cc4d1583134ad02df4596/attach/0', 9000051),
-(9100052, 2, 'https://wework.qpic.cn/wwpic3az/1952544f39f0c9cd7d5a1d4ec057c83a/attach/0', 9000052),
-(9100053, 2, 'https://wework.qpic.cn/wwpic3az/6b89a187acd528debf1750d26b0a2a35/attach/0', 9000053),
-(9100054, 3, 'https://wework.qpic.cn/wwpic3az/2e4c95a1aeffcbb041a707b21ce33821/attach/0', 9000054),
-(9100055, 3, 'https://wework.qpic.cn/wwpic3az/63fc2adb52160643a62990042169f02c/attach/0', 9000055),
-(9100056, 2, 'https://wework.qpic.cn/wwpic3az/8652ef3e6b2e3cd925be4c111e3ee873/attach/0', 9000056),
-(9100057, 2, 'https://wework.qpic.cn/wwpic3az/c1256176c190c833d70e4d8eaeb05194/attach/0', 9000057),
-(9100058, 2, 'https://wework.qpic.cn/wwpic3az/871328a379fc4d016173d3bbaaf66f76/attach/0', 9000058),
-(9100059, 3, 'https://wework.qpic.cn/wwpic3az/3cb9dd32c8c87adcea24360115196adf/attach/0', 9000059),
-(9100060, 3, 'https://wework.qpic.cn/wwpic3az/b937c25fada5e4b8e469a1bb68daf52d/attach/0', 9000060);
+(9100001, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000001),
+(9100002, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000002),
+(9100003, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000003),
+(9100004, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000004),
+(9100005, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000005),
+(9100006, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000006),
+(9100007, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000007),
+(9100008, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000008),
+(9100009, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000009),
+(9100010, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000010),
+(9100011, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000011),
+(9100012, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000012),
+(9100013, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000013),
+(9100014, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000014),
+(9100015, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000015),
+(9100016, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000016),
+(9100017, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000017),
+(9100018, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000018),
+(9100019, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000019),
+(9100020, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000020),
+(9100021, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000021),
+(9100022, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000022),
+(9100023, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000023),
+(9100024, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000024),
+(9100025, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000025),
+(9100026, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000026),
+(9100027, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000027),
+(9100028, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000028),
+(9100029, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000029),
+(9100030, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000030),
+(9100031, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000031),
+(9100032, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000032),
+(9100033, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000033),
+(9100034, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000034),
+(9100035, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000035),
+(9100036, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000036),
+(9100037, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000037),
+(9100038, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000038),
+(9100039, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000039),
+(9100040, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000040),
+(9100041, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000041),
+(9100042, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000042),
+(9100043, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000043),
+(9100044, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000044),
+(9100045, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000045),
+(9100046, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000046),
+(9100047, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000047),
+(9100048, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000048),
+(9100049, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000049),
+(9100050, 2, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000050),
+(9100051, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000051),
+(9100052, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000052),
+(9100053, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_04.png', 9000053),
+(9100054, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_05.png', 9000054),
+(9100055, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_06.png', 9000055),
+(9100056, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_07.png', 9000056),
+(9100057, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_08.png', 9000057),
+(9100058, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_01.png', 9000058),
+(9100059, 1, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_02.png', 9000059),
+(9100060, 3, 'http://10.210.156.69:8081/iyque/file/fileView/h5_bg_03.png', 9000060);
 
 -- ========================================================================
 -- iyque_complain_tip · 投诉通知订阅
@@ -3262,316 +3711,316 @@ INSERT INTO `iyque_complain_tip` (`id`, `userId`) VALUES
 -- iyque_file_security · 文件安全日志
 -- ========================================================================
 INSERT INTO `iyque_file_security` (`id`, `operateFileInfo`, `operateTime`, `operateType`, `opreateSource`, `userName`, `userType`) VALUES
-(9300001, '巴菲特建仓可口可乐_investor_deck_v1.pdf', '2026-03-01 09:44:34', 1, 1, '格雷厄姆', 1),
-(9300002, 'See\'s Candies 收购_investor_deck_v2.pdf', '2025-02-08 09:42:22', 3, 2, '巴菲特', 2),
-(9300003, '高盛优先股_investor_deck_v3.pdf', '2024-12-27 17:06:57', 3, 1, '芒格', 1),
-(9300004, '巴菲特买苹果_investor_deck_v4.pdf', '2024-01-20 03:16:45', 1, 2, '彼得·林奇', 2),
-(9300005, '日本五大商社_investor_deck_v5.pdf', '2025-11-26 05:47:44', 2, 1, '费雪', 1),
-(9300006, '网易 1 美元抄底_investor_deck_v6.pdf', '2025-02-19 09:53:17', 2, 2, '邓普顿', 2),
-(9300007, '拼多多种子期_investor_deck_v7.pdf', '2025-07-01 13:06:34', 2, 2, '段永平', 1),
-(9300008, '林园持有茅台_investor_deck_v8.pdf', '2024-03-17 15:08:47', 3, 2, '林园', 1),
-(9300009, '但斌抄底腾讯_investor_deck_v9.pdf', '2025-03-10 01:39:53', 3, 2, '但斌', 1),
-(9300010, '海天味业上市_investor_deck_v10.pdf', '2024-08-12 07:37:36', 1, 2, '章盟主', 2),
-(9300011, '美团千亿再造_investor_deck_v11.pdf', '2026-06-25 01:25:25', 3, 1, '李录', 1),
-(9300012, '华盛顿邮报_investor_deck_v12.pdf', '2024-02-17 17:39:11', 1, 1, '赵丹阳', 2),
-(9300013, '巴菲特减持比亚迪_investor_deck_v13.pdf', '2025-12-01 07:59:55', 3, 1, '格雷厄姆', 1),
-(9300014, '巴菲特建仓中石油_investor_deck_v14.pdf', '2024-04-09 15:14:19', 1, 1, '巴菲特', 1),
-(9300015, '美国运通色拉油危机_investor_deck_v15.pdf', '2025-08-05 07:51:37', 3, 1, '芒格', 1),
-(9300016, '茅台十年 60 倍_investor_deck_v16.pdf', '2025-09-25 19:43:02', 3, 1, '彼得·林奇', 1),
-(9300017, '港股互联网监管危机_investor_deck_v17.pdf', '2024-04-23 14:47:19', 1, 1, '费雪', 2),
-(9300018, '麦哲伦基金 29% CAGR_investor_deck_v18.pdf', '2026-03-18 17:33:04', 3, 2, '邓普顿', 2),
-(9300019, '白酒塑化剂危机_investor_deck_v19.pdf', '2026-02-05 16:58:51', 1, 1, '段永平', 1),
-(9300020, '宁德时代千亿_investor_deck_v20.pdf', '2024-04-21 12:13:43', 3, 1, '林园', 2),
-(9300021, '巴菲特建仓可口可乐_investor_deck_v21.pdf', '2025-05-10 20:10:04', 3, 1, '但斌', 2),
-(9300022, 'See\'s Candies 收购_investor_deck_v22.pdf', '2024-12-31 22:42:22', 3, 2, '章盟主', 1),
-(9300023, '高盛优先股_investor_deck_v23.pdf', '2024-11-20 20:38:52', 1, 1, '李录', 1),
-(9300024, '巴菲特买苹果_investor_deck_v24.pdf', '2025-08-16 20:40:38', 3, 2, '赵丹阳', 1),
-(9300025, '日本五大商社_investor_deck_v25.pdf', '2025-07-18 10:52:56', 3, 2, '格雷厄姆', 1),
-(9300026, '网易 1 美元抄底_investor_deck_v26.pdf', '2025-07-13 03:30:13', 2, 1, '巴菲特', 2),
-(9300027, '拼多多种子期_investor_deck_v27.pdf', '2025-05-01 22:48:23', 2, 2, '芒格', 2),
-(9300028, '林园持有茅台_investor_deck_v28.pdf', '2025-11-07 23:33:17', 3, 1, '彼得·林奇', 1),
-(9300029, '但斌抄底腾讯_investor_deck_v29.pdf', '2024-07-22 03:45:24', 3, 2, '费雪', 1),
-(9300030, '海天味业上市_investor_deck_v30.pdf', '2025-11-27 12:24:22', 1, 2, '邓普顿', 1),
-(9300031, '美团千亿再造_investor_deck_v31.pdf', '2025-01-05 03:55:56', 3, 1, '段永平', 2),
-(9300032, '华盛顿邮报_investor_deck_v32.pdf', '2025-08-08 12:20:34', 2, 2, '林园', 1),
-(9300033, '巴菲特减持比亚迪_investor_deck_v33.pdf', '2024-10-16 13:10:13', 1, 1, '但斌', 2),
-(9300034, '巴菲特建仓中石油_investor_deck_v34.pdf', '2024-07-25 12:03:53', 1, 2, '章盟主', 2),
-(9300035, '美国运通色拉油危机_investor_deck_v35.pdf', '2025-03-29 15:05:56', 1, 1, '李录', 1),
-(9300036, '茅台十年 60 倍_investor_deck_v36.pdf', '2024-08-16 00:45:09', 2, 1, '赵丹阳', 1),
-(9300037, '港股互联网监管危机_investor_deck_v37.pdf', '2026-06-26 11:53:15', 1, 2, '格雷厄姆', 1),
-(9300038, '麦哲伦基金 29% CAGR_investor_deck_v38.pdf', '2025-05-10 01:10:55', 2, 2, '巴菲特', 2),
-(9300039, '白酒塑化剂危机_investor_deck_v39.pdf', '2024-01-30 17:21:19', 2, 2, '芒格', 1),
-(9300040, '宁德时代千亿_investor_deck_v40.pdf', '2025-08-26 10:10:48', 1, 1, '彼得·林奇', 2),
-(9300041, '巴菲特建仓可口可乐_investor_deck_v41.pdf', '2025-06-15 10:25:21', 1, 2, '费雪', 2),
-(9300042, 'See\'s Candies 收购_investor_deck_v42.pdf', '2025-08-19 10:35:53', 1, 2, '邓普顿', 2),
-(9300043, '高盛优先股_investor_deck_v43.pdf', '2025-05-06 15:38:58', 3, 1, '段永平', 2),
-(9300044, '巴菲特买苹果_investor_deck_v44.pdf', '2025-11-29 15:39:48', 3, 2, '林园', 1),
-(9300045, '日本五大商社_investor_deck_v45.pdf', '2024-09-22 00:40:35', 1, 2, '但斌', 1),
-(9300046, '网易 1 美元抄底_investor_deck_v46.pdf', '2024-12-23 02:21:49', 1, 1, '章盟主', 2),
-(9300047, '拼多多种子期_investor_deck_v47.pdf', '2024-05-10 23:08:27', 1, 2, '李录', 1),
-(9300048, '林园持有茅台_investor_deck_v48.pdf', '2024-05-28 12:08:28', 2, 2, '赵丹阳', 2),
-(9300049, '但斌抄底腾讯_investor_deck_v49.pdf', '2025-08-22 11:07:59', 2, 2, '格雷厄姆', 1),
-(9300050, '海天味业上市_investor_deck_v50.pdf', '2024-05-24 11:31:44', 1, 2, '巴菲特', 2),
-(9300051, '美团千亿再造_investor_deck_v51.pdf', '2024-04-11 02:13:57', 1, 2, '芒格', 2),
-(9300052, '华盛顿邮报_investor_deck_v52.pdf', '2024-12-12 02:15:27', 3, 2, '彼得·林奇', 1),
-(9300053, '巴菲特减持比亚迪_investor_deck_v53.pdf', '2024-07-08 22:53:32', 3, 1, '费雪', 1),
-(9300054, '巴菲特建仓中石油_investor_deck_v54.pdf', '2025-05-09 01:53:34', 1, 1, '邓普顿', 1),
-(9300055, '美国运通色拉油危机_investor_deck_v55.pdf', '2024-04-15 15:38:58', 2, 1, '段永平', 1),
-(9300056, '茅台十年 60 倍_investor_deck_v56.pdf', '2025-05-04 02:18:26', 3, 2, '林园', 1),
-(9300057, '港股互联网监管危机_investor_deck_v57.pdf', '2024-09-24 23:21:11', 2, 1, '但斌', 1),
-(9300058, '麦哲伦基金 29% CAGR_investor_deck_v58.pdf', '2025-05-01 16:28:19', 2, 1, '章盟主', 1),
-(9300059, '白酒塑化剂危机_investor_deck_v59.pdf', '2024-10-02 06:51:01', 2, 1, '李录', 1),
-(9300060, '宁德时代千亿_investor_deck_v60.pdf', '2025-03-13 11:58:02', 1, 1, '赵丹阳', 1);
+(9300001, '巴菲特建仓可口可乐_investor_deck_v1.pdf', '2024-01-08 17:28:52', 3, 2, '格雷厄姆', 2),
+(9300002, 'See\'s Candies 收购_investor_deck_v2.pdf', '2024-12-04 10:29:21', 3, 1, '巴菲特', 1),
+(9300003, '高盛优先股_investor_deck_v3.pdf', '2025-06-14 08:50:34', 2, 2, '芒格', 1),
+(9300004, '巴菲特买苹果_investor_deck_v4.pdf', '2025-12-15 16:27:23', 3, 2, '彼得·林奇', 2),
+(9300005, '日本五大商社_investor_deck_v5.pdf', '2025-10-04 20:35:36', 3, 2, '费雪', 1),
+(9300006, '网易 1 美元抄底_investor_deck_v6.pdf', '2026-01-24 16:41:08', 1, 2, '邓普顿', 1),
+(9300007, '拼多多种子期_investor_deck_v7.pdf', '2026-05-10 10:23:20', 2, 2, '段永平', 2),
+(9300008, '林园持有茅台_investor_deck_v8.pdf', '2025-08-27 16:08:55', 2, 2, '林园', 2),
+(9300009, '但斌抄底腾讯_investor_deck_v9.pdf', '2025-06-26 03:27:07', 2, 1, '但斌', 1),
+(9300010, '海天味业上市_investor_deck_v10.pdf', '2024-01-02 17:02:39', 3, 2, '章盟主', 2),
+(9300011, '美团千亿再造_investor_deck_v11.pdf', '2024-03-24 21:24:22', 2, 1, '李录', 1),
+(9300012, '华盛顿邮报_investor_deck_v12.pdf', '2026-04-12 03:22:56', 2, 2, '赵丹阳', 2),
+(9300013, '巴菲特减持比亚迪_investor_deck_v13.pdf', '2024-01-22 19:20:55', 2, 1, '格雷厄姆', 1),
+(9300014, '巴菲特建仓中石油_investor_deck_v14.pdf', '2026-03-06 10:01:29', 2, 1, '巴菲特', 2),
+(9300015, '美国运通色拉油危机_investor_deck_v15.pdf', '2025-08-21 23:02:00', 3, 2, '芒格', 1),
+(9300016, '茅台十年 60 倍_investor_deck_v16.pdf', '2025-03-01 00:59:26', 1, 2, '彼得·林奇', 1),
+(9300017, '港股互联网监管危机_investor_deck_v17.pdf', '2024-11-11 13:25:49', 3, 2, '费雪', 2),
+(9300018, '麦哲伦基金 29% CAGR_investor_deck_v18.pdf', '2024-02-10 01:46:29', 3, 2, '邓普顿', 2),
+(9300019, '白酒塑化剂危机_investor_deck_v19.pdf', '2024-06-07 04:31:26', 2, 2, '段永平', 2),
+(9300020, '宁德时代千亿_investor_deck_v20.pdf', '2024-05-28 19:09:34', 2, 1, '林园', 1),
+(9300021, '巴菲特建仓可口可乐_investor_deck_v21.pdf', '2024-09-27 18:46:25', 1, 2, '但斌', 1),
+(9300022, 'See\'s Candies 收购_investor_deck_v22.pdf', '2024-05-29 19:38:37', 2, 1, '章盟主', 2),
+(9300023, '高盛优先股_investor_deck_v23.pdf', '2025-04-08 09:44:03', 1, 2, '李录', 1),
+(9300024, '巴菲特买苹果_investor_deck_v24.pdf', '2024-05-19 03:44:38', 2, 1, '赵丹阳', 1),
+(9300025, '日本五大商社_investor_deck_v25.pdf', '2025-02-15 13:33:44', 2, 2, '格雷厄姆', 2),
+(9300026, '网易 1 美元抄底_investor_deck_v26.pdf', '2026-01-20 09:55:58', 3, 1, '巴菲特', 2),
+(9300027, '拼多多种子期_investor_deck_v27.pdf', '2024-11-05 02:13:33', 1, 1, '芒格', 1),
+(9300028, '林园持有茅台_investor_deck_v28.pdf', '2024-06-27 07:24:33', 2, 1, '彼得·林奇', 2),
+(9300029, '但斌抄底腾讯_investor_deck_v29.pdf', '2024-11-13 09:23:54', 1, 2, '费雪', 2),
+(9300030, '海天味业上市_investor_deck_v30.pdf', '2025-09-29 13:14:35', 3, 1, '邓普顿', 2),
+(9300031, '美团千亿再造_investor_deck_v31.pdf', '2025-07-21 22:42:24', 1, 2, '段永平', 2),
+(9300032, '华盛顿邮报_investor_deck_v32.pdf', '2024-08-07 22:12:08', 2, 2, '林园', 2),
+(9300033, '巴菲特减持比亚迪_investor_deck_v33.pdf', '2024-03-13 04:51:37', 2, 2, '但斌', 1),
+(9300034, '巴菲特建仓中石油_investor_deck_v34.pdf', '2024-09-22 11:40:02', 2, 1, '章盟主', 2),
+(9300035, '美国运通色拉油危机_investor_deck_v35.pdf', '2025-10-07 18:52:45', 2, 2, '李录', 1),
+(9300036, '茅台十年 60 倍_investor_deck_v36.pdf', '2026-03-01 03:03:39', 1, 1, '赵丹阳', 1),
+(9300037, '港股互联网监管危机_investor_deck_v37.pdf', '2025-07-18 05:33:20', 2, 1, '格雷厄姆', 1),
+(9300038, '麦哲伦基金 29% CAGR_investor_deck_v38.pdf', '2025-05-20 17:02:59', 2, 2, '巴菲特', 1),
+(9300039, '白酒塑化剂危机_investor_deck_v39.pdf', '2026-01-07 17:48:26', 1, 2, '芒格', 1),
+(9300040, '宁德时代千亿_investor_deck_v40.pdf', '2024-02-01 18:43:25', 3, 1, '彼得·林奇', 2),
+(9300041, '巴菲特建仓可口可乐_investor_deck_v41.pdf', '2025-02-20 09:25:44', 2, 2, '费雪', 2),
+(9300042, 'See\'s Candies 收购_investor_deck_v42.pdf', '2026-01-01 12:54:50', 2, 1, '邓普顿', 1),
+(9300043, '高盛优先股_investor_deck_v43.pdf', '2024-03-01 10:58:19', 3, 2, '段永平', 2),
+(9300044, '巴菲特买苹果_investor_deck_v44.pdf', '2026-02-26 01:24:01', 1, 1, '林园', 1),
+(9300045, '日本五大商社_investor_deck_v45.pdf', '2026-03-13 02:25:09', 2, 2, '但斌', 1),
+(9300046, '网易 1 美元抄底_investor_deck_v46.pdf', '2025-04-10 22:29:19', 3, 2, '章盟主', 1),
+(9300047, '拼多多种子期_investor_deck_v47.pdf', '2026-02-27 17:29:30', 2, 2, '李录', 1),
+(9300048, '林园持有茅台_investor_deck_v48.pdf', '2026-01-19 15:45:57', 1, 2, '赵丹阳', 2),
+(9300049, '但斌抄底腾讯_investor_deck_v49.pdf', '2026-03-10 02:18:31', 1, 2, '格雷厄姆', 2),
+(9300050, '海天味业上市_investor_deck_v50.pdf', '2024-03-20 03:06:55', 2, 1, '巴菲特', 2),
+(9300051, '美团千亿再造_investor_deck_v51.pdf', '2024-12-25 16:21:13', 2, 1, '芒格', 2),
+(9300052, '华盛顿邮报_investor_deck_v52.pdf', '2026-05-10 14:12:36', 2, 1, '彼得·林奇', 2),
+(9300053, '巴菲特减持比亚迪_investor_deck_v53.pdf', '2024-02-10 00:16:18', 2, 2, '费雪', 2),
+(9300054, '巴菲特建仓中石油_investor_deck_v54.pdf', '2024-08-29 10:11:04', 1, 2, '邓普顿', 1),
+(9300055, '美国运通色拉油危机_investor_deck_v55.pdf', '2026-05-27 17:11:21', 1, 1, '段永平', 2),
+(9300056, '茅台十年 60 倍_investor_deck_v56.pdf', '2026-05-12 02:28:25', 1, 2, '林园', 1),
+(9300057, '港股互联网监管危机_investor_deck_v57.pdf', '2024-04-09 13:11:24', 3, 1, '但斌', 1),
+(9300058, '麦哲伦基金 29% CAGR_investor_deck_v58.pdf', '2025-07-16 20:06:02', 1, 2, '章盟主', 1),
+(9300059, '白酒塑化剂危机_investor_deck_v59.pdf', '2024-07-26 06:16:35', 2, 1, '李录', 2),
+(9300060, '宁德时代千亿_investor_deck_v60.pdf', '2024-10-29 18:27:37', 3, 1, '赵丹阳', 2);
 
 -- ========================================================================
 -- iyque_screen_short · 截屏日志
 -- ========================================================================
 INSERT INTO `iyque_screen_short` (`id`, `depetId`, `operateTime`, `shotContent`, `shotType`, `systemOs`, `userId`, `userName`) VALUES
-(9400001, 1001, '2025-08-11 06:32:09', '截屏内容：巴菲特建仓可口可乐 投研截图 v1', 2, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
-(9400002, 1001, '2024-01-18 18:29:27', '截屏内容：See\'s Candies 收购 投研截图 v2', 3, 'Windows 11', 'MOAT_BUFFETT', '巴菲特'),
-(9400003, 1001, '2024-07-11 08:44:14', '截屏内容：高盛优先股 投研截图 v3', 3, 'macOS 14', 'MOAT_MUNGER', '芒格'),
-(9400004, 1002, '2024-07-01 07:23:12', '截屏内容：巴菲特买苹果 投研截图 v4', 3, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
-(9400005, 1002, '2025-12-30 23:56:07', '截屏内容：日本五大商社 投研截图 v5', 3, 'Windows 10', 'MOAT_FISHER', '费雪'),
-(9400006, 1003, '2024-03-14 05:01:10', '截屏内容：网易 1 美元抄底 投研截图 v6', 1, 'Windows 11', 'MOAT_TEMPLETON', '邓普顿'),
-(9400007, 2001, '2024-12-10 18:51:33', '截屏内容：拼多多种子期 投研截图 v7', 2, 'Windows 10', 'MOAT_DUAN', '段永平'),
-(9400008, 2001, '2024-07-29 15:26:26', '截屏内容：林园持有茅台 投研截图 v8', 2, 'Windows 11', 'MOAT_LINYUAN', '林园'),
-(9400009, 2001, '2025-07-20 15:49:50', '截屏内容：但斌抄底腾讯 投研截图 v9', 2, 'Windows 11', 'MOAT_DANBIN', '但斌'),
-(9400010, 2002, '2025-07-20 13:59:07', '截屏内容：海天味业上市 投研截图 v10', 3, 'Windows 10', 'MOAT_ZMZ', '章盟主'),
-(9400011, 2001, '2024-06-12 09:26:20', '截屏内容：美团千亿再造 投研截图 v11', 3, 'Windows 11', 'MOAT_LILU', '李录'),
-(9400012, 2001, '2024-04-13 14:21:11', '截屏内容：华盛顿邮报 投研截图 v12', 2, 'Windows 11', 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9400013, 1001, '2025-07-21 23:07:40', '截屏内容：巴菲特减持比亚迪 投研截图 v13', 1, 'macOS 14', 'MOAT_GRAHAM', '格雷厄姆'),
-(9400014, 1001, '2026-01-05 08:57:55', '截屏内容：巴菲特建仓中石油 投研截图 v14', 3, 'Windows 10', 'MOAT_BUFFETT', '巴菲特'),
-(9400015, 1001, '2025-03-09 15:04:26', '截屏内容：美国运通色拉油危机 投研截图 v15', 2, 'Windows 10', 'MOAT_MUNGER', '芒格'),
-(9400016, 1002, '2026-05-24 05:16:47', '截屏内容：茅台十年 60 倍 投研截图 v16', 1, 'Windows 10', 'MOAT_LYNCH', '彼得·林奇'),
-(9400017, 1002, '2026-01-10 23:26:00', '截屏内容：港股互联网监管危机 投研截图 v17', 3, 'macOS 14', 'MOAT_FISHER', '费雪'),
-(9400018, 1003, '2025-09-26 02:31:06', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v18', 1, 'Windows 11', 'MOAT_TEMPLETON', '邓普顿'),
-(9400019, 2001, '2024-04-04 06:55:46', '截屏内容：白酒塑化剂危机 投研截图 v19', 1, 'macOS 14', 'MOAT_DUAN', '段永平'),
-(9400020, 2001, '2024-05-30 19:06:39', '截屏内容：宁德时代千亿 投研截图 v20', 1, 'macOS 14', 'MOAT_LINYUAN', '林园'),
-(9400021, 2001, '2026-06-13 15:46:26', '截屏内容：巴菲特建仓可口可乐 投研截图 v21', 1, 'Windows 11', 'MOAT_DANBIN', '但斌'),
-(9400022, 2002, '2024-06-25 05:54:42', '截屏内容：See\'s Candies 收购 投研截图 v22', 1, 'Windows 10', 'MOAT_ZMZ', '章盟主'),
-(9400023, 2001, '2024-03-24 12:25:50', '截屏内容：高盛优先股 投研截图 v23', 2, 'Windows 11', 'MOAT_LILU', '李录'),
-(9400024, 2001, '2026-06-13 16:52:26', '截屏内容：巴菲特买苹果 投研截图 v24', 3, 'macOS 14', 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9400025, 1001, '2024-06-19 22:32:09', '截屏内容：日本五大商社 投研截图 v25', 3, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
-(9400026, 1001, '2024-08-17 19:50:14', '截屏内容：网易 1 美元抄底 投研截图 v26', 1, 'macOS 14', 'MOAT_BUFFETT', '巴菲特'),
-(9400027, 1001, '2025-11-18 08:53:48', '截屏内容：拼多多种子期 投研截图 v27', 2, 'Windows 11', 'MOAT_MUNGER', '芒格'),
-(9400028, 1002, '2024-11-18 00:13:13', '截屏内容：林园持有茅台 投研截图 v28', 2, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
-(9400029, 1002, '2024-11-04 20:22:04', '截屏内容：但斌抄底腾讯 投研截图 v29', 2, 'Windows 10', 'MOAT_FISHER', '费雪'),
-(9400030, 1003, '2024-02-15 11:47:25', '截屏内容：海天味业上市 投研截图 v30', 2, 'Windows 10', 'MOAT_TEMPLETON', '邓普顿'),
-(9400031, 2001, '2024-08-24 17:22:21', '截屏内容：美团千亿再造 投研截图 v31', 3, 'macOS 14', 'MOAT_DUAN', '段永平'),
-(9400032, 2001, '2024-11-18 12:06:51', '截屏内容：华盛顿邮报 投研截图 v32', 3, 'macOS 14', 'MOAT_LINYUAN', '林园'),
-(9400033, 2001, '2025-05-14 22:59:38', '截屏内容：巴菲特减持比亚迪 投研截图 v33', 1, 'Windows 11', 'MOAT_DANBIN', '但斌'),
-(9400034, 2002, '2026-04-14 09:07:01', '截屏内容：巴菲特建仓中石油 投研截图 v34', 3, 'Windows 11', 'MOAT_ZMZ', '章盟主'),
-(9400035, 2001, '2025-01-10 18:14:56', '截屏内容：美国运通色拉油危机 投研截图 v35', 2, 'Windows 11', 'MOAT_LILU', '李录'),
-(9400036, 2001, '2025-04-21 14:23:54', '截屏内容：茅台十年 60 倍 投研截图 v36', 2, 'macOS 14', 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9400037, 1001, '2025-07-10 00:20:51', '截屏内容：港股互联网监管危机 投研截图 v37', 2, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
-(9400038, 1001, '2024-11-10 23:04:40', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v38', 1, 'macOS 14', 'MOAT_BUFFETT', '巴菲特'),
-(9400039, 1001, '2026-04-20 15:28:29', '截屏内容：白酒塑化剂危机 投研截图 v39', 2, 'macOS 14', 'MOAT_MUNGER', '芒格'),
-(9400040, 1002, '2025-08-31 07:28:48', '截屏内容：宁德时代千亿 投研截图 v40', 2, 'Windows 11', 'MOAT_LYNCH', '彼得·林奇'),
-(9400041, 1002, '2025-06-26 10:18:11', '截屏内容：巴菲特建仓可口可乐 投研截图 v41', 3, 'Windows 11', 'MOAT_FISHER', '费雪'),
-(9400042, 1003, '2026-03-23 01:19:59', '截屏内容：See\'s Candies 收购 投研截图 v42', 1, 'macOS 14', 'MOAT_TEMPLETON', '邓普顿'),
-(9400043, 2001, '2025-11-24 12:51:49', '截屏内容：高盛优先股 投研截图 v43', 2, 'Windows 11', 'MOAT_DUAN', '段永平'),
-(9400044, 2001, '2025-02-20 09:51:01', '截屏内容：巴菲特买苹果 投研截图 v44', 2, 'Windows 11', 'MOAT_LINYUAN', '林园'),
-(9400045, 2001, '2024-10-01 10:51:37', '截屏内容：日本五大商社 投研截图 v45', 3, 'Windows 10', 'MOAT_DANBIN', '但斌'),
-(9400046, 2002, '2025-05-13 01:18:24', '截屏内容：网易 1 美元抄底 投研截图 v46', 1, 'Windows 10', 'MOAT_ZMZ', '章盟主'),
-(9400047, 2001, '2026-03-11 16:21:55', '截屏内容：拼多多种子期 投研截图 v47', 1, 'Windows 10', 'MOAT_LILU', '李录'),
-(9400048, 2001, '2024-02-04 08:45:06', '截屏内容：林园持有茅台 投研截图 v48', 1, 'Windows 11', 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9400049, 1001, '2026-01-04 05:55:55', '截屏内容：但斌抄底腾讯 投研截图 v49', 3, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
-(9400050, 1001, '2025-01-07 15:34:20', '截屏内容：海天味业上市 投研截图 v50', 2, 'macOS 14', 'MOAT_BUFFETT', '巴菲特'),
-(9400051, 1001, '2024-08-27 16:58:39', '截屏内容：美团千亿再造 投研截图 v51', 2, 'Windows 11', 'MOAT_MUNGER', '芒格'),
-(9400052, 1002, '2026-01-06 20:57:21', '截屏内容：华盛顿邮报 投研截图 v52', 3, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
-(9400053, 1002, '2025-03-12 09:12:19', '截屏内容：巴菲特减持比亚迪 投研截图 v53', 3, 'macOS 14', 'MOAT_FISHER', '费雪'),
-(9400054, 1003, '2024-05-21 06:55:50', '截屏内容：巴菲特建仓中石油 投研截图 v54', 1, 'macOS 14', 'MOAT_TEMPLETON', '邓普顿'),
-(9400055, 2001, '2024-02-26 20:41:50', '截屏内容：美国运通色拉油危机 投研截图 v55', 2, 'macOS 14', 'MOAT_DUAN', '段永平'),
-(9400056, 2001, '2026-01-05 03:52:37', '截屏内容：茅台十年 60 倍 投研截图 v56', 1, 'Windows 11', 'MOAT_LINYUAN', '林园'),
-(9400057, 2001, '2024-07-21 19:59:29', '截屏内容：港股互联网监管危机 投研截图 v57', 1, 'Windows 11', 'MOAT_DANBIN', '但斌'),
-(9400058, 2002, '2025-02-08 06:58:40', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v58', 2, 'macOS 14', 'MOAT_ZMZ', '章盟主'),
-(9400059, 2001, '2024-10-24 17:57:02', '截屏内容：白酒塑化剂危机 投研截图 v59', 3, 'Windows 11', 'MOAT_LILU', '李录'),
-(9400060, 2001, '2026-05-22 12:30:36', '截屏内容：宁德时代千亿 投研截图 v60', 2, 'Windows 11', 'MOAT_ZHAODANYANG', '赵丹阳');
+(9400001, 1001, '2024-01-04 16:01:30', '截屏内容：巴菲特建仓可口可乐 投研截图 v1', 1, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
+(9400002, 1001, '2026-03-22 04:56:01', '截屏内容：See\'s Candies 收购 投研截图 v2', 1, 'macOS 14', 'MOAT_BUFFETT', '巴菲特'),
+(9400003, 1001, '2025-07-26 23:08:33', '截屏内容：高盛优先股 投研截图 v3', 3, 'Windows 11', 'MOAT_MUNGER', '芒格'),
+(9400004, 1002, '2025-11-05 15:02:46', '截屏内容：巴菲特买苹果 投研截图 v4', 3, 'Windows 10', 'MOAT_LYNCH', '彼得·林奇'),
+(9400005, 1002, '2026-01-03 07:57:35', '截屏内容：日本五大商社 投研截图 v5', 3, 'Windows 11', 'MOAT_FISHER', '费雪'),
+(9400006, 1003, '2026-04-20 23:02:00', '截屏内容：网易 1 美元抄底 投研截图 v6', 3, 'macOS 14', 'MOAT_TEMPLETON', '邓普顿'),
+(9400007, 2001, '2024-04-16 12:22:02', '截屏内容：拼多多种子期 投研截图 v7', 3, 'macOS 14', 'MOAT_DUAN', '段永平'),
+(9400008, 2001, '2024-11-27 04:43:01', '截屏内容：林园持有茅台 投研截图 v8', 1, 'Windows 10', 'MOAT_LINYUAN', '林园'),
+(9400009, 2001, '2025-04-26 04:05:23', '截屏内容：但斌抄底腾讯 投研截图 v9', 2, 'Windows 10', 'MOAT_DANBIN', '但斌'),
+(9400010, 2002, '2025-12-18 11:40:15', '截屏内容：海天味业上市 投研截图 v10', 3, 'macOS 14', 'MOAT_ZMZ', '章盟主'),
+(9400011, 2001, '2025-07-04 14:56:23', '截屏内容：美团千亿再造 投研截图 v11', 3, 'Windows 10', 'MOAT_LILU', '李录'),
+(9400012, 2001, '2024-02-14 02:15:34', '截屏内容：华盛顿邮报 投研截图 v12', 1, 'macOS 14', 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9400013, 1001, '2025-11-23 03:50:48', '截屏内容：巴菲特减持比亚迪 投研截图 v13', 3, 'Windows 10', 'MOAT_GRAHAM', '格雷厄姆'),
+(9400014, 1001, '2024-04-03 03:52:22', '截屏内容：巴菲特建仓中石油 投研截图 v14', 2, 'Windows 11', 'MOAT_BUFFETT', '巴菲特'),
+(9400015, 1001, '2024-02-14 08:44:27', '截屏内容：美国运通色拉油危机 投研截图 v15', 3, 'Windows 11', 'MOAT_MUNGER', '芒格'),
+(9400016, 1002, '2024-03-26 17:22:52', '截屏内容：茅台十年 60 倍 投研截图 v16', 1, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
+(9400017, 1002, '2024-03-24 19:25:30', '截屏内容：港股互联网监管危机 投研截图 v17', 2, 'Windows 11', 'MOAT_FISHER', '费雪'),
+(9400018, 1003, '2024-06-06 18:27:33', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v18', 2, 'Windows 10', 'MOAT_TEMPLETON', '邓普顿'),
+(9400019, 2001, '2025-12-11 14:19:28', '截屏内容：白酒塑化剂危机 投研截图 v19', 1, 'Windows 10', 'MOAT_DUAN', '段永平'),
+(9400020, 2001, '2025-11-09 14:02:30', '截屏内容：宁德时代千亿 投研截图 v20', 3, 'Windows 10', 'MOAT_LINYUAN', '林园'),
+(9400021, 2001, '2025-02-26 18:23:05', '截屏内容：巴菲特建仓可口可乐 投研截图 v21', 1, 'macOS 14', 'MOAT_DANBIN', '但斌'),
+(9400022, 2002, '2024-07-16 08:04:27', '截屏内容：See\'s Candies 收购 投研截图 v22', 2, 'Windows 10', 'MOAT_ZMZ', '章盟主'),
+(9400023, 2001, '2024-12-17 05:01:27', '截屏内容：高盛优先股 投研截图 v23', 3, 'macOS 14', 'MOAT_LILU', '李录'),
+(9400024, 2001, '2025-08-15 12:36:51', '截屏内容：巴菲特买苹果 投研截图 v24', 2, 'Windows 10', 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9400025, 1001, '2025-07-30 22:05:19', '截屏内容：日本五大商社 投研截图 v25', 2, 'Windows 11', 'MOAT_GRAHAM', '格雷厄姆'),
+(9400026, 1001, '2026-03-21 01:18:00', '截屏内容：网易 1 美元抄底 投研截图 v26', 3, 'Windows 10', 'MOAT_BUFFETT', '巴菲特'),
+(9400027, 1001, '2024-10-10 20:49:59', '截屏内容：拼多多种子期 投研截图 v27', 1, 'Windows 11', 'MOAT_MUNGER', '芒格'),
+(9400028, 1002, '2026-03-23 21:04:05', '截屏内容：林园持有茅台 投研截图 v28', 1, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
+(9400029, 1002, '2025-08-18 06:13:23', '截屏内容：但斌抄底腾讯 投研截图 v29', 3, 'macOS 14', 'MOAT_FISHER', '费雪'),
+(9400030, 1003, '2026-04-11 12:48:03', '截屏内容：海天味业上市 投研截图 v30', 3, 'macOS 14', 'MOAT_TEMPLETON', '邓普顿'),
+(9400031, 2001, '2025-09-12 15:54:59', '截屏内容：美团千亿再造 投研截图 v31', 1, 'macOS 14', 'MOAT_DUAN', '段永平'),
+(9400032, 2001, '2026-02-20 01:29:29', '截屏内容：华盛顿邮报 投研截图 v32', 2, 'macOS 14', 'MOAT_LINYUAN', '林园'),
+(9400033, 2001, '2025-09-27 18:47:44', '截屏内容：巴菲特减持比亚迪 投研截图 v33', 1, 'Windows 10', 'MOAT_DANBIN', '但斌'),
+(9400034, 2002, '2026-03-15 18:21:19', '截屏内容：巴菲特建仓中石油 投研截图 v34', 2, 'Windows 11', 'MOAT_ZMZ', '章盟主'),
+(9400035, 2001, '2024-01-15 18:30:13', '截屏内容：美国运通色拉油危机 投研截图 v35', 3, 'Windows 11', 'MOAT_LILU', '李录'),
+(9400036, 2001, '2025-05-15 00:41:43', '截屏内容：茅台十年 60 倍 投研截图 v36', 1, 'Windows 10', 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9400037, 1001, '2026-02-22 19:26:02', '截屏内容：港股互联网监管危机 投研截图 v37', 1, 'macOS 14', 'MOAT_GRAHAM', '格雷厄姆'),
+(9400038, 1001, '2025-09-04 23:35:57', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v38', 1, 'Windows 10', 'MOAT_BUFFETT', '巴菲特'),
+(9400039, 1001, '2024-04-30 10:18:32', '截屏内容：白酒塑化剂危机 投研截图 v39', 1, 'Windows 11', 'MOAT_MUNGER', '芒格'),
+(9400040, 1002, '2025-03-22 11:34:02', '截屏内容：宁德时代千亿 投研截图 v40', 1, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
+(9400041, 1002, '2024-05-11 03:41:05', '截屏内容：巴菲特建仓可口可乐 投研截图 v41', 1, 'Windows 11', 'MOAT_FISHER', '费雪'),
+(9400042, 1003, '2024-01-16 16:33:20', '截屏内容：See\'s Candies 收购 投研截图 v42', 3, 'Windows 10', 'MOAT_TEMPLETON', '邓普顿'),
+(9400043, 2001, '2026-03-15 01:41:38', '截屏内容：高盛优先股 投研截图 v43', 1, 'Windows 11', 'MOAT_DUAN', '段永平'),
+(9400044, 2001, '2025-04-22 09:00:04', '截屏内容：巴菲特买苹果 投研截图 v44', 3, 'Windows 11', 'MOAT_LINYUAN', '林园'),
+(9400045, 2001, '2025-12-04 09:30:55', '截屏内容：日本五大商社 投研截图 v45', 1, 'Windows 11', 'MOAT_DANBIN', '但斌'),
+(9400046, 2002, '2025-07-11 15:38:26', '截屏内容：网易 1 美元抄底 投研截图 v46', 2, 'Windows 10', 'MOAT_ZMZ', '章盟主'),
+(9400047, 2001, '2025-08-21 21:20:09', '截屏内容：拼多多种子期 投研截图 v47', 2, 'Windows 11', 'MOAT_LILU', '李录'),
+(9400048, 2001, '2024-08-09 06:06:36', '截屏内容：林园持有茅台 投研截图 v48', 3, 'Windows 11', 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9400049, 1001, '2025-11-21 15:39:13', '截屏内容：但斌抄底腾讯 投研截图 v49', 1, 'macOS 14', 'MOAT_GRAHAM', '格雷厄姆'),
+(9400050, 1001, '2025-03-22 12:40:31', '截屏内容：海天味业上市 投研截图 v50', 1, 'macOS 14', 'MOAT_BUFFETT', '巴菲特'),
+(9400051, 1001, '2025-12-14 14:00:08', '截屏内容：美团千亿再造 投研截图 v51', 3, 'Windows 10', 'MOAT_MUNGER', '芒格'),
+(9400052, 1002, '2024-12-22 13:32:45', '截屏内容：华盛顿邮报 投研截图 v52', 2, 'macOS 14', 'MOAT_LYNCH', '彼得·林奇'),
+(9400053, 1002, '2025-06-07 13:43:36', '截屏内容：巴菲特减持比亚迪 投研截图 v53', 1, 'macOS 14', 'MOAT_FISHER', '费雪'),
+(9400054, 1003, '2025-11-23 14:35:25', '截屏内容：巴菲特建仓中石油 投研截图 v54', 3, 'macOS 14', 'MOAT_TEMPLETON', '邓普顿'),
+(9400055, 2001, '2024-04-09 12:49:11', '截屏内容：美国运通色拉油危机 投研截图 v55', 3, 'Windows 11', 'MOAT_DUAN', '段永平'),
+(9400056, 2001, '2024-05-02 03:20:21', '截屏内容：茅台十年 60 倍 投研截图 v56', 3, 'Windows 10', 'MOAT_LINYUAN', '林园'),
+(9400057, 2001, '2025-10-24 00:33:29', '截屏内容：港股互联网监管危机 投研截图 v57', 1, 'Windows 11', 'MOAT_DANBIN', '但斌'),
+(9400058, 2002, '2025-04-07 03:15:09', '截屏内容：麦哲伦基金 29% CAGR 投研截图 v58', 2, 'macOS 14', 'MOAT_ZMZ', '章盟主'),
+(9400059, 2001, '2024-06-19 14:07:35', '截屏内容：白酒塑化剂危机 投研截图 v59', 1, 'macOS 14', 'MOAT_LILU', '李录'),
+(9400060, 2001, '2024-11-08 20:34:46', '截屏内容：宁德时代千亿 投研截图 v60', 1, 'Windows 10', 'MOAT_ZHAODANYANG', '赵丹阳');
 
 -- ========================================================================
 -- iyque_operate_log · 操作日志
 -- ========================================================================
 INSERT INTO `iyque_operate_log` (`id`, `createTime`, `operateContent`, `operateIp`, `operateType`, `operateTypeSub`, `userId`, `userName`) VALUES
-(9500001, '2025-06-27 15:51:46', '登录系统 #1', '10.210.71.73', 1, 1, 'MOAT_GRAHAM', '格雷厄姆'),
-(9500002, '2024-10-26 22:56:53', '退出系统 #2', '10.210.37.115', 1, 2, 'MOAT_BUFFETT', '巴菲特'),
-(9500003, '2025-02-11 17:53:44', '创建员工活码 #3', '10.210.154.211', 2, 1, 'MOAT_MUNGER', '芒格'),
-(9500004, '2025-05-03 09:28:19', '更新员工活码 #4', '10.210.248.241', 2, 2, 'MOAT_LYNCH', '彼得·林奇'),
-(9500005, '2026-03-08 10:44:20', '创建群活码 #5', '10.210.85.239', 3, 1, 'MOAT_FISHER', '费雪'),
-(9500006, '2026-03-31 06:49:27', '更新群活码 #6', '10.210.176.113', 3, 2, 'MOAT_TEMPLETON', '邓普顿'),
-(9500007, '2025-10-16 10:56:25', '创建客户标签 #7', '10.210.248.96', 4, 1, 'MOAT_DUAN', '段永平'),
-(9500008, '2025-04-06 23:31:34', '删除客户标签 #8', '10.210.175.230', 4, 2, 'MOAT_LINYUAN', '林园'),
-(9500009, '2024-04-11 19:16:59', '创建话术 #9', '10.210.107.112', 5, 1, 'MOAT_DANBIN', '但斌'),
-(9500010, '2025-09-11 14:50:31', '更新话术 #10', '10.210.212.197', 5, 2, 'MOAT_ZMZ', '章盟主'),
-(9500011, '2025-03-12 17:52:18', '创建群发任务 #11', '10.210.67.226', 6, 1, 'MOAT_LILU', '李录'),
-(9500012, '2026-02-08 11:35:40', '取消群发任务 #12', '10.210.8.232', 6, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9500013, '2025-10-12 22:43:46', '上传知识库 #13', '10.210.92.149', 7, 1, 'MOAT_GRAHAM', '格雷厄姆'),
-(9500014, '2025-08-21 22:27:34', '删除知识库 #14', '10.210.97.117', 7, 2, 'MOAT_BUFFETT', '巴菲特'),
-(9500015, '2026-01-11 14:25:25', 'AI 对话 #15', '10.210.227.90', 8, 1, 'MOAT_MUNGER', '芒格'),
-(9500016, '2024-04-23 00:17:41', 'AI 会话导出 #16', '10.210.102.95', 8, 2, 'MOAT_LYNCH', '彼得·林奇'),
-(9500017, '2024-05-27 17:28:28', '处理投诉 #17', '10.210.174.124', 9, 1, 'MOAT_FISHER', '费雪'),
-(9500018, '2025-07-02 02:49:12', '关闭投诉 #18', '10.210.217.78', 9, 2, 'MOAT_TEMPLETON', '邓普顿'),
-(9500019, '2025-09-02 09:49:15', '查看会话存档 #19', '10.210.212.153', 10, 1, 'MOAT_DUAN', '段永平'),
-(9500020, '2024-09-30 02:41:29', '导出会话存档 #20', '10.210.229.44', 10, 2, 'MOAT_LINYUAN', '林园'),
-(9500021, '2025-05-25 22:30:58', '登录系统 #21', '10.210.20.216', 1, 1, 'MOAT_DANBIN', '但斌'),
-(9500022, '2026-05-08 17:29:51', '退出系统 #22', '10.210.1.238', 1, 2, 'MOAT_ZMZ', '章盟主'),
-(9500023, '2025-04-06 02:37:44', '创建员工活码 #23', '10.210.213.82', 2, 1, 'MOAT_LILU', '李录'),
-(9500024, '2024-10-13 15:12:35', '更新员工活码 #24', '10.210.46.182', 2, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9500025, '2024-11-25 20:51:32', '创建群活码 #25', '10.210.236.113', 3, 1, 'MOAT_GRAHAM', '格雷厄姆'),
-(9500026, '2024-08-15 17:18:18', '更新群活码 #26', '10.210.92.94', 3, 2, 'MOAT_BUFFETT', '巴菲特'),
-(9500027, '2024-11-21 20:19:31', '创建客户标签 #27', '10.210.5.48', 4, 1, 'MOAT_MUNGER', '芒格'),
-(9500028, '2026-03-11 16:24:26', '删除客户标签 #28', '10.210.191.52', 4, 2, 'MOAT_LYNCH', '彼得·林奇'),
-(9500029, '2025-01-04 20:29:57', '创建话术 #29', '10.210.103.79', 5, 1, 'MOAT_FISHER', '费雪'),
-(9500030, '2024-08-13 04:54:49', '更新话术 #30', '10.210.70.193', 5, 2, 'MOAT_TEMPLETON', '邓普顿'),
-(9500031, '2026-03-07 20:34:23', '创建群发任务 #31', '10.210.148.193', 6, 1, 'MOAT_DUAN', '段永平'),
-(9500032, '2025-07-30 00:10:13', '取消群发任务 #32', '10.210.30.188', 6, 2, 'MOAT_LINYUAN', '林园'),
-(9500033, '2024-01-06 18:26:14', '上传知识库 #33', '10.210.143.139', 7, 1, 'MOAT_DANBIN', '但斌'),
-(9500034, '2024-02-05 04:26:25', '删除知识库 #34', '10.210.101.144', 7, 2, 'MOAT_ZMZ', '章盟主'),
-(9500035, '2025-07-27 09:21:34', 'AI 对话 #35', '10.210.168.119', 8, 1, 'MOAT_LILU', '李录'),
-(9500036, '2024-10-28 02:16:14', 'AI 会话导出 #36', '10.210.214.186', 8, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9500037, '2024-07-29 00:52:27', '处理投诉 #37', '10.210.194.206', 9, 1, 'MOAT_GRAHAM', '格雷厄姆'),
-(9500038, '2024-02-20 17:57:08', '关闭投诉 #38', '10.210.199.60', 9, 2, 'MOAT_BUFFETT', '巴菲特'),
-(9500039, '2025-12-07 08:12:33', '查看会话存档 #39', '10.210.43.59', 10, 1, 'MOAT_MUNGER', '芒格'),
-(9500040, '2024-10-24 04:21:43', '导出会话存档 #40', '10.210.139.90', 10, 2, 'MOAT_LYNCH', '彼得·林奇'),
-(9500041, '2025-04-28 07:04:58', '登录系统 #41', '10.210.83.12', 1, 1, 'MOAT_FISHER', '费雪'),
-(9500042, '2024-07-08 12:40:45', '退出系统 #42', '10.210.60.151', 1, 2, 'MOAT_TEMPLETON', '邓普顿'),
-(9500043, '2025-11-19 09:24:45', '创建员工活码 #43', '10.210.238.178', 2, 1, 'MOAT_DUAN', '段永平'),
-(9500044, '2024-01-09 20:13:48', '更新员工活码 #44', '10.210.145.183', 2, 2, 'MOAT_LINYUAN', '林园'),
-(9500045, '2026-05-09 12:09:56', '创建群活码 #45', '10.210.156.62', 3, 1, 'MOAT_DANBIN', '但斌'),
-(9500046, '2025-04-11 22:18:09', '更新群活码 #46', '10.210.162.157', 3, 2, 'MOAT_ZMZ', '章盟主'),
-(9500047, '2025-05-28 22:10:10', '创建客户标签 #47', '10.210.157.81', 4, 1, 'MOAT_LILU', '李录'),
-(9500048, '2025-09-19 15:22:37', '删除客户标签 #48', '10.210.63.171', 4, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
-(9500049, '2024-06-13 13:42:56', '创建话术 #49', '10.210.160.149', 5, 1, 'MOAT_GRAHAM', '格雷厄姆'),
-(9500050, '2024-02-09 08:22:04', '更新话术 #50', '10.210.49.46', 5, 2, 'MOAT_BUFFETT', '巴菲特'),
-(9500051, '2024-06-05 10:39:21', '创建群发任务 #51', '10.210.129.198', 6, 1, 'MOAT_MUNGER', '芒格'),
-(9500052, '2024-01-08 17:28:52', '取消群发任务 #52', '10.210.139.175', 6, 2, 'MOAT_LYNCH', '彼得·林奇'),
-(9500053, '2025-06-23 17:04:45', '上传知识库 #53', '10.210.125.174', 7, 1, 'MOAT_FISHER', '费雪'),
-(9500054, '2024-12-04 10:29:21', '删除知识库 #54', '10.210.60.19', 7, 2, 'MOAT_TEMPLETON', '邓普顿'),
-(9500055, '2025-06-09 07:38:39', 'AI 对话 #55', '10.210.88.211', 8, 1, 'MOAT_DUAN', '段永平'),
-(9500056, '2026-02-02 16:18:48', 'AI 会话导出 #56', '10.210.182.149', 8, 2, 'MOAT_LINYUAN', '林园'),
-(9500057, '2024-03-26 10:32:31', '处理投诉 #57', '10.210.191.167', 9, 1, 'MOAT_DANBIN', '但斌'),
-(9500058, '2025-12-15 16:27:23', '关闭投诉 #58', '10.210.203.162', 9, 2, 'MOAT_ZMZ', '章盟主'),
-(9500059, '2025-09-06 03:31:05', '查看会话存档 #59', '10.210.167.98', 10, 1, 'MOAT_LILU', '李录'),
-(9500060, '2026-03-30 11:13:15', '导出会话存档 #60', '10.210.106.168', 10, 2, 'MOAT_ZHAODANYANG', '赵丹阳');
+(9500001, '2024-05-22 05:47:05', '登录系统 #1', '10.210.115.173', 1, 1, 'MOAT_GRAHAM', '格雷厄姆'),
+(9500002, '2024-11-19 03:09:40', '退出系统 #2', '10.210.100.163', 1, 2, 'MOAT_BUFFETT', '巴菲特'),
+(9500003, '2025-09-09 22:18:32', '创建员工活码 #3', '10.210.244.152', 2, 1, 'MOAT_MUNGER', '芒格'),
+(9500004, '2026-02-15 14:17:42', '更新员工活码 #4', '10.210.118.83', 2, 2, 'MOAT_LYNCH', '彼得·林奇'),
+(9500005, '2026-01-10 19:23:01', '创建群活码 #5', '10.210.79.19', 3, 1, 'MOAT_FISHER', '费雪'),
+(9500006, '2024-07-18 04:12:38', '更新群活码 #6', '10.210.187.45', 3, 2, 'MOAT_TEMPLETON', '邓普顿'),
+(9500007, '2025-10-23 17:28:41', '创建客户标签 #7', '10.210.183.26', 4, 1, 'MOAT_DUAN', '段永平'),
+(9500008, '2024-05-17 00:03:16', '删除客户标签 #8', '10.210.28.51', 4, 2, 'MOAT_LINYUAN', '林园'),
+(9500009, '2025-02-25 11:30:31', '创建话术 #9', '10.210.218.65', 5, 1, 'MOAT_DANBIN', '但斌'),
+(9500010, '2024-05-11 04:12:18', '更新话术 #10', '10.210.225.159', 5, 2, 'MOAT_ZMZ', '章盟主'),
+(9500011, '2026-05-21 19:14:41', '创建群发任务 #11', '10.210.53.239', 6, 1, 'MOAT_LILU', '李录'),
+(9500012, '2024-07-22 13:36:58', '取消群发任务 #12', '10.210.97.170', 6, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9500013, '2026-04-13 15:07:10', '上传知识库 #13', '10.210.148.88', 7, 1, 'MOAT_GRAHAM', '格雷厄姆'),
+(9500014, '2024-08-24 20:14:35', '删除知识库 #14', '10.210.29.96', 7, 2, 'MOAT_BUFFETT', '巴菲特'),
+(9500015, '2025-06-09 18:38:41', 'AI 对话 #15', '10.210.161.231', 8, 1, 'MOAT_MUNGER', '芒格'),
+(9500016, '2026-06-22 02:05:38', 'AI 会话导出 #16', '10.210.177.149', 8, 2, 'MOAT_LYNCH', '彼得·林奇'),
+(9500017, '2024-10-16 18:06:42', '处理投诉 #17', '10.210.218.184', 9, 1, 'MOAT_FISHER', '费雪'),
+(9500018, '2026-05-22 06:39:11', '关闭投诉 #18', '10.210.15.204', 9, 2, 'MOAT_TEMPLETON', '邓普顿'),
+(9500019, '2024-08-19 11:51:42', '查看会话存档 #19', '10.210.152.60', 10, 1, 'MOAT_DUAN', '段永平'),
+(9500020, '2025-04-15 23:00:22', '导出会话存档 #20', '10.210.58.113', 10, 2, 'MOAT_LINYUAN', '林园'),
+(9500021, '2024-01-26 16:56:38', '登录系统 #21', '10.210.84.249', 1, 1, 'MOAT_DANBIN', '但斌'),
+(9500022, '2026-04-14 09:12:07', '退出系统 #22', '10.210.19.209', 1, 2, 'MOAT_ZMZ', '章盟主'),
+(9500023, '2025-02-14 14:57:22', '创建员工活码 #23', '10.210.105.240', 2, 1, 'MOAT_LILU', '李录'),
+(9500024, '2025-11-22 01:18:27', '更新员工活码 #24', '10.210.87.133', 2, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9500025, '2026-04-01 14:50:28', '创建群活码 #25', '10.210.213.99', 3, 1, 'MOAT_GRAHAM', '格雷厄姆'),
+(9500026, '2025-12-19 00:54:40', '更新群活码 #26', '10.210.85.206', 3, 2, 'MOAT_BUFFETT', '巴菲特'),
+(9500027, '2026-01-29 06:38:30', '创建客户标签 #27', '10.210.171.202', 4, 1, 'MOAT_MUNGER', '芒格'),
+(9500028, '2024-12-17 05:57:09', '删除客户标签 #28', '10.210.153.53', 4, 2, 'MOAT_LYNCH', '彼得·林奇'),
+(9500029, '2024-02-21 13:27:11', '创建话术 #29', '10.210.221.10', 5, 1, 'MOAT_FISHER', '费雪'),
+(9500030, '2025-10-12 01:10:01', '更新话术 #30', '10.210.76.45', 5, 2, 'MOAT_TEMPLETON', '邓普顿'),
+(9500031, '2025-09-03 20:23:00', '创建群发任务 #31', '10.210.40.73', 6, 1, 'MOAT_DUAN', '段永平'),
+(9500032, '2025-12-31 16:30:36', '取消群发任务 #32', '10.210.199.170', 6, 2, 'MOAT_LINYUAN', '林园'),
+(9500033, '2024-05-09 07:58:17', '上传知识库 #33', '10.210.28.60', 7, 1, 'MOAT_DANBIN', '但斌'),
+(9500034, '2026-05-23 09:09:16', '删除知识库 #34', '10.210.250.214', 7, 2, 'MOAT_ZMZ', '章盟主'),
+(9500035, '2025-09-04 23:37:26', 'AI 对话 #35', '10.210.129.190', 8, 1, 'MOAT_LILU', '李录'),
+(9500036, '2024-12-28 13:04:37', 'AI 会话导出 #36', '10.210.56.150', 8, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9500037, '2024-09-12 00:33:18', '处理投诉 #37', '10.210.49.136', 9, 1, 'MOAT_GRAHAM', '格雷厄姆'),
+(9500038, '2025-03-24 15:07:06', '关闭投诉 #38', '10.210.206.79', 9, 2, 'MOAT_BUFFETT', '巴菲特'),
+(9500039, '2025-06-07 19:39:29', '查看会话存档 #39', '10.210.159.218', 10, 1, 'MOAT_MUNGER', '芒格'),
+(9500040, '2024-01-02 16:27:25', '导出会话存档 #40', '10.210.147.119', 10, 2, 'MOAT_LYNCH', '彼得·林奇'),
+(9500041, '2024-06-14 18:30:28', '登录系统 #41', '10.210.50.139', 1, 1, 'MOAT_FISHER', '费雪'),
+(9500042, '2025-03-21 02:23:16', '退出系统 #42', '10.210.185.2', 1, 2, 'MOAT_TEMPLETON', '邓普顿'),
+(9500043, '2024-10-16 09:25:34', '创建员工活码 #43', '10.210.111.92', 2, 1, 'MOAT_DUAN', '段永平'),
+(9500044, '2026-03-16 12:07:53', '更新员工活码 #44', '10.210.72.94', 2, 2, 'MOAT_LINYUAN', '林园'),
+(9500045, '2025-08-15 09:43:33', '创建群活码 #45', '10.210.234.39', 3, 1, 'MOAT_DANBIN', '但斌'),
+(9500046, '2024-04-29 13:04:45', '更新群活码 #46', '10.210.175.196', 3, 2, 'MOAT_ZMZ', '章盟主'),
+(9500047, '2025-07-26 12:56:30', '创建客户标签 #47', '10.210.82.106', 4, 1, 'MOAT_LILU', '李录'),
+(9500048, '2024-07-26 11:33:07', '删除客户标签 #48', '10.210.2.253', 4, 2, 'MOAT_ZHAODANYANG', '赵丹阳'),
+(9500049, '2025-07-18 21:46:31', '创建话术 #49', '10.210.196.242', 5, 1, 'MOAT_GRAHAM', '格雷厄姆'),
+(9500050, '2024-02-09 02:57:00', '更新话术 #50', '10.210.113.179', 5, 2, 'MOAT_BUFFETT', '巴菲特'),
+(9500051, '2025-09-09 23:16:04', '创建群发任务 #51', '10.210.206.163', 6, 1, 'MOAT_MUNGER', '芒格'),
+(9500052, '2026-04-05 13:27:07', '取消群发任务 #52', '10.210.108.77', 6, 2, 'MOAT_LYNCH', '彼得·林奇'),
+(9500053, '2025-12-26 21:19:53', '上传知识库 #53', '10.210.205.249', 7, 1, 'MOAT_FISHER', '费雪'),
+(9500054, '2025-11-28 09:47:14', '删除知识库 #54', '10.210.96.175', 7, 2, 'MOAT_TEMPLETON', '邓普顿'),
+(9500055, '2025-08-04 07:52:47', 'AI 对话 #55', '10.210.124.127', 8, 1, 'MOAT_DUAN', '段永平'),
+(9500056, '2025-06-17 01:29:25', 'AI 会话导出 #56', '10.210.195.58', 8, 2, 'MOAT_LINYUAN', '林园'),
+(9500057, '2025-06-29 05:10:56', '处理投诉 #57', '10.210.180.60', 9, 1, 'MOAT_DANBIN', '但斌'),
+(9500058, '2024-10-12 19:58:14', '关闭投诉 #58', '10.210.34.142', 9, 2, 'MOAT_ZMZ', '章盟主'),
+(9500059, '2026-06-17 23:55:51', '查看会话存档 #59', '10.210.221.19', 10, 1, 'MOAT_LILU', '李录'),
+(9500060, '2024-03-10 08:46:47', '导出会话存档 #60', '10.210.82.157', 10, 2, 'MOAT_ZHAODANYANG', '赵丹阳');
 
 -- ========================================================================
 -- iyque_msg_rule · 会话敏感词规则（保留原始默认 + 追加护城河规则）
 -- ========================================================================
 DELETE FROM iyque_msg_rule WHERE id BETWEEN 9600001 AND 9600100;INSERT INTO `iyque_msg_rule` (`id`, `createTime`, `defaultRule`, `ruleContent`, `ruleStatus`, `ruleType`) VALUES
-(9600001, '2025-03-10 19:35:16', 0, '承诺收益', 1, 3),
-(9600002, '2024-07-12 00:28:56', 0, '保本保收益', 1, 1),
-(9600003, '2026-01-24 16:41:08', 0, '内幕消息', 1, 2),
-(9600004, '2024-10-27 22:12:02', 0, '非法集资', 1, 2),
-(9600005, '2026-05-10 10:23:20', 0, '跑路', 1, 2),
-(9600006, '2026-04-27 12:56:54', 0, '老鼠仓', 1, 3),
-(9600007, '2025-09-25 10:14:50', 0, '股价操纵', 1, 2),
-(9600008, '2025-08-27 16:08:55', 0, '配资', 1, 3),
-(9600009, '2026-03-07 22:13:29', 0, '杠杆', 1, 2),
-(9600010, '2025-11-22 22:54:25', 0, '融资融券误导', 1, 2),
-(9600011, '2025-06-26 03:27:07', 0, '违规荐股', 1, 3),
-(9600012, '2024-09-29 21:22:14', 0, '违规代客理财', 1, 1),
-(9600013, '2026-04-12 09:21:06', 0, '无资质卖基金', 1, 1),
-(9600014, '2026-01-24 09:30:50', 0, '违规私募', 1, 2),
-(9600015, '2025-08-11 13:14:19', 0, '投顾越权', 1, 1),
-(9600016, '2026-04-01 23:11:25', 0, '违规现金分红', 1, 3),
-(9600017, '2024-04-19 12:19:58', 0, '刷单', 1, 1),
-(9600018, '2025-07-11 10:23:31', 0, '洗钱', 1, 3),
-(9600019, '2025-04-27 12:05:13', 0, '涉赌', 1, 2),
-(9600020, '2026-01-22 17:32:09', 0, '涉毒', 1, 1),
-(9600021, '2026-04-12 05:13:46', 0, '涉黄', 1, 1),
-(9600022, '2026-04-02 09:03:21', 0, '邪教', 1, 1),
-(9600023, '2025-10-03 08:29:51', 0, '宗教敏感', 1, 3),
-(9600024, '2024-07-26 04:58:16', 0, '境外资金', 1, 3),
-(9600025, '2025-07-22 19:37:03', 0, '政治敏感', 1, 3),
-(9600026, '2025-08-21 23:02:00', 0, '军队', 1, 3),
-(9600027, '2025-07-23 06:03:59', 0, '枪支', 1, 1),
-(9600028, '2025-01-19 12:49:34', 0, '武器', 1, 2),
-(9600029, '2025-03-14 21:49:16', 0, '反社会', 1, 1),
-(9600030, '2024-11-11 13:25:49', 0, '自杀', 1, 2),
-(9600031, '2025-04-05 20:03:17', 0, '客户隐私', 1, 3),
-(9600032, '2024-02-10 01:46:29', 0, '身份证泄露', 1, 2),
-(9600033, '2025-04-16 04:07:48', 0, '手机号泄露', 1, 2),
-(9600034, '2024-06-07 04:31:26', 0, '地址泄露', 1, 3),
-(9600035, '2025-05-27 23:37:14', 0, '银行卡泄露', 1, 3),
-(9600036, '2025-02-26 16:48:21', 0, '客户资产泄露', 1, 2),
-(9600037, '2024-05-28 19:09:34', 0, '家庭情况泄露', 1, 1),
-(9600038, '2024-12-15 08:14:59', 0, '家人姓名泄露', 1, 1),
-(9600039, '2024-09-27 18:46:25', 0, '客户健康泄露', 1, 2),
-(9600040, '2026-03-14 17:10:41', 0, '客户地理位置', 1, 1),
-(9600041, '2025-05-05 05:51:25', 0, '汇款', 1, 3),
-(9600042, '2024-05-29 19:38:37', 0, '跨境资金', 1, 1),
-(9600043, '2026-01-15 09:03:22', 0, '地下钱庄', 1, 1),
-(9600044, '2025-04-08 09:44:03', 0, '现金交易', 1, 3),
-(9600045, '2025-05-08 05:13:53', 0, '虚假宣传', 1, 1),
-(9600046, '2026-01-29 04:25:48', 0, '违规广告', 1, 1),
-(9600047, '2024-01-04 01:01:09', 0, '低俗营销', 1, 3),
-(9600048, '2026-04-30 19:03:30', 0, '私加微信', 1, 1),
-(9600049, '2025-09-12 17:18:28', 0, '私发红包', 1, 2),
-(9600050, '2026-04-10 04:48:44', 0, '私下交易', 1, 3);
+(9600001, '2026-01-21 06:33:07', 0, '承诺收益', 1, 3),
+(9600002, '2025-09-20 09:01:09', 0, '保本保收益', 1, 3),
+(9600003, '2024-01-16 20:04:08', 0, '内幕消息', 1, 1),
+(9600004, '2025-07-29 10:19:38', 0, '非法集资', 1, 1),
+(9600005, '2024-03-12 13:21:04', 0, '跑路', 1, 3),
+(9600006, '2024-05-23 13:22:02', 0, '老鼠仓', 1, 2),
+(9600007, '2024-08-17 16:54:56', 0, '股价操纵', 1, 3),
+(9600008, '2024-06-08 12:21:26', 0, '配资', 1, 3),
+(9600009, '2026-05-26 23:25:42', 0, '杠杆', 1, 3),
+(9600010, '2025-11-23 20:43:08', 0, '融资融券误导', 1, 1),
+(9600011, '2025-07-09 15:23:20', 0, '违规荐股', 1, 2),
+(9600012, '2025-07-29 16:20:53', 0, '违规代客理财', 1, 2),
+(9600013, '2024-10-08 23:52:10', 0, '无资质卖基金', 1, 2),
+(9600014, '2024-10-10 01:12:53', 0, '违规私募', 1, 2),
+(9600015, '2025-05-27 17:10:56', 0, '投顾越权', 1, 3),
+(9600016, '2025-07-22 17:55:17', 0, '违规现金分红', 1, 2),
+(9600017, '2024-12-28 20:50:36', 0, '刷单', 1, 1),
+(9600018, '2025-12-11 22:33:27', 0, '洗钱', 1, 2),
+(9600019, '2024-09-17 17:01:54', 0, '涉赌', 1, 1),
+(9600020, '2024-07-16 20:10:33', 0, '涉毒', 1, 1),
+(9600021, '2025-01-06 14:21:55', 0, '涉黄', 1, 1),
+(9600022, '2025-04-22 16:15:13', 0, '邪教', 1, 1),
+(9600023, '2024-01-12 12:23:29', 0, '宗教敏感', 1, 2),
+(9600024, '2024-10-27 06:11:20', 0, '境外资金', 1, 1),
+(9600025, '2024-09-05 07:48:57', 0, '政治敏感', 1, 2),
+(9600026, '2025-09-17 11:22:18', 0, '军队', 1, 2),
+(9600027, '2024-05-02 12:22:04', 0, '枪支', 1, 2),
+(9600028, '2025-11-23 07:18:00', 0, '武器', 1, 1),
+(9600029, '2024-02-11 06:26:45', 0, '反社会', 1, 3),
+(9600030, '2024-12-29 16:29:55', 0, '自杀', 1, 2),
+(9600031, '2025-08-16 06:16:52', 0, '客户隐私', 1, 3),
+(9600032, '2024-01-02 08:49:19', 0, '身份证泄露', 1, 1),
+(9600033, '2025-01-02 23:38:18', 0, '手机号泄露', 1, 2),
+(9600034, '2025-12-21 17:59:26', 0, '地址泄露', 1, 2),
+(9600035, '2024-07-23 20:45:25', 0, '银行卡泄露', 1, 2),
+(9600036, '2026-02-09 10:12:25', 0, '客户资产泄露', 1, 2),
+(9600037, '2024-04-27 16:42:54', 0, '家庭情况泄露', 1, 3),
+(9600038, '2025-07-10 12:22:32', 0, '家人姓名泄露', 1, 3),
+(9600039, '2026-01-05 08:44:45', 0, '客户健康泄露', 1, 3),
+(9600040, '2025-07-07 14:19:31', 0, '客户地理位置', 1, 2),
+(9600041, '2024-12-21 04:23:18', 0, '汇款', 1, 1),
+(9600042, '2024-04-19 16:01:57', 0, '跨境资金', 1, 3),
+(9600043, '2026-06-29 16:34:40', 0, '地下钱庄', 1, 2),
+(9600044, '2024-04-15 23:44:23', 0, '现金交易', 1, 3),
+(9600045, '2026-06-22 09:26:02', 0, '虚假宣传', 1, 2),
+(9600046, '2024-01-01 14:12:20', 0, '违规广告', 1, 1),
+(9600047, '2025-05-19 06:12:10', 0, '低俗营销', 1, 3),
+(9600048, '2025-01-24 20:45:49', 0, '私加微信', 1, 1),
+(9600049, '2026-02-18 20:09:43', 0, '私发红包', 1, 3),
+(9600050, '2025-05-17 17:16:37', 0, '私下交易', 1, 1);
 
 -- ========================================================================
 -- iyque_session_intercept_rule · 会话拦截规则
 -- ========================================================================
 INSERT INTO `iyque_session_intercept_rule` (`id`, `ruleName`, `sensitiveWords`, `staffIds`, `semantics`, `ruleId`, `interceptType`, `createTime`, `updateTime`, `delFlag`) VALUES
-(9700001, '承诺收益词拦截 · v1', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004', '1,2', 'rule_wx_0001', 1, '2025-10-21 04:38:32', '2026-01-20 09:55:58', 0),
-(9700002, '投顾越权词拦截 · v2', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003', '3', 'rule_wx_0002', 2, '2025-08-08 05:22:08', '2024-11-16 23:13:37', 0),
-(9700003, '内幕消息词拦截 · v3', '内幕,内幕消息,未公开信息', '100001,100002,100003', '1,2', 'rule_wx_0003', 1, '2024-12-26 10:06:47', '2024-12-17 07:10:59', 0),
-(9700004, '客户隐私词拦截 · v4', '身份证,银行卡,家庭住址', '100001,100002,100003,100004', '1,2', 'rule_wx_0004', 1, '2024-06-27 07:24:33', '2024-01-18 00:24:13', 0),
-(9700005, '竞品比较词 · v5', '竞品,同行,对手基金', '100001,100002,100003,100004,100005', '3', 'rule_wx_0005', 2, '2024-12-24 09:05:17', '2024-11-13 09:23:54', 0),
-(9700006, '宗教敏感词 · v6', '宗教,邪教', '100001,100002,100003,100004', '1,2', 'rule_wx_0006', 1, '2026-06-28 07:08:47', '2025-02-26 05:42:56', 0),
-(9700007, '政治敏感词 · v7', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0007', 1, '2024-06-22 23:19:38', '2025-04-03 15:02:04', 0),
-(9700008, '非法金融词 · v8', '配资,加杠杆,私募违规', '100001,100002,100003', '1,2', 'rule_wx_0008', 1, '2025-07-21 22:42:24', '2025-10-12 14:18:15', 0),
-(9700009, '私加微信 · v9', '加我微信,私聊,私发红包', '100001,100002,100003,100004,100005', '3', 'rule_wx_0009', 2, '2025-01-26 09:41:36', '2024-08-07 22:12:08', 0),
-(9700010, '虚假宣传 · v10', '第一,最好,最强,唯一', '100001,100002,100003,100004,100005', '3', 'rule_wx_0010', 2, '2025-10-23 17:36:08', '2025-04-12 14:40:06', 0),
-(9700011, '承诺收益词拦截 · v11', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002', '1,2', 'rule_wx_0011', 1, '2025-08-20 17:27:01', '2024-07-21 11:58:19', 0),
-(9700012, '投顾越权词拦截 · v12', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004', '3', 'rule_wx_0012', 2, '2024-09-22 11:40:02', '2026-03-31 14:47:45', 0),
-(9700013, '内幕消息词拦截 · v13', '内幕,内幕消息,未公开信息', '100001,100002,100003', '1,2', 'rule_wx_0013', 1, '2025-06-07 00:52:05', '2025-11-30 19:25:36', 0),
-(9700014, '客户隐私词拦截 · v14', '身份证,银行卡,家庭住址', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0014', 1, '2025-10-07 23:43:50', '2024-11-03 07:13:22', 0),
-(9700015, '竞品比较词 · v15', '竞品,同行,对手基金', '100001,100002', '3', 'rule_wx_0015', 2, '2026-03-01 03:03:39', '2024-03-22 07:58:06', 0),
-(9700016, '宗教敏感词 · v16', '宗教,邪教', '100001,100002,100003', '1,2', 'rule_wx_0016', 1, '2025-03-20 23:25:12', '2025-07-18 05:33:20', 0),
-(9700017, '政治敏感词 · v17', '台独,港独,藏独,疆独', '100001,100002,100003', '1,2', 'rule_wx_0017', 1, '2024-09-19 11:23:10', '2025-10-28 00:19:46', 0),
-(9700018, '非法金融词 · v18', '配资,加杠杆,私募违规', '100001,100002,100003,100004', '1,2', 'rule_wx_0018', 1, '2025-03-18 09:02:06', '2024-05-29 14:51:49', 0),
-(9700019, '私加微信 · v19', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0019', 2, '2026-01-07 17:48:26', '2025-03-04 06:47:04', 0),
-(9700020, '虚假宣传 · v20', '第一,最好,最强,唯一', '100001,100002,100003', '3', 'rule_wx_0020', 2, '2026-03-22 19:41:12', '2024-02-01 18:43:25', 0),
-(9700021, '承诺收益词拦截 · v21', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003', '1,2', 'rule_wx_0021', 1, '2026-03-24 06:12:39', '2025-02-26 09:13:53', 0),
-(9700022, '投顾越权词拦截 · v22', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004', '3', 'rule_wx_0022', 2, '2025-02-20 09:25:44', '2025-11-29 02:21:12', 0),
-(9700023, '内幕消息词拦截 · v23', '内幕,内幕消息,未公开信息', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0023', 1, '2026-01-24 20:17:03', '2026-01-01 12:54:50', 0),
-(9700024, '客户隐私词拦截 · v24', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0024', 1, '2024-04-12 00:03:24', '2026-05-14 19:52:06', 0),
-(9700025, '竞品比较词 · v25', '竞品,同行,对手基金', '100001,100002', '3', 'rule_wx_0025', 2, '2025-11-19 17:10:32', '2025-11-05 21:15:07', 0),
-(9700026, '宗教敏感词 · v26', '宗教,邪教', '100001,100002', '1,2', 'rule_wx_0026', 1, '2026-02-26 01:24:01', '2024-12-19 04:50:55', 0),
-(9700027, '政治敏感词 · v27', '台独,港独,藏独,疆独', '100001,100002,100003', '1,2', 'rule_wx_0027', 1, '2025-06-09 14:00:24', '2026-03-13 02:25:09', 0),
-(9700028, '非法金融词 · v28', '配资,加杠杆,私募违规', '100001,100002,100003,100004', '1,2', 'rule_wx_0028', 1, '2024-09-23 21:25:29', '2025-04-10 22:29:19', 0),
-(9700029, '私加微信 · v29', '加我微信,私聊,私发红包', '100001,100002,100003,100004,100005', '3', 'rule_wx_0029', 2, '2024-09-13 06:58:23', '2025-03-16 01:48:59', 0),
-(9700030, '虚假宣传 · v30', '第一,最好,最强,唯一', '100001,100002,100003,100004,100005', '3', 'rule_wx_0030', 2, '2024-01-11 13:31:49', '2024-11-11 06:32:00', 0),
-(9700031, '承诺收益词拦截 · v31', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0031', 1, '2025-08-06 09:58:19', '2025-07-18 12:36:53', 0),
-(9700032, '投顾越权词拦截 · v32', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002', '3', 'rule_wx_0032', 2, '2026-03-10 02:18:31', '2026-01-04 19:41:17', 0),
-(9700033, '内幕消息词拦截 · v33', '内幕,内幕消息,未公开信息', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0033', 1, '2025-02-06 22:34:54', '2024-03-20 03:06:55', 0),
-(9700034, '客户隐私词拦截 · v34', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0034', 1, '2025-11-10 00:50:47', '2025-08-11 02:39:31', 0),
-(9700035, '竞品比较词 · v35', '竞品,同行,对手基金', '100001,100002,100003', '3', 'rule_wx_0035', 2, '2025-01-21 05:38:47', '2025-09-17 15:08:55', 0),
-(9700036, '宗教敏感词 · v36', '宗教,邪教', '100001,100002,100003,100004', '1,2', 'rule_wx_0036', 1, '2026-05-10 14:12:36', '2024-07-29 06:33:58', 0),
-(9700037, '政治敏感词 · v37', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0037', 1, '2026-02-06 04:33:05', '2024-02-10 00:16:18', 0),
-(9700038, '非法金融词 · v38', '配资,加杠杆,私募违规', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0038', 1, '2025-05-14 02:31:55', '2024-01-05 04:11:52', 0),
-(9700039, '私加微信 · v39', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0039', 2, '2026-04-22 03:38:59', '2025-10-16 19:20:46', 0),
-(9700040, '虚假宣传 · v40', '第一,最好,最强,唯一', '100001,100002,100003', '3', 'rule_wx_0040', 2, '2024-11-23 21:37:57', '2026-05-27 17:11:21', 0),
-(9700041, '承诺收益词拦截 · v41', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002', '1,2', 'rule_wx_0041', 1, '2025-07-12 08:32:51', '2024-11-18 18:30:04', 0),
-(9700042, '投顾越权词拦截 · v42', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004', '3', 'rule_wx_0042', 2, '2026-05-03 10:30:16', '2024-11-04 18:50:48', 0),
-(9700043, '内幕消息词拦截 · v43', '内幕,内幕消息,未公开信息', '100001,100002', '1,2', 'rule_wx_0043', 1, '2026-03-12 12:57:46', '2024-03-02 22:38:22', 0),
-(9700044, '客户隐私词拦截 · v44', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0044', 1, '2024-02-05 01:24:43', '2025-07-16 20:06:02', 0),
-(9700045, '竞品比较词 · v45', '竞品,同行,对手基金', '100001,100002,100003,100004,100005', '3', 'rule_wx_0045', 2, '2024-07-24 19:22:23', '2025-02-23 17:34:31', 0),
-(9700046, '宗教敏感词 · v46', '宗教,邪教', '100001,100002,100003', '1,2', 'rule_wx_0046', 1, '2025-01-18 13:35:33', '2026-02-18 03:10:27', 0),
-(9700047, '政治敏感词 · v47', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0047', 1, '2026-03-01 15:41:00', '2024-10-29 18:27:37', 0),
-(9700048, '非法金融词 · v48', '配资,加杠杆,私募违规', '100001,100002', '1,2', 'rule_wx_0048', 1, '2025-03-20 04:54:00', '2024-01-04 16:01:30', 0),
-(9700049, '私加微信 · v49', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0049', 2, '2026-03-22 04:56:01', '2024-06-07 05:24:13', 0),
-(9700050, '虚假宣传 · v50', '第一,最好,最强,唯一', '100001,100002,100003,100004,100005', '3', 'rule_wx_0050', 2, '2025-07-26 23:08:33', '2026-04-24 01:51:55', 0),
-(9700051, '承诺收益词拦截 · v51', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0051', 1, '2026-06-13 17:05:31', '2024-08-02 21:07:16', 0),
-(9700052, '投顾越权词拦截 · v52', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004,100005', '3', 'rule_wx_0052', 2, '2026-04-20 23:02:00', '2026-03-31 21:03:09', 0),
-(9700053, '内幕消息词拦截 · v53', '内幕,内幕消息,未公开信息', '100001,100002,100003,100004', '1,2', 'rule_wx_0053', 1, '2024-04-16 12:22:02', '2025-11-02 07:30:12', 0),
-(9700054, '客户隐私词拦截 · v54', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0054', 1, '2024-06-14 13:43:30', '2024-02-12 15:54:29', 0),
-(9700055, '竞品比较词 · v55', '竞品,同行,对手基金', '100001,100002,100003,100004', '3', 'rule_wx_0055', 2, '2025-06-17 04:46:35', '2024-02-09 01:54:22', 0),
-(9700056, '宗教敏感词 · v56', '宗教,邪教', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0056', 1, '2025-09-16 13:36:39', '2025-07-04 14:56:23', 0),
-(9700057, '政治敏感词 · v57', '台独,港独,藏独,疆独', '100001,100002,100003', '1,2', 'rule_wx_0057', 1, '2024-02-14 02:15:34', '2024-12-14 16:41:00', 0),
-(9700058, '非法金融词 · v58', '配资,加杠杆,私募违规', '100001,100002,100003,100004', '1,2', 'rule_wx_0058', 1, '2025-11-23 03:50:48', '2024-07-05 22:32:46', 0),
-(9700059, '私加微信 · v59', '加我微信,私聊,私发红包', '100001,100002', '3', 'rule_wx_0059', 2, '2025-05-04 08:44:44', '2026-04-29 05:05:16', 0),
-(9700060, '虚假宣传 · v60', '第一,最好,最强,唯一', '100001,100002', '3', 'rule_wx_0060', 2, '2024-03-26 17:22:52', '2024-08-18 02:16:27', 0);
+(9700001, '承诺收益词拦截 · v1', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003', '1,2', 'rule_wx_0001', 1, '2026-01-22 14:40:57', '2024-06-01 05:45:59', 0),
+(9700002, '投顾越权词拦截 · v2', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003', '3', 'rule_wx_0002', 2, '2026-06-11 03:49:19', '2024-10-10 07:25:15', 0),
+(9700003, '内幕消息词拦截 · v3', '内幕,内幕消息,未公开信息', '100001,100002,100003', '1,2', 'rule_wx_0003', 1, '2024-04-13 00:49:34', '2024-03-21 16:55:39', 0),
+(9700004, '客户隐私词拦截 · v4', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0004', 1, '2025-10-09 20:10:40', '2024-10-28 13:11:51', 0),
+(9700005, '竞品比较词 · v5', '竞品,同行,对手基金', '100001,100002,100003,100004,100005', '3', 'rule_wx_0005', 2, '2026-05-05 15:58:02', '2025-01-08 02:59:40', 0),
+(9700006, '宗教敏感词 · v6', '宗教,邪教', '100001,100002,100003,100004', '1,2', 'rule_wx_0006', 1, '2025-06-10 01:29:40', '2024-07-04 12:00:44', 0),
+(9700007, '政治敏感词 · v7', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0007', 1, '2025-01-20 03:18:48', '2025-06-07 12:56:03', 0),
+(9700008, '非法金融词 · v8', '配资,加杠杆,私募违规', '100001,100002', '1,2', 'rule_wx_0008', 1, '2025-06-28 20:38:35', '2025-06-12 04:21:26', 0),
+(9700009, '私加微信 · v9', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0009', 2, '2024-04-06 09:18:02', '2025-10-12 15:15:14', 0),
+(9700010, '虚假宣传 · v10', '第一,最好,最强,唯一', '100001,100002,100003,100004,100005', '3', 'rule_wx_0010', 2, '2025-08-24 10:20:10', '2025-03-25 13:22:22', 0),
+(9700011, '承诺收益词拦截 · v11', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0011', 1, '2026-06-30 05:49:19', '2024-12-25 06:48:52', 0),
+(9700012, '投顾越权词拦截 · v12', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004,100005', '3', 'rule_wx_0012', 2, '2024-07-13 13:26:45', '2025-12-17 01:55:59', 0),
+(9700013, '内幕消息词拦截 · v13', '内幕,内幕消息,未公开信息', '100001,100002,100003', '1,2', 'rule_wx_0013', 1, '2025-11-28 15:01:19', '2025-12-22 04:10:42', 0),
+(9700014, '客户隐私词拦截 · v14', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0014', 1, '2024-01-23 03:44:51', '2024-02-07 22:01:32', 0),
+(9700015, '竞品比较词 · v15', '竞品,同行,对手基金', '100001,100002,100003,100004,100005', '3', 'rule_wx_0015', 2, '2026-06-04 11:46:29', '2024-07-19 19:27:24', 0),
+(9700016, '宗教敏感词 · v16', '宗教,邪教', '100001,100002,100003', '1,2', 'rule_wx_0016', 1, '2025-09-16 08:20:30', '2024-07-31 06:06:56', 0),
+(9700017, '政治敏感词 · v17', '台独,港独,藏独,疆独', '100001,100002,100003,100004', '1,2', 'rule_wx_0017', 1, '2024-10-11 09:10:38', '2025-10-14 06:38:34', 0),
+(9700018, '非法金融词 · v18', '配资,加杠杆,私募违规', '100001,100002', '1,2', 'rule_wx_0018', 1, '2025-10-16 10:36:00', '2026-04-29 04:41:49', 0),
+(9700019, '私加微信 · v19', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0019', 2, '2026-03-28 20:47:56', '2026-06-21 04:57:25', 0),
+(9700020, '虚假宣传 · v20', '第一,最好,最强,唯一', '100001,100002,100003,100004', '3', 'rule_wx_0020', 2, '2025-04-13 14:05:22', '2024-06-07 04:33:23', 0),
+(9700021, '承诺收益词拦截 · v21', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0021', 1, '2024-12-05 03:12:51', '2024-10-21 16:09:07', 0),
+(9700022, '投顾越权词拦截 · v22', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003', '3', 'rule_wx_0022', 2, '2025-12-19 10:14:24', '2024-09-17 15:59:49', 0),
+(9700023, '内幕消息词拦截 · v23', '内幕,内幕消息,未公开信息', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0023', 1, '2025-12-09 05:42:03', '2026-06-27 03:29:03', 0),
+(9700024, '客户隐私词拦截 · v24', '身份证,银行卡,家庭住址', '100001,100002,100003', '1,2', 'rule_wx_0024', 1, '2024-06-06 18:00:01', '2024-10-08 19:45:58', 0),
+(9700025, '竞品比较词 · v25', '竞品,同行,对手基金', '100001,100002,100003,100004', '3', 'rule_wx_0025', 2, '2024-10-10 20:56:52', '2025-09-15 22:38:02', 0),
+(9700026, '宗教敏感词 · v26', '宗教,邪教', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0026', 1, '2025-04-05 04:30:22', '2025-07-02 07:53:28', 0),
+(9700027, '政治敏感词 · v27', '台独,港独,藏独,疆独', '100001,100002,100003,100004', '1,2', 'rule_wx_0027', 1, '2025-04-29 22:34:06', '2025-07-29 03:46:59', 0),
+(9700028, '非法金融词 · v28', '配资,加杠杆,私募违规', '100001,100002', '1,2', 'rule_wx_0028', 1, '2024-01-23 05:42:50', '2026-04-22 13:27:09', 0),
+(9700029, '私加微信 · v29', '加我微信,私聊,私发红包', '100001,100002,100003,100004,100005', '3', 'rule_wx_0029', 2, '2024-04-11 14:19:42', '2025-07-08 14:39:07', 0),
+(9700030, '虚假宣传 · v30', '第一,最好,最强,唯一', '100001,100002,100003', '3', 'rule_wx_0030', 2, '2024-09-03 12:04:01', '2026-06-07 08:56:54', 0),
+(9700031, '承诺收益词拦截 · v31', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003,100004', '1,2', 'rule_wx_0031', 1, '2025-05-24 13:49:49', '2024-08-12 07:15:40', 0),
+(9700032, '投顾越权词拦截 · v32', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004', '3', 'rule_wx_0032', 2, '2024-11-28 08:19:06', '2025-09-18 08:38:50', 0),
+(9700033, '内幕消息词拦截 · v33', '内幕,内幕消息,未公开信息', '100001,100002', '1,2', 'rule_wx_0033', 1, '2024-03-04 18:47:37', '2024-03-04 08:24:26', 0),
+(9700034, '客户隐私词拦截 · v34', '身份证,银行卡,家庭住址', '100001,100002', '1,2', 'rule_wx_0034', 1, '2026-01-13 14:25:58', '2026-05-27 00:50:01', 0),
+(9700035, '竞品比较词 · v35', '竞品,同行,对手基金', '100001,100002,100003,100004,100005', '3', 'rule_wx_0035', 2, '2024-11-09 04:59:16', '2026-06-09 21:06:57', 0),
+(9700036, '宗教敏感词 · v36', '宗教,邪教', '100001,100002,100003', '1,2', 'rule_wx_0036', 1, '2026-01-06 04:52:15', '2025-11-10 18:15:18', 0),
+(9700037, '政治敏感词 · v37', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0037', 1, '2026-05-03 10:25:07', '2024-12-22 23:57:43', 0),
+(9700038, '非法金融词 · v38', '配资,加杠杆,私募违规', '100001,100002', '1,2', 'rule_wx_0038', 1, '2024-05-04 17:17:31', '2025-03-10 06:17:16', 0),
+(9700039, '私加微信 · v39', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0039', 2, '2025-10-26 15:56:30', '2025-06-01 16:28:34', 0),
+(9700040, '虚假宣传 · v40', '第一,最好,最强,唯一', '100001,100002', '3', 'rule_wx_0040', 2, '2025-09-24 19:10:49', '2025-04-06 00:57:49', 0),
+(9700041, '承诺收益词拦截 · v41', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002', '1,2', 'rule_wx_0041', 1, '2025-04-02 20:05:18', '2025-02-07 20:17:29', 0),
+(9700042, '投顾越权词拦截 · v42', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003,100004', '3', 'rule_wx_0042', 2, '2025-06-02 06:05:41', '2025-05-21 17:06:18', 0),
+(9700043, '内幕消息词拦截 · v43', '内幕,内幕消息,未公开信息', '100001,100002,100003', '1,2', 'rule_wx_0043', 1, '2024-07-29 10:50:18', '2024-03-31 07:10:10', 0),
+(9700044, '客户隐私词拦截 · v44', '身份证,银行卡,家庭住址', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0044', 1, '2026-03-10 13:25:31', '2025-04-26 17:11:54', 0),
+(9700045, '竞品比较词 · v45', '竞品,同行,对手基金', '100001,100002,100003', '3', 'rule_wx_0045', 2, '2024-02-19 05:55:31', '2024-12-26 08:18:19', 0),
+(9700046, '宗教敏感词 · v46', '宗教,邪教', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0046', 1, '2024-01-21 07:23:35', '2026-02-20 10:50:04', 0),
+(9700047, '政治敏感词 · v47', '台独,港独,藏独,疆独', '100001,100002,100003,100004,100005', '1,2', 'rule_wx_0047', 1, '2024-09-13 21:39:46', '2024-02-06 21:36:46', 0),
+(9700048, '非法金融词 · v48', '配资,加杠杆,私募违规', '100001,100002,100003', '1,2', 'rule_wx_0048', 1, '2025-07-10 15:00:33', '2026-02-25 20:59:06', 0),
+(9700049, '私加微信 · v49', '加我微信,私聊,私发红包', '100001,100002,100003', '3', 'rule_wx_0049', 2, '2025-11-03 15:30:26', '2024-06-27 06:27:30', 0),
+(9700050, '虚假宣传 · v50', '第一,最好,最强,唯一', '100001,100002,100003', '3', 'rule_wx_0050', 2, '2025-07-29 22:52:52', '2024-10-30 15:07:20', 0),
+(9700051, '承诺收益词拦截 · v51', '保本,保收益,承诺收益,年化保本,最低收益', '100001,100002,100003', '1,2', 'rule_wx_0051', 1, '2025-10-06 00:05:49', '2024-01-19 21:58:40', 0),
+(9700052, '投顾越权词拦截 · v52', '买入,卖出,建仓,清仓,加仓,减仓,止盈,止损', '100001,100002,100003', '3', 'rule_wx_0052', 2, '2024-07-03 15:19:08', '2024-03-02 10:26:52', 0),
+(9700053, '内幕消息词拦截 · v53', '内幕,内幕消息,未公开信息', '100001,100002,100003,100004', '1,2', 'rule_wx_0053', 1, '2025-05-06 15:14:28', '2025-05-23 08:47:23', 0),
+(9700054, '客户隐私词拦截 · v54', '身份证,银行卡,家庭住址', '100001,100002', '1,2', 'rule_wx_0054', 1, '2024-01-27 07:45:20', '2024-08-15 07:39:23', 0),
+(9700055, '竞品比较词 · v55', '竞品,同行,对手基金', '100001,100002', '3', 'rule_wx_0055', 2, '2025-10-25 17:47:59', '2024-08-03 00:19:47', 0),
+(9700056, '宗教敏感词 · v56', '宗教,邪教', '100001,100002,100003', '1,2', 'rule_wx_0056', 1, '2024-11-26 06:18:20', '2026-05-03 14:09:00', 0),
+(9700057, '政治敏感词 · v57', '台独,港独,藏独,疆独', '100001,100002', '1,2', 'rule_wx_0057', 1, '2026-03-17 14:30:08', '2025-11-13 20:54:54', 0),
+(9700058, '非法金融词 · v58', '配资,加杠杆,私募违规', '100001,100002,100003,100004', '1,2', 'rule_wx_0058', 1, '2025-07-01 07:17:30', '2024-09-29 12:25:07', 0),
+(9700059, '私加微信 · v59', '加我微信,私聊,私发红包', '100001,100002,100003,100004,100005', '3', 'rule_wx_0059', 2, '2026-04-28 01:42:06', '2024-07-28 00:40:13', 0),
+(9700060, '虚假宣传 · v60', '第一,最好,最强,唯一', '100001,100002', '3', 'rule_wx_0060', 2, '2024-10-16 09:26:16', '2025-01-01 20:43:42', 0);
 
 -- ========================================================================
 -- iyque_default_msg · 默认欢迎语
@@ -3708,65 +4157,65 @@ INSERT INTO `iyque_annex_period` (`id`, `beginTime`, `endTime`, `msgId`, `weclom
 -- ========================================================================
 INSERT INTO `iyque_period_msg_annex` (`id`, `annexContent`, `annexPeroidId`, `msgtype`) VALUES
 (10000001, '[附件] 巴菲特建仓可口可乐 摘要 v1', 9900001, 'link'),
-(10000002, '[附件] See\'s Candies 收购 摘要 v2', 9900002, 'file'),
-(10000003, '[附件] 高盛优先股 摘要 v3', 9900003, 'link'),
+(10000002, '[附件] See\'s Candies 收购 摘要 v2', 9900002, 'text'),
+(10000003, '[附件] 高盛优先股 摘要 v3', 9900003, 'file'),
 (10000004, '[附件] 巴菲特买苹果 摘要 v4', 9900004, 'file'),
 (10000005, '[附件] 日本五大商社 摘要 v5', 9900005, 'text'),
 (10000006, '[附件] 网易 1 美元抄底 摘要 v6', 9900006, 'image'),
-(10000007, '[附件] 拼多多种子期 摘要 v7', 9900007, 'link'),
-(10000008, '[附件] 林园持有茅台 摘要 v8', 9900008, 'file'),
-(10000009, '[附件] 但斌抄底腾讯 摘要 v9', 9900009, 'file'),
-(10000010, '[附件] 海天味业上市 摘要 v10', 9900010, 'link'),
-(10000011, '[附件] 美团千亿再造 摘要 v11', 9900011, 'file'),
-(10000012, '[附件] 华盛顿邮报 摘要 v12', 9900012, 'text'),
-(10000013, '[附件] 巴菲特减持比亚迪 摘要 v13', 9900013, 'file'),
-(10000014, '[附件] 巴菲特建仓中石油 摘要 v14', 9900014, 'text'),
+(10000007, '[附件] 拼多多种子期 摘要 v7', 9900007, 'image'),
+(10000008, '[附件] 林园持有茅台 摘要 v8', 9900008, 'text'),
+(10000009, '[附件] 但斌抄底腾讯 摘要 v9', 9900009, 'image'),
+(10000010, '[附件] 海天味业上市 摘要 v10', 9900010, 'file'),
+(10000011, '[附件] 美团千亿再造 摘要 v11', 9900011, 'link'),
+(10000012, '[附件] 华盛顿邮报 摘要 v12', 9900012, 'file'),
+(10000013, '[附件] 巴菲特减持比亚迪 摘要 v13', 9900013, 'link'),
+(10000014, '[附件] 巴菲特建仓中石油 摘要 v14', 9900014, 'file'),
 (10000015, '[附件] 美国运通色拉油危机 摘要 v15', 9900015, 'image'),
-(10000016, '[附件] 茅台十年 60 倍 摘要 v16', 9900016, 'text'),
-(10000017, '[附件] 港股互联网监管危机 摘要 v17', 9900017, 'file'),
-(10000018, '[附件] 麦哲伦基金 29% CAGR 摘要 v18', 9900018, 'image'),
-(10000019, '[附件] 白酒塑化剂危机 摘要 v19', 9900019, 'text'),
-(10000020, '[附件] 宁德时代千亿 摘要 v20', 9900020, 'link'),
-(10000021, '[附件] 巴菲特建仓可口可乐 摘要 v21', 9900021, 'link'),
-(10000022, '[附件] See\'s Candies 收购 摘要 v22', 9900022, 'image'),
-(10000023, '[附件] 高盛优先股 摘要 v23', 9900023, 'text'),
+(10000016, '[附件] 茅台十年 60 倍 摘要 v16', 9900016, 'file'),
+(10000017, '[附件] 港股互联网监管危机 摘要 v17', 9900017, 'image'),
+(10000018, '[附件] 麦哲伦基金 29% CAGR 摘要 v18', 9900018, 'file'),
+(10000019, '[附件] 白酒塑化剂危机 摘要 v19', 9900019, 'file'),
+(10000020, '[附件] 宁德时代千亿 摘要 v20', 9900020, 'text'),
+(10000021, '[附件] 巴菲特建仓可口可乐 摘要 v21', 9900021, 'text'),
+(10000022, '[附件] See\'s Candies 收购 摘要 v22', 9900022, 'file'),
+(10000023, '[附件] 高盛优先股 摘要 v23', 9900023, 'file'),
 (10000024, '[附件] 巴菲特买苹果 摘要 v24', 9900024, 'text'),
-(10000025, '[附件] 日本五大商社 摘要 v25', 9900025, 'image'),
-(10000026, '[附件] 网易 1 美元抄底 摘要 v26', 9900026, 'image'),
+(10000025, '[附件] 日本五大商社 摘要 v25', 9900025, 'link'),
+(10000026, '[附件] 网易 1 美元抄底 摘要 v26', 9900026, 'link'),
 (10000027, '[附件] 拼多多种子期 摘要 v27', 9900027, 'image'),
-(10000028, '[附件] 林园持有茅台 摘要 v28', 9900028, 'file'),
+(10000028, '[附件] 林园持有茅台 摘要 v28', 9900028, 'link'),
 (10000029, '[附件] 但斌抄底腾讯 摘要 v29', 9900029, 'text'),
-(10000030, '[附件] 海天味业上市 摘要 v30', 9900030, 'link'),
-(10000031, '[附件] 美团千亿再造 摘要 v31', 9900031, 'link'),
+(10000030, '[附件] 海天味业上市 摘要 v30', 9900030, 'file'),
+(10000031, '[附件] 美团千亿再造 摘要 v31', 9900031, 'text'),
 (10000032, '[附件] 华盛顿邮报 摘要 v32', 9900032, 'text'),
-(10000033, '[附件] 巴菲特减持比亚迪 摘要 v33', 9900033, 'link'),
-(10000034, '[附件] 巴菲特建仓中石油 摘要 v34', 9900034, 'image'),
-(10000035, '[附件] 美国运通色拉油危机 摘要 v35', 9900035, 'text'),
-(10000036, '[附件] 茅台十年 60 倍 摘要 v36', 9900036, 'text'),
+(10000033, '[附件] 巴菲特减持比亚迪 摘要 v33', 9900033, 'image'),
+(10000034, '[附件] 巴菲特建仓中石油 摘要 v34', 9900034, 'link'),
+(10000035, '[附件] 美国运通色拉油危机 摘要 v35', 9900035, 'link'),
+(10000036, '[附件] 茅台十年 60 倍 摘要 v36', 9900036, 'link'),
 (10000037, '[附件] 港股互联网监管危机 摘要 v37', 9900037, 'link'),
-(10000038, '[附件] 麦哲伦基金 29% CAGR 摘要 v38', 9900038, 'link'),
-(10000039, '[附件] 白酒塑化剂危机 摘要 v39', 9900039, 'file'),
-(10000040, '[附件] 宁德时代千亿 摘要 v40', 9900040, 'file'),
-(10000041, '[附件] 巴菲特建仓可口可乐 摘要 v41', 9900041, 'text'),
+(10000038, '[附件] 麦哲伦基金 29% CAGR 摘要 v38', 9900038, 'text'),
+(10000039, '[附件] 白酒塑化剂危机 摘要 v39', 9900039, 'text'),
+(10000040, '[附件] 宁德时代千亿 摘要 v40', 9900040, 'image'),
+(10000041, '[附件] 巴菲特建仓可口可乐 摘要 v41', 9900041, 'image'),
 (10000042, '[附件] See\'s Candies 收购 摘要 v42', 9900042, 'file'),
-(10000043, '[附件] 高盛优先股 摘要 v43', 9900043, 'text'),
-(10000044, '[附件] 巴菲特买苹果 摘要 v44', 9900044, 'file'),
+(10000043, '[附件] 高盛优先股 摘要 v43', 9900043, 'image'),
+(10000044, '[附件] 巴菲特买苹果 摘要 v44', 9900044, 'text'),
 (10000045, '[附件] 日本五大商社 摘要 v45', 9900045, 'file'),
 (10000046, '[附件] 网易 1 美元抄底 摘要 v46', 9900046, 'file'),
-(10000047, '[附件] 拼多多种子期 摘要 v47', 9900047, 'link'),
-(10000048, '[附件] 林园持有茅台 摘要 v48', 9900048, 'link'),
-(10000049, '[附件] 但斌抄底腾讯 摘要 v49', 9900049, 'image'),
-(10000050, '[附件] 海天味业上市 摘要 v50', 9900050, 'file'),
-(10000051, '[附件] 美团千亿再造 摘要 v51', 9900051, 'file'),
+(10000047, '[附件] 拼多多种子期 摘要 v47', 9900047, 'image'),
+(10000048, '[附件] 林园持有茅台 摘要 v48', 9900048, 'text'),
+(10000049, '[附件] 但斌抄底腾讯 摘要 v49', 9900049, 'link'),
+(10000050, '[附件] 海天味业上市 摘要 v50', 9900050, 'link'),
+(10000051, '[附件] 美团千亿再造 摘要 v51', 9900051, 'link'),
 (10000052, '[附件] 华盛顿邮报 摘要 v52', 9900052, 'image'),
-(10000053, '[附件] 巴菲特减持比亚迪 摘要 v53', 9900053, 'text'),
-(10000054, '[附件] 巴菲特建仓中石油 摘要 v54', 9900054, 'file'),
-(10000055, '[附件] 美国运通色拉油危机 摘要 v55', 9900055, 'link'),
-(10000056, '[附件] 茅台十年 60 倍 摘要 v56', 9900056, 'file'),
-(10000057, '[附件] 港股互联网监管危机 摘要 v57', 9900057, 'image'),
-(10000058, '[附件] 麦哲伦基金 29% CAGR 摘要 v58', 9900058, 'file'),
-(10000059, '[附件] 白酒塑化剂危机 摘要 v59', 9900059, 'image'),
-(10000060, '[附件] 宁德时代千亿 摘要 v60', 9900060, 'image');
+(10000053, '[附件] 巴菲特减持比亚迪 摘要 v53', 9900053, 'image'),
+(10000054, '[附件] 巴菲特建仓中石油 摘要 v54', 9900054, 'link'),
+(10000055, '[附件] 美国运通色拉油危机 摘要 v55', 9900055, 'text'),
+(10000056, '[附件] 茅台十年 60 倍 摘要 v56', 9900056, 'text'),
+(10000057, '[附件] 港股互联网监管危机 摘要 v57', 9900057, 'link'),
+(10000058, '[附件] 麦哲伦基金 29% CAGR 摘要 v58', 9900058, 'link'),
+(10000059, '[附件] 白酒塑化剂危机 摘要 v59', 9900059, 'text'),
+(10000060, '[附件] 宁德时代千亿 摘要 v60', 9900060, 'file');
 
 -- ========================================================================
 -- iyque_config · 企微配置（演示占位）
@@ -3782,14 +4231,14 @@ INSERT INTO `iyque_config` (`id`, `agentId`, `agentSecert`, `corpId`, `encodingA
 -- iyque_synch_data_record · 数据同步游标（演示占位）
 -- ========================================================================
 INSERT INTO `iyque_synch_data_record` (`id`, `createTime`, `nextCursor`, `synchDataType`) VALUES
-(11100001, '2026-03-10 06:55:54', 'cursor_synch_000001', 3),
-(11100002, '2025-04-22 09:00:04', 'cursor_synch_000002', 3),
-(11100003, '2025-12-04 09:30:55', 'cursor_synch_000003', 1),
-(11100004, '2025-07-11 15:38:26', 'cursor_synch_000004', 2),
-(11100005, '2024-05-20 21:06:25', 'cursor_synch_000005', 2),
-(11100006, '2025-04-15 05:42:04', 'cursor_synch_000006', 3),
-(11100007, '2024-08-09 06:06:36', 'cursor_synch_000007', 3),
-(11100008, '2026-02-21 09:48:58', 'cursor_synch_000008', 2),
-(11100009, '2024-08-09 17:17:35', 'cursor_synch_000009', 2),
-(11100010, '2025-03-22 12:40:31', 'cursor_synch_000010', 1);
+(11100001, '2024-06-08 09:36:07', 'cursor_synch_000001', 2),
+(11100002, '2024-03-15 03:30:36', 'cursor_synch_000002', 3),
+(11100003, '2024-10-18 12:52:46', 'cursor_synch_000003', 3),
+(11100004, '2026-05-28 21:35:31', 'cursor_synch_000004', 1),
+(11100005, '2024-07-19 02:57:40', 'cursor_synch_000005', 2),
+(11100006, '2025-11-09 19:30:56', 'cursor_synch_000006', 2),
+(11100007, '2026-01-21 01:04:21', 'cursor_synch_000007', 1),
+(11100008, '2026-02-24 08:36:11', 'cursor_synch_000008', 1),
+(11100009, '2025-07-06 23:32:08', 'cursor_synch_000009', 2),
+(11100010, '2024-04-23 20:50:16', 'cursor_synch_000010', 3);
 SET FOREIGN_KEY_CHECKS = 1;
