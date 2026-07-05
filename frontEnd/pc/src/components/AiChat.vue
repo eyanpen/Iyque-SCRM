@@ -770,7 +770,15 @@ const loadSettings = () => {
 const loadAvailableModels = async () => {
   try {
     const response = await getAvailableModels()
-    if (response && Array.isArray(response)) {
+    // 后端 /iYqueAi/models 返回 { code, data: ["chat", ...] }
+    // request wrapper 已把顶层脱壳, 这里 response 直接是数组 (或 undefined)
+    const list = Array.isArray(response) ? response
+               : Array.isArray(response?.data) ? response.data
+               : []
+    availableModels.value = list
+    // 若当前 settings.modelName 不在可用列表里 (旧会话遗留 / 空), 自动落到第一个可用 alias
+    if (list.length > 0 && !list.includes(settings.modelName)) {
+      settings.modelName = list[0]
     }
   } catch (error) {
     console.error('[AI Chat] 加载模型列表失败:', error)
@@ -837,6 +845,16 @@ const sendMessage = async () => {
     }
     
     const chatSettings = currentChat.value?.settings || settings
+    // 兜底: 会话的 modelName 可能是旧 seed 数据里的 alias (如历史遗留的 GLM-5.2-FP8),
+    // 已不在后端 /iYqueAi/models 返回的启用列表里。这里自动落到当前可用的第一个 alias,
+    // 避免用户拿到 "流式模型未启用或配置缺失" 的报错。
+    if (availableModels.value.length > 0 &&
+        (!chatSettings.modelName || !availableModels.value.includes(chatSettings.modelName))) {
+      const original = chatSettings.modelName
+      chatSettings.modelName = availableModels.value[0]
+      console.warn('[AI Chat] modelName [%s] 不在启用列表, 自动切换为 [%s]',
+                   original, chatSettings.modelName)
+    }
     if (!chatSettings.modelName) {
       ElMessage.warning('请先选择AI模型')
       return
