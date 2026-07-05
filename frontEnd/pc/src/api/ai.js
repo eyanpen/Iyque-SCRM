@@ -1,5 +1,13 @@
 import request from '@/utils/request'
 
+// SSE 端点必须自己 fetch (不能走 axios 封装), 但 base URL 逻辑要与 request.js 保持一致:
+//   dev  → /api   (Vite proxy 转发到本地后端)
+//   prod → window.sysConfig.BASE_API  (Apache /iyque/ 反代)
+// 参见 pc/src/utils/request.js:10
+const SSE_BASE = process.env.NODE_ENV === 'development'
+  ? '/api'
+  : window.sysConfig.BASE_API
+
 export function chatWithMemory(data) {
   return request({
     url: '/iYqueAi/chatWithMemory',
@@ -23,7 +31,7 @@ export function getFunctionRoutes() {
 }
 
 export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
-  const url = '/api/iYqueAi/chatWithMemoryStream'
+  const url = `${SSE_BASE}/iYqueAi/chatWithMemoryStream`
   
   return new Promise((resolve, reject) => {
     let fullResponse = ''
@@ -166,7 +174,7 @@ export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
 }
 
 export function navigationChatStream(data, onMessage, onError, onComplete) {
-  const url = '/api/iYqueAi/navigationChatStream'
+  const url = `${SSE_BASE}/iYqueAi/navigationChatStream`
   
   return new Promise((resolve, reject) => {
     let fullResponse = ''
