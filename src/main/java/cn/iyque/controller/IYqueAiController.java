@@ -1,10 +1,14 @@
 package cn.iyque.controller;
 
 import cn.iyque.constant.HttpStatus;
+import cn.iyque.dao.IYqueKnowledgeAttachDao;
+import cn.iyque.dao.IYqueKnowledgeFragmentDao;
 import cn.iyque.domain.ResponseResult;
 import cn.iyque.domain.FunctionRoute;
 import cn.iyque.domain.AiChatRequest;
 import cn.iyque.domain.EmbeddingResponse;
+import cn.iyque.entity.IYqueKnowledgeAttach;
+import cn.iyque.entity.IYqueKnowledgeFragment;
 import cn.iyque.exception.IYqueException;
 import cn.iyque.factory.AiModelFactory;
 import cn.iyque.service.IYqueAiService;
@@ -13,13 +17,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * AI控制器
@@ -37,6 +45,72 @@ public class IYqueAiController {
     
     @Autowired
     private FunctionRouteService functionRouteService;
+
+    @Autowired
+    private IYqueKnowledgeFragmentDao yqueKnowledgeFragmentDao;
+
+    @Autowired
+    private IYqueKnowledgeAttachDao yqueKnowledgeAttachDao;
+
+    /**
+     * RAG 引用详情查询。前端点击 [资料 N] 时用 fid 来这里拉全量内容 + 附件元信息。
+     *
+     * 返回字段:
+     *   fid, kid, docId, idx (在原文档里的分片序号), content, createTime
+     *   docName (来自 iyque_knowledge_attach)
+     *   docType
+     *   downloadUrl  相对路径, 前端直接拼 baseURL 后可下载原始文件
+     */
+    @GetMapping("/rag/fragment/{fid}")
+    public ResponseResult<Map<String, Object>> getRagFragment(@PathVariable Long fid) {
+        Optional<IYqueKnowledgeFragment> opt = yqueKnowledgeFragmentDao.findById(fid);
+        if (!opt.isPresent()) {
+            // 语义上"记录不存在"不是异常, 用 code=200 + data=null 让前端安静地展示
+            // "未找到" 而不是弹全局红色 Notification.error。同时保留 msg 供前端展示原因。
+            Map<String, Object> notFound = new HashMap<>();
+            notFound.put("fid", String.valueOf(fid));
+            notFound.put("notFound", true);
+            ResponseResult<Map<String, Object>> resp = new ResponseResult<>(notFound);
+            resp.setMsg("片段不存在或已被删除: " + fid);
+            return resp;
+        }
+        IYqueKnowledgeFragment frag = opt.get();
+        Map<String, Object> data = new HashMap<>();
+        data.put("fid", String.valueOf(frag.getId()));   // Long -> String 避免 JS 精度丢失
+        data.put("kid", frag.getKid() != null ? String.valueOf(frag.getKid()) : null);
+        data.put("docId", frag.getDocId() != null ? String.valueOf(frag.getDocId()) : null);
+        data.put("idx", frag.getIdx());
+        data.put("content", frag.getContent());
+        data.put("createTime", frag.getCreateTime());
+
+        if (frag.getDocId() != null) {
+            Optional<IYqueKnowledgeAttach> attachOpt = yqueKnowledgeAttachDao.findById(frag.getDocId());
+            if (attachOpt.isPresent()) {
+                IYqueKnowledgeAttach attach = attachOpt.get();
+                data.put("docName", attach.getDocName());
+                data.put("docType", attach.getDocType());
+                data.put("downloadUrl", "/knowledge/attach/download/" + attach.getId());
+                // 探测原始文件是否真的在磁盘上, 前端据此决定"下载"按钮 disable 与否。
+                // 与 downloadAttach 的路径策略保持一致: 优先 upload/<docId>_<docName>, 兜底 upload/<docName>
+                boolean fileAvailable = false;
+                try {
+                    java.nio.file.Path base = java.nio.file.Paths.get(
+                            System.getProperty("iyque.upload.dir", "upload")).toAbsolutePath().normalize();
+                    java.nio.file.Path c1 = base.resolve(attach.getId() + "_" + attach.getDocName()).normalize();
+                    java.nio.file.Path c2 = base.resolve(attach.getDocName()).normalize();
+                    fileAvailable =
+                            (c1.startsWith(base) && c1.toFile().isFile()) ||
+                            (c2.startsWith(base) && c2.toFile().isFile());
+                } catch (Exception ignore) { /* fileAvailable stays false */ }
+                data.put("fileAvailable", fileAvailable);
+            } else {
+                data.put("fileAvailable", false);
+            }
+        } else {
+            data.put("fileAvailable", false);
+        }
+        return new ResponseResult<>(data);
+    }
     
     /**
      * 获取可用的聊天模型列表
@@ -142,7 +216,8 @@ public class IYqueAiController {
                     request.getModelName(),
                     request.getRole(),
                     request.getTemperature(),
-                    request.getTopP())
+                    request.getTopP(),
+                    request.getKid())
                     .map(content -> ServerSentEvent.<String>builder()
                             .data(content)
                             .build())

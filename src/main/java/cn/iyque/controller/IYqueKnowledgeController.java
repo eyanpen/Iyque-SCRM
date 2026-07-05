@@ -3,6 +3,7 @@ package cn.iyque.controller;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.iyque.chain.vectorstore.IYqueVectorStore;
+import cn.iyque.dao.IYqueKnowledgeAttachDao;
 import cn.iyque.domain.KnowledgeInfoUploadRequest;
 import cn.iyque.domain.ResponseResult;
 import cn.iyque.entity.IYqueKnowledgeAttach;
@@ -12,12 +13,26 @@ import cn.iyque.service.*;
 import cn.iyque.utils.TableSupport;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.File;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -38,6 +53,70 @@ public class IYqueKnowledgeController {
 
     @Autowired
     private IYqueKnowledgeFragmentService yqueKnowledgeFragmentService;
+
+    @Autowired
+    private IYqueKnowledgeAttachDao yqueKnowledgeAttachDao;
+
+    /**
+     * 上传目录, 与 storeContent 保存路径对齐。缺省 upload/ 相对于 backend 工作目录 (Iyque-SCRM/).
+     * 想改成绝对路径就在 conf.yaml 里加 iyque.upload.dir=/data/scrm/upload
+     */
+    @Value("${iyque.upload.dir:upload}")
+    private String uploadDir;
+
+    /**
+     * 下载原始附件（供 RAG citation 弹窗的"下载原始文件"按钮使用）。
+     *
+     * 文件查找策略（按顺序尝试，命中即返回）：
+     *   1) uploadDir/<docId>_<docName>   （新上传流程未来会用这个前缀）
+     *   2) uploadDir/<docName>           （当前 demo PDFs 直接叫原名放在这里）
+     * 都不存在返回 404。
+     */
+    @GetMapping("/attach/download/{docId}")
+    public ResponseEntity<Resource> downloadAttach(@PathVariable Long docId) {
+        Optional<IYqueKnowledgeAttach> opt = yqueKnowledgeAttachDao.findById(docId);
+        if (!opt.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        IYqueKnowledgeAttach attach = opt.get();
+        String docName = attach.getDocName();
+        if (docName == null || docName.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Path base = Paths.get(uploadDir).toAbsolutePath().normalize();
+        Path candidate1 = base.resolve(docId + "_" + docName).normalize();
+        Path candidate2 = base.resolve(docName).normalize();
+
+        File found = null;
+        // 防目录穿越: 解析后的路径必须仍以 base 开头
+        if (candidate1.startsWith(base) && candidate1.toFile().isFile()) {
+            found = candidate1.toFile();
+        } else if (candidate2.startsWith(base) && candidate2.toFile().isFile()) {
+            found = candidate2.toFile();
+        }
+        if (found == null) {
+            log.warn("attach 下载失败: docId={} docName={} 在 {} 下找不到文件", docId, docName, base);
+            return ResponseEntity.notFound().build();
+        }
+
+        FileSystemResource resource = new FileSystemResource(found);
+        // Content-Disposition 里的中文文件名需要 URL 编码 (RFC 5987)
+        String encoded;
+        try {
+            encoded = URLEncoder.encode(docName, StandardCharsets.UTF_8.name()).replace("+", "%20");
+        } catch (Exception e) {
+            encoded = "file";
+        }
+        MediaType contentType = MediaTypeFactory.getMediaType(docName)
+                .orElse(MediaType.APPLICATION_OCTET_STREAM);
+        return ResponseEntity.ok()
+                .contentType(contentType)
+                .header(HttpHeaders.CONTENT_DISPOSITION,
+                        "attachment; filename=\"" + encoded + "\"; filename*=UTF-8''" + encoded)
+                .contentLength(found.length())
+                .body(resource);
+    }
 
 
 

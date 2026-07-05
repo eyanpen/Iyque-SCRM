@@ -2,9 +2,13 @@ package cn.iyque.service.impl;
 
 
 import cn.iyque.config.IYqueParamConfig;
+import cn.iyque.dao.IYqueKnowledgeAttachDao;
 import cn.iyque.dao.IYqueKnowledgeFragmentDao;
 import cn.iyque.domain.AiGenerateTagsResponse;
 import cn.iyque.domain.EmbeddingResponse;
+import cn.iyque.domain.RagCitation;
+import cn.iyque.domain.RagContextResult;
+import cn.iyque.entity.IYqueKnowledgeAttach;
 import cn.iyque.entity.IYqueKnowledgeFragment;
 import cn.iyque.exception.IYqueException;
 import cn.iyque.factory.AiModelFactory;
@@ -71,6 +75,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
     @Autowired
     private IYqueKnowledgeFragmentDao yqueKnowledgeFragmentDao;
+
+    @Autowired
+    private IYqueKnowledgeAttachDao yqueKnowledgeAttachDao;
 
     // ==================================================================
     // AI 调用日志辅助 —— 请求前打印上下文、响应后打印耗时与长度
@@ -249,20 +256,20 @@ public class IYqueAiServiceImpl implements IYqueAiService {
      * 从选中的知识库检索与 question 最相关的片段，返回可直接拼进 system prompt 的文本。
      * <p>失败或空命中都返回空串，让主流程无损降级为纯对话。</p>
      */
-    private String retrieveRagContext(String question, Long kid) {
-        if (kid == null) return "";
-        if (StringUtils.isEmpty(question)) return "";
+    private RagContextResult retrieveRagContext(String question, Long kid) {
+        if (kid == null) return RagContextResult.empty();
+        if (StringUtils.isEmpty(question)) return RagContextResult.empty();
         try {
             String kidStr = String.valueOf(kid);
             List<Float> qVec = yqueEmbeddingService.getQueryVector(question, kidStr);
             if (qVec == null || qVec.isEmpty()) {
                 log.info("RAG: 查询向量为空, kid={}", kid);
-                return "";
+                return RagContextResult.empty();
             }
             List<String> fidStrs = yqueVectorStore.nearest(qVec, kidStr);
             if (fidStrs == null || fidStrs.isEmpty()) {
                 log.info("RAG: Qdrant nearest 命中 0 条, kid={}", kid);
-                return "";
+                return RagContextResult.empty();
             }
 
             // fid 是 fragment.id (Long)，向量存的是字符串，转回 Long 再查库
@@ -270,17 +277,30 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             for (String s : fidStrs) {
                 try { fidList.add(Long.valueOf(s)); } catch (NumberFormatException ignore) { /* skip bad payload */ }
             }
-            if (fidList.isEmpty()) return "";
+            if (fidList.isEmpty()) return RagContextResult.empty();
 
             List<IYqueKnowledgeFragment> fragments = yqueKnowledgeFragmentDao.findAllById(fidList);
             if (fragments == null || fragments.isEmpty()) {
                 log.info("RAG: fragment 表查不到任何 id, kid={}, fids={}", kid, fidList);
-                return "";
+                return RagContextResult.empty();
             }
 
             // 保留 Qdrant 返回的相似度顺序（findAllById 顺序不保证）
-            java.util.Map<Long, String> idToContent = fragments.stream()
-                    .collect(Collectors.toMap(IYqueKnowledgeFragment::getId, IYqueKnowledgeFragment::getContent, (a, b) -> a));
+            java.util.Map<Long, IYqueKnowledgeFragment> idToFrag = fragments.stream()
+                    .collect(Collectors.toMap(IYqueKnowledgeFragment::getId, f -> f, (a, b) -> a));
+
+            // 批量拉 attach 元信息 —— 一次性拿 docName，避免 [资料 N] × N 次单查
+            java.util.Set<Long> docIds = new java.util.HashSet<>();
+            for (IYqueKnowledgeFragment f : fragments) {
+                if (f.getDocId() != null) docIds.add(f.getDocId());
+            }
+            java.util.Map<Long, String> docIdToName = new java.util.HashMap<>();
+            if (!docIds.isEmpty()) {
+                List<IYqueKnowledgeAttach> attaches = yqueKnowledgeAttachDao.findAllById(docIds);
+                for (IYqueKnowledgeAttach a : attaches) {
+                    docIdToName.put(a.getId(), a.getDocName());
+                }
+            }
 
             StringBuilder sb = new StringBuilder();
             sb.append("以下是从选中的知识库检索到的相关资料。请遵循以下规则回答用户问题：\n");
@@ -290,17 +310,27 @@ public class IYqueAiServiceImpl implements IYqueAiService {
             sb.append("4. 若检索到的资料都与问题不相关，请明确说\"知识库中未检索到直接相关的内容\"，再基于通用知识作答。\n");
             sb.append("---\n");
             int idx = 1;
+            List<RagCitation> citations = new ArrayList<>();
             for (Long fid : fidList) {
-                String content = idToContent.get(fid);
-                if (content == null || content.isEmpty()) continue;
-                sb.append("[资料 ").append(idx++).append("]\n").append(content).append("\n---\n");
+                IYqueKnowledgeFragment frag = idToFrag.get(fid);
+                if (frag == null || frag.getContent() == null || frag.getContent().isEmpty()) continue;
+                sb.append("[资料 ").append(idx).append("]\n")
+                  .append(frag.getContent()).append("\n---\n");
+                citations.add(RagCitation.builder()
+                        .idx(idx)
+                        .fid(frag.getId())
+                        .docId(frag.getDocId())
+                        .kid(frag.getKid())
+                        .docName(frag.getDocId() != null ? docIdToName.get(frag.getDocId()) : null)
+                        .build());
+                idx++;
             }
             String ragText = sb.toString();
-            log.info("RAG: kid={}, 命中 {} 条片段, 拼接后长度 {} 字符", kid, idx - 1, ragText.length());
-            return ragText;
+            log.info("RAG: kid={}, 命中 {} 条片段, 拼接后长度 {} 字符", kid, citations.size(), ragText.length());
+            return RagContextResult.builder().prompt(ragText).citations(citations).build();
         } catch (Exception e) {
             log.warn("RAG 检索失败 (kid={}): {}", kid, e.getMessage());
-            return "";
+            return RagContextResult.empty();
         }
     }
 
@@ -323,10 +353,11 @@ public class IYqueAiServiceImpl implements IYqueAiService {
         Integer actualMaxHistoryRounds = maxHistoryRounds != null ? maxHistoryRounds : 10;
 
         // RAG 检索：若指定了 kid，则从知识库拉出相关片段拼进 system prompt
-        String ragContext = retrieveRagContext(question, kid);
-        if (StringUtils.isNotEmpty(ragContext)) {
-            actualRole = actualRole + "\n\n" + ragContext;
+        RagContextResult ragResult = retrieveRagContext(question, kid);
+        if (!ragResult.isEmpty()) {
+            actualRole = actualRole + "\n\n" + ragResult.getPrompt();
         }
+        final List<RagCitation> ragCitations = ragResult.getCitations();
 
         // 获取流式模型，传入温度和核采样参数
         StreamingChatLanguageModel streamingModel = modelFactory.getStreamingModel(modelName, actualTemperature, actualTopP);
@@ -378,6 +409,23 @@ public class IYqueAiServiceImpl implements IYqueAiService {
                 final int[] __chunkCount = {0};
                 final int[] __respChars = {0};
                 return Flux.create(emitter -> {
+                    // 首帧：把 RAG 引用元数据序列化成 JSON，用 __RAG_CITATIONS__ 前缀
+                    // 与后续内容 chunk 区分。前端解析这一帧后：
+                    //   - 存到当前 message.citations
+                    //   - 不显示这段文本本身
+                    //   - 后续把 AI 回答里的 [资料 N] 替换成可点击 span
+                    if (ragCitations != null && !ragCitations.isEmpty()) {
+                        try {
+                            com.fasterxml.jackson.databind.ObjectMapper mapper =
+                                    new com.fasterxml.jackson.databind.ObjectMapper();
+                            String json = mapper.writeValueAsString(ragCitations);
+                            emitter.next("__RAG_CITATIONS__" + json);
+                            log.debug("首帧发送 RAG citations: {} 条", ragCitations.size());
+                        } catch (Exception e) {
+                            log.warn("序列化 RAG citations 失败, 跳过首帧: {}", e.getMessage());
+                        }
+                    }
+
                     streamingModel.chat(messages, new StreamingChatResponseHandler() {
                         @Override
                         public void onPartialResponse(String partialResponse) {
@@ -492,9 +540,9 @@ public class IYqueAiServiceImpl implements IYqueAiService {
 
     @Override
     public Flux<String> aiNavigationChatStream(String question, String modelName,
-        String role, Double temperature, Double topP) {
+        String role, Double temperature, Double topP, Long kid) {
 
-        log.info("开始AI导航推荐流式对话, 问题: {}, 模型: {}", question, modelName);
+        log.info("开始AI导航推荐流式对话, 问题: {}, 模型: {}, kid: {}", question, modelName, kid);
 
         Exception lastError = null;
 
@@ -504,15 +552,22 @@ public class IYqueAiServiceImpl implements IYqueAiService {
         Double actualTemperature = temperature != null ? temperature : 0.7;
         Double actualTopP = topP != null ? topP : 0.9;
 
+        // RAG 检索：与 chatWithMemoryStream 使用同一实现, 若指定了 kid 则拼进 system prompt
+        RagContextResult ragResult = retrieveRagContext(question, kid);
+        final List<RagCitation> ragCitations = ragResult.getCitations();
+
         StreamingChatLanguageModel streamingModel = modelFactory.getStreamingModel(modelName, actualTemperature, actualTopP);
 
         if(null != streamingModel){
 
             List<ChatMessage> messages = new ArrayList<>();
-            
+
             String functionRoutesText = functionRouteService.getFunctionRoutesAsText();
             String systemPrompt = actualRole + "\n\n" + functionRoutesText;
-            
+            if (!ragResult.isEmpty()) {
+                systemPrompt = systemPrompt + "\n\n" + ragResult.getPrompt();
+            }
+
             messages.add(SystemMessage.from(systemPrompt));
 
             messages.add(UserMessage.from(question));
@@ -528,6 +583,19 @@ public class IYqueAiServiceImpl implements IYqueAiService {
                 final int[] __chunkCount = {0};
                 final int[] __respChars = {0};
                 return Flux.create(emitter -> {
+                    // 首帧: RAG 引用元数据 (与 chatWithMemoryStream 同格式)
+                    if (ragCitations != null && !ragCitations.isEmpty()) {
+                        try {
+                            com.fasterxml.jackson.databind.ObjectMapper mapper =
+                                    new com.fasterxml.jackson.databind.ObjectMapper();
+                            String json = mapper.writeValueAsString(ragCitations);
+                            emitter.next("__RAG_CITATIONS__" + json);
+                            log.debug("导航模式首帧发送 RAG citations: {} 条", ragCitations.size());
+                        } catch (Exception e) {
+                            log.warn("导航模式序列化 RAG citations 失败, 跳过首帧: {}", e.getMessage());
+                        }
+                    }
+
                     streamingModel.chat(messages, new StreamingChatResponseHandler() {
                         @Override
                         public void onPartialResponse(String partialResponse) {

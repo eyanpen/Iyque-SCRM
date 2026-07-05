@@ -42,7 +42,32 @@ export function getKnowledgeList() {
   })
 }
 
-export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
+/**
+ * 拉取 RAG 引用的完整片段内容。前端点击 [资料 N] 时调用。
+ * 后端源: /iYqueAi/rag/fragment/{fid} (IYqueAiController.getRagFragment)
+ * 返回 data: { fid, kid, docId, idx, content, docName, docType, downloadUrl }
+ */
+export function getRagFragment(fid) {
+  return request({
+    url: `/iYqueAi/rag/fragment/${fid}`,
+    method: 'get'
+  })
+}
+
+/**
+ * 拼装原始附件下载 URL。用户点击 [资料 N] 弹窗里的"下载原始文件"时用这个 URL。
+ * 后端源: /knowledge/attach/download/{docId} (IYqueKnowledgeController.downloadAttach)
+ * 前端调用侧走 fetch + blob (自带 Bearer token), 不能用 window.open (无法带 header).
+ */
+export function buildAttachDownloadUrl(docId) {
+  // request.js 里 baseURL 的计算逻辑一致: dev 走 /api 代理, prod 走 window.sysConfig.BASE_API
+  const base = process.env.NODE_ENV === 'development' ? '/api' : window.sysConfig.BASE_API
+  return `${base}/knowledge/attach/download/${docId}`
+}
+
+export function chatWithMemoryStream(data, onMessage, onError, onComplete, onCitations) {
+  // onCitations: 可选回调, 收到 RAG 引用元数据首帧时触发, 参数为 citations 数组
+  //   [{ idx, fid, docId, kid, docName, score }, ...]
   const url = `${SSE_BASE}/iYqueAi/chatWithMemoryStream`
   
   return new Promise((resolve, reject) => {
@@ -125,6 +150,19 @@ export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
           }
           
           if (content.trim()) {
+            // RAG 引用元数据首帧: 后端会以 __RAG_CITATIONS__<JSON> 为首个 chunk 发送，
+            // 前端识别后走 onCitations 回调, 不追加到 AI 回答正文里。
+            if (content.startsWith('__RAG_CITATIONS__')) {
+              try {
+                const citations = JSON.parse(content.substring('__RAG_CITATIONS__'.length))
+                console.log('[SSE][RAG] 收到 citations:', citations.length, '条')
+                if (onCitations) onCitations(citations)
+              } catch (e) {
+                console.warn('[SSE][RAG] 解析 citations JSON 失败:', e, content.slice(0, 100))
+              }
+              continue    // 关键: 不 append 到 fullResponse, 不触发 onMessage
+            }
+
             clearTimeout(timeoutId)
             timeoutId = setTimeout(() => {
               console.error('[SSE] 请求超时')
@@ -185,7 +223,9 @@ export function chatWithMemoryStream(data, onMessage, onError, onComplete) {
   })
 }
 
-export function navigationChatStream(data, onMessage, onError, onComplete) {
+export function navigationChatStream(data, onMessage, onError, onComplete, onCitations) {
+  // onCitations: 可选回调, 收到 __RAG_CITATIONS__ 首帧时触发。
+  //   与 chatWithMemoryStream 一致的协议; 导航模式也可以带 kid 做 RAG。
   const url = `${SSE_BASE}/iYqueAi/navigationChatStream`
   
   return new Promise((resolve, reject) => {
@@ -257,6 +297,18 @@ export function navigationChatStream(data, onMessage, onError, onComplete) {
           }
           
           if (content.trim()) {
+            // 与 chatWithMemoryStream 同样的 __RAG_CITATIONS__ 首帧处理
+            if (content.startsWith('__RAG_CITATIONS__')) {
+              try {
+                const citations = JSON.parse(content.substring('__RAG_CITATIONS__'.length))
+                console.log('[Navigation SSE][RAG] 收到 citations:', citations.length, '条')
+                if (onCitations) onCitations(citations)
+              } catch (e) {
+                console.warn('[Navigation SSE][RAG] 解析 citations JSON 失败:', e)
+              }
+              continue
+            }
+
             clearTimeout(timeoutId)
             timeoutId = setTimeout(() => {
               const error = new Error('响应超时，请稍后重试')

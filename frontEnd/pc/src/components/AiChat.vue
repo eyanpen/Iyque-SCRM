@@ -82,7 +82,7 @@
           </div>
           <div v-for="(message, index) in currentMessages" :key="index" :class="['message', message.type]">
             <div class="message-content">
-              <div class="message-text" v-html="renderMessage(message.content)"></div>
+              <div class="message-text" v-html="renderMessage(message.content, message.citations)"></div>
               <div class="message-footer">
                 <div class="message-time">{{ message.timestamp }}</div>
                 <div class="message-actions">
@@ -227,6 +227,57 @@
       :chat-data="editingChatData"
       @confirm="handleDialogConfirm"
     />
+
+    <!-- RAG 引用详情弹窗: 点击 AI 回答里的 [资料 N] 触发 -->
+    <!-- z-index 显式设 20001, 压过 .ai-chat-wrapper 的 9999。EP 全局计数器默认 2000+
+         无法自动超过 9999, 必须显式指定 —— 也顺带压过 .ai-chat-kb-popper 的 20000 -->
+    <el-dialog
+      v-model="ragDialogVisible"
+      :title="ragDialogData ? `资料 ${ragDialogCitation?.idx || ''} — ${ragDialogData.docName || '未知文档'}` : '资料详情'"
+      width="720px"
+      append-to-body
+      :z-index="20001"
+      modal-class="rag-citation-dialog-overlay"
+      class="rag-citation-dialog">
+      <div v-if="ragDialogLoading" style="padding: 40px; text-align: center;">
+        <el-icon class="is-loading"><Loading /></el-icon>
+        <span style="margin-left: 8px;">加载中…</span>
+      </div>
+      <div v-else-if="ragDialogError" style="padding: 20px; color: #f56c6c;">
+        {{ ragDialogError }}
+      </div>
+      <div v-else-if="ragDialogData">
+        <div class="rag-meta">
+          <span><strong>片段序号:</strong> #{{ ragDialogData.idx }} 于原文档</span>
+          <span><strong>文档:</strong> {{ ragDialogData.docName || '(无)' }}</span>
+          <span v-if="ragDialogData.docType"><strong>类型:</strong> {{ ragDialogData.docType }}</span>
+          <span><strong>字符数:</strong> {{ (ragDialogData.content || '').length }}</span>
+        </div>
+        <div class="rag-content-wrap">
+          <div class="rag-content">{{ ragDialogData.content }}</div>
+        </div>
+      </div>
+      <template #footer>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="color: #999; font-size: 12px;">
+            fid: {{ ragDialogCitation?.fid }}
+            <span v-if="ragDialogData && ragDialogData.fileAvailable === false"
+                  style="margin-left: 12px; color: #e6a23c;">
+              ⚠ 原始文件在服务器 upload/ 目录下未找到
+            </span>
+          </span>
+          <div>
+            <el-button @click="ragDialogVisible = false">关闭</el-button>
+            <el-button type="primary"
+                       :disabled="!ragDialogData?.docId || ragDialogData?.fileAvailable === false"
+                       @click="downloadRagAttach">
+              <el-icon style="margin-right: 4px;"><Download /></el-icon>
+              下载原始文件
+            </el-button>
+          </div>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -234,6 +285,7 @@
 import { ref, reactive, computed, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
+import { Loading, Download } from '@element-plus/icons-vue'
 import AiChatDialog from './AiChatDialog.vue'
 import { 
   chatWithMemoryStream, 
@@ -247,7 +299,9 @@ import {
   getConversationMessages,
   saveConversationMessage,
   saveConversationMessages,
-  getKnowledgeList
+  getKnowledgeList,
+  getRagFragment,
+  buildAttachDownloadUrl
 } from '@/api/ai'
 
 const router = useRouter()
@@ -590,7 +644,7 @@ const editMessage = (content) => {
   ElMessage.success('已编辑消息')
 }
 
-const renderMessage = (content) => {
+const renderMessage = (content, citations = null) => {
   if (!content) return ''
   
   let html = content
@@ -740,6 +794,20 @@ const renderMessage = (content) => {
     return `<p class="md-paragraph">${line}</p>`
   }).join('\n')
   
+  // RAG citations: 把 "[资料 N]" 替换成可点击 span, 只替换 citations 数组里存在的 idx
+  if (citations && citations.length > 0) {
+    const idxToCite = new Map(citations.map(c => [c.idx, c]))
+    html = html.replace(/\[资料\s*(\d+)\]/g, (match, nStr) => {
+      const n = parseInt(nStr, 10)
+      const cite = idxToCite.get(n)
+      if (!cite) return match      // AI 编号乱写了, 原样保留
+      // 用 data-* 传参给全局 handler; 用 role=button + tabindex 让残障用户也能操作
+      return `<span class="rag-citation" role="button" tabindex="0"
+        onclick="window.handleRagCitationClick && window.handleRagCitationClick('${cite.fid}', '${cite.docId || ''}', ${n})"
+        title="来源: ${(cite.docName || '未知文档').replace(/"/g, '&quot;')} — 点击查看片段">[资料 ${n}]</span>`
+    })
+  }
+
   return html
 }
 
@@ -749,6 +817,79 @@ const handleRouteClick = (path) => {
     router.push(path)
     ElMessage.success('跳转成功')
   }
+}
+
+// ===== RAG 引用弹窗 =====
+// 点击 AI 回答里的 [资料 N] 时, 通过 window.handleRagCitationClick 触发,
+// 打开一个 el-dialog 显示该片段的完整内容 + 原始附件下载链接
+const ragDialogVisible = ref(false)
+const ragDialogLoading = ref(false)
+const ragDialogData = ref(null)      // { fid, kid, docId, idx, content, docName, docType, downloadUrl }
+const ragDialogCitation = ref(null)  // 当前触发的 citation {idx, fid, docId, docName}
+const ragDialogError = ref('')
+
+const openRagCitation = async (fid, docId, idx) => {
+  ragDialogVisible.value = true
+  ragDialogLoading.value = true
+  ragDialogData.value = null
+  ragDialogError.value = ''
+  ragDialogCitation.value = { fid, docId, idx }
+  console.log('[RAG] 打开引用弹窗:', { fid, docId, idx })
+  try {
+    const resp = await getRagFragment(fid)
+    console.log('[RAG] 后端响应:', resp)
+    if (resp && resp.code === 200 && resp.data && !resp.data.notFound) {
+      ragDialogData.value = resp.data
+    } else if (resp && resp.code === 200 && resp.data && resp.data.notFound) {
+      // 后端 code=200 但 data.notFound=true —— 片段被删或 seed 数据变了
+      ragDialogError.value = resp.msg || `片段 ${fid} 已不存在, 可能被删除了`
+    } else if (resp && resp.code === 401) {
+      // 兜底: 请求拦截器一般会自动弹重新登录框, 但 401 时它返回 undefined,
+      // 走不到这里. 保留以防拦截器行为变化。
+      ragDialogError.value = '登录已过期, 请刷新页面重新登录'
+    } else {
+      // resp 为 undefined (拦截器 401 分支) 或 resp.code != 200
+      ragDialogError.value = resp?.msg || '后端未返回有效数据 (可能登录过期或后端未包含此接口, 请刷新)'
+    }
+  } catch (e) {
+    // request.js 的 axios 错误拦截器 return Promise.reject() 不带参数,
+    // 所以 e 大概率是 undefined —— 一定要做 nullish check。
+    console.error('[RAG] 拉片段失败, error =', e, 'typeof=', typeof e)
+    let hint = '请求失败'
+    if (e && e.message) hint = e.message
+    else if (e === undefined) hint = '请求被拦截 (未刷新到最新前端? 后端未上线此接口? 请打开 Network 面板看 /iYqueAi/rag/fragment/{fid} 的实际响应)'
+    ragDialogError.value = hint
+  } finally {
+    ragDialogLoading.value = false
+  }
+}
+
+const downloadRagAttach = () => {
+  const data = ragDialogData.value
+  if (!data || !data.docId) {
+    ElMessage.warning('该资料没有可下载的原始文件')
+    return
+  }
+  // JWT 走 header, 不能直接 window.open. 用 fetch + blob 触发下载。
+  const url = buildAttachDownloadUrl(data.docId)
+  const token = localStorage.getItem('Admin-Token') || ''
+  fetch(url, { headers: { Authorization: `Bearer ${token}` } })
+    .then(async (r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      const blob = await r.blob()
+      const objUrl = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = objUrl
+      a.download = data.docName || `attachment_${data.docId}`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(objUrl)
+    })
+    .catch((e) => {
+      console.error('[RAG] 下载附件失败', e)
+      ElMessage.error(`下载失败: ${e.message} (可能后端 upload/ 里没有该文件)`)
+    })
 }
 
 const loadFunctionRoutes = async () => {
@@ -813,7 +954,16 @@ const loadChatDetail = async (chatId) => {
     const msgResponse = await getConversationMessages(chatId)
     const chatIndex = chats.value.findIndex(c => c.id === chatId)
     if (chatIndex !== -1) {
-      chats.value[chatIndex].messages = msgResponse.data || []
+      // 从后端拉回的 messages, 反序列化 citations JSON 让 [资料 N] 可点击
+      const rawMsgs = msgResponse.data || []
+      const parsed = rawMsgs.map(m => {
+        if (m.citations && typeof m.citations === 'string') {
+          try { m.citations = JSON.parse(m.citations) }
+          catch (e) { console.warn('[AI Chat] 解析历史 citations 失败', e); m.citations = null }
+        }
+        return m
+      })
+      chats.value[chatIndex].messages = parsed
     }
     return msgResponse.data || []
   } catch (e) {
@@ -1016,7 +1166,8 @@ const sendMessage = async () => {
     const aiMessage = {
       type: 'ai',
       content: '',
-      timestamp: formatTime(new Date())
+      timestamp: formatTime(new Date()),
+      citations: null     // RAG 引用元数据, SSE 首帧到达后填充; [{idx, fid, docId, kid, docName}, ...]
     }
     
     currentChat.value.messages.push(aiMessage)
@@ -1081,11 +1232,20 @@ const sendMessage = async () => {
               conversationId: currentChatId.value,
               type: 'ai',
               content: aiMessage.content,
-              timestamp: aiMessage.timestamp
+              timestamp: aiMessage.timestamp,
+              // RAG 引用元数据序列化为 JSON 字符串存到 iyque_ai_conversation_message.citations
+              // 空数组也保存 (显式代表"做过 RAG 但空命中"); null 代表"未做 RAG"
+              citations: aiMessage.citations ? JSON.stringify(aiMessage.citations) : null
             })
           } catch (e) {
             console.error('保存消息失败:', e)
           }
+        },
+        // 第 5 个参数: RAG citations 回调 (仅 chatWithMemoryStream 支持)
+        (citations) => {
+          console.log('[AI Chat][RAG] 收到 citations:', citations)
+          aiMessage.citations = citations
+          chats.value = [...chats.value]   // 触发重渲染
         }
       )
     } catch (error) {
@@ -1122,10 +1282,12 @@ onMounted(async () => {
   }
   
   window.handleRouteClick = handleRouteClick
+  window.handleRagCitationClick = openRagCitation
 })
 
 onUnmounted(() => {
   window.handleRouteClick = null
+  window.handleRagCitationClick = null
 })
 
 const startResize = (e) => {
@@ -2636,5 +2798,67 @@ const stopResize = () => {
 <style>
 .ai-chat-kb-popper.el-popper {
   z-index: 20000 !important;
+}
+
+/* RAG citations: [资料 N] 可点击样式 */
+.rag-citation {
+  display: inline-block;
+  padding: 1px 6px;
+  margin: 0 2px;
+  border-radius: 4px;
+  background: rgba(64, 158, 255, 0.12);
+  color: #409eff;
+  border: 1px solid rgba(64, 158, 255, 0.35);
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.rag-citation:hover {
+  background: rgba(64, 158, 255, 0.22);
+  border-color: #409eff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(64, 158, 255, 0.25);
+}
+.rag-citation:active {
+  transform: translateY(0);
+}
+
+/* RAG 引用弹窗 —— 必须显式抬 z-index, 因为 .ai-chat-wrapper 是 z-index: 9999,
+   EP dialog 默认从 2000 起, 会被埋。同时 modal (灰色遮罩层) 也需要一起抬。 */
+.rag-citation-dialog-overlay {
+  z-index: 20001 !important;
+}
+.rag-citation-dialog {
+  z-index: 20001 !important;
+}
+.rag-citation-dialog .rag-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 8px 12px;
+  background: #f5f7fa;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #606266;
+  margin-bottom: 12px;
+}
+.rag-citation-dialog .rag-content-wrap {
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid #e4e7ed;
+  border-radius: 6px;
+  padding: 12px 16px;
+  background: #fafafa;
+}
+.rag-citation-dialog .rag-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #303133;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
 </style>

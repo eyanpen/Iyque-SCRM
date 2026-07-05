@@ -59,7 +59,7 @@ public interface IYqueAiService {
      * @return AI的回答流（包含功能推荐）
      */
     Flux<String> aiNavigationChatStream(String question, String modelName,
-        String role, Double temperature, Double topP);
+        String role, Double temperature, Double topP, Long kid);
 
     /**
      * 通用AI对话（非流式）

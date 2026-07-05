@@ -124,6 +124,26 @@ public class IYqueKnowledgeInfoServiceImpl implements IYqueKnowledgeInfoService 
         knowledgeAttach.setDocType(fileName.substring(fileName.lastIndexOf(".")+1));
 
         knowledgeAttachDao.save(knowledgeAttach);
+
+        // 把上传的原始文件落盘到 upload/<docId>_<docName>，供 RAG citation 弹窗
+        // 里的"下载原始文件"按钮使用。失败不影响主流程 (向量化仍能进行)。
+        // 用 Files.copy 而非 MultipartFile.transferTo, 后者某些实现会 "move" 掉临时文件
+        // 导致后续 getInputStream() 拿不到内容。
+        try {
+            String dir = System.getProperty("iyque.upload.dir", "upload");
+            java.nio.file.Path base = java.nio.file.Paths.get(dir);
+            java.nio.file.Files.createDirectories(base);
+            java.nio.file.Path dest = base.resolve(knowledgeAttach.getId() + "_" + fileName);
+            try (java.io.InputStream in = file.getInputStream()) {
+                java.nio.file.Files.copy(in, dest,
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
+            log.info("原始文件已落盘: {}", dest.toAbsolutePath());
+        } catch (Exception e) {
+            log.warn("原始文件落盘失败, 不影响向量化: docId={} fileName={} err={}",
+                    knowledgeAttach.getId(), fileName, e.getMessage());
+        }
+
         String content = "";
         ResourceLoader resourceLoader = resourceLoaderFactory.getLoaderByFileType(knowledgeAttach.getDocType());
 
