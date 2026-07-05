@@ -2,17 +2,15 @@
  * 环境变量
  */
 const envs = {
-  development: {
-    DOMAIN: 'http://127.0.0.1:8085', // 站点域名，会根据此处域名判断应用环境
-    BASE_URL: '/openmobile/', // 路由基础路径
-    BASE_API: 'http://127.0.0.1:8085', // 接口基础路径
-  },
-  local: {
-    DOMAIN: 'http://10.210.156.69:8081',
-    BASE_URL: '/openmobile/',
-    BASE_API: 'http://10.210.156.69:8081/iyque',
-  },
   production: {
+    // Demo/生产机 (scrm.genetop.top) —— Apache vhost 目前只监听 :80，故用 http://
+    // 命名为 production 是为了让 vite build 默认 mode='production' 时能命中此条。
+    DOMAIN: 'http://scrm.genetop.top',
+    BASE_URL: '/openmobile/',
+    BASE_API: 'http://scrm.genetop.top/iyque',
+  },
+  development: {
+    // 测试机 (10.210.156.69:8081) —— 也用作 npm run dev 的默认代理目标
     DOMAIN: 'http://10.210.156.69:8081',
     BASE_URL: '/openmobile/',
     BASE_API: 'http://10.210.156.69:8081/iyque',
